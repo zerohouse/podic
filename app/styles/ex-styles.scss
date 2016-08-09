@@ -1,0 +1,357 @@
+.full .popup {
+  height: 100%;
+  width: 90%;
+}
+
+.full .popup-body {
+  height: 100%;
+}
+
+.wide .popup {
+  width: 90%;
+}
+
+.new-icon {
+  z-index: 10000;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #3289C8;
+  color: white;
+  box-shadow: 2px 2px 2px silver;
+  text-align: center;
+  font-size: 32px;
+  padding-top: 8px;
+}
+
+.new-icon img {
+  width: 40px;
+  display: block;
+  margin: -2px auto auto;
+}
+
+.non-border {
+  border: none;
+}
+
+.icon-pan {
+  background: white;
+  font-size: 28px;
+  padding: 7px 0;
+  color: red;
+  box-shadow: 2px 2px 2px silver;
+  border-radius: 3px;
+  text-align: center;
+  display: block;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.input-group {
+  background: white;
+  box-shadow: 2px 2px 2px silver;
+  border-radius: 3px;
+  font-size: 28px;
+  padding: 10px;
+  padding-right: 8px;
+  display: inline-block;
+}
+
+.input-group input {
+  margin: 0;
+  padding: 0 3px;
+  display: inline-block;
+  font-size: 24px;
+  width: 130px;
+  border-radius: 3px;
+  border: 1px solid #ddd;
+}
+
+.input-group i {
+  float: right;
+  color: red;
+  cursor: pointer;
+}
+
+.input-group i.search {
+  padding-left: 9px;
+  padding-right: 1px;
+  padding-top: 6px;
+}
+
+.map-control {
+  margin: 15px 10px;
+  min-width: 50px;
+}
+
+.pocketmon-list {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 5px;
+  margin-top: 1px;
+  width: 181px;
+  padding-left: 12px;
+  box-shadow: 2px 2px 2px silver;
+  max-height: 359px;
+  border-radius: 0 0 3px 3px;
+  overflow-y: auto;
+}
+
+.pocketmon-list li {
+  display: block;
+  overflow: hidden;
+  border-bottom: 1px dashed #eee;
+  cursor: pointer;
+}
+
+.pocketmon-list li.last {
+  border-bottom: none;
+}
+
+.pocketmon-list li .name {
+  font-size: 16px;
+}
+
+.pocketmon-list img {
+  width: 70px;
+  height: 70px;
+}
+
+.pocketmon-list li > * {
+  float: left;
+  vertical-align: middle;
+}
+
+.pocketmon-list li > div {
+  padding-top: 18px;
+  padding-left: 4px;
+}
+
+.popup-container .popup {
+  width: 450px !important;
+}
+
+.angular-google-map-container {
+  height: 100vh
+}
+
+.poke-card {
+  text-align: center;
+}
+
+.item.item-divider {
+  text-align: left
+}
+
+.item-text-wrap.skills {
+  padding: 0;
+  font-size: 12px;
+}
+
+.item-text-wrap.story {
+  font-size: 14px;
+  line-height: 150%;
+  text-align: justify;
+}
+
+.small-title {
+  font-size: 13px;
+  color: #777
+}
+
+.profile {
+  text-align: center;
+}
+
+.profile img {
+  width: 140px;
+  height: 140px;
+  padding: 20px;
+  border-radius: 50%;
+}
+
+.small-tail {
+  font-size: 13px;
+  color: #777;
+}
+
+.spin {
+  -webkit-animation-name: spin;
+  -webkit-animation-duration: 1000ms;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-name: spin;
+  -moz-animation-duration: 1000ms;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+  -ms-animation-name: spin;
+  -ms-animation-duration: 1000ms;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-timing-function: linear;
+  animation-name: color;
+  animation-duration: 1000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  display: block;
+}
+
+@-moz-keyframes color {
+  from {
+    color: #777;
+  }
+  50% {
+    color: #eee;
+  }
+  to {
+    color: #777;
+  }
+}
+
+@-webkit-keyframes color {
+  from {
+    color: #777;
+  }
+  50% {
+    color: #eee;
+  }
+  to {
+    color: #777;
+  }
+}
+
+@keyframes color {
+  from {
+    color: #777;
+  }
+  50% {
+    color: #eee;
+  }
+  to {
+    color: #777;
+  }
+}
+
+@-moz-keyframes spin {
+  from {
+    -moz-transform: rotate(0deg);
+  }
+  to {
+    -moz-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@font-face {
+  font-family: 'Nanum Gothic';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../fonts/NanumGothic-Regular.eot);
+  src: url(../fonts/NanumGothic-Regular.eot?#iefix) format('embedded-opentype'),
+  url(../fonts/NanumGothic-Regular.woff2) format('woff2'),
+  url(../fonts/NanumGothic-Regular.woff) format('woff')
+}
+
+* {
+  font-family: 'Nanum Gothic', sans-serif !important;
+}
+
+
+.loader {
+  font-size: 1.6rem;
+  background: #fff;
+  width: 140px;
+  float:left;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.hourglass {
+  display: block;
+  margin: auto;
+  width: 1em;
+  /* height: 4em; */
+  box-shadow: inset #fff 0 0 0 0, inset #00b7c6 0 2em 0 0, inset #fff 0 0 4em 0;
+  -webkit-animation: hourglass 1s linear infinite;
+  animation: hourglass 1s linear infinite;
+}
+
+.outer {
+  fill: #00b7c6;
+}
+
+.middle {
+  fill: #fff;
+}
+
+@-webkit-keyframes hourglass {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    box-shadow: inset #fff 0 0 0 0, inset #00b7c6 0 2em 0 0, inset #fff 0 4em 0 0, inset #00b7c6 0 4em 0 0;
+  }
+  80% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    box-shadow: inset #fff 0 2em 0 0, inset #00b7c6 0 2em 0 0, inset #fff 0 2em 0 0, inset #00b7c6 0 4em 0 0;
+  }
+  100% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+    box-shadow: inset #fff 0 2em 0 0, inset #00b7c6 0 2em 0 0, inset #fff 0 2em 0 0, inset #00b7c6 0 4em 0 0;
+  }
+}
+
+@keyframes hourglass {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    box-shadow: inset #fff 0 0 0 0, inset #00b7c6 0 2em 0 0, inset #fff 0 4em 0 0, inset #00b7c6 0 4em 0 0;
+  }
+  80% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    box-shadow: inset #fff 0 2em 0 0, inset #00b7c6 0 2em 0 0, inset #fff 0 2em 0 0, inset #00b7c6 0 4em 0 0;
+  }
+  100% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+    box-shadow: inset #fff 0 2em 0 0, inset #00b7c6 0 2em 0 0, inset #fff 0 2em 0 0, inset #00b7c6 0 4em 0 0;
+  }
+}
+
+skill {
+  display: block;
+  margin: 3px 0;
+}
+
+a.item {
+  padding-bottom: 9px;
+}

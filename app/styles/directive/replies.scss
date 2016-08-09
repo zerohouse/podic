@@ -1,0 +1,99 @@
+replies {
+  padding-bottom: 30px;
+  display: block;
+}
+
+replies h3 {
+  font-size: 16px;
+}
+
+replies .write-btn {
+  font-size: 13px;
+  color: #666;
+  vertical-align: bottom;
+  padding: 5px;
+  padding-bottom: 0;
+}
+
+replies .code-help {
+  color: #999;
+  font-size: 13px;
+}
+
+replies .code-help i {
+  font-size: 18px;
+  margin-right: 0;
+  padding-top: 1px;
+}
+
+replies .reply-write textarea {
+  margin-top: 5px;
+}
+
+.more {
+  text-align: center;
+  width: 100%;
+  height: 47px;
+  border-top: 1px solid #eee;
+  border-bottom: 2px solid #eee;
+  font-size: 12px;
+  line-height: 47px;
+}
+
+reply > div,
+reply-input > div {
+  padding: 20px 0;
+  border-top: 1px dashed #ddd;
+  display: block;
+}
+
+reply > div .profile,
+reply-input > div .profile {
+  min-width: 100px;
+}
+
+reply > div .profile .img,
+reply-input > div .profile .img {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #ddd;
+  line-height: 44px;
+  box-shadow: 1px 1px 1px silver;
+  text-align: center;
+  margin-top: 10px;
+}
+
+reply > div .name,
+reply-input > div .name {
+  font-weight: 400;
+  font-size: 16px;
+}
+
+reply > div .time,
+reply-input > div .time,
+reply > div .actions,
+reply-input > div .actions {
+  color: #959595;
+  font-size: 14px;
+}
+
+reply > div .actions,
+reply-input > div .actions {
+  margin-right: 30px;
+}
+
+reply > div .actions span,
+reply-input > div .actions span {
+  margin-right: 5px;
+}
+
+reply > div.nested,
+reply-input > div.nested {
+  margin-left: 60px;
+  border-top-style: dashed;
+}
+
+reply-input .profile img {
+  margin-top: 10px;
+}

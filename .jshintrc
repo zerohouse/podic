@@ -1,0 +1,30 @@
+{
+  "node": true,
+  "browser": true,
+  "esnext": true,
+  "bitwise": true,
+  "camelcase": false,
+  "curly": false,
+  "eqeqeq": true,
+  "immed": true,
+  "indent": false,
+  "latedef": false,
+  "newcap": true,
+  "noarg": true,
+  "regexp": true,
+  "multistr": true,
+  "undef": true,
+  "unused": true,
+  "trailing": true,
+  "smarttabs": true,
+  "globals": {
+    "angular": false,
+    "cordova": false,
+    "StatusBar": false,
+    "google": true,
+    "moment": true,
+    "Fingerprint2": true,
+    "dcodeIO": true,
+    "_": true
+  }
+}

@@ -1,0 +1,30 @@
+<ion-view view-title="트레이너 순위">
+  <ion-nav-buttons side="right">
+    <button class="button" ng-class="{spin:rankerService.loading}" ng-click="refresh()" style="border:none;margin-right:10px">
+      <i style="font-size:20px" class="ion-android-refresh"></i>
+
+    </button>
+  </ion-nav-buttons>
+  <ion-content>
+    <div>
+      <label class="item">
+        <small>상위 6마리의 CP합 기준입니다.</small>
+      </label>
+    </div>
+
+    <div class="list">
+      <div class="item item-avatar" ng-repeat="ranker in rankerService.rankers">
+        <img ng-src="{{ranker.img || 'images/profile.png'}}">
+        <h2>{{ranker.rank}}위
+          <span ng-if="ranker.change>0" style="color:green"><i class="ion-arrow-up-b"></i>{{ranker.change}}</span>
+          <span ng-if="ranker.change==0" style="color:grey"><i class="ion-android-remove"></i></span>
+          <span ng-if="ranker.change<0" style="color:red"><i class="ion-arrow-down-b"></i>{{ranker.change}}</span>
+          {{ranker.nickname || '익명의 트레이너'}}님 </h2>
+        <p>CP합(상위 6마리) : {{ranker.cp}}</p>
+      </div>
+      <div class="item" ng-if="!rankerService.end" ng-click="rankerService.more()">
+        <h2 style="margin-top:12px">더보기</h2>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

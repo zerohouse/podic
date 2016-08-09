@@ -1,0 +1,37 @@
+<ion-view view-title="포켓몬 순위">
+  <ion-nav-buttons side="right">
+    <button class="button"  ng-click="selectPokemon()"
+            style="border:none;margin-right:10px">
+      <span ng-if="!pokemonRankService.pokemon">전체</span>
+      <img style="width:28px" ng-if="pokemonRankService.pokemon" ng-src="{{pokemonRankService.pokemon.img}}">
+    </button>
+    <button class="button" ng-class="{spin:pokemonRankService.loading}" ng-click="refresh()"
+            style="border:none;margin-right:10px">
+      <i style="font-size:20px" class="ion-android-refresh"></i>
+    </button>
+  </ion-nav-buttons>
+  <ion-content>
+    <label class="item">
+      <small>포켓몬 순위는 CP값 기준입니다.</small>
+    </label>
+
+    <div class="list">
+      <div class="item item-thumbnail-left"
+           ng-repeat="pokemon in pokemonRankService.rankers">
+        <img ng-src="{{pokemon.pokemon.img}}">
+        <h2>{{$index +1}}위 {{pokemon.pokemon.name}} <span ng-if="pokemon.nickname">({{pokemon.nickname}})</span></h2>
+        <p>
+          CP: {{pokemon.cp}}
+        </p>
+        <p>
+          개체값: {{pokemon.individual_score||0}}({{pokemon.individual_attack||0}}/{{pokemon.individual_defense||0}}/{{pokemon.individual_stamina||0}})
+        </p>
+        <p ng-if="pokemon.owner.nickname"> {{pokemon.owner.nickname}}<span ng-if="pokemon.owner.rank">({{pokemon.owner.rank}}위)</span>님의
+          포켓몬 </p>
+      </div>
+      <div class="item" ng-if="!pokemonRankService.end" ng-click="pokemonRankService.more()">
+        <h2 style="margin-top:12px">더보기</h2>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

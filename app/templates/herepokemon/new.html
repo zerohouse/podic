@@ -1,0 +1,9 @@
+<div ng-if="pokemon" style="text-align: center">
+  <img ng-src="{{pokemon.img}}">
+  <div>
+    {{pokemon.name}}({{pokemon.eng}})
+    <br>
+    <br>
+  </div>
+</div>
+<textarea style="padding: 8px 10px;" ng-model="trace.message" placeholder="메세지" autosize></textarea>

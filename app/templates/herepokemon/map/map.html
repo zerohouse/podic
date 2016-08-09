@@ -1,0 +1,57 @@
+<ion-view view-title="포켓몬 지도">
+  <ion-content scroll="false" class="main">
+    <div id="map">
+      <ui-gmap-google-map control="map.control" options="map.options" refresh="true" center='map.center' zoom='map.zoom'
+                          events="map.events">
+
+        <ui-gmap-marker idKey='0'
+                        coords='userService.user'>
+          <ui-gmap-window options="windowOptions" closeClick="closeClick()">
+            <div>
+              내 위치
+            </div>
+          </ui-gmap-window>
+        </ui-gmap-marker>
+        <!--<ui-gmap-marker idKey='stop.id' ng-repeat="stop in stops" options="stopOptions"-->
+        <!--coords='stop'>-->
+        <!--<ui-gmap-window options="windowOptions" closeClick="closeClick()">-->
+        <!--<div>-->
+        <!--&lt;!&ndash;<img style="max-width: 200px" ng-src="{{stop.image}}">&ndash;&gt;-->
+        <!--<h5>-->
+        <!--<small>포켓스탑 #{{$index+1}}</small>-->
+        <!--{{stop.name}}-->
+        <!--</h5>-->
+        <!--</div>-->
+        <!--</ui-gmap-window>-->
+        <!--</ui-gmap-marker>-->
+        <ui-gmap-marker ng-repeat="trace in traceServce.traces | orderBy: 'createdAt'" click="select(trace)"
+                        idKey='trace.id' options="trace.options"
+                        coords='trace.position'>
+          <ui-gmap-window options="windowOptions" closeClick="closeClick()">
+            <div ui-sref="app.herepokemon.detail">
+              {{trace.message}}<br>
+              {{getUser(trace)}}
+              {{trace.createdAt | ymd}}
+              <br>
+            </div>
+          </ui-gmap-window>
+        </ui-gmap-marker>
+        <ui-gmap-map-control position="top-right">
+          <div class="map-control">
+            <i class="ion-ios-location icon-pan" ng-click="setMyPosition()"></i>
+            <i class="ion-plus-round icon-pan" ng-click="zoomIn()"></i>
+            <i class="ion-minus-round icon-pan" ng-click="zoomOut()"></i>
+          </div>
+        </ui-gmap-map-control>
+        <ui-gmap-map-control position="top-left">
+          <div class="map-control">
+            <div class="new-icon" ng-click="selectPokemon()"><img src="images/poicon.png"></div>
+            <div class="new-icon" ng-click="writeNew()" style="margin-top:10px"><i class="ion-edit"></i></div>
+          </div>
+        </ui-gmap-map-control>
+      </ui-gmap-google-map>
+    </div>
+
+  </ion-content>
+</ion-view>
+

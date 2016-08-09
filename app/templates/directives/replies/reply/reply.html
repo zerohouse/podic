@@ -1,0 +1,17 @@
+<div ng-class="{nested:reply.parentId, new:reply.new}" ng-if="!reply.modify">
+  <div>
+    <div style="padding:5px">
+      {{reply.user.nickname||'익명의 트레이너'}}(CP:{{reply.user.cp}})
+      <span class="time">{{reply.updatedAt  | ymd}}</span>
+      <span class="small-tail" style="float:right">
+                <span ng-click="modifying()" ng-if="isRootUser()">수정</span>
+                <span style="margin-left:10px" ng-click="delete()" ng-if="isRootUser()">삭제</span>
+            </span>
+    </div>
+    <span ng-bind-html="reply.text.newLine()"></span>
+    <!--<like likes="reply.likes" type="REPLY" like-id="reply.id" class="time"></like>-->
+    <!--<span class="time margin-left-10" ng-show="!reply.parentId" ng-click="nestedReply()">답글 달기</span>-->
+  </div>
+</div>
+<reply-input mode="수정 하기" ng-class="{new:reply.new}" done="done" cancel="cancel" ng-if="reply.modify"
+             reply="reply"></reply-input>

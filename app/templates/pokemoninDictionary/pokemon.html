@@ -1,0 +1,75 @@
+<ion-view view-title="포켓몬 도감 상세 정보">
+  <ion-content>
+    <div class="card poke-card">
+      <div class="item item-divider">
+        <i class="ion-fireball"></i>
+        {{pokemondic.name}} ({{pokemondic.eng}})
+      </div>
+      <img style="margin:auto;margin-top:10px" ng-src="{{pokemondic.img}}">
+      <div class="item item-text-wrap" style="margin-top:-10px;border-top:none;">
+        <div class="row">
+          <div class="col">
+            <div class="small-title">특성</div>
+            <types types="pokemondic.types"></types>
+          </div>
+          <div class="col">
+            <div class="small-title">희귀도</div>
+            {{pokemondic.rare}}
+          </div>
+          <div class="col">
+            <div class="small-title">종족값 순위</div>
+            {{pokemondic.value[3]}}위
+          </div>
+        </div>
+        <div class="row" style="margin-top:10px;">
+          <div class="col">
+            <div class="small-title">종족값</div>
+            {{pokemondic.power}}
+          </div>
+          <div class="col">
+            <div class="small-title">공격</div>
+            {{pokemondic.value[0]}}
+          </div>
+          <div class="col">
+            <div class="small-title">방어</div>
+            {{pokemondic.value[1]}}
+          </div>
+          <div class="col">
+            <div class="small-title">체력</div>
+            {{pokemondic.value[2]}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card poke-card">
+      <div class="item item-divider">
+        <i class="ion-ios-paw"></i> 습득 가능한 공격 기술
+      </div>
+      <div class="item item-text-wrap skills">
+        <div class="row header">
+          <div class="col" style="min-width: 100px">이름</div>
+          <div class="col">타입</div>
+          <div class="col">공격력</div>
+          <div class="col">쿨다운</div>
+          <div class="col">DPS</div>
+          <div class="col">에너지</div>
+        </div>
+        <skill skill="skill" ng-repeat="skill in pokemondic.attacks"></skill>
+        <skill skill="skill" ng-repeat="skill in pokemondic.skills">
+        </skill>
+      </div>
+    </div>
+
+    <div class="card" ng-if="pokemondic.desc">
+      <div class="item item-divider">
+        <i class="ion-leaf"></i> 이야기
+      </div>
+      <div class="item item-text-wrap story">
+        <div>
+          {{pokemondic.desc}}
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

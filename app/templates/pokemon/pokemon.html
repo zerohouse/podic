@@ -1,0 +1,121 @@
+<ion-view view-title="포켓몬 상세 정보">
+  <ion-content>
+    <div class="card poke-card">
+      <div class="item item-divider">
+        <i class="ion-fireball"></i> <span ng-if="pokemon.nickname">{{pokemon.nickname}} - </span>
+        {{pokemon.pokemon.name}} ({{pokemon.pokemon.eng}})
+        <small class="date" ng-if="pokemon.creation_time_ms">{{pokemon.creation_time_ms | date : "M. d. hh:mm"}}에 잡음</small>
+      </div>
+      <img style="margin-top:10px" ng-src="{{pokemon.pokemon.img}}">
+      <div class="item item-text-wrap" style="margin-top:-10px;border-top:none;">
+        <div class="row">
+          <div class="col">
+            <div class="small-title">특성</div>
+            <types types="pokemon.pokemon.types"></types>
+          </div>
+          <div class="col">
+            <div class="small-title">개체값</div>
+            {{pokemon.individual_score}}/45
+          </div>
+          <div class="col">
+            <div class="small-title">종족값 순위</div>
+            {{pokemon.pokemon.value[3]}}위
+          </div>
+        </div>
+        <div class="row" style="margin-top:10px;">
+          <div class="col">
+            <div class="small-title">CP</div>
+            {{pokemon.cp}}
+          </div>
+          <div class="col">
+            <div class="small-title">체력</div>
+            {{pokemon.stamina}}/{{pokemon.stamina_max}}
+          </div>
+          <div class="col">
+            <div class="small-title">키</div>
+            {{pokemon.height_m | number:2}}m
+          </div>
+          <div class="col">
+            <div class="small-title">무게</div>
+            {{pokemon.weight_kg | number:2}}kg
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card poke-card">
+      <div class="item item-divider">
+        <i class="ion-information-circled"></i> 상세 정보
+      </div>
+      <div class="item item-text-wrap">
+        <div class="row">
+          <div class="col">
+            <div class="small-title">개체값</div>
+            {{pokemon.individual_score}}/45
+          </div>
+          <div class="col">
+            <div class="small-title">공격</div>
+            {{pokemon.individual_attack || 0}}/15
+          </div>
+          <div class="col">
+            <div class="small-title">방어</div>
+            {{pokemon.individual_defense || 0}}/15
+          </div>
+          <div class="col">
+            <div class="small-title">체력</div>
+            {{pokemon.individual_stamina || 0}}/15
+          </div>
+        </div>
+        <div class="row" style="margin-top:10px;">
+          <div class="col">
+            <div class="small-title">종족값</div>
+            {{pokemon.pokemon.power}}
+          </div>
+          <div class="col">
+            <div class="small-title">공격</div>
+            {{pokemon.pokemon.value[0]}}
+          </div>
+          <div class="col">
+            <div class="small-title">방어</div>
+            {{pokemon.pokemon.value[1]}}
+          </div>
+          <div class="col">
+            <div class="small-title">체력</div>
+            {{pokemon.pokemon.value[2]}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card poke-card">
+      <div class="item item-divider">
+        <i class="ion-ios-paw"></i> 공격 정보
+      </div>
+      <div class="item item-text-wrap skills">
+        <div class="row header">
+          <div class="col" style="min-width: 100px">이름</div>
+          <div class="col">특성</div>
+          <div class="col">공격력</div>
+          <div class="col">쿨다운</div>
+          <div class="col">DPS</div>
+          <div class="col">에너지</div>
+        </div>
+        <div>
+          <skill skill="pokemon.skill_1"></skill>
+          <br>
+          <skill skill="pokemon.skill_2"></skill>
+        </div>
+      </div>
+    </div>
+
+    <div class="card poke-card" ng-if="pokemon.pokemon.desc">
+      <div class="item item-divider">
+        <i class="ion-leaf"></i> 이야기
+      </div>
+      <div class="item item-text-wrap story">
+        <div>
+          {{pokemon.pokemon.desc}}
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
