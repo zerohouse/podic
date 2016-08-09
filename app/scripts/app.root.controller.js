@@ -1,6 +1,5 @@
 angular.module('Podic.controllers')
   .controller('AppCtrl', function ($scope, $ionicModal, $timeout, userService) {
-    $scope.loginData = {};
     $ionicModal.fromTemplateUrl('templates/base/login.html', {
       scope: $scope
     }).then(function (modal) {
@@ -34,11 +33,5 @@ angular.module('Podic.controllers')
       userService.logout();
     };
 
-    $scope.doLogin = function () {
-      console.log('Doing login', $scope.loginData);
-      $timeout(function () {
-        $scope.closeLogin();
-      }, 1000);
-    };
   });
 

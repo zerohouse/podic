@@ -59,6 +59,20 @@ function userService($ajax, $cordovaDevice, $ionicPlatform, $cordovaGeolocation,
 
   function refreshToken() {
     return $q(function (ok, no) {
+      if (self.authInfo && self.authInfo.refresh_token) {
+        var data = {
+          client_id: "848232511240-73ri3t7plvk96pj4f85uj8otdat2alem.apps.googleusercontent.com",
+          client_secret: "NCjF1TLi2CcY6t5mt0ZveuL7",
+          grant_type: "refresh_token",
+          refresh_token: self.user.authInfo.refresh_token
+        };
+        $ajax.post('https://www.googleapis.com/oauth2/v4/token', data).then(null, function (authInfo) {
+          angular.copy(authInfo, self.authInfo);
+          db.set(user, self.user);
+          ok(authInfo);
+        });
+        return;
+      }
       $ajax.post('/api/v1/user/refresh_token').then(function (authInfo) {
         angular.copy(authInfo, self.authInfo);
         db.set(user, self.user);
@@ -130,7 +144,8 @@ function userService($ajax, $cordovaDevice, $ionicPlatform, $cordovaGeolocation,
   function setUser(user) {
     angular.copy(user, self.user);
     db.set(user, self.user);
-    $rootScope.$broadcast('userLoggedIn');
+    if (user)
+      $rootScope.$broadcast('userLoggedIn');
   }
 }
 
