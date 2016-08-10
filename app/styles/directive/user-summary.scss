@@ -1,0 +1,26 @@
+user-summary {
+  .pokemons {
+    width: 45px;
+    float: left;
+    position: relative;
+    height: 45px;
+    margin-right: 5px;
+    border-radius: 50%;
+    background: #EEF;
+    padding: 5px;
+    img {
+      width: 100%;
+    }
+    span {
+      font-size: 12px;
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 100%;
+      text-align: center;
+      color: #ffffff;
+      text-shadow: 1px 1px 1px #505050;
+      display:none;
+    }
+  }
+}

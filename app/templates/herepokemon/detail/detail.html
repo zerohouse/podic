@@ -1,27 +1,30 @@
 <ion-view view-title="남겨진 메세지">
   <ion-content>
-    <div class="padding">
-      <div class="item item-avatar non-border">
-        <img ng-src="{{traceService.trace.user.img || 'images/profile.png'}}">
-        <h2>{{traceService.trace.user.nickname || '익명의 트레이너'}}<span ng-if="traceService.trace.user.cp">(CP: {{traceService.trace.user.cp}})</span>
-          <span class="small-tail" ng-if="isRootUser()" ng-click="delete()">삭제</span>
-        </h2>
-        <p>약 {{getDistance(traceService.trace)}}m 거리에서 {{traceService.trace.updatedAt | ymd}}</p>
-      </div>
+    <div class="padding non-border-item">
+      <!--<div class="item item-avatar non-border">-->
+      <!--<img ng-src="{{traceService.trace.user.img || 'images/profile.png'}}">-->
+      <!--<h2>{{traceService.trace.user.nickname || '익명의 트레이너'}}<span ng-if="traceService.trace.user.cp">(CP: {{traceService.trace.user.cp}})</span>-->
+      <!--<span class="small-tail" ng-if="isRootUser()" ng-click="delete()">삭제</span>-->
+      <!--</h2>-->
+      <!--<p>약 {{getDistance(traceService.trace)}}m 거리에서 {{traceService.trace.updatedAt | ymd}}</p>-->
+      <!--</div>-->
+      <user-summary user="traceService.trace.user"></user-summary>
 
-      <div style="text-align: center" class="non-border item item-body" ng-if="traceService.trace.pokemon">
+      <div style="text-align: center" class="item item-body" ng-if="traceService.trace.pokemon">
         <img ng-src="{{traceService.trace.pokemon.img}}"><br>
         {{traceService.trace.pokemon.name}}({{traceService.trace.pokemon.eng}})
       </div>
 
-      <div class="item item-body non-border">
+      <div class="item item-body">
         <p style="margin-top:0">{{traceService.trace.message.newLine()}}
         </p>
-        <p>
-          <!--<a href="#" class="subdued">좋아요 1</a>-->
-          <a class="subdued">댓글 {{replies.length}}</a>
-        </p>
       </div>
+    </div>
+    <div class="padding">
+      <p>
+        <!--<a href="#" class="subdued">좋아요 1</a>-->
+        <a class="subdued">댓글 {{replies.length}}</a>
+      </p>
       <replies type="TRACE" replies="replies" replies-id="traceService.trace.id"></replies>
     </div>
     <div>

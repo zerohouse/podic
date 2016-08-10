@@ -19,7 +19,7 @@
     </div>
 
     <div class="list" ng-if="user.id">
-      <a class="item item-thumbnail-left" ui-sref="app.pokemon({index:pokemons.indexOf(pokemon)})"
+      <a class="item item-thumbnail-left" ui-sref="app.pokemon({id:pokemon.id})"
          ng-repeat="pokemon in pokemons | filter: order.keyword | orderBy:order.orderBy:order.desc">
         <img ng-src="{{pokemon.pokemon.img}}">
         <h2 style="margin-bottom: 5px">{{pokemon.nickname}} <span class="small-tail">{{pokemon.pokemon_id}}</span>

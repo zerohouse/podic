@@ -16,7 +16,7 @@
     </label>
 
     <div class="list">
-      <div class="item item-thumbnail-left"
+      <div class="item item-thumbnail-left" ui-sref="app.pokemon({id:pokemon.id})"
            ng-repeat="pokemon in pokemonRankService.rankers">
         <img ng-src="{{pokemon.pokemon.img}}">
         <h2>{{$index +1}}위 {{pokemon.pokemon.name}} <span ng-if="pokemon.nickname">({{pokemon.nickname}})</span></h2>
@@ -29,9 +29,10 @@
         <p ng-if="pokemon.owner.nickname"> {{pokemon.owner.nickname}}<span ng-if="pokemon.owner.rank">({{pokemon.owner.rank}}위)</span>님의
           포켓몬 </p>
       </div>
-      <div class="item" ng-if="!pokemonRankService.end" ng-click="pokemonRankService.more()">
-        <h2 style="margin-top:12px">더보기</h2>
-      </div>
+      <!--<div class="item" ng-if="!pokemonRankService.end" ng-click="pokemonRankService.more()">-->
+        <!--<h2 style="margin-top:12px">더보기</h2>-->
+      <!--</div>-->
     </div>
+    <ion-infinite-scroll ng-if="!pokemonRankService.end" on-infinite="more();"></ion-infinite-scroll>
   </ion-content>
 </ion-view>

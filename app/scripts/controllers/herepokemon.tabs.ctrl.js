@@ -93,7 +93,7 @@
         return "?";
       var lat = (userService.user.lat - trace.lat);
       var lng = (userService.user.lng - trace.lng);
-      return Math.floor(Math.sqrt(lat * lat + lng * lng) * 10 / 88 / 10000);
+      return Math.floor(Math.sqrt(lat * lat + lng * lng) * 88 * 10) / 10;
     };
 
   }

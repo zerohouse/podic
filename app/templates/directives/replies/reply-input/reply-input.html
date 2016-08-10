@@ -2,12 +2,13 @@
   <label class="item item-input">
     <textarea placeholder="댓글" autosize ng-model="reply.text"></textarea>
   </label>
+  <div style="margin-top:5px;">
+    <button class="button button-assertive" ng-if="mode" ng-click="cancel()">
+      취소
+    </button>
+    <button class="button button-royal" ng-click="done()">
+      작성완료
+    </button>
+  </div>
 </div>
-<div class="padding">
-  <button class="button button-assertive" ng-if="mode" ng-click="cancel()">
-    취소
-  </button>
-  <button class="button button-royal" ng-click="done()">
-    작성완료
-  </button>
-</div>
+

@@ -8,6 +8,18 @@ function pokemonService(PocketMons, PokemonRequest, $rootScope, db, $ajax, ionic
 
   var self = this;
 
+  this.setPokemon = function(pokemon){
+    pokemon.pokemon = PocketMons.get(pokemon.pokemon_id);
+    pokemon.individual_score = pokemon.individual_attack + pokemon.individual_defense + pokemon.individual_stamina;
+    pokemon.skill_1 = PocketMons.skills.findById(pokemon.move_1);
+    pokemon.skill_2 = PocketMons.skills.findById(pokemon.move_2);
+    if (pokemon.creation_time_ms && pokemon.creation_time_ms.toNumber)
+      pokemon.creation_time_ms = pokemon.creation_time_ms.toNumber();
+    if (pokemon.id && pokemon.id.toNumber)
+      pokemon.id = pokemon.id.toNumber();
+  };
+
+
   this.refresh = function () {
     self.loading = true;
     PokemonRequest.getInventoryData().then(function (inventories) {
@@ -21,14 +33,7 @@ function pokemonService(PocketMons, PokemonRequest, $rootScope, db, $ajax, ionic
         return;
       $rootScope.pokemons = pokemons;
       pokemons.forEach(function (pokemon) {
-        pokemon.pokemon = PocketMons.get(pokemon.pokemon_id);
-        pokemon.individual_score = pokemon.individual_attack + pokemon.individual_defense + pokemon.individual_stamina;
-        pokemon.skill_1 = PocketMons.skills.findById(pokemon.move_1);
-        pokemon.skill_2 = PocketMons.skills.findById(pokemon.move_2);
-        if (pokemon.creation_time_ms)
-          pokemon.creation_time_ms = pokemon.creation_time_ms.toNumber();
-        if (pokemon.id)
-          pokemon.id = pokemon.id.toNumber();
+        self.setPokemon(pokemon);
       });
       pokemons.sort(function (p2, p1) {
         return p2.individual_score - p1.individual_score;
@@ -46,6 +51,8 @@ function pokemonService(PocketMons, PokemonRequest, $rootScope, db, $ajax, ionic
       self.loading = false;
     });
   };
+
+
   $rootScope.$on('userLoggedIn', this.refresh);
 
   $rootScope.$on('userLogout', function () {

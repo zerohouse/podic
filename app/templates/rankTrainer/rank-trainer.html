@@ -13,18 +13,11 @@
     </div>
 
     <div class="list">
-      <div class="item item-avatar" ng-repeat="ranker in rankerService.rankers">
-        <img ng-src="{{ranker.img || 'images/profile.png'}}">
-        <h2>{{ranker.rank}}위
-          <span ng-if="ranker.change>0" style="color:green"><i class="ion-arrow-up-b"></i>{{ranker.change}}</span>
-          <span ng-if="ranker.change==0" style="color:grey"><i class="ion-android-remove"></i></span>
-          <span ng-if="ranker.change<0" style="color:red"><i class="ion-arrow-down-b"></i>{{ranker.change}}</span>
-          {{ranker.nickname || '익명의 트레이너'}}님 </h2>
-        <p>CP합(상위 6마리) : {{ranker.cp}}</p>
-      </div>
-      <div class="item" ng-if="!rankerService.end" ng-click="rankerService.more()">
-        <h2 style="margin-top:12px">더보기</h2>
-      </div>
+     <user-summary user="ranker" ng-repeat="ranker in rankerService.rankers"></user-summary>
+      <!--<div class="item" ng-if="!rankerService.end" ng-click="rankerService.more()">-->
+        <!--<h2 style="margin-top:12px">더보기</h2>-->
+      <!--</div>-->
     </div>
+    <ion-infinite-scroll ng-if="!rankerService.end" on-infinite="more();"></ion-infinite-scroll>
   </ion-content>
 </ion-view>

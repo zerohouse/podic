@@ -17,6 +17,7 @@
         };
 
         $scope.modifying = function () {
+          $scope.reply.origin = $scope.reply.text;
           $scope.reply.modify = true;
         };
 

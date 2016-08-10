@@ -34,6 +34,12 @@
   border: none;
 }
 
+.non-border-item {
+  .item {
+    border: none;
+  }
+}
+
 .icon-pan {
   background: white;
   font-size: 28px;

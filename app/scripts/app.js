@@ -42,7 +42,7 @@ angular.module('Podic', [
         //   autoShow: true
         // });
         window.AdMob.prepareInterstitial({
-          adId: 'ca-app-pub-6439823362094213/9801579085',
+          adId: 'ca-app-pub-6439823362094213/9069562284',
           autoShow: false
         });
       }
@@ -145,7 +145,7 @@ angular.module('Podic', [
         }
       })
       .state('app.pokemon', {
-        url: '/pokemon/:index',
+        url: '/pokemon/:id',
         views: {
           'menuContent': {
             templateUrl: 'templates/pokemon/pokemon.html',
@@ -199,8 +199,8 @@ angular.module('Podic', [
     //     push.saveToken(token);  // persist the token in the Ionic Platform
     //   });
     // });
-    $ajax.url = 'http://52.78.95.98:8080';
-    // $ajax.url = 'http://192.168.0.2:8080';
+    // $ajax.url = 'http://52.78.95.98:8080';
+    $ajax.url = 'http://192.168.0.2:8080';
     // $ajax.url = 'http://localhost:8080';
 
     $ajax.handler(function (response, success, error) {
@@ -212,13 +212,13 @@ angular.module('Podic', [
       }
     );
   });
-angular.module('Podic').config(function (uiGmapGoogleMapApiProvider) {
-  uiGmapGoogleMapApiProvider.configure({
-    key: 'AIzaSyD7ZttCvpNxvRV0Pb4EVInaUSSeb419ZhI',
-    v: '3.exp', //defaults to latest 3.X anyhow
-    libraries: 'weather,geometry,visualization'
-  });
-});
+// angular.module('Podic').config(function (uiGmapGoogleMapApiProvider) {
+//   uiGmapGoogleMapApiProvider.configure({
+//     key: 'AIzaSyD7ZttCvpNxvRV0Pb4EVInaUSSeb419ZhI',
+//     v: '3.exp', //defaults to latest 3.X anyhow
+//     libraries: 'weather,geometry,visualization'
+//   });
+// });
 
 
 
