@@ -1,6 +1,6 @@
 angular.module('Podic.controllers').controller('pokemonRankCtrl', pokemonRankCtrl);
 /* @ng-inject */
-function pokemonRankCtrl(pokemonRankService, $scope, $ionicPopup, PocketMons) {
+function pokemonRankCtrl(pokemonRankService, $scope, $ionicPopup, PocketMons, $state) {
   $scope.pokemons = PocketMons.all();
   $scope.pokemonRankService = pokemonRankService;
   $scope.refresh = pokemonRankService.reset;
@@ -15,15 +15,23 @@ function pokemonRankCtrl(pokemonRankService, $scope, $ionicPopup, PocketMons) {
     });
   };
 
+  $scope.select = function (pokemon) {
+    pokemonRankService.pokemon = pokemon;
+    pokemonRankService.reset();
+    $scope.popup.close();
+  };
+
+  $scope.ifSelectThenMoveOrSelect = function (pokemon) {
+    if (pokemonRankService.pokemon) {
+      $state.go("app.pokemon", {id: pokemon.id});
+      return;
+    }
+    $scope.select(pokemon.pokemon);
+  };
 
   $scope.more = function () {
     pokemonRankService.more();
     $scope.$broadcast('scroll.infiniteScrollComplete');
   };
 
-  $scope.select = function (pokemon) {
-    pokemonRankService.pokemon = pokemon;
-    pokemonRankService.reset();
-    $scope.popup.close();
-  };
 }

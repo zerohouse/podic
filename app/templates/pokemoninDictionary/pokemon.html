@@ -61,6 +61,31 @@
       </div>
     </div>
 
+
+    <div class="card poke-card" ng-if="pokemondic.data">
+      <div class="item item-divider">
+        <i class="ion-stats-bars"></i>
+        포켓몬 관련 통계
+      </div>
+      <div class="item item-text-wrap" style="border-bottom: none;;">
+        <div class="row">
+          <div class="col">
+            <div class="small-title">비율(전체 포켓몬 중</div>
+            {{pokemondic.data.percent * 100 | number:2}}%
+
+          </div>
+          <div class="col">
+            <div class="small-title">현재 1위 CP</div>
+            {{pokemondic.data.maxCp}}
+          </div>
+        </div>
+      </div>
+      <div class="padding" style="margin-top:-10px;">
+        <h5>기술 비율</h5>
+        <canvas poke-skills data="pokemondic.data.skills"></canvas>
+      </div>
+    </div>
+
     <div class="card" ng-if="pokemondic.desc">
       <div class="item item-divider">
         <i class="ion-leaf"></i> 이야기

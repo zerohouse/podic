@@ -1,0 +1,18 @@
+<ion-view view-title="포켓몬 차트">
+  <ion-nav-buttons side="right">
+    <button class="button" ng-click="refresh()"
+            style="border:none;margin-right:10px">
+      <i style="font-size:20px" class="ion-android-refresh"></i>
+    </button>
+  </ion-nav-buttons>
+  <ion-content>
+    <div class="padding">
+      <h5>타입별 포켓몬 현황</h5>
+      <canvas id="chart" height="400"></canvas>
+    </div>
+    <div class="padding">
+      <h5>개체값, 종족값별 포켓몬 현황</h5>
+      <canvas id="chart2"></canvas>
+    </div>
+  </ion-content>
+</ion-view>

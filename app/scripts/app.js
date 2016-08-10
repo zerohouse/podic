@@ -48,8 +48,8 @@ angular.module('Podic', [
       }
     });
   })
-  .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
-    $ionicConfigProvider.views.transition('none');
+  .config(function ($stateProvider, $urlRouterProvider) {
+    // $ionicConfigProvider.views.transition('none');
     $stateProvider
       .state('app', {
         url: '/app',
@@ -71,12 +71,12 @@ angular.module('Podic', [
         url: '/list',
         views: {
           'tab-list': {
-            templateUrl: 'templates/herepokemon/list/list.html',
+            templateUrl: 'templates/herepokemon/list/list.html'
           }
         },
         onEnter: function ($timeout) {
           $timeout(function () {
-            angular.element(document.querySelector('ion-content')).removeClass('has-footer');
+            angular.element(document.querySelector('#list-content')).removeClass('has-footer');
           }, 300);
         }
       })
@@ -123,6 +123,15 @@ angular.module('Podic', [
           rankerService.reset();
         }
       })
+      .state('app.trainerDetail', {
+        url: '/trainerDetail',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/rankTrainer/trainer.html',
+            controller: 'trainerDetailCtrl'
+          }
+        }
+      })
       .state('app.pokemonRank', {
         url: '/pokemon/rank',
         views: {
@@ -141,6 +150,20 @@ angular.module('Podic', [
           'menuContent': {
             templateUrl: 'templates/pokemon/pokemons.html',
             controller: 'pokemonsCtrl'
+          }
+        },
+        onEnter: function ($timeout) {
+          $timeout(function () {
+            angular.element(document.querySelector('#pokemonlist')).removeClass('has-footer');
+          }, 300);
+        }
+      })
+      .state('app.myPokemonChart', {
+        url: '/pokemons/chart',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/pokemon/mypokechart.html',
+            controller: 'pokemonChartCtrl'
           }
         }
       })
@@ -182,6 +205,7 @@ angular.module('Podic', [
         onEnter: function (userService) {
           userService.newUser.nickname = userService.user.nickname || userService.user.userInfo.name;
           userService.newUser.img = userService.user.img || userService.user.userInfo.picture;
+          userService.newUser.id = userService.user.id;
         }
       });
 
@@ -219,7 +243,6 @@ angular.module('Podic', [
 //     libraries: 'weather,geometry,visualization'
 //   });
 // });
-
 
 
 angular.module('Podic.services', []);

@@ -13,5 +13,8 @@
     <div class="padding">
       <button class="button button-block button-royal activated" ng-click="update(file)">정보 수정</button>
     </div>
+    <div class="padding" ng-show="replies.length>0">
+      <replies type="TRAINER" replies="replies" replies-id="user.id"></replies>
+    </div>
   </ion-content>
 </ion-view>
