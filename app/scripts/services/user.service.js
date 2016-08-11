@@ -64,7 +64,7 @@ function userService($ajax, $cordovaDevice, $ionicPlatform, $cordovaGeolocation,
           client_id: "848232511240-73ri3t7plvk96pj4f85uj8otdat2alem.apps.googleusercontent.com",
           client_secret: "NCjF1TLi2CcY6t5mt0ZveuL7",
           grant_type: "refresh_token",
-          refresh_token: self.user.authInfo.refresh_token
+          refresh_token: self.authInfo.refresh_token
         };
         $ajax.post('https://www.googleapis.com/oauth2/v4/token', data).then(null, function (authInfo) {
           angular.copy(authInfo, self.authInfo);

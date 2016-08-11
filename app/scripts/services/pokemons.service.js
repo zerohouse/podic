@@ -25,9 +25,9 @@ function pokemonService(PocketMons, PokemonRequest, $rootScope, db, $ajax, ionic
     PokemonRequest.getInventoryData().then(function (inventories) {
       self.loading = false;
       var pokemons = inventories.filter(function (i) {
-        return i.inventory_item_data && i.inventory_item_data.pokemon_data && !i.inventory_item_data.pokemon_data.is_egg;
+        return i.inventory_item_data && i.inventory_item_data.pokemon && !i.inventory_item_data.pokemon.is_egg;
       }).map(function (i) {
-        return i.inventory_item_data.pokemon_data;
+        return i.inventory_item_data.pokemon;
       });
       if (!pokemons)
         return;
