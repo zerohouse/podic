@@ -2207,7 +2207,6 @@
           if (!data)
             return;
           var pokemon = pocketmons.findById(data.id);
-          console.log(pokemon, data);
           pokemon.data = data;
           try {
             pokemon.data.skills = JSON.parse(data.skillMap);

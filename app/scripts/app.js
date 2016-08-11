@@ -21,35 +21,8 @@ angular.module('Podic', [
   'uiGmapgoogle-maps',
   'ngFileUpload'
 ])
-  .run(function ($ionicPlatform, ionicToast) {
-    ionicToast.alert = function (message) {
-      ionicToast.show(message, 'bottom', false, 3000);
-    };
-
-    $ionicPlatform.ready(function () {
-      if (window.cordova && window.cordova.plugins.Keyboard) {
-        cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-        cordova.plugins.Keyboard.disableScroll(true);
-      }
-      if (window.StatusBar) {
-        StatusBar.styleDefault();
-      }
-
-      if (window.AdMob) {
-        // window.AdMob.createBanner({
-        //   adId: 'ca-app-pub-6439823362094213/4525271489',
-        //   position: window.AdMob.AD_POSITION.BOTTOM_CENTER,
-        //   autoShow: true
-        // });
-        window.AdMob.prepareInterstitial({
-          adId: 'ca-app-pub-6439823362094213/9069562284',
-          autoShow: false
-        });
-      }
-    });
-  })
-  .config(function ($stateProvider, $urlRouterProvider) {
-    // $ionicConfigProvider.views.transition('none');
+  .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+    $ionicConfigProvider.views.transition('none');
     $stateProvider
       .state('app', {
         url: '/app',
@@ -210,6 +183,34 @@ angular.module('Podic', [
       });
 
     $urlRouterProvider.otherwise('/app/pokemons');
+  })
+
+  .run(function ($ionicPlatform, ionicToast) {
+    ionicToast.alert = function (message) {
+      ionicToast.show(message, 'bottom', false, 3000);
+    };
+
+    $ionicPlatform.ready(function () {
+      if (window.cordova && window.cordova.plugins.Keyboard) {
+        cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+        cordova.plugins.Keyboard.disableScroll(true);
+      }
+      if (window.StatusBar) {
+        StatusBar.styleDefault();
+      }
+
+      if (window.AdMob) {
+        // window.AdMob.createBanner({
+        //   adId: 'ca-app-pub-6439823362094213/4525271489',
+        //   position: window.AdMob.AD_POSITION.BOTTOM_CENTER,
+        //   autoShow: true
+        // });
+        window.AdMob.prepareInterstitial({
+          adId: 'ca-app-pub-6439823362094213/9069562284',
+          autoShow: false
+        });
+      }
+    });
   })
   .run(function ajaxConfig($ajax) { //, $rootScope, userService, $ionicPlatform, $cordovaDevice
 
