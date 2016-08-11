@@ -32,22 +32,22 @@
           <!--여기 포켓몬!-->
         <!--</ion-item>-->
         <ion-item menu-close ui-sref="app.pokemons" ng-if="user.id">
-          내 포켓몬
+          <text value="myPokemon"></text>
         </ion-item>
         <ion-item menu-close ui-sref="app.pokemonDesc">
-          포켓몬 도감
+          <text value="pokemonDic"></text>
         </ion-item>
         <ion-item menu-close ui-sref="app.pokemonRank">
-          포켓몬 순위
+          <text value="pokemonRank"></text>
         </ion-item>
         <ion-item menu-close ui-sref="app.trainerRank">
-          트레이너 순위
+          <text value="trainerRank"></text>
         </ion-item>
         <ion-item menu-close ng-click="logout()" ng-if="user.id">
-          로그아웃
+          <text value="logout"></text>
         </ion-item>
         <ion-item menu-close ng-click="login()" ng-if="!user.id">
-          로그인
+          <text value="login"></text>
         </ion-item>
         <!--<ion-item menu-close href="#/app/search">-->
         <!--Search-->

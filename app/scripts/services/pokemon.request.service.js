@@ -34,6 +34,14 @@
           self.alert('포켓몬 데이터를 가져오는 중입니다.');
           sendRequest('GET_INVENTORY').then(function (data) {
             var inventoryPayload = data.payload[0];
+            console.log(data.payload[1]);
+            try {
+              var profile = pokemonProto.ResponseEnvelop.ProfilePayload.decode(data.payload[1]).profile;
+              console.log(profile);
+            }
+            catch (e) {
+
+            }
             try {
               var decoded = pokemonProto.ResponseEnvelop.GetInventoryResponse.decode(inventoryPayload);
               ok(decoded.inventory_delta.inventory_items);
@@ -41,7 +49,7 @@
               self.state = '';
             }
             catch (e) {
-              self.alert('포켓몬 최신버전과 포딕의 프로토콜이 일치하지 않습니다. 이 오류가 발생하면 관리자에게 알려주시면 감사하겠습니다.');
+              self.alert('프로토콜이 일치하지 않습니다. 이 오류가 발생하면 관리자에게 알려주시면 감사하겠습니다.');
             }
 
           }, function () {
@@ -80,11 +88,11 @@
         }), userService.getLatLng().then(function (latlng) {
           return latlng;
         })]).then(function (result) {
-          var requests = [new Envelope.Requests(RequestType[request])];
+          var req = [new Envelope.Requests(RequestType[request])];
           var envelop = new Envelope({
             unknown1: 2,
             rpc_id: 1469378659230941192,
-            requests: requests,
+            requests: req,
             latitude: result[1].lat,
             longitude: result[1].lng,
             altitude: 0,
