@@ -8,9 +8,7 @@
       " <div class=\"item item-avatar\">\n" +
       "        <img ng-src=\"{{user.img || 'images/profile.png'}}\" ng-click=\"detailPage(user)\">\n" +
       "        <h2 ng-click=\"detailPage(user)\"><span ng-if=\"user.change!==undefined\">{{user.rank}}위</span>\n" +
-      "          <span ng-if=\"user.change>0\" style=\"color:green\"><i class=\"ion-arrow-up-b\"></i>{{user.change}}</span>\n" +
-      "          <span ng-if=\"user.change==0\" style=\"color:grey\"><i class=\"ion-android-remove\"></i></span>\n" +
-      "          <span ng-if=\"user.change<0\" style=\"color:red\"><i class=\"ion-arrow-down-b\"></i>{{user.change}}</span>\n" +
+      "          <change change=\"user.change\"></change>\n" +
       "          {{user.nickname || '익명의 트레이너'}}님 </h2>\n" +
       "        <p>CP : {{user.cp}}</p>\n" +
       "        <div style=\"margin-top:10px;overflow:hidden;height: 45px;\"><div ui-sref=\"app.pokemon({id:pokemon.id})\" class=\"pokemons\" ng-repeat=\"pokemon in user.pokemons\">\n" +

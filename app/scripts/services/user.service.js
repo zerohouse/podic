@@ -13,7 +13,6 @@ function userService($ajax, $cordovaDevice, $ionicPlatform, $cordovaGeolocation,
   self.newUser = {};
   if (db.is(user))
     self.user = db.get(user);
-  updateLatLng();
 
   /*
    디바이스 아이디 설정
@@ -59,22 +58,22 @@ function userService($ajax, $cordovaDevice, $ionicPlatform, $cordovaGeolocation,
 
   function refreshToken() {
     return $q(function (ok, no) {
-      if (self.authInfo && self.authInfo.refresh_token) {
+      if (self.user.authInfo && self.user.authInfo.refresh_token) {
         var data = {
           client_id: "848232511240-73ri3t7plvk96pj4f85uj8otdat2alem.apps.googleusercontent.com",
           client_secret: "NCjF1TLi2CcY6t5mt0ZveuL7",
           grant_type: "refresh_token",
-          refresh_token: self.authInfo.refresh_token
+          refresh_token: self.user.authInfo.refresh_token
         };
         $ajax.post('https://www.googleapis.com/oauth2/v4/token', data).then(null, function (authInfo) {
-          angular.copy(authInfo, self.authInfo);
+          angular.copy(authInfo, self.user.authInfo);
           db.set(user, self.user);
           ok(authInfo);
         });
         return;
       }
       $ajax.post('/api/v1/user/refresh_token').then(function (authInfo) {
-        angular.copy(authInfo, self.authInfo);
+        angular.copy(authInfo, self.user.authInfo);
         db.set(user, self.user);
         ok(authInfo);
       }, no);
@@ -124,6 +123,7 @@ function userService($ajax, $cordovaDevice, $ionicPlatform, $cordovaGeolocation,
   this.getUser = function () {
     $ajax.get('/api/v1/user').then(function (user) {
       setUser(user);
+      updateLatLng();
     });
   };
 

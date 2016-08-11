@@ -22,15 +22,15 @@
           <div class="profile" menu-close ui-sref="app.mypage">
             <img ng-src="{{user.img || user.userInfo.picture || 'images/profile.png'}}">
             <div>
-              <div>{{user.nickname || user.userInfo.name}}<i class="ion-edit small-tail"></i> <span ng-if="user.rank">({{user.rank}}위)</span></div>
+              <div>{{user.nickname || user.userInfo.name}}<i class="ion-edit small-tail"></i> <span ng-if="user.rank">({{user.rank}}위)</span>
+              </div>
               <small>{{user.userInfo.email}}</small>
             </div>
           </div>
         </ion-item>
-        <!--ng-if="user.id" -->
-        <!--<ion-item  menu-close ui-sref="app.herepokemon.list" ng-if="user.id">-->
-          <!--여기 포켓몬!-->
-        <!--</ion-item>-->
+        <ion-item menu-close ui-sref="app.herepokemon.list" ng-if="user.id">
+          여기 포켓몬!
+        </ion-item>
         <ion-item menu-close ui-sref="app.pokemons" ng-if="user.id">
           <text value="myPokemon"></text>
         </ion-item>
@@ -49,13 +49,6 @@
         <ion-item menu-close ng-click="login()" ng-if="!user.id">
           <text value="login"></text>
         </ion-item>
-        <!--<ion-item menu-close href="#/app/search">-->
-        <!--Search-->
-        <!--</ion-item>-->
-        <!--<ion-item menu-close href="#/app/browse">-->
-        <!--Browse-->
-        <!--</ion-item>-->
-
       </ion-list>
     </ion-content>
   </ion-side-menu>
