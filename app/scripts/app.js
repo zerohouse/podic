@@ -180,6 +180,15 @@ angular.module('Podic', [
           userService.newUser.img = userService.user.img || userService.user.userInfo.picture;
           userService.newUser.id = userService.user.id;
         }
+      })
+      .state('app.egg', {
+        url: '/egg',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/egg/egg.html',
+            controller: 'eggCtrl'
+          }
+        }
       });
 
     $urlRouterProvider.otherwise('/app/pokemons');
@@ -224,8 +233,8 @@ angular.module('Podic', [
     //     push.saveToken(token);  // persist the token in the Ionic Platform
     //   });
     // });
-    $ajax.url = 'http://52.78.95.98:8080';
-    // $ajax.url = 'http://192.168.0.2:8080';
+    // $ajax.url = 'http://52.78.95.98:8080';
+    $ajax.url = 'http://192.168.0.2:8080';
     // $ajax.url = 'http://localhost:8080';
 
     $ajax.handler(function (response, success, error) {

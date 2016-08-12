@@ -1,0 +1,23 @@
+.eggs {
+  img {
+    display: inline-block;
+    width: 80px;
+  }
+}
+
+.egg-label {
+  * {
+    vertical-align: middle;
+  }
+  a {
+    color: #aaa;
+  }
+  a.active {
+    color: black;
+  }
+  img {
+    width: 25px;
+    padding-bottom: 5px;
+    margin-right: 5px;
+  }
+}

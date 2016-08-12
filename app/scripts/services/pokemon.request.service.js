@@ -34,14 +34,6 @@
           self.alert('포켓몬 데이터를 가져오는 중입니다.');
           sendRequest('GET_INVENTORY').then(function (data) {
             var inventoryPayload = data.payload[0];
-            console.log(data.payload[1]);
-            try {
-              var profile = pokemonProto.ResponseEnvelop.ProfilePayload.decode(data.payload[1]).profile;
-              console.log(profile);
-            }
-            catch (e) {
-
-            }
             try {
               var decoded = pokemonProto.ResponseEnvelop.GetInventoryResponse.decode(inventoryPayload);
               ok(decoded.inventory_delta.inventory_items);

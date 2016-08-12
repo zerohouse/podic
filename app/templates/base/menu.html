@@ -28,8 +28,11 @@
             </div>
           </div>
         </ion-item>
+        <ion-item menu-close ui-sref="app.egg">
+          <i class="ion-egg"></i> <text value="egg"></text>
+        </ion-item>
         <ion-item menu-close ui-sref="app.herepokemon.list" ng-if="user.id">
-          여기 포켓몬!
+          <text value="herePokemon"></text>
         </ion-item>
         <ion-item menu-close ui-sref="app.pokemons" ng-if="user.id">
           <text value="myPokemon"></text>

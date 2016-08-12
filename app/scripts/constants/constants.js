@@ -11,7 +11,9 @@
         pokemonRank: '포켓몬 순위',
         trainerRank: '트레이너 순위',
         logout: '로그아웃',
-        login: '로그인'
+        login: '로그인',
+        herePokemon: "여기 포켓몬!",
+        egg: "알"
       };
 
       return function(value){
