@@ -9,7 +9,7 @@
     <div class="text-align-center" style="margin-top:20px;">
       <h4>{{pokemon.pokemon.name}}({{pokemon.pokemon.eng}})</h4>
       <img style="margin-top:10px" ng-src="{{pokemon.pokemon.img}}">
-      <h1>CP {{getCp()}} <span class="button button-balanced" ng-click="powerUp()">POWER UP!</span></h1>
+      <h1>CP {{getCp() || 10}} <span class="button button-balanced" ng-click="powerUp()">POWER UP!</span></h1>
     </div>
     <div class="slider-wrap">
       <rzslider rz-slider-model="pokemon.level" rz-slider-options="pokemonOptions"></rzslider>
@@ -20,8 +20,11 @@
     </div>
     <div class="slider-wrap">
       <h5>개체치</h5>
+      <small>공격</small>
       <rzslider rz-slider-model="pokemon.individual_attack" rz-slider-options="options"></rzslider>
+      <small>방어</small>
       <rzslider rz-slider-model="pokemon.individual_defense" rz-slider-options="options"></rzslider>
+      <small>체력</small>
       <rzslider rz-slider-model="pokemon.individual_stamina" rz-slider-options="options"></rzslider>
     </div>
   </ion-content>
