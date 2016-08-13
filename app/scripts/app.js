@@ -19,7 +19,8 @@ angular.module('Podic', [
   'Podic.filters',
   'ionic-toast',
   'uiGmapgoogle-maps',
-  'ngFileUpload'
+  'ngFileUpload',
+  'rzModule'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
     $ionicConfigProvider.views.transition('none');
@@ -181,11 +182,29 @@ angular.module('Podic', [
           userService.newUser.id = userService.user.id;
         }
       })
-      .state('app.egg', {
-        url: '/egg',
+      .state('app.simulator', {
+        url: '/simulator',
+        abstract: true,
         views: {
           'menuContent': {
-            templateUrl: 'templates/egg/egg.html',
+            templateUrl: 'templates/simulator/tabs.html'
+          }
+        }
+      })
+      .state('app.simulator.cp', {
+        url: '/cp?:pokemon:attack:defense:stamina:level',
+        views: {
+          'tab-cp': {
+            templateUrl: 'templates/simulator/cp.simulator.html',
+            controller: 'cpSimulator'
+          }
+        }
+      })
+      .state('app.simulator.egg', {
+        url: '/egg',
+        views: {
+          'tab-egg': {
+            templateUrl: 'templates/simulator/egg.simulator.html',
             controller: 'eggCtrl'
           }
         }
@@ -233,8 +252,8 @@ angular.module('Podic', [
     //     push.saveToken(token);  // persist the token in the Ionic Platform
     //   });
     // });
-    // $ajax.url = 'http://52.78.95.98:8080';
-    $ajax.url = 'http://192.168.0.2:8080';
+    $ajax.url = 'http://52.78.95.98:8080';
+    // $ajax.url = 'http://192.168.0.2:8080';
     // $ajax.url = 'http://localhost:8080';
 
     $ajax.handler(function (response, success, error) {

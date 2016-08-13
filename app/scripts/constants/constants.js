@@ -13,7 +13,7 @@
         logout: '로그아웃',
         login: '로그인',
         herePokemon: "여기 포켓몬!",
-        egg: "알"
+        simulator: "시뮬레이터"
       };
 
       return function(value){

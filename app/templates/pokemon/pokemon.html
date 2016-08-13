@@ -60,7 +60,26 @@
         <div class="item item-divider">
           <i class="ion-information-circled"></i> 상세 정보
         </div>
+
         <div class="item item-text-wrap">
+          <div class="row">
+            <div class="col">
+              <div class="small-title">현재 레벨에서 최대 CP</div>
+              {{pokemon.maxTrainerCp}}
+            </div>
+            <div class="col">
+              <div class="small-title">만렙 최대 CP</div>
+              {{pokemon.maxCp || 0}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <span class="button button-balanced"
+                    ng-click="simulate()">
+                <i class="ion-arrow-graph-up-right"></i> 강화 시뮬레이션
+              </span>
+            </div>
+          </div>
           <div class="row">
             <div class="col">
               <div class="small-title">개체값</div>

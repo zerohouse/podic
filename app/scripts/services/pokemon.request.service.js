@@ -69,8 +69,7 @@
 
     var RequestType = {
       GET_INVENTORY: 4,
-      GET_PLAYER: 2,
-      GET_PLAYER_PROFILE: 121
+      GET_PLAYER: 2
     };
 
     function sendRequest(request) {

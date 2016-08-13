@@ -13,7 +13,8 @@
     "ng-file-upload": "^12.0.4",
     "angular-google-maps": "^2.3.3",
     "angular-simple-logger": "^0.1.7",
-    "animate.css": "^3.5.2"
+    "animate.css": "^3.5.2",
+    "angularjs-slider": "^5.4.3"
   },
   "resolutions": {
     "angular": "1.5.3"
