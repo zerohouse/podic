@@ -43,7 +43,7 @@
     });
 
     $scope.$watch('trainer.level', function () {
-      var max = Math.min(79, $scope.trainer.level * 2);
+      var max = Math.min(79, $scope.trainer.level * 2 + 1);
       $scope.pokemonOptions.ceil = max;
       $scope.pokemon.level = Math.min(max, $scope.pokemon.level);
     });
