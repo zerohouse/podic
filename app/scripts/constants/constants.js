@@ -17,6 +17,7 @@
       simulator: "시뮬레이터",
       rank: "위",
       Rank: "순위",
+      rare: "희귀도",
 
       //포켓몬 리스트 페이지
       search: "검색",
