@@ -121,7 +121,7 @@
       stronger: "강화",
       fromEggPokemons: '알에서 나오는 포켓몬들',
       twoKmAnd: '2KM 포켓몬들 그리고 +',
-      fiveKmAnd: '2KM 포켓몬들 그리고 +',
+      fiveKmAnd: '5KM 포켓몬들 그리고 +',
       egg: '알'
     };
 
