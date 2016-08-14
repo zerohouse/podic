@@ -1,6 +1,6 @@
 angular.module('Podic.services').service('pokemonService', pokemonService);
 /* @ng-inject */
-function pokemonService(PocketMons, PokemonRequest, cpCal, $rootScope, db, $ajax, ionicToast) {
+function pokemonService(PocketMons, PokemonRequest, cpCal, $rootScope, db, $ajax, ionicToast, text) {
 
   var POKEMON = 'pokemons';
   var PLAYER = 'player';
@@ -105,7 +105,7 @@ function pokemonService(PocketMons, PokemonRequest, cpCal, $rootScope, db, $ajax
       db.set(POKEMON, pokemons);
       db.set(PLAYER, $rootScope.playerStatus);
     }, function () {
-      ionicToast.show("로딩 중 문제가 생겼습니다.", 'bottom', false, 3000);
+      ionicToast.show(text("serverError"), 'bottom', false, 3000);
       self.loading = false;
     });
   };

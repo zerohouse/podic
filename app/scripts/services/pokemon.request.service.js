@@ -3,7 +3,7 @@
   angular.module('Podic.services').service('PokemonRequest', PokemonRequest);
 
   /* @ng-inject */
-  function PokemonRequest($http, $q, userService, ionicToast, $rootScope, $timeout, pokemonProto) {
+  function PokemonRequest($http, $q, userService, ionicToast, $rootScope, $timeout, pokemonProto, text) {
     var Envelope = pokemonProto.RequestEnvelop;
 
     var self = this;
@@ -22,7 +22,7 @@
     };
 
     this.getInventoryData = function () {
-      self.alert('포켓몬 데이터를 요청합니다.');
+      self.alert(text("requestPokemon"));
       if (window.AdMob) {
         $timeout(function () {
           window.AdMob.showInterstitial();
@@ -31,21 +31,21 @@
       userService.updatePosition();
       return $q(function (ok, no) {
         updateEndPoint().then(function () {
-          self.alert('포켓몬 데이터를 가져오는 중입니다.');
+          self.alert(text("requestPokemon2"));
           sendRequest('GET_INVENTORY').then(function (data) {
             var inventoryPayload = data.payload[0];
             try {
               var decoded = pokemonProto.ResponseEnvelop.GetInventoryResponse.decode(inventoryPayload);
               ok(decoded.inventory_delta.inventory_items);
-              self.alert('포켓몬 데이터를 가져왔습니다.');
+              self.alert(text("requestPokemonDone"));
               self.state = '';
             }
             catch (e) {
-              self.alert('프로토콜이 일치하지 않습니다. 이 오류가 발생하면 관리자에게 알려주시면 감사하겠습니다.');
+              self.alert(text("parseError"));
             }
 
           }, function () {
-            self.alert('포켓몬 데이터를 가져오지 못했습니다.');
+            self.alert(text("serverError"));
             no();
           });
         });

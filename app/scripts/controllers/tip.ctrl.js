@@ -1,7 +1,7 @@
 (function () {
-  angular.module('Podic.controllers').controller('herepokemonCtrl', herepokemonCtrl);
+  angular.module('Podic.controllers').controller('tipCtrl', tipCtrl);
   /* @ng-inject */
-  function herepokemonCtrl($scope, $ionicPopup, PocketMons, $hangul, traceService, $state, userService) {
+  function tipCtrl($scope, $ionicPopup, PocketMons, $hangul, traceService, $state, userService, text) {
 
     $scope.pokemons = PocketMons.all();
     $scope.traceServce = traceService;
@@ -9,7 +9,7 @@
     $scope.$watch(function () {
       return traceService.range;
     }, function (range) {
-      if (!range)
+      if (range !== undefined)
         return;
       traceService.refresh();
     });
@@ -20,12 +20,14 @@
         '<ion-radio ng-model="traceServce.range" ng-value="1">1KM</ion-radio>' +
         '<ion-radio ng-model="traceServce.range" ng-value="5">5KM</ion-radio>' +
         '<ion-radio ng-model="traceServce.range" ng-value="10">10KM</ion-radio>' +
-        '<ion-radio ng-model="traceServce.range" ng-value="0">전체</ion-radio>',
-        title: '범위',
-        subTitle: '나로부터 범위 내에 있는 메세지를 읽습니다.',
+        '<ion-radio ng-model="traceServce.range" ng-value="0">' +
+        text('all') +
+        '</ion-radio>',
+        title: text('range'),
+        subTitle: text('rangeTipSub'),
         scope: $scope,
         buttons: [
-          {text: '범위 변경', type: 'button-royal'}
+          {text: text('rangeChange'), type: 'button-royal'}
         ]
       });
     };
@@ -34,11 +36,11 @@
     $scope.selectPokemon = function () {
       $scope.popup = $ionicPopup.show({
         templateUrl: 'templates/herepokemon/pokemons.html',
-        title: '이 포켓몬을 발견했어요!',
+        title: text('tipAboutPokemon'),
         cssClass: 'full',
         scope: $scope,
         buttons: [
-          {text: '닫기'}]
+          {text: text("close")}]
       });
     };
 
@@ -47,18 +49,20 @@
     $scope.writeNew = function (pokemon) {
       $scope.pokemon = pokemon;
       if (pokemon)
-        $scope.trace.message = $hangul["을를"](pokemon.name) + " 발견했어요!";
+        $scope.trace.message = text('findTipMessage')(pokemon.name);
       else
         $scope.trace.message = '';
       $scope.popup = $ionicPopup.show({
         templateUrl: 'templates/herepokemon/new.html',
-        title: '메세지 남기기',
+        title: text('writeTip'),
         cssClass: 'wide',
         scope: $scope,
         buttons: [
-          {text: '취소'},
+          {text: text('cancel')},
           {
-            text: '<b>메세지 남기기</b>',
+            text: '<b>' +
+            text('writeTip') +
+            '</b>',
             type: 'button-royal',
             onTap: function () {
               if (!$scope.trace.message)
@@ -84,7 +88,7 @@
 
     $scope.goDetail = function (trace) {
       traceService.trace = trace;
-      $state.go('app.herepokemon.detail', {id: trace.id});
+      $state.go('app.tipDetail', {id: trace.id});
     };
 
 

@@ -21,7 +21,6 @@
     "angular": false,
     "cordova": false,
     "StatusBar": false,
-    "google": true,
     "moment": true,
     "Fingerprint2": true,
     "dcodeIO": true,

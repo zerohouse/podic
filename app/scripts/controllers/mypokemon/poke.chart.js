@@ -1,5 +1,5 @@
 angular.module('Podic.controllers').controller('pokemonChartCtrl', pokemonChartCtrl);
-function pokemonChartCtrl($rootScope, $scope, $timeout) {
+function pokemonChartCtrl($scope, $timeout, $rootScope, text) {
 
   $scope.refresh = function () {
     var typesMap = {};
@@ -60,7 +60,11 @@ function pokemonChartCtrl($rootScope, $scope, $timeout) {
           callbacks: {
             label: function (tooltipItem) {
               var pokemon = pokemonIndexes[tooltipItem.index];
-              return pokemon.nickname || pokemon.pokemon.name + "(" + pokemon.pokemon.eng + ")" + " - " + "종족값:" + pokemon.pokemon.power + ", 개체값:" + pokemon.individual_score;
+              return pokemon.nickname || pokemon.pokemon.name + "(" + pokemon.pokemon.eng + ")" + " - " + "" +
+                text('pokemonPower') +
+                ":" + pokemon.pokemon.power + ", " +
+                text('individualValue') +
+                ":" + pokemon.individual_score;
             }
           }
         }

@@ -1,7 +1,7 @@
 (function () {
   angular.module('Podic.directives').directive('skill', skill);
   /* @ng-inject */
-  function skill() {
+  function skill(text) {
     return {
       restrict: 'E',
       template: '<div class="row">\
@@ -24,14 +24,21 @@
             return PocketMons.attrs[id].name;
           }).join(", ");
           if (attack_strong)
-            template += "<strong>" + attack_strong + "</strong> 포켓몬을 공격시 1.25배의 데미지를 줍니다.<br><br>";
+            template += "<strong>" + attack_strong + "</strong> " +
+              text("strongAttack") +
+              "<br><br>";
           if (attack_weak)
-            template += "<strong>" + attack_weak + "</strong> 포켓몬을 공격시 0.8배의 데미지만 줍니다.<br><br>";
+            template += "<strong>" + attack_weak + "</strong> " +
+              text("weakAttack") +
+              "<br><br>";
           $ionicPopup.show({
             template: template,
-            title: type.name + ' 특성 공격',
+            title: type.name + ' ' +
+            text("typeAttack"),
             buttons: [{
-              text: '<b>확인</b>',
+              text: '<b>' +
+              text("ok") +
+              '</b>',
               type: 'button-royal'
             }]
           });

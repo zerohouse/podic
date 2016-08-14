@@ -1,4 +1,4 @@
-<ion-view view-title="내 포켓몬">
+<ion-view title="내 포켓몬 {{getLength()}}">
   <ion-nav-buttons side="right">
     <button class="button" ng-class="{spin:loading()}" ng-click="refresh()" style="border:none;margin-right:10px">
       <i style="font-size:20px" class="ion-android-refresh"></i>
@@ -13,29 +13,30 @@
   <ion-content id="pokemonlist">
     <div ng-if="!user.id">
       <label class="item">
-        <button class="button button-block button-royal" ng-click="googleLogin()" type="submit">로그인 With Google
+        <button class="button button-block button-royal" ng-click="googleLogin()" type="submit">
+          {{text("loginWithGoogle")}}
         </button>
       </label>
     </div>
 
     <div class="list" ng-if="user.id">
       <a class="item item-thumbnail-left" ui-sref="app.pokemon({id:pokemon.id})"
-         ng-repeat="pokemon in pokemons | filter: order.keyword | orderBy:order.orderBy:order.desc">
+         ng-repeat="pokemon in (filtered = pokemons | filter: order.keyword | orderBy:order.orderBy:order.desc)">
         <img ng-src="{{pokemon.pokemon.img}}">
         <h2 style="margin-bottom: 5px">{{pokemon.nickname}} <span class="small-tail">{{pokemon.pokemon_id}}</span>
           {{pokemon.pokemon.name}}({{pokemon.pokemon.eng}}) <span class="small-tail">{{pokemon.pokemon.rare}}</span>
         </h2>
         <h2 style="margin-bottom: 5px">
-          CP: {{pokemon.cp}} 개체값:
+          CP: {{pokemon.cp}} {{text('individualValue')}}:
           {{pokemon.individual_score||0}}({{pokemon.individual_attack||0}}/{{pokemon.individual_defense||0}}/{{pokemon.individual_stamina||0}})
         </h2>
         <p>
-          MaxCP:{{pokemon.maxTrainerCp||0}}(만렙:{{pokemon.maxCp}}), <span
+          MaxCP:{{pokemon.maxTrainerCp||0}}({{text('maxLevel')}}:{{pokemon.maxCp}}), <span
           ng-repeat="attr in pokemon.pokemon.types">{{attr.name}}<span ng-if="!$last"> | </span></span>
         </p>
         <p>
-          종족값:
-          <small>{{pokemon.pokemon.value[3]}}위</small>
+          {{text('pokemonPower')}}:
+          <small>{{pokemon.pokemon.value[3]}}{{text('rank')}}</small>
           {{pokemon.pokemon.power}}({{pokemon.pokemon.value[0]}}/{{pokemon.pokemon.value[1]}}/{{pokemon.pokemon.value[2]}})
         </p>
       </a>

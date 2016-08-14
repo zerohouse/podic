@@ -15,16 +15,16 @@
       <rzslider rz-slider-model="pokemon.level" rz-slider-options="pokemonOptions"></rzslider>
     </div>
     <div class="slider-wrap">
-      <h5>트레이너 레벨</h5>
+      <h5>{{text('trainerLevel')}}</h5>
       <rzslider rz-slider-model="trainer.level" rz-slider-options="{floor:1, ceil:40, showSelectionBar:true}"></rzslider>
     </div>
     <div class="slider-wrap">
-      <h5>개체치</h5>
-      <small>공격</small>
+      <h5>{{text('individualValue')}}</h5>
+      <small>{{text('attack')}}</small>
       <rzslider rz-slider-model="pokemon.individual_attack" rz-slider-options="options"></rzslider>
-      <small>방어</small>
+      <small>{{text('defense')}}</small>
       <rzslider rz-slider-model="pokemon.individual_defense" rz-slider-options="options"></rzslider>
-      <small>체력</small>
+      <small>{{text('stamina')}}</small>
       <rzslider rz-slider-model="pokemon.individual_stamina" rz-slider-options="options"></rzslider>
     </div>
   </ion-content>

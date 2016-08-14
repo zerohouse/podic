@@ -18,7 +18,6 @@ angular.module('Podic', [
   'Podic.directives',
   'Podic.filters',
   'ionic-toast',
-  'uiGmapgoogle-maps',
   'ngFileUpload',
   'rzModule'
 ])
@@ -31,60 +30,30 @@ angular.module('Podic', [
         templateUrl: 'templates/base/menu.html',
         controller: 'AppCtrl'
       })
-      .state('app.herepokemon', {
-        url: '/herepokemon',
-        abstract: true,
+      .state('app.tips', {
+        url: '/trace',
         views: {
           'menuContent': {
-            templateUrl: 'templates/herepokemon/tabs.html',
-            controller: 'herepokemonCtrl'
-          }
-        }
-      })
-      .state('app.herepokemon.list', {
-        url: '/list',
-        views: {
-          'tab-list': {
-            templateUrl: 'templates/herepokemon/list/list.html'
+            templateUrl: 'templates/herepokemon/list/list.html',
+            controller: 'tipCtrl'
           }
         },
-        onEnter: function ($timeout) {
+        onEnter: function ($timeout, traceService) {
+          traceService.refresh();
           $timeout(function () {
             angular.element(document.querySelector('#list-content')).removeClass('has-footer');
           }, 300);
         }
       })
-      .state('app.herepokemon.detail', {
+      .state('app.tipDetail', {
         url: '/trace/:id',
         views: {
-          'tab-list': {
+          'menuContent': {
             templateUrl: 'templates/herepokemon/detail/detail.html',
             controller: 'traceDetailCtrl'
           }
         }
       })
-      .state('app.herepokemon.map', {
-        url: '/map',
-        views: {
-          'tab-map': {
-            templateUrl: 'templates/herepokemon/map/map.html',
-            controller: 'MapCtrl'
-          }
-        },
-        onEnter: function ($timeout) {
-          $timeout(function () {
-            angular.element(document.querySelector('#map')).scope().map.control.refresh();
-          });
-        }
-      })
-      // .state('app.herepokemon.trainers', {
-      //   url: '/trainers',
-      //   views: {
-      //     'tab-trainers': {
-      //       templateUrl: 'templates/herepokemon/trainers/trainers.html',
-      //     }
-      //   }
-      // })
       .state('app.trainerRank', {
         url: '/trainer/rank',
         views: {
@@ -265,13 +234,6 @@ angular.module('Podic', [
       }
     );
   });
-// angular.module('Podic').config(function (uiGmapGoogleMapApiProvider) {
-//   uiGmapGoogleMapApiProvider.configure({
-//     key: 'AIzaSyD7ZttCvpNxvRV0Pb4EVInaUSSeb419ZhI',
-//     v: '3.exp', //defaults to latest 3.X anyhow
-//     libraries: 'weather,geometry,visualization'
-//   });
-// });
 
 
 angular.module('Podic.services', []);

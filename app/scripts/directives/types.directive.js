@@ -8,7 +8,7 @@
       scope: {
         types: '='
       },
-      controller: function ($scope, $ionicPopup, PocketMons) {
+      controller: function ($scope, $ionicPopup, PocketMons, text) {
         $scope.showPopup = function (type) {
 
           var template = '';
@@ -19,16 +19,23 @@
             return PocketMons.attrs[id].name;
           }).join(", ");
           if (defense_strong)
-            template += "<strong>" + defense_strong + "</strong> 타입 공격을 받으면 0.8배의 데미지만 입습니다.<br><br>";
+            template += "<strong>" + defense_strong + "</strong> " +
+              text('strongDefense')+
+              "<br><br>";
           if (defense_weak)
-            template += "<strong>" + defense_weak + "</strong> 타입 공격을 받으면 1.25배의 데미지를 받습니다.<br><br>";
+            template += "<strong>" + defense_weak + "</strong> " +
+              text('weakDefense')+
+              "<br><br>";
           $ionicPopup.show({
             template: template,
-            title: type.name + ' 특성 상성',
+            title: type.name + ' ' +
+            text('typeEffective'),
             buttons: [
               {
-                text: '<b>확인</b>',
-                type: 'button-royal',
+                text: '<b>' +
+                text('ok')+
+                '</b>',
+                type: 'button-royal'
               }
             ]
           });

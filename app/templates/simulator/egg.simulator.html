@@ -13,22 +13,22 @@
         ng-class="{active:value==5}">5km</a></div>
       <div ng-click="setValue(10)" class="margin-right-20 egg-label inline-block"><img src="images/egg_icon.png"><a
         ng-class="{active:value==10}">10km</a></div>
-      <div ng-show="pokemon" ng-click="reset()" class="egg-label inline-block"><i class="ion-refresh"></i> 다시</div>
-      <div ng-show="pokemon" ui-sref="app.simulator.cp({pokemon:pokemon.id})" class="egg-label inline-block"><i class="ion-arrow-graph-up-right"></i> 강화</div>
+      <div ng-show="pokemon" ng-click="reset()" class="egg-label inline-block"><i class="ion-refresh"></i> {{text('reset')}}</div>
+      <div ng-show="pokemon" ui-sref="app.simulator.cp({pokemon:pokemon.id})" class="egg-label inline-block"><i class="ion-arrow-graph-up-right"></i> {{text('stronger')}}</div>
     </div>
     <div class="eggs text-align-center" style="margin-top:20px;">
       <div ng-show="value==2" class="inline-block">
-        알에서 나오는 포켓몬들<br>
+        {{text('fromEggPokemons')}}<br>
         <img ng-repeat="pokemon in km2Pokemons"
              ng-src="{{pokemon.img}}">
       </div>
       <div ng-show="value==5" class="inline-block">
-        2KM 포켓몬들 그리고 +<br>
+        {{text('twoKmAnd')}}<br>
         <img ng-repeat="pokemon in km5Pokemons" ng-show="value>4"
              ng-src="{{pokemon.img}}">
       </div>
       <div ng-show="value==10" class="inline-block">
-        5KM 포켓몬들 그리고 +<br>
+        {{text('fiveKmAnd')}}<br>
         <img ng-repeat="pokemon in km10Pokemons" ng-show="value>9"
              ng-src="{{pokemon.img}}">
       </div>

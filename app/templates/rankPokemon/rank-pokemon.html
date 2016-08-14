@@ -12,22 +12,21 @@
   </ion-nav-buttons>
   <ion-content>
     <label class="item">
-      <small>포켓몬 순위는 CP값 기준입니다.</small>
+      <small>{{text('pokemonRankIsOrderByCp')}}</small>
     </label>
 
     <div class="list">
       <div class="item item-thumbnail-left" ng-click="ifSelectThenMoveOrSelect(pokemon)"
            ng-repeat="pokemon in pokemonRankService.rankers">
         <img ng-src="{{pokemon.pokemon.img}}">
-        <h2>{{$index +1}}위 {{pokemon.pokemon.name}} <span ng-if="pokemon.nickname">({{pokemon.nickname}})</span></h2>
+        <h2>{{$index +1}}{{text('rank')}} {{pokemon.pokemon.name}} <span ng-if="pokemon.nickname">({{pokemon.nickname}})</span></h2>
         <p>
           CP: {{pokemon.cp}}
         </p>
         <p>
-          개체값: {{pokemon.individual_score||0}}({{pokemon.individual_attack||0}}/{{pokemon.individual_defense||0}}/{{pokemon.individual_stamina||0}})
+          {{text('individualValue')}}: {{pokemon.individual_score||0}}({{pokemon.individual_attack||0}}/{{pokemon.individual_defense||0}}/{{pokemon.individual_stamina||0}})
         </p>
-        <p ng-if="pokemon.owner.nickname"> {{pokemon.owner.nickname}}<span ng-if="pokemon.owner.rank">({{pokemon.owner.rank}}위)</span>님의
-          포켓몬 </p>
+        <p ng-if="pokemon.owner.nickname"> {{pokemon.owner.nickname}}<span ng-if="pokemon.owner.rank">({{pokemon.owner.rank}}{{text('rank')}})</span>{{text('onesPokemon')}} </p>
       </div>
     </div>
     <ion-infinite-scroll ng-if="!pokemonRankService.end" on-infinite="more();"></ion-infinite-scroll>

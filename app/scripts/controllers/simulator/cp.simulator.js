@@ -1,7 +1,7 @@
 (function () {
   angular.module('Podic.controllers').controller('cpSimulator', cpSimulator);
   /* @ng-inject */
-  function cpSimulator($scope, PocketMons, cpCal, $ionicPopup, $rootScope, $stateParams) {
+  function cpSimulator($scope, PocketMons, cpCal, $ionicPopup, $rootScope, $stateParams, text) {
 
     $scope.pokemons = PocketMons.all();
 
@@ -62,11 +62,11 @@
     $scope.selectPokemon = function () {
       $scope.popup = $ionicPopup.show({
         templateUrl: 'templates/herepokemon/pokemons.html',
-        title: '이 포켓몬을 발견했어요!',
+        title: text('selectPokemon'),
         cssClass: 'full',
         scope: $scope,
         buttons: [
-          {text: '닫기'}]
+          {text: text('close')}]
       });
     };
 

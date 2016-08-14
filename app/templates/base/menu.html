@@ -18,39 +18,39 @@
     </ion-header-bar>
     <ion-content>
       <ion-list>
+        <ion-item menu-close ng-click="login()" ng-if="!user.id">
+          {{text("login")}}
+        </ion-item>
         <ion-item ng-if="user.id">
           <div class="profile" menu-close ui-sref="app.mypage">
             <img ng-src="{{user.img || user.userInfo.picture || 'images/profile.png'}}">
             <div>
-              <div>{{user.nickname || user.userInfo.name}}<i class="ion-edit small-tail"></i> <span ng-if="user.rank">({{user.rank}}위)</span>
+              <div>{{user.nickname || user.userInfo.name}}<i class="ion-edit small-tail"></i> <span ng-if="user.rank">({{user.rank}}{{text("rank")}}) <change change="user.change"></change></span>
               </div>
               <small>{{user.userInfo.email}}</small>
             </div>
           </div>
         </ion-item>
         <ion-item menu-close ui-sref="app.simulator.egg">
-          <i class="ion-play"></i> <text value="simulator"></text>
-        </ion-item>
-        <ion-item menu-close ui-sref="app.herepokemon.list" ng-if="user.id">
-          <text value="herePokemon"></text>
+          <i class="ion-play"></i> {{text("simulator")}}
         </ion-item>
         <ion-item menu-close ui-sref="app.pokemons" ng-if="user.id">
-          <text value="myPokemon"></text>
+          {{text("myPokemon")}}
         </ion-item>
         <ion-item menu-close ui-sref="app.pokemonDesc">
-          <text value="pokemonDic"></text>
+          {{text("pokemonDic")}}
         </ion-item>
         <ion-item menu-close ui-sref="app.pokemonRank">
-          <text value="pokemonRank"></text>
+          {{text("pokemonRank")}}
         </ion-item>
         <ion-item menu-close ui-sref="app.trainerRank">
-          <text value="trainerRank"></text>
+          {{text("trainerRank")}}
+        </ion-item>
+        <ion-item menu-close ui-sref="app.tips" ng-if="user.id">
+          {{text("tips")}}
         </ion-item>
         <ion-item menu-close ng-click="logout()" ng-if="user.id">
-          <text value="logout"></text>
-        </ion-item>
-        <ion-item menu-close ng-click="login()" ng-if="!user.id">
-          <text value="login"></text>
+          {{text("logout")}}
         </ion-item>
       </ion-list>
     </ion-content>

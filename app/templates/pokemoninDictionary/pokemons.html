@@ -15,11 +15,11 @@
         <img ng-src="{{pokemon.img}}">
         <h2><span class="small-tail">{{pokemon.id}}</span> {{pokemon.name}} ({{pokemon.eng}})</h2>
         <p>
-          순위: {{pokemon.value[3]}}/151<br>
-          종족값: {{pokemon.power}}
+          {{text('Rank')}}: {{pokemon.value[3]}}/151<br>
+          {{text('pokemonPower')}}: {{pokemon.power}}
         </p>
         <p>
-          희귀도: {{pokemon.rare}}
+          {{text('rare')}}: {{pokemon.rare}}
         </p>
         <p>
           <span ng-repeat="type in pokemon.types">{{type.name}}<span ng-if="!$last">, </span></span>

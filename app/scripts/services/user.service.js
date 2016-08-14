@@ -1,6 +1,6 @@
 angular.module('Podic.services').service('userService', userService);
 /* @ng-inject */
-function userService($ajax, $cordovaDevice, $ionicPlatform, $cordovaGeolocation, $q, $rootScope, db, ionicToast) {
+function userService($ajax, $cordovaDevice, $ionicPlatform, $cordovaGeolocation, $q, $rootScope, db, ionicToast, text) {
 
   var user = 'user';
   var self = this;
@@ -47,7 +47,7 @@ function userService($ajax, $cordovaDevice, $ionicPlatform, $cordovaGeolocation,
     $ajax.put('/api/v1/user', user, true).then(function (user) {
       angular.copy(user, self.user);
       db.set(user, self.user);
-      ionicToast.show('정보를 수정했습니다.', 'bottom', false, 3000);
+      ionicToast.show(text('userModfied'), 'bottom', false, 3000);
     });
   };
 

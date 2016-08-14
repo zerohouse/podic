@@ -1,7 +1,7 @@
 (function () {
   angular.module('Podic.controllers').controller('eggCtrl', eggCtrl);
   /* @ng-inject */
-  function eggCtrl($scope, $timeout, PocketMons, $hangul, ionicToast) {
+  function eggCtrl($scope, $timeout, PocketMons, $rootScope, ionicToast, text) {
     var km2 = [1, 4, 7, 10, 13, 16, 19, 21, 25, 35, 74, 129];
     var km5 = [23, 27, 39, 43, 46, 48, 50, 52, 54, 56, 58, 60, 63, 66, 69, 72, 77, 79, 81, 84, 86, 88, 90, 92, 96, 98, 100, 102, 104, 108, 109, 111, 114, 115, 116, 118, 120, 128, 137];
     var km10 = [95, 106, 107, 113, 122, 123, 124, 125, 126, 127, 131, 133, 138, 140, 142, 143, 147];
@@ -76,8 +76,9 @@
         }
         $scope.pokemon = pokemons.random();
         $timeout(function () {
+          egg.removeClass('animated shake tada');
           pokemonEl.removeClass("animated bounceInUp");
-          ionicToast.alert("알에서 " + $hangul["이가"]($scope.pokemon.name) + " 나왔습니다.");
+          ionicToast.alert(text('pokemonHatched')($scope.pokemon.name));
         }, 500);
       }, 200);
     }

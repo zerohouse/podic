@@ -10,7 +10,7 @@
         replies: '=',
         title: '='
       },
-      controller: function ($scope, confirm, ionicToast, $ajax, userService, $timeout) {
+      controller: function ($scope, confirm, ionicToast, $ajax, userService, $timeout, text) {
 
         $scope.isRootUser = function () {
           return $scope.reply.user.id === userService.user.id;
@@ -22,11 +22,9 @@
         };
 
         $scope.delete = function () {
-          confirm($scope.title +
-            "을 삭제하시겠습니까?", "삭제확인").then(function () {
+          confirm(text('deleteMessageByName')($scope.title), text("deleteConfirm")).then(function () {
             $ajax.delete('/api/v1/reply', {id: $scope.reply.id}).then(function () {
-              ionicToast.alert($scope.title +
-                "이 삭제되었습니다.");
+              ionicToast.alert(text('deleteDoneMessageByName')($scope.title));
               $scope.replies.remove($scope.reply);
             });
           });
@@ -45,16 +43,14 @@
                 reply.new = false;
               });
               $scope.reply.new = true;
-              ionicToast.alert($scope.title +
-                "이 작성되었습니다.");
+              ionicToast.alert(text('messageWroteByName')($scope.title));
               $scope.reply.modify = false;
               $timeout(function () {
                 angular.copy(reply, $scope.reply);
               });
               return;
             }
-            ionicToast.alert($scope.title +
-              "이 수정되었습니다.");
+            ionicToast.alert(text('messageModByName')($scope.title));
             angular.copy(reply, $scope.reply);
             $scope.reply.modify = false;
           })
@@ -77,7 +73,7 @@
           $scope.reply.new = true;
           $scope.replies.pushInto($scope.replies.indexOf($scope.reply) + 1, {
             modify: true,
-            mode: "답글 달기",
+            mode: text('writeReReply'),
             parentId: $scope.reply.id,
             type: $scope.reply.type,
             user: userService.user

@@ -1,8 +1,9 @@
-<ion-view view-title="여기 포켓몬!">
+<ion-view view-title="포켓몬 팁">
   <ion-nav-buttons side="right">
     <button class="button" ng-click="range()"
             style="border:none;margin-right:10px">
-      {{traceServce.range}}KM
+      <span ng-if="traceServce.range">{{traceServce.range}}KM</span>
+      <span>{{text('all')}}</span>
     </button>
     <button class="button" ng-class="{spin:rankerService.loading}" ng-click="traceServce.refresh()"
             style="border:none;margin-right:10px">
@@ -11,21 +12,20 @@
   </ion-nav-buttons>
   <ion-content id="list-content">
     <div class="list card padding" style="text-align: center" ng-if="!traceServce.traces || traceServce.traces.length==0">
-      여기에 남겨진 메세지가 없습니다.<br>
-      첫번째로 메세지를 남겨주세요.
+      <span ng-bind-html="text('thereIsNoTip')"></span>
     </div>
     <div class="list card" ng-repeat="trace in traceServce.traces" ng-click="goDetail(trace)">
       <div class="item item-avatar">
         <img ng-src="{{trace.user.img || 'images/profile.png'}}">
-        <h2>{{trace.user.nickname || '익명의 트레이너'}}<span ng-if="trace.user.cp">(CP: {{trace.user.cp}})</span></h2>
-        <p>약 {{getDistance(trace)}}km 거리에서 {{trace.updatedAt | ymd}}</p>
+        <h2>{{trace.user.nickname || text('anonymousPlayer')}}<span ng-if="trace.user.cp">(CP: {{trace.user.cp}})</span></h2>
+        <p>약 {{getDistance(trace)}}km {{text('fromDistance')}} {{trace.updatedAt | ymd}}</p>
       </div>
 
       <div style="border-top:none;" class="item item-body">
         <p style="margin-top:0" ng-bind-html="trace.message.newLine()"></p>
         <p>
           <!--<a class="subdued">1 Like</a>-->
-          <a class="subdued">댓글 {{trace.comments || 0}}</a>
+          <a class="subdued">{{text('reply')}} {{trace.comments || 0}}</a>
           <!--<a class="subdued"></a>-->
         </p>
       </div>

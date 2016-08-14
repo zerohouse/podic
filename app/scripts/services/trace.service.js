@@ -1,7 +1,7 @@
 (function () {
   angular.module('Podic.services').service('traceService', traceService);
   /* @ng-inject */
-  function traceService($ajax, PocketMons, $cordovaGeolocation, ionicToast, userService) {
+  function traceService($ajax, PocketMons, $cordovaGeolocation, ionicToast, userService, text) {
 
     var self = this;
 
@@ -9,26 +9,8 @@
 
     self.range = 10;
 
-    function getImage(pocketmon) {
-      if (pocketmon)
-        return {
-          url: pocketmon.img,
-          size: new google.maps.Size(60, 60),
-          scaledSize: new google.maps.Size(60, 60),
-          origin: new google.maps.Point(0, 0),
-          anchor: new google.maps.Point(30, 30)
-        };
-      return {
-        url: 'images/tip.png',
-        size: new google.maps.Size(30, 20),
-        scaledSize: new google.maps.Size(30, 20),
-        origin: new google.maps.Point(0, 0),
-        anchor: new google.maps.Point(15, 10)
-      };
-    }
-
     self.page = 0;
-    var km = 10 / 88;
+    var km = 10 / 880;
     this.refresh = function () {
       if (!userService.user.lat)
         userService.user.lat = 38;
@@ -48,11 +30,6 @@
             return;
           self.traces.push(trace);
           trace.pokemon = PocketMons.get(trace.pokemonId);
-          var opacity = 1 - (new Date().getTime() - trace.createdAt) / 60 / 60 / 1000;
-          if (opacity < 0.5)
-            opacity = 0.5;
-          trace.options = {icon: getImage(trace.pokemon), opacity: opacity};
-          trace.position = {latitude: trace.lat, longitude: trace.lng};
         });
       });
     };
@@ -79,11 +56,9 @@
           if (response.pokemonId) {
             response.pokemon = PocketMons.get(response.pokemonId);
           }
-          response.options = {icon: getImage(response.pokemon)};
-          response.position = {latitude: response.lat, longitude: response.lng};
           self.traces.unshift(response);
           trace.message = '';
-          ionicToast.show("메세지를 남겼습니다.", 'bottom', false, 3000);
+          ionicToast.show(text("writeTipDone"), 'bottom', false, 3000);
         });
       }
     };

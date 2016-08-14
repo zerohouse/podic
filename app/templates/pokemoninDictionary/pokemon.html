@@ -9,33 +9,33 @@
       <div class="item item-text-wrap" style="margin-top:-10px;border-top:none;">
         <div class="row">
           <div class="col">
-            <div class="small-title">특성</div>
+            <div class="small-title">{{text('type')}}</div>
             <types types="pokemondic.types"></types>
           </div>
           <div class="col">
-            <div class="small-title">희귀도</div>
+            <div class="small-title">{{text('rare')}}</div>
             {{pokemondic.rare}}
           </div>
           <div class="col">
-            <div class="small-title">종족값 순위</div>
+            <div class="small-title">{{text('pokemonPowerRank')}}</div>
             {{pokemondic.value[3]}}위
           </div>
         </div>
         <div class="row" style="margin-top:10px;">
           <div class="col">
-            <div class="small-title">종족값</div>
+            <div class="small-title">{{text('pokemonPower')}}</div>
             {{pokemondic.power}}
           </div>
           <div class="col">
-            <div class="small-title">공격</div>
+            <div class="small-title">{{text('attack')}}</div>
             {{pokemondic.value[0]}}
           </div>
           <div class="col">
-            <div class="small-title">방어</div>
+            <div class="small-title">{{text('defense')}}</div>
             {{pokemondic.value[1]}}
           </div>
           <div class="col">
-            <div class="small-title">체력</div>
+            <div class="small-title">{{text('stamina')}}</div>
             {{pokemondic.value[2]}}
           </div>
         </div>
@@ -43,7 +43,7 @@
           <div class="col">
               <span class="button button-balanced"
                     ui-sref="app.simulator.cp({pokemon:pokemon.id})">
-                <i class="ion-arrow-graph-up-right"></i> 강화 시뮬레이션
+                <i class="ion-arrow-graph-up-right"></i> {{text('cpSimulation')}}
               </span>
           </div>
         </div>
@@ -52,16 +52,16 @@
 
     <div class="card poke-card">
       <div class="item item-divider">
-        <i class="ion-ios-paw"></i> 습득 가능한 공격 기술
+        <i class="ion-ios-paw"></i> {{text('attackSkills')}}
       </div>
       <div class="item item-text-wrap skills">
         <div class="row header">
-          <div class="col" style="min-width: 100px">이름</div>
-          <div class="col">타입</div>
-          <div class="col">공격력</div>
-          <div class="col">쿨다운</div>
-          <div class="col">DPS</div>
-          <div class="col">에너지</div>
+          <div class="col" style="min-width: 100px">{{text('name')}}</div>
+          <div class="col">{{text('type')}}</div>
+          <div class="col">{{text('damage')}}</div>
+          <div class="col">{{text('cooldown')}}</div>
+          <div class="col">{{text('dps')}}</div>
+          <div class="col">{{text('energy')}}</div>
         </div>
         <skill skill="skill" ng-repeat="skill in pokemondic.attacks"></skill>
         <skill skill="skill" ng-repeat="skill in pokemondic.skills">
@@ -73,30 +73,30 @@
     <div class="card poke-card" ng-if="pokemondic.data">
       <div class="item item-divider">
         <i class="ion-stats-bars"></i>
-        포켓몬 관련 통계
+        {{text('pokemonStatistics')}}
       </div>
       <div class="item item-text-wrap" style="border-bottom: none;;">
         <div class="row">
           <div class="col">
-            <div class="small-title">비율(전체 포켓몬 중</div>
+            <div class="small-title">{{text('ratioInAllPokemon')}}</div>
             {{pokemondic.data.percent * 100 | number:2}}%
 
           </div>
           <div class="col">
-            <div class="small-title">현재 1위 CP</div>
+            <div class="small-title">{{text('averageCP')}}</div>
+            {{pokemondic.data.avargeCp}}
+          </div>
+          <div class="col">
+            <div class="small-title">{{text('now1stPlaceCp')}}</div>
             {{pokemondic.data.maxCp}}
           </div>
         </div>
       </div>
-      <!--<div class="padding" style="margin-top:-10px;">-->
-        <!--<h5>기술 비율</h5>-->
-        <!--<canvas poke-skills data="pokemondic.data.skills"></canvas>-->
-      <!--</div>-->
     </div>
 
     <div class="card" ng-if="pokemondic.desc">
       <div class="item item-divider">
-        <i class="ion-leaf"></i> 이야기
+        <i class="ion-leaf"></i> {{text('story')}}
       </div>
       <div class="item item-text-wrap story">
         <div>

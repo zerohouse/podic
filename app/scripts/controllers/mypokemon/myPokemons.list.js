@@ -1,10 +1,15 @@
 angular.module('Podic.controllers').controller('pokemonsCtrl', pokemonsCtrl);
 /* @ng-inject */
-function pokemonsCtrl($scope, pokemonService, $ionicPopup, PokemonRequest) {
+function pokemonsCtrl($scope, pokemonService, $ionicPopup, PokemonRequest, text) {
   $scope.refresh = pokemonService.refresh;
 
   $scope.loading = function () {
     return pokemonService.loading;
+  };
+
+  $scope.getLength = function () {
+    if ($scope.filtered && $scope.filtered.length)
+      return "(" + $scope.filtered.length + ")";
   };
 
   $scope.order = {orderBy: 'creation_time_ms', desc: true};
@@ -13,33 +18,50 @@ function pokemonsCtrl($scope, pokemonService, $ionicPopup, PokemonRequest) {
     $ionicPopup.show({
       template: '' +
       '<input type="text" ng-model="order.keyword">',
-      title: '검색',
+      title: text('search'),
       scope: $scope,
       buttons: [
-        {text: '검색', type: 'button-royal'}
+        {text: text('search'), type: 'button-royal'}
       ]
     });
   };
 
   $scope.align = function () {
     $ionicPopup.show({
-      template: '<ion-toggle ng-model="order.desc" toggle-class="toggle-calm"><span ng-show="order.desc">내림</span><span ng-show="!order.desc">오름</span>차순</ion-toggle>' +
-      '<ion-radio ng-model="order.orderBy" ng-value="\'creation_time_ms\'">날짜 순</ion-radio>' +
-      '<ion-radio ng-model="order.orderBy" ng-value="\'cp\'">CP 순</ion-radio>' +
-      '<ion-radio ng-model="order.orderBy" ng-value="\'individual_score\'">개체값 순</ion-radio>' +
-      '<ion-radio ng-model="order.orderBy" ng-value="\'pokemon_id\'">도감 번호 순</ion-radio>' +
-      '<ion-radio ng-model="order.orderBy" ng-value="\'pokemon.rarity\'">희귀도 순</ion-radio>' +
-      '<ion-radio ng-model="order.orderBy" ng-value="\'pokemon.power\'">종족값 순</ion-radio>',
-      title: '정렬',
+      template: '<ion-toggle ng-model="order.desc" toggle-class="toggle-calm"><span ng-show="order.desc">' +
+      text('desc') +
+      '</span><span ng-show="!order.desc">' +
+      text('asc') +
+      '</span>' +
+      '</ion-toggle>' +
+      '<ion-radio ng-model="order.orderBy" ng-value="\'creation_time_ms\'">' +
+      text('orderDate') +
+      '</ion-radio>' +
+      '<ion-radio ng-model="order.orderBy" ng-value="\'cp\'">' +
+      text('orderCp') +
+      '</ion-radio>' +
+      '<ion-radio ng-model="order.orderBy" ng-value="\'individual_score\'">' +
+      text('orderIndividualValue') +
+      '</ion-radio>' +
+      '<ion-radio ng-model="order.orderBy" ng-value="\'pokemon_id\'">' +
+      text('orderPodex') +
+      '</ion-radio>' +
+      '<ion-radio ng-model="order.orderBy" ng-value="\'pokemon.rarity\'">' +
+      text('orderRare') +
+      '</ion-radio>' +
+      '<ion-radio ng-model="order.orderBy" ng-value="\'pokemon.power\'">' +
+      text('orderPokemonPower') +
+      '</ion-radio>',
+      title: text('align'),
       scope: $scope,
       buttons: [
-        {text: '정렬', type: 'button-royal'}
+        {text: text('align'), type: 'button-royal'}
       ]
     });
   };
 
   $scope.getMessage = function () {
-    return PokemonRequest.state || "포켓몬을 불러오는 중입니다.";
+    return PokemonRequest.state || text('loadingPokemon');
   };
 
 

@@ -1,6 +1,6 @@
 <div style="text-align: center">
   <button class="button button-large button-royal" ng-click="select()">
-    전체
+    {{text('all')}}
   </button>
   <img ng-click="select(pokemon)" style="width:25%" ng-src="{{pokemon.img}}" ng-if="pokemon.id"
        ng-repeat="pokemon in pokemons">

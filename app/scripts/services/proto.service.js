@@ -1,7 +1,4 @@
 (function () {
-
-
-
   var protoString =
     "message RequestEnvelop {\n"+
     "  required int32 unknown1 = 1;\n"+

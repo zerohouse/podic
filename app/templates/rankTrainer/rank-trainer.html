@@ -8,15 +8,12 @@
   <ion-content>
     <div>
       <label class="item">
-        <small>상위 6마리의 CP합 기준입니다.</small>
+        <small>{{text('trainerOrderBy6Cp')}}</small>
       </label>
     </div>
 
     <div class="list">
      <user-summary user="ranker" ng-repeat="ranker in rankerService.rankers"></user-summary>
-      <!--<div class="item" ng-if="!rankerService.end" ng-click="rankerService.more()">-->
-        <!--<h2 style="margin-top:12px">더보기</h2>-->
-      <!--</div>-->
     </div>
     <ion-infinite-scroll ng-if="!rankerService.end" on-infinite="more();"></ion-infinite-scroll>
   </ion-content>

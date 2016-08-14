@@ -1,6 +1,6 @@
 angular.module('Podic.controllers').controller('pokemonRankCtrl', pokemonRankCtrl);
 /* @ng-inject */
-function pokemonRankCtrl(pokemonRankService, $scope, $ionicPopup, PocketMons, $state) {
+function pokemonRankCtrl(pokemonRankService, $scope, $ionicPopup, PocketMons, $state, text) {
   $scope.pokemons = PocketMons.all();
   $scope.pokemonRankService = pokemonRankService;
   $scope.refresh = pokemonRankService.reset;
@@ -9,7 +9,7 @@ function pokemonRankCtrl(pokemonRankService, $scope, $ionicPopup, PocketMons, $s
     $scope.data = {};
     $scope.popup = $ionicPopup.show({
       templateUrl: 'templates/rankPokemon/pokemons.html',
-      title: '이 포켓몬들의 순위가 궁금해요!',
+      title: text('wonderPokemonsRank'),
       cssClass: 'full',
       scope: $scope
     });

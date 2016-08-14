@@ -1,7 +1,7 @@
 (function () {
   angular.module('Podic.directives').controller('repliesCtrl', repliesCtrl);
   /* @ng-inject */
-  function repliesCtrl($scope, $ajax, ionicToast) {
+  function repliesCtrl($scope, $ajax, ionicToast, text) {
 
     $scope.getReplies = function () {
       if ($scope.repliesId === undefined)
@@ -33,7 +33,7 @@
     $scope.reply = {};
 
     if (!$scope.title)
-      $scope.title = "댓글";
+      $scope.title = text("reply");
 
     $scope.done = function () {
       if (!$scope.reply.text)
@@ -43,7 +43,7 @@
       params.text = $scope.reply.text;
       params.id = $scope.reply.id;
       $ajax.post('/api/v1/reply', params, true).then(function (reply) {
-        ionicToast.alert("댓글이 작성되었습니다.");
+        ionicToast.alert(text('messageWroteByName')($scope.title));
         $scope.replies.forEach(function (reply) {
           reply.new = false;
         });

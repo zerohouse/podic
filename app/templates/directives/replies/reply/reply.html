@@ -1,7 +1,7 @@
 <div ng-class="{nested:reply.parentId, new:reply.new}" ng-if="!reply.modify">
   <div>
     <div style="padding:5px">
-      {{reply.user.nickname||'익명의 트레이너'}}(CP:{{reply.user.cp}})
+      {{reply.user.nickname||text('anonymousPlayer')}}(CP:{{reply.user.cp}})
       <span class="time">{{reply.updatedAt  | ymd}}</span>
       <span class="small-tail" style="float:right">
                 <span ng-click="modifying()" ng-if="isRootUser()">수정</span>
