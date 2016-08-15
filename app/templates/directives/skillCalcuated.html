@@ -1,6 +1,6 @@
 <div style="margin-top:20px">{{skill.name}}<br>
   <type class='small-title' no-help='true' type='skill.type'></type>
-  <i ng-click='stabBonus();$event.stopPropagation()' ng-if='skill.stabBonus' class='ion-flash'></i>
+  <i ng-click='stabBonus();$event.stopPropagation()' ng-if='skill.stabBonus==1.25' class='ion-flash'></i>
   <i ng-click='bonus(skill.typeEffectiveness[$index]);$event.stopPropagation()'
      ng-class="{'ion-ios-arrow-up':skill.typeEffectiveness[$index]>1,'ion-ios-arrow-down':skill.typeEffectiveness[$index]<=1}"
      ng-repeat='ef in skill.typeEffectiveness.length.toArray()'></i></div>

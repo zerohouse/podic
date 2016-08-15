@@ -1,7 +1,7 @@
 (function () {
   angular.module('Podic.controllers').controller('attackSimulateCtrl', attackSimulateCtrl);
   /* @ng-inject */
-  function attackSimulateCtrl($scope, PocketMons, cpCal, text, $ionicPopup, $rootScope, $interval, $stateParams) {
+  function attackSimulateCtrl($scope, PocketMons, cpCal, text, $ionicPopup, $rootScope, $interval, $stateParams, $ionicModal, userService) {
 
     var trainerLevel = $rootScope.playerStatus ? $rootScope.playerStatus.level : 10;
     $scope.trainer = {level: trainerLevel};
@@ -34,17 +34,24 @@
       }
       if ($stateParams.pokemon_id) {
         var pokemon = $rootScope.pokemons.findById(parseInt($stateParams.pokemon_id));
-        $scope.left.individual_attack = pokemon.individual_attack;
-        $scope.left.individual_defense = pokemon.individual_defense;
-        $scope.left.individual_stamina = pokemon.individual_stamina;
-        $scope.left.level = cpCal.getLevel(pokemon);
-        $scope.left.pokemon = pokemon.pokemon;
-        $scope.left.nickname = pokemon.nickname;
-        $scope.left.move_1 = pokemon.move_1;
-        $scope.left.move_2 = pokemon.move_2;
-        $scope.simulate();
+        setUserPokemon(pokemon);
       }
     });
+
+    function setUserPokemon(pokemon, where) {
+      var set = where;
+      if (!set)
+        set = $scope.left;
+      set.individual_attack = pokemon.individual_attack;
+      set.individual_defense = pokemon.individual_defense;
+      set.individual_stamina = pokemon.individual_stamina;
+      set.level = cpCal.getLevel(pokemon);
+      set.pokemon = pokemon.pokemon;
+      set.nickname = pokemon.nickname;
+      set.move_1 = pokemon.move_1;
+      set.move_2 = pokemon.move_2;
+      $scope.simulate();
+    }
 
     function stop() {
       $interval.cancel($scope.interval);
@@ -150,18 +157,46 @@
       this.message = message;
     }
 
-
     $scope.selectPokemon = function (pokemon) {
       var scope = $scope.$new();
       scope.pokemon = pokemon;
       scope.pokemons = PocketMons.all();
+      var buttons = [{text: pokemon.pokemon.name + text('keep'), type: 'button-dark'}];
+      if(userService.user.id)
+        buttons.unshift({
+          text: text('selectInMyPokemons'),
+          type: 'button-royal',
+          onTap: function () {
+            var scope = $scope.$new();
+            scope.pokemons = $rootScope.pokemons;
+            $ionicModal.fromTemplateUrl('templates/simulator/mypokemons.html', {
+              scope: scope,
+              animation: 'slide-in-up'
+            }).then(function (modal) {
+              scope.modal = modal;
+              scope.modal.show();
+              scope.order = {orderBy: 'creation_time_ms', desc: true};
+              scope.keyword = '';
+              scope.search = function () {
+                $ionicPopup.searchPopup(scope);
+              };
+              scope.align = function () {
+                $ionicPopup.alignPopup(scope);
+              };
+              scope.selectPokemon = function (p) {
+                setUserPokemon(p, pokemon);
+                scope.modal.hide();
+              };
+            });
+
+            // $scope.modal.hide();
+          }
+        });
       var popup = $ionicPopup.show({
         templateUrl: 'templates/simulator/pokemonadjust.html',
         title: text('pokemonAdjust'),
         scope: scope,
-        buttons: [
-          {text: pokemon.pokemon.name + text('keep'), type: 'button-royal'}
-        ]
+        buttons: buttons
       });
       scope.select = function (p) {
         pokemon.pokemon = p;

@@ -127,7 +127,7 @@ gulp.task('scripts', function () {
     .pipe(plugins.if(build, plugins.ngAnnotate()))
     .pipe(plugins.if(stripDebug, plugins.stripDebug()))
     .pipe(plugins.if(build, plugins.concat('app.js')))
-    // .pipe(plugins.if(build, plugins.uglify()))
+    .pipe(plugins.if(build, plugins.uglify()))
     .pipe(plugins.if(build && !emulate, plugins.rev()))
 
     .pipe(gulp.dest(dest))
@@ -190,7 +190,7 @@ gulp.task('vendor', function () {
 
   return gulp.src(vendorFiles)
     .pipe(plugins.concat('vendor.js'))
-    // .pipe(plugins.if(build, plugins.uglify()))
+    .pipe(plugins.if(build, plugins.uglify()))
     .pipe(plugins.if(build, plugins.rev()))
 
     .pipe(gulp.dest(targetDir))

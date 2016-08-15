@@ -24,7 +24,7 @@
          ng-repeat="pokemon in (filtered = pokemons | filter: order.keyword | orderBy:order.orderBy:order.desc)">
         <img ng-src="{{pokemon.pokemon.img}}">
         <h2 style="margin-bottom: 5px">{{pokemon.nickname}} <span class="small-tail">{{pokemon.pokemon_id}}</span>
-          {{pokemon.pokemon.name}}({{pokemon.pokemon.eng}}) <span class="small-tail">{{pokemon.pokemon.rare}}</span>
+          <localnamer value="pokemon.pokemon"></localnamer> <span class="small-tail">{{pokemon.pokemon.rare}}</span>
         </h2>
         <h2 style="margin-bottom: 5px">
           CP: {{pokemon.cp}} {{text('individualValue')}}:

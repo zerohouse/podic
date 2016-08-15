@@ -12,7 +12,7 @@
 
       <div style="text-align: center" class="item item-body" ng-if="traceService.trace.pokemon">
         <img ng-src="{{traceService.trace.pokemon.img}}"><br>
-        {{traceService.trace.pokemon.name}}({{traceService.trace.pokemon.eng}})
+        <localnamer value="traceService.trace.pokemon"></localnamer>
       </div>
 
       <div class="item item-body">

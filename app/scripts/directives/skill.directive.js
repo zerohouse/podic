@@ -1,11 +1,11 @@
 (function () {
   angular.module('Podic.directives').directive('skill', skill);
   /* @ng-inject */
-  function skill(text) {
+  function skill() {
     return {
       restrict: 'E',
       template: '<div class="row">\
-                    <div class="col" style="min-width: 100px">{{skill.name}}<br>{{skill.eng}}</div>\
+                    <div class="col" style="min-width: 100px"><span>{{skill.name}}</span><span ng-if="showEng"><br>{{skill.en}}</span></div>\
                     <div class="col" ng-click="showPopup(skill.type)">{{skill.type.name}}<i class="ion-ios-help-outline" style="font-size:13px"></i></div>\
                     <div class="col">{{skill.attack}}</div>\
                     <div class="col">{{skill.cooldown}}</div>\
@@ -14,7 +14,8 @@
                  </div>\
                  ',
       scope: {skill: '='},
-      controller: function ($scope, PocketMons, $ionicPopup) {
+      controller: function ($scope, PocketMons, $ionicPopup, text) {
+        $scope.showEng = text.showEng;
         $scope.showPopup = function (type) {
           var template = '';
           var attack_strong = type.attack.strong.map(function (id) {

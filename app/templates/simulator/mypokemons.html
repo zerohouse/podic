@@ -1,0 +1,43 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">
+      {{text("selectInMyPokemons")}}
+    </h1>
+    <div class="buttons">
+      <button class="button" ng-click="search()" style="border:none;margin-right:10px">
+        <i style="font-size:20px" class="ion-android-search"></i>
+      </button>
+      <button class="button" ng-click="align()" style="border:none">
+        <i style="font-size:20px" class="ion-android-funnel"></i>
+      </button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <div class="list">
+      <a class="item item-thumbnail-left" ng-click="selectPokemon(pokemon)"
+         ng-repeat="pokemon in (filtered = pokemons | filter: order.keyword | orderBy:order.orderBy:order.desc)">
+        <img ng-src="{{pokemon.pokemon.img}}">
+        <h2 style="margin-bottom: 5px">{{pokemon.nickname}} <span class="small-tail">{{pokemon.pokemon_id}}</span>
+          <localnamer value="pokemon.pokemon"></localnamer> <span class="small-tail">{{pokemon.pokemon.rare}}</span>
+        </h2>
+        <h2 style="margin-bottom: 5px">
+          CP: {{pokemon.cp}} {{text('individualValue')}}:
+          {{pokemon.individual_score||0}}({{pokemon.individual_attack||0}}/{{pokemon.individual_defense||0}}/{{pokemon.individual_stamina||0}})
+        </h2>
+        <p>
+          MaxCP:{{pokemon.maxTrainerCp||0}}({{text('maxLevel')}}:{{pokemon.maxCp}}), <span
+          ng-repeat="attr in pokemon.pokemon.types">{{attr.name}}<span ng-if="!$last"> | </span></span>
+        </p>
+        <p>
+          {{text('pokemonPower')}}:
+          <small>{{pokemon.pokemon.value[3]}}{{text('rank')}}</small>
+          {{pokemon.pokemon.power}}({{pokemon.pokemon.value[0]}}/{{pokemon.pokemon.value[1]}}/{{pokemon.pokemon.value[2]}})
+        </p>
+      </a>
+      <a class="item" style="border:none" ng-if="!filtered.length===0">
+        <h2 style="margin-top:12px">포켓몬이 없습니다.</h2>
+      </a>
+    </div>
+  </ion-content>
+</ion-modal-view>
+

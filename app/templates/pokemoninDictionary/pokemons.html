@@ -13,7 +13,7 @@
          ng-if="pokemon.id"
          ng-repeat="pokemon in pokemondics | filter: order.keyword | orderBy:order.orderBy:order.desc">
         <img ng-src="{{pokemon.img}}">
-        <h2><span class="small-tail">{{pokemon.id}}</span> {{pokemon.name}} ({{pokemon.eng}})</h2>
+        <h2><span class="small-tail">{{pokemon.id}}</span> <localnamer value="pokemon"></localnamer></h2>
         <p>
           {{text('pokemonPowerRank')}}: {{pokemon.value[3]}}/151<br>
           {{text('pokemonPower')}}: {{pokemon.power}}

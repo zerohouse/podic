@@ -7,7 +7,7 @@
       <div class="card poke-card">
         <div class="item item-divider">
           <i class="ion-fireball"></i> <span ng-if="pokemon.nickname">{{pokemon.nickname}} - </span>
-          {{pokemon.pokemon.name}} ({{pokemon.pokemon.eng}})
+          <localnamer value="pokemon.pokemon"></localnamer>
           <small class="date" ng-if="pokemon.creation_time_ms">
             {{pokemon.creation_time_ms | date : "M. d. hh:mm"}}{{text('catchAt')}}
           </small>

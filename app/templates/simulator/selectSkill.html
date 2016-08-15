@@ -1,11 +1,11 @@
 <ion-list>
   <ion-radio name="attack" ng-model="pokemon.move_1" ng-repeat="attack in pokemon.pokemon.attacks" ng-value="attack.id">
-    {{attack.name}}({{attack.eng}})
+    <localnamer value="attack"></localnamer>
   </ion-radio>
 </ion-list>
 <br>
 <ion-list>
   <ion-radio name="skill" ng-model="pokemon.move_2" ng-repeat="skill in pokemon.pokemon.skills" ng-value="skill.id">
-    {{skill.name}}({{skill.eng}})
+    <localnamer value="skill"></localnamer>
   </ion-radio>
 </ion-list>

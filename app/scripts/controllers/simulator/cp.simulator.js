@@ -1,7 +1,7 @@
 (function () {
   angular.module('Podic.controllers').controller('cpSimulator', cpSimulator);
   /* @ng-inject */
-  function cpSimulator($scope, PocketMons, cpCal, $ionicPopup, $rootScope, $stateParams, text) {
+  function cpSimulator($scope, PocketMons, cpCal, $ionicPopup, $rootScope, $stateParams, text, $ionicModal, userService) {
 
 
     $scope.pokemons = PocketMons.all();
@@ -33,14 +33,50 @@
       return cpCal.getCp($scope.pokemon.pokemon, $scope.pokemon.level, $scope.pokemon.individual_attack, $scope.pokemon.individual_defense, $scope.pokemon.individual_stamina);
     };
 
+
+    var buttons = [{
+      text: text('close'), type: 'button-dark'
+    }];
+    if (userService.user.id) {
+      buttons.unshift({
+        text: text('selectInMyPokemons'),
+        type: 'button-royal',
+        onTap: function () {
+          var scope = $scope.$new();
+          scope.pokemons = $rootScope.pokemons;
+          $ionicModal.fromTemplateUrl('templates/simulator/mypokemons.html', {
+            scope: scope,
+            animation: 'slide-in-up'
+          }).then(function (modal) {
+            scope.modal = modal;
+            scope.modal.show();
+            scope.search = function () {
+              $ionicPopup.searchPopup(scope);
+            };
+            scope.align = function () {
+              $ionicPopup.alignPopup(scope);
+            };
+            scope.selectPokemon = function (pokemon) {
+              $scope.pokemon = {
+                individual_attack: pokemon.individual_attack,
+                individual_defense: pokemon.individual_defense,
+                individual_stamina: pokemon.individual_stamina,
+                level: cpCal.getLevel(pokemon),
+                pokemon: pokemon.pokemon
+              };
+              scope.modal.hide();
+            };
+          });
+        }
+      });
+    }
     $scope.selectPokemon = function () {
       $scope.popup = $ionicPopup.show({
         templateUrl: 'templates/herepokemon/pokemons.html',
         title: text('selectPokemon'),
         cssClass: 'full',
         scope: $scope,
-        buttons: [
-          {text: text('close')}]
+        buttons: buttons
       });
     };
 

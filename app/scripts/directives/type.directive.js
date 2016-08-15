@@ -11,7 +11,6 @@
       },
       controller: function ($scope, $ionicPopup, PocketMons, text) {
         $scope.showPopup = function (type) {
-
           var template = '';
           var defense_strong = type.defense.strong.map(function (id) {
             return PocketMons.attrs[id].name;

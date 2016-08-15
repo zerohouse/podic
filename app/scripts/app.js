@@ -179,7 +179,7 @@ angular.module('Podic', [
         }
       })
       .state('app.simulator.attack', {
-        url: '/attack?:pokemon?:pokemon_id',
+        url: '/attack?:pokemon?pokemon_id',
         views: {
           'tab-attack': {
             templateUrl: 'templates/simulator/attack.simulator.html',
@@ -191,10 +191,7 @@ angular.module('Podic', [
     $urlRouterProvider.otherwise('/app/pokemons');
   })
 
-  .run(function ($ionicPlatform, ionicToast) {
-    ionicToast.alert = function (message) {
-      ionicToast.show(message, 'bottom', false, 3000);
-    };
+  .run(function ($ionicPlatform) {
 
     $ionicPlatform.ready(function () {
       if (window.cordova && window.cordova.plugins.Keyboard) {
