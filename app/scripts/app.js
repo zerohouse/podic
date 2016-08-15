@@ -179,7 +179,7 @@ angular.module('Podic', [
         }
       })
       .state('app.simulator.attack', {
-        url: '/attack',
+        url: '/attack?:pokemon?:pokemon_id',
         views: {
           'tab-attack': {
             templateUrl: 'templates/simulator/attack.simulator.html',

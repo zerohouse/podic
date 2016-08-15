@@ -41,9 +41,12 @@
         </div>
         <div class="row">
           <div class="col">
-              <span class="button button-balanced"
+              <span class="button button-balanced" style="margin-right:10px"
                     ui-sref="app.simulator.cp({pokemon:pokemon.id})">
                 <i class="ion-arrow-graph-up-right"></i> {{text('cpSimulation')}}
+              </span>
+              <span class="button button-assertive"  ui-sref="app.simulator.attack({pokemon:pokemondic.id})">
+                <i class="ion-fireball"></i> {{text('battleSimulation')}}
               </span>
           </div>
         </div>

@@ -1,23 +1,50 @@
 (function () {
   angular.module('Podic.controllers').controller('attackSimulateCtrl', attackSimulateCtrl);
   /* @ng-inject */
-  function attackSimulateCtrl($scope, PocketMons, cpCal, text, $ionicPopup, $rootScope, $interval) {
+  function attackSimulateCtrl($scope, PocketMons, cpCal, text, $ionicPopup, $rootScope, $interval, $stateParams) {
 
     var trainerLevel = $rootScope.playerStatus ? $rootScope.playerStatus.level : 10;
     $scope.trainer = {level: trainerLevel};
 
     $scope.left = {
-      individual_attack: 15, individual_defense: 15, individual_stamina: 15, level: 15, pokemon: PocketMons.get(25)
+      individual_attack: 15,
+      individual_defense: 15,
+      individual_stamina: 15,
+      level: 15,
+      pokemon: PocketMons.all().random()
     };
 
     $scope.right = {
-      individual_attack: 15, individual_defense: 15, individual_stamina: 15, level: 15, pokemon: PocketMons.get(1)
+      individual_attack: 15,
+      individual_defense: 15,
+      individual_stamina: 15,
+      level: 15,
+      pokemon: PocketMons.all().random()
     };
     $scope.left.move_1 = $scope.left.pokemon.attacks[0].id;
     $scope.left.move_2 = $scope.left.pokemon.skills[0].id;
     $scope.right.move_1 = $scope.right.pokemon.attacks[0].id;
     $scope.right.move_2 = $scope.right.pokemon.skills[0].id;
 
+
+    $scope.$on('$locationChangeSuccess', function () {
+      if ($stateParams.pokemon) {
+        $scope.left.pokemon = PocketMons.get(parseInt($stateParams.pokemon));
+        $scope.simulate();
+      }
+      if ($stateParams.pokemon_id) {
+        var pokemon = $rootScope.pokemons.findById(parseInt($stateParams.pokemon_id));
+        $scope.left.individual_attack = pokemon.individual_attack;
+        $scope.left.individual_defense = pokemon.individual_defense;
+        $scope.left.individual_stamina = pokemon.individual_stamina;
+        $scope.left.level = cpCal.getLevel(pokemon);
+        $scope.left.pokemon = pokemon.pokemon;
+        $scope.left.nickname = pokemon.nickname;
+        $scope.left.move_1 = pokemon.move_1;
+        $scope.left.move_2 = pokemon.move_2;
+        $scope.simulate();
+      }
+    });
 
     function stop() {
       $interval.cancel($scope.interval);
@@ -78,7 +105,7 @@
 
     $scope.simulate();
 
-    $scope.setSkillHide = function(bool){
+    $scope.setSkillHide = function (bool) {
       $scope.skillHide = bool;
     };
 

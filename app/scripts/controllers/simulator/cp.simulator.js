@@ -13,7 +13,7 @@
       var attack = $stateParams.attack ? parseInt($stateParams.attack) : 15;
       var defense = $stateParams.defense ? parseInt($stateParams.defense) : 15;
       var stamina = $stateParams.stamina ? parseInt($stateParams.stamina) : 15;
-      var level = $stateParams.level ? parseInt($stateParams.level) : 10;
+      var level = $stateParams.level ? parseInt($stateParams.level) : 1;
       $scope.pokemon = {
         individual_attack: attack,
         individual_defense: defense,
@@ -28,12 +28,6 @@
     $scope.$on('$locationChangeSuccess', function () {
       $scope.reset();
     });
-
-    $scope.powerUp = function () {
-      $scope.pokemon.level++;
-      $scope.pokemon.level = Math.min($scope.pokemonOptions.ceil, $scope.pokemon.level);
-    };
-
 
     $scope.getCp = function () {
       return cpCal.getCp($scope.pokemon.pokemon, $scope.pokemon.level, $scope.pokemon.individual_attack, $scope.pokemon.individual_defense, $scope.pokemon.individual_stamina);

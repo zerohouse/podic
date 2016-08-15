@@ -11,6 +11,6 @@
       <img style="margin-top:10px" ng-src="{{pokemon.pokemon.img}}">
       <h1>CP {{getCp() || 10}} <span class="button button-balanced" ng-click="powerUp()">POWER UP!</span></h1>
     </div>
-    <pokemon-stats-adjust trainer="trainer" pokemon="pokemon"></pokemon-stats-adjust>
+    <pokemon-stats-adjust trainer="trainer" power-up="powerUp" pokemon="pokemon"></pokemon-stats-adjust>
   </ion-content>
 </ion-view>

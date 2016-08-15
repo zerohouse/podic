@@ -37,7 +37,7 @@
     self.getLevel = function (pokemon) {
       for (var i = 0; i < cpmList.length; i++) {
         if (pokemon.cp_multiplier + pokemon.additional_cp_multiplier < cpmList[i] + 0.001) {
-          return pokemon.level;
+          return i;
         }
       }
     };

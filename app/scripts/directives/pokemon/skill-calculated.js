@@ -10,7 +10,6 @@
       },
       templateUrl: "templates/directives/skillCalcuated.html",
       controller: function ($scope, ionicToast) {
-        console.log($scope.skill.typeEffectiveness);
         $scope.stabBonus = function () {
           ionicToast.alert("포켓몬과 속성이 같아 1.25배의 데미지를 줍니다.");
         };

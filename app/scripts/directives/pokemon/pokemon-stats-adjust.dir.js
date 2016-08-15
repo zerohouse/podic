@@ -6,7 +6,8 @@
       restrict: 'E',
       scope: {
         pokemon: '=',
-        trainer: '='
+        trainer: '=',
+        powerUp:'='
       },
       template: "<div class=\"slider-wrap\">\n" +
       "      <rzslider rz-slider-model=\"pokemon.level\" rz-slider-options=\"pokemonOptions\"></rzslider>\n" +
@@ -32,6 +33,12 @@
           showSelectionBar: true,
           floor: 0,
           ceil: 15
+        };
+
+
+        $scope.powerUp = function () {
+          $scope.pokemon.level++;
+          $scope.pokemon.level = Math.min($scope.pokemonOptions.ceil, $scope.pokemon.level);
         };
 
         $scope.$watch('trainer.level', function (level) {
