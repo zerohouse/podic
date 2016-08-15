@@ -177,6 +177,15 @@ angular.module('Podic', [
             controller: 'eggCtrl'
           }
         }
+      })
+      .state('app.simulator.attack', {
+        url: '/attack',
+        views: {
+          'tab-attack': {
+            templateUrl: 'templates/simulator/attack.simulator.html',
+            controller: 'attackSimulateCtrl'
+          }
+        }
       });
 
     $urlRouterProvider.otherwise('/app/pokemons');

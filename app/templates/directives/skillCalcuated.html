@@ -1,0 +1,12 @@
+<div style="margin-top:20px">{{skill.name}}<br>
+  <type class='small-title' no-help='true' type='skill.type'></type>
+  <i ng-click='stabBonus();$event.stopPropagation()' ng-if='skill.stabBonus' class='ion-flash'></i>
+  <i ng-click='bonus(skill.typeEffectiveness[$index]);$event.stopPropagation()'
+     ng-class="{'ion-ios-arrow-up':skill.typeEffectiveness[$index]>1,'ion-ios-arrow-down':skill.typeEffectiveness[$index]<=1}"
+     ng-repeat='ef in skill.typeEffectiveness.length.toArray()'></i></div>
+<h1 style="margin-top:0">
+  {{calculated.dps | number : 1}}
+  <small class="small-title">dps</small>
+</h1>
+{{calculated.damage | number:0}} / {{skill.cooldown}}s / e
+<change change='skill.energy'></change>

@@ -103,7 +103,8 @@
       defense: "방어",
       stamina: "체력",
       attackInfo: "공격 정보",
-      damge: '공격력',
+      attackPower: '공격력',
+      defensePower: '방어력',
       cooldown: '쿨다운',
       dps: 'DPS',
       energy: '에너지',
@@ -123,8 +124,29 @@
       fromEggPokemons: '알에서 나오는 포켓몬들',
       twoKmAnd: '2KM 포켓몬들 그리고 +',
       fiveKmAnd: '5KM 포켓몬들 그리고 +',
-      egg: '알'
+      egg: '알',
+      time: "시간",
+      battleSimulate: '배틀 시뮬레이션',
+      start: '시작',
+      sec: '초',
+      pokemonAdjust: '포켓몬 변경',
+      beforeStart: '준비',
+      done: '완료',
+      keep: " 계속 사용",
+      modifylvAndStat: "스탯 변경",
+      selectSkill: '기술 변경',
+      battleSimulateStart: '배틀 시작',
+      eventLog: function (pokemon, skill, damage) {
+        if (damage < 0)
+          return $hangul["이가"](pokemon.nickname || pokemon.pokemon.name) + " " + $hangul["을를"](skill.name) + " 시전합니다.";
+        return $hangul["이가"](pokemon.nickname || pokemon.pokemon.name) + " " + $hangul["을를"](skill.name) + " 사용하여 " + damage.toFixed(1) + "의 피해를 입혔습니다.";
+      },
+      winMessage: function (pokemon) {
+        return $hangul["이가"](pokemon.nickname || pokemon.pokemon.name) + " 승리했습니다.";
+      },
+      youCanChangeSkillStatPokemon: '포켓몬 종류, 스탯, 스킬을 변경할 수 있습니다.'
     };
+
 
     return function (value) {
       return texts[language][value];

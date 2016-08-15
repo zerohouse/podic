@@ -23,18 +23,18 @@ function pokemonDescriptionListCtrl($scope, pokemonService, $ionicPopup, PocketM
   $scope.align = function () {
     $ionicPopup.show({
       template: '<ion-toggle ng-model="order.desc" toggle-class="toggle-calm"><span ng-show="order.desc">' +
-      text('order.desc') +
+      text('desc') +
       '</span><span ng-show="!order.desc">' +
-      text('order.asc') +
+      text('asc') +
       '</span></ion-toggle>' +
       '<ion-radio ng-model="order.orderBy" ng-value="\'id\'">' +
-      text('order.podex') +
+      text('orderPodex') +
       '</ion-radio>' +
       '<ion-radio ng-model="order.orderBy" ng-value="\'pokemon.rarity\'">' +
-      text('order.rare') +
+      text('orderRare') +
       '</ion-radio>' +
       '<ion-radio ng-model="order.orderBy" ng-value="\'pokemon.power\'">' +
-      text('order.pokemonpower') +
+      text('orderPokemonPower') +
       '</ion-radio>',
       title: text('align'),
       scope: $scope,

@@ -3,6 +3,8 @@
   /* @ng-inject */
   function repliesCtrl($scope, $ajax, ionicToast, text) {
 
+    $scope.text = text;
+
     $scope.getReplies = function () {
       if ($scope.repliesId === undefined)
         return;

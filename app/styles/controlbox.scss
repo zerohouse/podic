@@ -1,0 +1,11 @@
+.control-box {
+  color: #0db9f0;
+  padding: 10px;
+  position: absolute;
+  i {
+    margin: 6px;
+  }
+  i.disabled {
+    color: #999;
+  }
+}

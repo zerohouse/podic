@@ -3,7 +3,6 @@
  *  Main Styles to compile. Here only @imports!
  *
  ************************************/
-
 @import "ex-styles";
 @import "directive/autosize";
 @import "directive/user-summary";
@@ -11,3 +10,5 @@
 @import "animate.min";
 @import "slider";
 @import "slider-wrap";
+@import "directive/hpbar";
+@import "controlbox";

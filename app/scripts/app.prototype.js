@@ -236,3 +236,8 @@ String.prototype.newLine = function () {
 String.prototype.removeTags = function () {
   return this.replace(/(<([^>]+)>)|(<[^<]+)$/ig, "");
 };
+
+if (!Number.prototype.toFixed)
+  Number.prototype.toFixed = function (decimals) {
+    return Math.round(this * Math.pow(10, decimals)) / (Math.pow(10, decimals));
+  };

@@ -12,6 +12,8 @@
       },
       controller: function ($scope, confirm, ionicToast, $ajax, userService, $timeout, text) {
 
+        $scope.text = text;
+
         $scope.isRootUser = function () {
           return $scope.reply.user.id === userService.user.id;
         };

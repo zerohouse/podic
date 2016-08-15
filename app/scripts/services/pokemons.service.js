@@ -15,7 +15,6 @@ function pokemonService(PocketMons, PokemonRequest, cpCal, $rootScope, db, $ajax
   this.setPokemon = function (pokemon) {
     pokemon.pokemon = PocketMons.get(pokemon.pokemon_id);
     pokemon.individual_score = pokemon.individual_attack + pokemon.individual_defense + pokemon.individual_stamina;
-    pokemon.calculateCp = cpCal.getPokemonCp(pokemon);
     pokemon.maxCp = cpCal.getCpByLevel(pokemon, 79);
     pokemon.maxTrainerCp = cpCal.getCpByLevel(pokemon, Math.min($rootScope.playerStatus.level * 2 + 1, 79));
   };
