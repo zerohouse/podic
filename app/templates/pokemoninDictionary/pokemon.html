@@ -1,4 +1,7 @@
-<ion-view view-title="포켓몬 도감 상세 정보">
+<ion-view>
+  <ion-nav-title>
+    {{text('pokemonDicDetail')}}
+  </ion-nav-title>
   <ion-content>
     <div class="card poke-card">
       <div class="item item-divider">
@@ -53,6 +56,8 @@
       </div>
     </div>
 
+
+
     <div class="card poke-card">
       <div class="item item-divider">
         <i class="ion-ios-paw"></i> {{text('attackSkills')}}
@@ -63,7 +68,6 @@
           <div class="col">{{text('type')}}</div>
           <div class="col">{{text('attackPower')}}</div>
           <div class="col">{{text('cooldown')}}</div>
-          <div class="col">{{text('dps')}}</div>
           <div class="col">{{text('energy')}}</div>
         </div>
         <skill skill="skill" ng-repeat="skill in pokemondic.attacks"></skill>
@@ -71,13 +75,33 @@
       </div>
     </div>
 
+    <div class="card poke-card" ng-if="pokemondic.evolveCandies">
+      <div class="item item-divider">
+        <i class="ion-ios-rose"></i> {{text('candiesInfo')}}
+      </div>
+      <div class="item item-text-wrap" style="border-bottom: none;">
+        <div class="row">
+          <div class="col">
+            <div class="small-title">{{text('needCandies')}}</div>
+            {{pokemondic.evolveCandies}}
+
+          <div class="col">
+            <div class="small-title">{{text('nowCandies')}}</div>
+            {{pokemondic.candies}}
+          </div>
+          <div class="col" ng-if="pokemondic.canEvolve" style="color: green;">
+            <br>{{getNextName(pokemondic)}} {{text('canEvolve')}}
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="card poke-card" ng-if="pokemondic.data">
       <div class="item item-divider">
         <i class="ion-stats-bars"></i>
         {{text('pokemonStatistics')}}
       </div>
-      <div class="item item-text-wrap" style="border-bottom: none;;">
+      <div class="item item-text-wrap" style="border-bottom: none;">
         <div class="row">
           <div class="col">
             <div class="small-title">{{text('ratioInAllPokemon')}}</div>
@@ -86,7 +110,7 @@
           </div>
           <div class="col">
             <div class="small-title">{{text('averageCP')}}</div>
-            {{pokemondic.data.avargeCp}}
+            {{pokemondic.data.averageCp}}
           </div>
           <div class="col">
             <div class="small-title">{{text('now1stPlaceCp')}}</div>

@@ -19,7 +19,7 @@ function pokemonsCtrl($scope, pokemonService, $ionicPopup, PokemonRequest, text)
   };
 
 
-  $scope.align = function(){
+  $scope.align = function () {
     $ionicPopup.alignPopup($scope);
   };
 

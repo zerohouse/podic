@@ -63,6 +63,13 @@ function pokemonService(PocketMons, PokemonRequest, cpCal, $rootScope, db, $ajax
 
       $rootScope.pokemons = pokemons;
 
+      pokemonFamily.forEach(function (fa) {
+        var pokemon = PocketMons.get(fa.family_id);
+        if (!pokemon)
+          return;
+        pokemon.candies = fa.candy;
+        pokemon.canEvolve = pokemon.evolveCandies !== 0 && pokemon.candies / pokemon.evolveCandies >= 1;
+      });
       pokemons.forEach(function (pokemon) {
         if (pokemon.captured_cell_id && pokemon.captured_cell_id.toNumber)
           pokemon.captured_cell_id = pokemon.captured_cell_id.toNumber();

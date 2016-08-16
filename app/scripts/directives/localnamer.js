@@ -10,7 +10,7 @@
       controller: function ($scope, text) {
         $scope.showEng = text.showEng;
       },
-      template: '{{value.name}}<span ng-if="showEng">({{value.en}})</span>'
+      template: '{{value.name}}<span ng-if="isShowEng()">({{value.en}})</span>'
     };
   }
 })();

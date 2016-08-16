@@ -38,7 +38,7 @@
               var decoded = pokemonProto.ResponseEnvelop.GetInventoryResponse.decode(inventoryPayload);
               ok(decoded.inventory_delta.inventory_items);
               self.alert(text("requestPokemonDone"));
-              self.state = '';
+              self.state = '포켓몬을 불러왔습니다.';
             }
             catch (e) {
               self.alert(text("parseError"));

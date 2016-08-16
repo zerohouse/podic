@@ -1,7 +1,7 @@
 (function () {
   angular.module('Podic.controllers').controller('myPageCtrl', myPageCtrl);
   /* @ng-inject */
-  function myPageCtrl($scope, userService, $ajax) {
+  function myPageCtrl($scope, userService, $ajax, text) {
     $scope.user = userService.newUser;
     $scope.update = function (file) {
       var param = {};
@@ -16,5 +16,8 @@
       }
       userService.update(param);
     };
+
+
+    $scope.languages = text.getLanguages();
   }
 })();

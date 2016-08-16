@@ -5,6 +5,8 @@ function pokemonRankCtrl(pokemonRankService, $scope, $ionicPopup, PocketMons, $s
   $scope.pokemonRankService = pokemonRankService;
   $scope.refresh = pokemonRankService.reset;
 
+  $scope.text = text;
+
   $scope.selectPokemon = function () {
     $scope.data = {};
     $scope.popup = $ionicPopup.show({

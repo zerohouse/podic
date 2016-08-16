@@ -287,68 +287,68 @@
       "en": "Mewtwo"
     }, {"ko": "뮤", "attr": [10], "en": "Mew"}];
 
-  var skills = [{"id": 13, "attack": 25, "ko": "김밥말이", "type": 7, "eng": "Wrap", "cooldown": 4, "energy": -20}, {
+  var skills = [{"id": 13, "attack": 25, "ko": "김밥말이", "type": 7, "en": "Wrap", "cooldown": 4, "energy": -20}, {
     "id": 14,
     "attack": 120,
     "ko": "파괴광선",
     "type": 7,
-    "eng": "Hyper Beam",
+    "en": "Hyper Beam",
     "cooldown": 5,
     "energy": -100
-  }, {"id": 16, "attack": 45, "ko": "악의 파동", "type": 17, "eng": "Dark Pulse", "cooldown": 3.5, "energy": -33}, {
+  }, {"id": 16, "attack": 45, "ko": "악의 파동", "type": 17, "en": "Dark Pulse", "cooldown": 3.5, "energy": -33}, {
     "id": 18,
     "attack": 30,
     "ko": "오물폭탄",
     "type": 1,
-    "eng": "Sludge",
+    "en": "Sludge",
     "cooldown": 2.6,
     "energy": -25
-  }, {"id": 20, "attack": 25, "ko": "찝기", "type": 7, "eng": "Vice Grip", "cooldown": 2.1, "energy": -20}, {
+  }, {"id": 20, "attack": 25, "ko": "찝기", "type": 7, "en": "Vice Grip", "cooldown": 2.1, "energy": -20}, {
     "id": 21,
     "attack": 40,
     "ko": "화염자동차",
     "type": 2,
-    "eng": "Flame Wheel",
+    "en": "Flame Wheel",
     "cooldown": 4.6,
     "energy": -25
-  }, {"id": 22, "attack": 80, "ko": "메가폰", "type": 11, "eng": "Megahorn", "cooldown": 3.2, "energy": -100}, {
+  }, {"id": 22, "attack": 80, "ko": "메가폰", "type": 11, "en": "Megahorn", "cooldown": 3.2, "energy": -100}, {
     "id": 24,
     "attack": 55,
     "ko": "화염방사",
     "type": 2,
-    "eng": "Flamethrower",
+    "en": "Flamethrower",
     "cooldown": 2.9,
     "energy": -50
-  }, {"id": 26, "attack": 70, "ko": "구멍파기", "type": 12, "eng": "Dig", "cooldown": 5.8, "energy": -33}, {
+  }, {"id": 26, "attack": 70, "ko": "구멍파기", "type": 12, "en": "Dig", "cooldown": 5.8, "energy": -33}, {
     "id": 28,
     "attack": 60,
     "ko": "크로스촙",
     "type": 13,
-    "eng": "Cross Chop",
+    "en": "Cross Chop",
     "cooldown": 2,
     "energy": -100
-  }, {"id": 30, "attack": 40, "ko": "환상빔", "type": 10, "eng": "Psybeam", "cooldown": 3.8, "energy": -25}, {
+  }, {"id": 30, "attack": 40, "ko": "환상빔", "type": 10, "en": "Psybeam", "cooldown": 3.8, "energy": -25}, {
     "id": 31,
     "attack": 100,
     "ko": "지진",
     "type": 12,
-    "eng": "Earthquake",
+    "en": "Earthquake",
     "cooldown": 4.2,
     "energy": -100
-  }, {"id": 32, "attack": 80, "ko": "스톤에지", "type": 5, "eng": "Stone Edge", "cooldown": 3.1, "energy": -100}, {
+  }, {"id": 32, "attack": 80, "ko": "스톤에지", "type": 5, "en": "Stone Edge", "cooldown": 3.1, "energy": -100}, {
     "id": 33,
     "attack": 45,
     "ko": "냉동펀치",
     "type": 8,
-    "eng": "Ice Punch",
+    "en": "Ice Punch",
     "cooldown": 3.5,
     "energy": -33
-  }, {"id": 34, "attack": 20, "ko": "하트스탬프", "type": 10, "eng": "Heart Stamp"}, {
+  }, {"id": 34, "attack": 20, "ko": "하트스탬프", "type": 10, "en": "Heart Stamp"}, {
     "id": 35,
     "attack": 35,
     "ko": "방전",
     "type": 4,
-    "eng": "Discharge",
+    "en": "Discharge",
     "cooldown": 2.5,
     "energy": -33
   }, {
@@ -356,145 +356,145 @@
     "attack": 60,
     "ko": "러스터캐논",
     "type": 14,
-    "eng": "Flash Cannon",
+    "en": "Flash Cannon",
     "cooldown": 3.9,
     "energy": -33
-  }, {"id": 38, "attack": 40, "ko": "회전부리", "type": 6, "eng": "Drill Peck", "cooldown": 2.7, "energy": -33}, {
+  }, {"id": 38, "attack": 40, "ko": "회전부리", "type": 6, "en": "Drill Peck", "cooldown": 2.7, "energy": -33}, {
     "id": 39,
     "attack": 65,
     "ko": "냉동빔",
     "type": 8,
-    "eng": "Ice Beam",
+    "en": "Ice Beam",
     "cooldown": 3.65,
     "energy": -50
-  }, {"id": 40, "attack": 100, "ko": "눈보라", "type": 8, "eng": "Blizzard", "cooldown": 3.9, "energy": -100}, {
+  }, {"id": 40, "attack": 100, "ko": "눈보라", "type": 8, "en": "Blizzard", "cooldown": 3.9, "energy": -100}, {
     "id": 42,
     "attack": 80,
     "ko": "열풍",
     "type": 2,
-    "eng": "Heat Wave",
+    "en": "Heat Wave",
     "cooldown": 3.8,
     "energy": -100
-  }, {"id": 45, "attack": 30, "ko": "제비반환", "type": 6, "eng": "Aerial Ace", "cooldown": 2.9, "energy": -25}, {
+  }, {"id": 45, "attack": 30, "ko": "제비반환", "type": 6, "en": "Aerial Ace", "cooldown": 2.9, "energy": -25}, {
     "id": 46,
     "attack": 50,
     "ko": "드릴라이너",
     "type": 12,
-    "eng": "Drill Run",
+    "en": "Drill Run",
     "cooldown": 3.4,
     "energy": -33
-  }, {"id": 47, "attack": 65, "ko": "꽃보라", "type": 0, "eng": "Petal Blizzard", "cooldown": 3.2, "energy": -50}, {
+  }, {"id": 47, "attack": 65, "ko": "꽃보라", "type": 0, "en": "Petal Blizzard", "cooldown": 3.2, "energy": -50}, {
     "id": 48,
     "attack": 15,
     "ko": "메가드레인",
     "type": 0,
-    "eng": "Mega Drain"
+    "en": "Mega Drain"
   }, {
     "id": 49,
     "attack": 75,
     "ko": "벌레의 야단법석",
     "type": 11,
-    "eng": "Bug Buzz",
+    "en": "Bug Buzz",
     "cooldown": 4.25,
     "energy": -50
-  }, {"id": 50, "attack": 25, "ko": "독엄니", "type": 1, "eng": "Poison Fang", "cooldown": 2.4, "energy": -20}, {
+  }, {"id": 50, "attack": 25, "ko": "독엄니", "type": 1, "en": "Poison Fang", "cooldown": 2.4, "energy": -20}, {
     "id": 51,
     "attack": 30,
     "ko": "깜짝베기",
     "type": 17,
-    "eng": "Night Slash",
+    "en": "Night Slash",
     "cooldown": 2.7,
     "energy": -25
-  }, {"id": 53, "attack": 30, "ko": "거품광선", "type": 3, "eng": "Bubble Beam", "cooldown": 2.9, "energy": -25}, {
+  }, {"id": 53, "attack": 30, "ko": "거품광선", "type": 3, "en": "Bubble Beam", "cooldown": 2.9, "energy": -25}, {
     "id": 54,
     "attack": 30,
     "ko": "지옥의 바퀴",
     "type": 13,
-    "eng": "Submission",
+    "en": "Submission",
     "cooldown": 2.1,
     "energy": -33
-  }, {"id": 56, "attack": 30, "ko": "로킥", "type": 13, "eng": "Low Sweep", "cooldown": 2.25, "energy": -25}, {
+  }, {"id": 56, "attack": 30, "ko": "로킥", "type": 13, "en": "Low Sweep", "cooldown": 2.25, "energy": -25}, {
     "id": 57,
     "attack": 25,
     "ko": "아쿠아제트",
     "type": 3,
-    "eng": "Aqua Jet",
+    "en": "Aqua Jet",
     "cooldown": 2.35,
     "energy": -20
-  }, {"id": 58, "attack": 45, "ko": "아쿠아테일", "type": 3, "eng": "Aqua Tail", "cooldown": 2.35, "energy": -50}, {
+  }, {"id": 58, "attack": 45, "ko": "아쿠아테일", "type": 3, "en": "Aqua Tail", "cooldown": 2.35, "energy": -50}, {
     "id": 59,
     "attack": 40,
     "ko": "씨폭탄",
     "type": 0,
-    "eng": "Seed Bomb",
+    "en": "Seed Bomb",
     "cooldown": 2.4,
     "energy": -33
-  }, {"id": 60, "attack": 40, "ko": "사이코쇼크", "type": 10, "eng": "Psyshock", "cooldown": 2.7, "energy": -33}, {
+  }, {"id": 60, "attack": 40, "ko": "사이코쇼크", "type": 10, "en": "Psyshock", "cooldown": 2.7, "energy": -33}, {
     "id": 62,
     "attack": 35,
     "ko": "원시의힘",
     "type": 5,
-    "eng": "Ancient Power",
+    "en": "Ancient Power",
     "cooldown": 3.6,
     "energy": -25
-  }, {"id": 63, "attack": 30, "ko": "암석봉인", "type": 5, "eng": "Rock Tomb", "cooldown": 3.4, "energy": -25}, {
+  }, {"id": 63, "attack": 30, "ko": "암석봉인", "type": 5, "en": "Rock Tomb", "cooldown": 3.4, "energy": -25}, {
     "id": 64,
     "attack": 50,
     "ko": "스톤샤워",
     "type": 5,
-    "eng": "Rock Slide",
+    "en": "Rock Slide",
     "cooldown": 3.2,
     "energy": -33
-  }, {"id": 65, "attack": 40, "ko": "파워젬", "type": 5, "eng": "Power Gem", "cooldown": 2.9, "energy": -33}, {
+  }, {"id": 65, "attack": 40, "ko": "파워젬", "type": 5, "en": "Power Gem", "cooldown": 2.9, "energy": -33}, {
     "id": 66,
     "attack": 15,
     "ko": "야습",
     "type": 15,
-    "eng": "Shadow Sneak"
-  }, {"id": 67, "attack": 20, "ko": "섀도펀치", "type": 15, "eng": "Shadow Punch"}, {
+    "en": "Shadow Sneak"
+  }, {"id": 67, "attack": 20, "ko": "섀도펀치", "type": 15, "en": "Shadow Punch"}, {
     "id": 69,
     "attack": 30,
     "ko": "괴상한바람",
     "type": 15,
-    "eng": "Ominous Wind",
+    "en": "Ominous Wind",
     "cooldown": 3.1,
     "energy": -25
-  }, {"id": 70, "attack": 45, "ko": "섀도볼", "type": 15, "eng": "Shadow Ball", "cooldown": 3.08, "energy": -33}, {
+  }, {"id": 70, "attack": 45, "ko": "섀도볼", "type": 15, "en": "Shadow Ball", "cooldown": 3.08, "energy": -33}, {
     "id": 72,
     "attack": 30,
     "ko": "마그넷봄",
     "type": 14,
-    "eng": "Magnet Bomb",
+    "en": "Magnet Bomb",
     "cooldown": 2.8,
     "energy": -25
-  }, {"id": 74, "attack": 30, "ko": "아이언헤드", "type": 14, "eng": "Iron Head", "cooldown": 2, "energy": -33}, {
+  }, {"id": 74, "attack": 30, "ko": "아이언헤드", "type": 14, "en": "Iron Head", "cooldown": 2, "energy": -33}, {
     "id": 75,
     "attack": 15,
     "ko": "파라볼라차지",
     "type": 4,
-    "eng": "Parabolic Charge"
-  }, {"id": 77, "attack": 40, "ko": "번개펀치", "type": 4, "eng": "Thunder Punch", "cooldown": 2.4, "energy": -33}, {
+    "en": "Parabolic Charge"
+  }, {"id": 77, "attack": 40, "ko": "번개펀치", "type": 4, "en": "Thunder Punch", "cooldown": 2.4, "energy": -33}, {
     "id": 78,
     "attack": 100,
     "ko": "번개",
     "type": 4,
-    "eng": "Thunder",
+    "en": "Thunder",
     "cooldown": 4.3,
     "energy": -100
-  }, {"id": 79, "attack": 55, "ko": "10만볼트", "type": 4, "eng": "Thunderbolt", "cooldown": 2.7, "energy": -50}, {
+  }, {"id": 79, "attack": 55, "ko": "10만볼트", "type": 4, "en": "Thunderbolt", "cooldown": 2.7, "energy": -50}, {
     "id": 80,
     "attack": 25,
     "ko": "회오리",
     "type": 9,
-    "eng": "Twister",
+    "en": "Twister",
     "cooldown": 2.7,
     "energy": -20
-  }, {"id": 82, "attack": 65, "ko": "용의파동", "type": 9, "eng": "Dragon Pulse", "cooldown": 3.6, "energy": -50}, {
+  }, {"id": 82, "attack": 65, "ko": "용의파동", "type": 9, "en": "Dragon Pulse", "cooldown": 3.6, "energy": -50}, {
     "id": 83,
     "attack": 35,
     "ko": "드래곤크루",
     "type": 9,
-    "eng": "Dragon Claw",
+    "en": "Dragon Claw",
     "cooldown": 1.6,
     "energy": -50
   }, {
@@ -502,7 +502,7 @@
     "attack": 25,
     "ko": "차밍보이스",
     "type": 16,
-    "eng": "Disarming Voice",
+    "en": "Disarming Voice",
     "cooldown": 3.9,
     "energy": -20
   }, {
@@ -510,7 +510,7 @@
     "attack": 25,
     "ko": "드레인키스",
     "type": 16,
-    "eng": "Draining Kiss",
+    "en": "Draining Kiss",
     "cooldown": 2.8,
     "energy": -20
   }, {
@@ -518,15 +518,15 @@
     "attack": 55,
     "ko": "매지컬샤인",
     "type": 16,
-    "eng": "Dazzling Gleam",
+    "en": "Dazzling Gleam",
     "cooldown": 4.2,
     "energy": -33
-  }, {"id": 87, "attack": 85, "ko": "문포스", "type": 16, "eng": "Moonblast", "cooldown": 4.1, "energy": -100}, {
+  }, {"id": 87, "attack": 85, "ko": "문포스", "type": 16, "en": "Moonblast", "cooldown": 4.1, "energy": -100}, {
     "id": 88,
     "attack": 55,
     "ko": "치근거리기",
     "type": 16,
-    "eng": "Play Rough",
+    "en": "Play Rough",
     "cooldown": 2.9,
     "energy": -50
   }, {
@@ -534,39 +534,39 @@
     "attack": 25,
     "ko": "크로스포이즌",
     "type": 1,
-    "eng": "Cross Poison",
+    "en": "Cross Poison",
     "cooldown": 1.5,
     "energy": -25
-  }, {"id": 90, "attack": 55, "ko": "오물폭탄", "type": 1, "eng": "Sludge Bomb", "cooldown": 2.6, "energy": -50}, {
+  }, {"id": 90, "attack": 55, "ko": "오물폭탄", "type": 1, "en": "Sludge Bomb", "cooldown": 2.6, "energy": -50}, {
     "id": 91,
     "attack": 70,
     "ko": "오물웨이브",
     "type": 1,
-    "eng": "Sludge Wave",
+    "en": "Sludge Wave",
     "cooldown": 3.4,
     "energy": -100
-  }, {"id": 92, "attack": 65, "ko": "더스트슈트", "type": 1, "eng": "Gunk Shot", "cooldown": 3, "energy": -100}, {
+  }, {"id": 92, "attack": 65, "ko": "더스트슈트", "type": 1, "en": "Gunk Shot", "cooldown": 3, "energy": -100}, {
     "id": 94,
     "attack": 25,
     "ko": "뼈다귀치기",
     "type": 12,
-    "eng": "Bone Club",
+    "en": "Bone Club",
     "cooldown": 1.6,
     "energy": -25
-  }, {"id": 95, "attack": 35, "ko": "땅고르기", "type": 12, "eng": "Bulldoze", "cooldown": 3.4, "energy": -25}, {
+  }, {"id": 95, "attack": 35, "ko": "땅고르기", "type": 12, "en": "Bulldoze", "cooldown": 3.4, "energy": -25}, {
     "id": 96,
     "attack": 30,
     "ko": "진흙폭탄",
     "type": 12,
-    "eng": "Mud Bomb",
+    "en": "Mud Bomb",
     "cooldown": 2.6,
     "energy": -25
-  }, {"id": 99, "attack": 45, "ko": "시그널빔", "type": 11, "eng": "Signal Beam", "cooldown": 3.1, "energy": -33}, {
+  }, {"id": 99, "attack": 45, "ko": "시그널빔", "type": 11, "en": "Signal Beam", "cooldown": 3.1, "energy": -33}, {
     "id": 100,
     "attack": 35,
     "ko": "시저크로스",
     "type": 11,
-    "eng": "X-Scissor",
+    "en": "X-Scissor",
     "cooldown": 2.1,
     "energy": -33
   }, {
@@ -574,7 +574,7 @@
     "attack": 25,
     "ko": "니트로차지",
     "type": 2,
-    "eng": "Flame Charge",
+    "en": "Flame Charge",
     "cooldown": 3.1,
     "energy": -20
   }, {
@@ -582,7 +582,7 @@
     "attack": 30,
     "ko": "불꽃튀기기",
     "type": 2,
-    "eng": "Flame Burst",
+    "en": "Flame Burst",
     "cooldown": 2.1,
     "energy": -25
   }, {
@@ -590,43 +590,43 @@
     "attack": 100,
     "ko": "불대문자",
     "type": 2,
-    "eng": "Fire Blast",
+    "en": "Fire Blast",
     "cooldown": 4.1,
     "energy": -100
-  }, {"id": 104, "attack": 25, "ko": "소금물", "type": 3, "eng": "Brine", "cooldown": 2.4, "energy": -25}, {
+  }, {"id": 104, "attack": 25, "ko": "소금물", "type": 3, "en": "Brine", "cooldown": 2.4, "energy": -25}, {
     "id": 105,
     "attack": 35,
     "ko": "물의파동",
     "type": 3,
-    "eng": "Water Pulse",
+    "en": "Water Pulse",
     "cooldown": 3.3,
     "energy": -25
-  }, {"id": 106, "attack": 55, "ko": "열탕", "type": 3, "eng": "Scald", "cooldown": 4, "energy": -33}, {
+  }, {"id": 106, "attack": 55, "ko": "열탕", "type": 3, "en": "Scald", "cooldown": 4, "energy": -33}, {
     "id": 107,
     "attack": 90,
     "ko": "하이드로펌프",
     "type": 3,
-    "eng": "Hydro Pump",
+    "en": "Hydro Pump",
     "cooldown": 3.8,
     "energy": -100
-  }, {"id": 108, "attack": 55, "ko": "사이코키네시스", "type": 10, "eng": 10, "cooldown": 2.8, "energy": -50}, {
+  }, {"id": 108, "attack": 55, "ko": "사이코키네시스", "type": 10, "en": 10, "cooldown": 2.8, "energy": -50}, {
     "id": 109,
     "attack": 70,
     "ko": "사이코브레이크",
     "type": 10,
-    "eng": "Psystrike"
-  }, {"id": 111, "attack": 25, "ko": "얼다바람", "type": 8, "eng": "Icy Wind", "cooldown": 3.8, "energy": -20}, {
+    "en": "Psystrike"
+  }, {"id": 111, "attack": 25, "ko": "얼다바람", "type": 8, "en": "Icy Wind", "cooldown": 3.8, "energy": -20}, {
     "id": 114,
     "attack": 35,
     "ko": "기가드레인",
     "type": 0,
-    "eng": "Giga Drain"
-  }, {"id": 115, "attack": 40, "ko": "불꽃펀치", "type": 2, "eng": "Fire Punch", "cooldown": 2.8, "energy": -33}, {
+    "en": "Giga Drain"
+  }, {"id": 115, "attack": 40, "ko": "불꽃펀치", "type": 2, "en": "Fire Punch", "cooldown": 2.8, "energy": -33}, {
     "id": 116,
     "attack": 120,
     "ko": "솔라빔",
     "type": 0,
-    "eng": "Solar Beam",
+    "en": "Solar Beam",
     "cooldown": 4.9,
     "energy": -100
   }, {
@@ -634,53 +634,53 @@
     "attack": 45,
     "ko": "리프블레이드",
     "type": 0,
-    "eng": "Leaf Blade",
+    "en": "Leaf Blade",
     "cooldown": 2.8,
     "energy": -50
-  }, {"id": 118, "attack": 70, "ko": "파워휩", "type": 0, "eng": "Power Whip", "cooldown": 2.8, "energy": -100}, {
+  }, {"id": 118, "attack": 70, "ko": "파워휩", "type": 0, "en": "Power Whip", "cooldown": 2.8, "energy": -100}, {
     "id": 121,
     "attack": 30,
     "ko": "에어컷터",
     "type": 6,
-    "eng": "Air Cutter",
+    "en": "Air Cutter",
     "cooldown": 3.3,
     "energy": -25
-  }, {"id": 122, "attack": 80, "ko": "폭풍", "type": 6, "eng": "Hurricane", "cooldown": 3.2, "energy": -100}, {
+  }, {"id": 122, "attack": 80, "ko": "폭풍", "type": 6, "en": "Hurricane", "cooldown": 3.2, "energy": -100}, {
     "id": 123,
     "attack": 30,
     "ko": "깨트리다",
     "type": 13,
-    "eng": "Brick Break",
+    "en": "Brick Break",
     "cooldown": 1.6,
     "energy": -33
-  }, {"id": 125, "attack": 30, "ko": "스피드스타", "type": 7, "eng": "Swift", "cooldown": 3, "energy": -25}, {
+  }, {"id": 125, "attack": 30, "ko": "스피드스타", "type": 7, "en": "Swift", "cooldown": 3, "energy": -25}, {
     "id": 126,
     "attack": 25,
     "ko": "뿔찌르기",
     "type": 7,
-    "eng": "Horn Attack",
+    "en": "Horn Attack",
     "cooldown": 2.2,
     "energy": -25
-  }, {"attack": 30, "ko": "짓밟기", "type": 7, "eng": "Stomp", "cooldown": 2.1, "energy": -25}, {
+  }, {"attack": 30, "ko": "짓밟기", "type": 7, "en": "Stomp", "cooldown": 2.1, "energy": -25}, {
     "id": 129,
     "attack": 35,
     "ko": "필살앞니",
     "type": 7,
-    "eng": "Hyper Fang",
+    "en": "Hyper Fang",
     "cooldown": 2.1,
     "energy": -33
-  }, {"id": 131, "attack": 40, "ko": "누르기", "type": 7, "eng": "Body Slam", "cooldown": 1.56, "energy": -50}, {
+  }, {"id": 131, "attack": 40, "ko": "누르기", "type": 7, "en": "Body Slam", "cooldown": 1.56, "energy": -50}, {
     "id": 132,
     "attack": 35,
     "ko": "잠자기",
     "type": 7,
-    "eng": "Rest"
-  }, {"id": 133, "attack": 15, "ko": "발버둥", "type": 7, "eng": "Struggle", "cooldown": 1.7, "energy": -20}, {
+    "en": "Rest"
+  }, {"id": 133, "attack": 15, "ko": "발버둥", "type": 7, "en": "Struggle", "cooldown": 1.7, "energy": -20}, {
     "id": 134,
     "attack": 35,
     "ko": "열탕",
     "type": 3,
-    "eng": "Scald*",
+    "en": "Scald*",
     "cooldown": 4,
     "energy": -33
   }, {
@@ -688,151 +688,151 @@
     "attack": 60,
     "ko": "하이드로펌프",
     "type": 3,
-    "eng": "Hydro Pump*",
+    "en": "Hydro Pump*",
     "cooldown": 3.8,
     "energy": -100
-  }, {"id": 136, "attack": 15, "ko": "김밥말이", "type": 7, "eng": "Wrap*", "cooldown": 4, "energy": -20}, {
+  }, {"id": 136, "attack": 15, "ko": "김밥말이", "type": 7, "en": "Wrap*", "cooldown": 4, "energy": -20}, {
     "id": 137,
     "attack": 15,
     "ko": "김밥말이",
     "type": 7,
-    "eng": "Wrap*",
+    "en": "Wrap*",
     "cooldown": 4,
     "energy": -20
-  }, {"id": 200, "attack": 3, "ko": "연속자르기", "type": 11, "eng": "Fury Cutter", "cooldown": 0.4, "energy": 6}, {
+  }, {"id": 200, "attack": 3, "ko": "연속자르기", "type": 11, "en": "Fury Cutter", "cooldown": 0.4, "energy": 6}, {
     "id": 201,
     "attack": 5,
     "ko": "벌레먹음",
     "type": 11,
-    "eng": "Bug Bite",
+    "en": "Bug Bite",
     "cooldown": 0.45,
     "energy": 7
-  }, {"id": 202, "attack": 6, "ko": "물기", "type": 17, "eng": "Bite", "cooldown": 0.5, "energy": 7}, {
+  }, {"id": 202, "attack": 6, "ko": "물기", "type": 17, "en": "Bite", "cooldown": 0.5, "energy": 7}, {
     "id": 203,
     "attack": 7,
     "ko": "기습",
     "type": 17,
-    "eng": "Sucker Punch",
+    "en": "Sucker Punch",
     "cooldown": 0.7,
     "energy": 9
-  }, {"id": 204, "attack": 6, "ko": "용의숨결", "type": 9, "eng": "Dragon Breath", "cooldown": 0.5, "energy": 7}, {
+  }, {"id": 204, "attack": 6, "ko": "용의숨결", "type": 9, "en": "Dragon Breath", "cooldown": 0.5, "energy": 7}, {
     "id": 205,
     "attack": 5,
     "ko": "전기쇼크",
     "type": 4,
-    "eng": "Thunder Shock",
+    "en": "Thunder Shock",
     "cooldown": 0.6,
     "energy": 8
-  }, {"id": 206, "attack": 7, "ko": "스파크", "type": 4, "eng": "Spark", "cooldown": 0.7, "energy": 8}, {
+  }, {"id": 206, "attack": 7, "ko": "스파크", "type": 4, "en": "Spark", "cooldown": 0.7, "energy": 8}, {
     "id": 207,
     "attack": 5,
     "ko": "안다리걸기",
     "type": 13,
-    "eng": "Low Kick",
+    "en": "Low Kick",
     "cooldown": 0.6,
     "energy": 7
-  }, {"id": 208, "attack": 6, "ko": "태권당수", "type": 13, "eng": "Karate Chop", "cooldown": 0.8, "energy": 8}, {
+  }, {"id": 208, "attack": 6, "ko": "태권당수", "type": 13, "en": "Karate Chop", "cooldown": 0.8, "energy": 8}, {
     "id": 209,
     "attack": 10,
     "ko": "불꽃세례",
     "type": 2,
-    "eng": "Ember",
+    "en": "Ember",
     "cooldown": 1.05,
     "energy": 10
-  }, {"id": 210, "attack": 9, "ko": "날개치기", "type": 6, "eng": "Wing Attack", "cooldown": 0.75, "energy": 7}, {
+  }, {"id": 210, "attack": 9, "ko": "날개치기", "type": 6, "en": "Wing Attack", "cooldown": 0.75, "energy": 7}, {
     "id": 211,
     "attack": 10,
     "ko": "쪼기",
     "type": 6,
-    "eng": "Peck",
+    "en": "Peck",
     "cooldown": 1.15,
     "energy": 10
-  }, {"id": 212, "attack": 5, "ko": "핥기", "type": 15, "eng": "Lick", "cooldown": 0.5, "energy": 6}, {
+  }, {"id": 212, "attack": 5, "ko": "핥기", "type": 15, "en": "Lick", "cooldown": 0.5, "energy": 6}, {
     "id": 213,
     "attack": 11,
     "ko": "섀도크루",
     "type": 15,
-    "eng": "Shadow Claw",
+    "en": "Shadow Claw",
     "cooldown": 0.95,
     "energy": 8
-  }, {"id": 214, "attack": 7, "ko": "덩굴채찍", "type": 0, "eng": "Vine Whip", "cooldown": 0.65, "energy": 7}, {
+  }, {"id": 214, "attack": 7, "ko": "덩굴채찍", "type": 0, "en": "Vine Whip", "cooldown": 0.65, "energy": 7}, {
     "id": 215,
     "attack": 15,
     "ko": "잎날가르기",
     "type": 0,
-    "eng": "Razor Leaf",
+    "en": "Razor Leaf",
     "cooldown": 1.45,
     "energy": 12
-  }, {"id": 216, "attack": 6, "ko": "머드숏", "type": 12, "eng": "Mud Shot", "cooldown": 0.55, "energy": 7}, {
+  }, {"id": 216, "attack": 6, "ko": "머드숏", "type": 12, "en": "Mud Shot", "cooldown": 0.55, "energy": 7}, {
     "id": 217,
     "attack": 15,
     "ko": "얼음뭉치",
     "type": 8,
-    "eng": "Ice Shard",
+    "en": "Ice Shard",
     "cooldown": 1.4,
     "energy": 7
-  }, {"id": 218, "attack": 9, "ko": "얼음숨결", "type": 8, "eng": "Frost Breath", "cooldown": 0.81, "energy": 7}, {
+  }, {"id": 218, "attack": 9, "ko": "얼음숨결", "type": 8, "en": "Frost Breath", "cooldown": 0.81, "energy": 7}, {
     "id": 219,
     "attack": 10,
     "ko": "전광석화",
     "type": 7,
-    "eng": "Quick Attack",
+    "en": "Quick Attack",
     "cooldown": 1.33,
     "energy": 7
-  }, {"id": 220, "attack": 6, "ko": "할퀴기", "type": 7, "eng": "Scratch", "cooldown": 0.5, "energy": 7}, {
+  }, {"id": 220, "attack": 6, "ko": "할퀴기", "type": 7, "en": "Scratch", "cooldown": 0.5, "energy": 7}, {
     "id": 221,
     "attack": 12,
     "ko": "몸통박치기",
     "type": 7,
-    "eng": "Tackle",
+    "en": "Tackle",
     "cooldown": 1.1,
     "energy": 10
-  }, {"id": 222, "attack": 7, "ko": "막치기", "type": 7, "eng": "Pound", "cooldown": 0.54, "energy": 7}, {
+  }, {"id": 222, "attack": 7, "ko": "막치기", "type": 7, "en": "Pound", "cooldown": 0.54, "energy": 7}, {
     "id": 223,
     "attack": 12,
     "ko": "풀베기",
     "type": 7,
-    "eng": "Cut",
+    "en": "Cut",
     "cooldown": 1.13,
     "energy": 10
-  }, {"id": 224, "attack": 12, "ko": "독찌르기", "type": 1, "eng": "Poison Jab", "cooldown": 1.05, "energy": 10}, {
+  }, {"id": 224, "attack": 12, "ko": "독찌르기", "type": 1, "en": "Poison Jab", "cooldown": 1.05, "energy": 10}, {
     "id": 225,
     "attack": 10,
     "ko": "용해액",
     "type": 1,
-    "eng": "Acid",
+    "en": "Acid",
     "cooldown": 1.05,
     "energy": 10
-  }, {"id": 226, "attack": 7, "ko": "사이코커터", "type": 10, "eng": "Psycho Cut", "cooldown": 0.57, "energy": 7}, {
+  }, {"id": 226, "attack": 7, "ko": "사이코커터", "type": 10, "en": "Psycho Cut", "cooldown": 0.57, "energy": 7}, {
     "id": 227,
     "attack": 12,
     "ko": "돌떨구기",
     "type": 5,
-    "eng": "Rock Throw",
+    "en": "Rock Throw",
     "cooldown": 1.36,
     "energy": 15
-  }, {"id": 228, "attack": 8, "ko": "메탈크로우", "type": 14, "eng": "Metal Claw", "cooldown": 0.63, "energy": 7}, {
+  }, {"id": 228, "attack": 8, "ko": "메탈크로우", "type": 14, "en": "Metal Claw", "cooldown": 0.63, "energy": 7}, {
     "id": 229,
     "attack": 10,
     "ko": "불릿펀치",
     "type": 14,
-    "eng": "Bullet Punch",
+    "en": "Bullet Punch",
     "cooldown": 1.2,
     "energy": 10
-  }, {"id": 230, "attack": 6, "ko": "물대포", "type": 3, "eng": "Water Gun", "cooldown": 0.5, "energy": 7}, {
+  }, {"id": 230, "attack": 6, "ko": "물대포", "type": 3, "en": "Water Gun", "cooldown": 0.5, "energy": 7}, {
     "id": 231,
     "attack": 0,
     "ko": "튀어오르기",
     "type": 3,
-    "eng": "Splash",
+    "en": "Splash",
     "cooldown": 1.23,
     "energy": 10
-  }, {"id": 232, "attack": 6, "ko": "물대포", "type": 3, "eng": "Water Gun*", "cooldown": 0.5, "energy": 7}, {
+  }, {"id": 232, "attack": 6, "ko": "물대포", "type": 3, "en": "Water Gun*", "cooldown": 0.5, "energy": 7}, {
     "id": 233,
     "attack": 15,
     "ko": "진흙뿌리기",
     "type": 12,
-    "eng": "Mud Slap",
+    "en": "Mud Slap",
     "cooldown": 1.35,
     "energy": 12
   }, {
@@ -840,34 +840,34 @@
     "attack": 12,
     "ko": "사념의박치기",
     "type": 10,
-    "eng": "Zen Headbutt",
+    "en": "Zen Headbutt",
     "cooldown": 1.05,
     "energy": 9
-  }, {"id": 235, "attack": 15, "ko": "염동력", "type": 10, "eng": "Confusion", "cooldown": 1.51, "energy": 14}, {
+  }, {"id": 235, "attack": 15, "ko": "염동력", "type": 10, "en": "Confusion", "cooldown": 1.51, "energy": 14}, {
     "id": 236,
     "attack": 6,
     "ko": "독침",
     "type": 1,
-    "eng": "Poison Sting",
+    "en": "Poison Sting",
     "cooldown": 0.58,
     "energy": 8
-  }, {"id": 237, "attack": 25, "ko": "거품", "type": 3, "eng": "Bubble", "cooldown": 2.3, "energy": 25}, {
+  }, {"id": 237, "attack": 25, "ko": "거품", "type": 3, "en": "Bubble", "cooldown": 2.3, "energy": 25}, {
     "id": 238,
     "attack": 12,
     "ko": "속여때리기",
     "type": 17,
-    "eng": "Feint Attack",
+    "en": "Feint Attack",
     "cooldown": 1.04,
     "energy": 10
-  }, {"id": 239, "attack": 15, "ko": "강철날개", "type": 14, "eng": "Steel Wing", "cooldown": 1.33, "energy": 12}, {
+  }, {"id": 239, "attack": 15, "ko": "강철날개", "type": 14, "en": "Steel Wing", "cooldown": 1.33, "energy": 12}, {
     "id": 240,
     "attack": 10,
     "ko": "불꽃엄니",
     "type": 2,
-    "eng": "Fire Fang",
+    "en": "Fire Fang",
     "cooldown": 0.84,
     "energy": 8
-  }, {"id": 241, "attack": 15, "ko": "바위깨기", "type": 13, "eng": "Rock Smash", "cooldown": 1.41, "energy": 7}];
+  }, {"id": 241, "attack": 15, "ko": "바위깨기", "type": 13, "en": "Rock Smash", "cooldown": 1.41, "energy": 7}];
 
 
   var attrs = [{
@@ -987,25 +987,25 @@
   });
 
   var rare = [0, 2, 6, 7, 2, 6, 7, 2, 6, 7, 1, 2, 3, 1, 2, 4, 1, 2, 4, 1, 2, 2, 3, 1, 2, 2, 5, 1, 2, 1, 3, 5, 1, 3, 5, 2, 7, 2, 3, 2, 3, 1, 2, 1, 3, 5, 1, 3, 1, 5, 2, 3, 1, 2, 2, 3, 1, 3, 2, 4, 1, 3, 5, 2, 3, 5, 1, 2, 3, 1, 4, 5, 2, 3, 1, 2, 3, 2, 4, 1, 4, 1, 2, 4, 2, 3, 2, 5, 2, 4, 2, 3, 1, 2, 5, 4, 2, 3, 1, 4, 1, 2, 2, 4, 2, 5, 2, 3, 3, 2, 3, 2, 4, 3, 4, 5, 2, 3, 1, 3, 2, 3, 4, 3, 2, 5, 4, 4, 7, 1, 5, 5, 8, 1, 5, 4, 4, 6, 6, 7, 3, 5, 6, 4, 8, 8, 8, 3, 5, 7, 8, 8];
-  var rareWord = [0];
   var speciesValue = [[], [126, 126, 90, 115], [156, 158, 120, 76], [198, 200, 160, 18], [128, 108, 78, 123], [160, 140, 116, 81], [212, 182, 156, 22], [112, 142, 88, 114], [144, 176, 118, 73], [186, 222, 158, 16], [62, 66, 90, 148], [56, 86, 100, 144], [144, 144, 120, 82], [68, 64, 80, 150], [62, 82, 90, 147], [144, 130, 130, 87], [94, 90, 80, 141], [126, 122, 126, 98], [170, 166, 166, 41], [92, 86, 60, 145], [146, 150, 110, 86], [102, 78, 80, 142], [168, 146, 130, 70], [112, 112, 70, 133], [166, 166, 120, 64], [124, 108, 70, 129], [200, 154, 120, 53], [90, 114, 100, 127], [150, 172, 150, 54], [100, 104, 110, 124], [132, 136, 140, 83], [184, 190, 180, 21], [110, 94, 92, 132], [142, 128, 122, 91], [204, 170, 162, 27], [116, 124, 140, 95], [178, 178, 190, 24], [106, 118, 76, 130], [176, 194, 146, 37], [98, 54, 230, 93], [168, 108, 280, 20], [88, 90, 80, 143], [164, 164, 150, 52], [134, 130, 90, 105], [162, 158, 120, 72], [202, 190, 150, 25], [122, 120, 70, 125], [162, 170, 120, 63], [108, 118, 120, 111], [172, 154, 140, 56], [108, 86, 20, 149], [148, 140, 70, 103], [104, 94, 80, 140], [156, 146, 130, 77], [132, 112, 100, 112], [194, 176, 160, 30], [122, 96, 80, 131], [178, 150, 130, 59], [156, 110, 110, 96], [230, 180, 180, 11], [108, 98, 80, 136], [132, 132, 130, 89], [180, 202, 180, 17], [110, 76, 50, 146], [150, 112, 80, 113], [186, 152, 110, 65], [118, 96, 140, 106], [154, 144, 160, 60], [198, 180, 180, 19], [158, 78, 100, 116], [190, 110, 130, 78], [222, 152, 160, 29], [106, 136, 80, 118], [170, 196, 160, 34], [106, 118, 80, 128], [142, 156, 110, 84], [176, 198, 160, 28], [168, 138, 100, 85], [200, 170, 130, 43], [110, 110, 180, 88], [184, 198, 190, 15], [128, 138, 50, 121], [186, 180, 100, 55], [138, 132, 104, 97], [126, 96, 70, 135], [182, 150, 120, 62], [104, 138, 130, 99], [156, 192, 180, 33], [124, 110, 160, 90], [180, 188, 210, 14], [120, 112, 60, 134], [196, 196, 100, 47], [136, 82, 60, 139], [172, 118, 90, 94], [204, 156, 120, 51], [90, 186, 70, 110], [104, 140, 120, 100], [162, 196, 170, 32], [116, 110, 60, 137], [178, 168, 110, 61], [102, 124, 80, 126], [150, 174, 120, 67], [110, 132, 120, 102], [232, 164, 190, 12], [102, 150, 100, 107], [140, 202, 120, 58], [148, 172, 100, 80], [138, 204, 100, 71], [126, 160, 180, 57], [136, 142, 80, 104], [190, 198, 130, 36], [110, 116, 160, 92], [166, 160, 210, 26], [40, 60, 500, 10], [164, 152, 130, 66], [142, 178, 210, 31], [122, 100, 60, 138], [176, 150, 110, 74], [112, 126, 90, 117], [172, 160, 160, 48], [130, 128, 60, 120], [194, 192, 120, 38], [154, 196, 80, 79], [176, 180, 140, 46], [172, 134, 130, 75], [198, 160, 130, 49], [214, 158, 130, 40], [184, 186, 130, 44], [148, 184, 150, 50], [42, 84, 40, 151], [192, 196, 190, 13], [186, 190, 260, 5], [110, 110, 96, 122], [114, 128, 110, 108], [186, 168, 260, 8], [192, 174, 130, 45], [238, 178, 130, 23], [156, 158, 130, 68], [132, 160, 70, 101], [180, 202, 140, 35], [148, 142, 60, 109], [190, 190, 120, 42], [182, 162, 160, 39], [180, 180, 320, 2], [198, 242, 180, 6], [232, 194, 180, 9], [242, 194, 180, 7], [128, 110, 82, 119], [170, 152, 122, 69], [250, 212, 182, 3], [284, 202, 212, 1], [220, 220, 200, 4]];
   var canGetAttacks = [[], [214, 221], [215, 214], [215, 214], [209, 220], [209, 220], [209, 210], [237, 221], [230, 202], [230, 202], [201, 221], [201, 221], [201, 235], [201, 236], [201, 236], [201, 224], [219, 221], [210, 239], [210, 239], [221, 219], [202, 219], [211, 219], [211, 239], [236, 225], [202, 225], [205, 219], [205, 206], [220, 216], [228, 216], [202, 236], [202, 236], [224, 202], [211, 236], [224, 236], [224, 200], [222, 234], [222, 234], [219, 209], [238, 209], [222, 238], [222, 238], [219, 202], [210, 202], [50, 121, 69], [215, 225], [215, 225], [220, 201], [201, 200], [201, 235], [201, 235], [216, 220], [203, 216], [31, 96, 32], [220, 238], [230, 234], [230, 235], [208, 220], [207, 208], [209, 202], [240, 202], [237, 216], [237, 216], [237, 216], [234], [226, 235], [226, 235], [207, 208], [207, 208], [229, 208], [214, 225], [215, 225], [215, 225], [237, 236], [225, 224], [227, 221], [227, 216], [227, 216], [221, 209], [207, 209], [230, 235], [230, 235], [206, 205], [206, 205], [223, 200], [45, 121, 117], [238, 239], [217, 230], [218, 217], [225, 233], [225, 224], [217, 221], [218, 217], [212, 203], [69, 16, 90], [203, 213], [227, 221], [222, 235], [30, 60, 108], [237, 216], [228, 216], [206, 221], [206, 221], [235], [235, 234], [233, 241], [233, 241], [207, 241], [229, 241], [212, 234], [225, 221], [225, 221], [233, 241], [233, 241], [222, 234], [214], [233, 207], [230, 237], [230, 204], [211, 216], [211, 224], [219, 230], [219, 230], [235, 234], [200, 239], [218, 222], [205, 207], [209, 208], [241, 200], [221, 234], [231], [204, 202], [218, 217], [222], [219, 221], [230], [205], [209], [219, 221], [230, 216], [227, 230], [220, 216], [216, 200], [239, 202], [234, 212], [218], [205], [209], [204], [204], [204, 239], [226, 235], [222]];
   var canGetSkills = [[], [90, 59, 118], [90, 116, 118], [90, 47, 116], [101, 102, 24], [115, 102, 24], [103, 83, 24], [57, 58, 105], [57, 39, 107], [36, 39, 107], [133], [133], [49, 108, 99], [133], [133], [90, 45, 100], [80, 45, 121], [80, 45, 121], [122, 45, 121], [26, 129, 131], [26, 129, 14], [45, 38, 80], [45, 46, 80], [13, 90, 92], [16, 91, 92], [35, 79, 78], [123, 77, 78], [26, 64, 63], [31, 63, 95], [50, 131, 90], [50, 26, 90], [31, 91, 32], [126, 131, 90], [126, 26, 90], [31, 91, 22], [84, 131, 87], [86, 108, 87], [131, 24, 101], [42, 24, 103], [84, 131, 88], [86, 14, 88], [50, 121, 90], [50, 121, 69], [59, 90, 87], [47, 90, 87], [47, 116, 87], [89, 100, 59], [89, 100, 116], [50, 30, 99], [50, 108, 49], [26, 96, 63], [31, 96, 32], [51, 16, 131], [51, 65, 88], [30, 58, 28], [108, 107, 39], [28, 56, 123], [28, 56, 51], [21, 131, 24], [103, 24, 95], [53, 96, 131], [106, 96, 53], [107, 54, 33], [60, 99, 70], [30, 86, 70], [108, 86, 70], [56, 123, 28], [54, 123, 28], [32, 54, 28], [118, 90, 13], [118, 90, 59], [117, 90, 116], [53, 105, 13], [107, 91, 40], [64, 63, 26], [26, 32, 64], [32, 62, 31], [101, 21, 103], [103, 46, 42], [105, 60, 108], [105, 108, 39], [35, 72, 79], [35, 72, 36], [45, 121, 117], [38, 45, 125], [38, 45, 121], [57, 111, 58], [111, 57, 40], [18, 96, 90], [16, 92, 91], [53, 105, 111], [111, 107, 40], [69, 16, 90], [70, 16, 90], [70, 16, 91], [64, 32, 74], [30, 60, 108], [60, 108, 70], [20, 53, 105], [20, 100, 105], [35, 79, 99], [35, 79, 14], [59, 108, 62], [59, 108, 116], [94, 26, 95], [94, 26, 31], [127, 56, 32], [115, 33, 77, 123], [14, 127, 118], [18, 90, 16], [90, 70, 16], [95, 126, 127], [22, 31, 32], [108, 30, 86], [118, 90, 116], [123, 31, 127], [53, 82, 36], [40, 82, 107], [105, 126, 58], [111, 46, 22], [125, 53, 65], [107, 65, 30], [30, 108, 70], [51, 100, 49], [85, 33, 60], [77, 79, 78], [103, 115, 24], [20, 100, 54], [126, 74, 31], [133], [107, 80, 82], [82, 39, 40], [133], [26, 125, 131], [105, 107, 58], [35, 79, 78], [103, 24, 42], [30, 99, 35], [62, 104, 63], [62, 107, 64], [62, 57, 63], [62, 105, 32], [62, 74, 14], [131, 14, 31], [39, 111, 40], [35, 79, 78], [103, 42, 24], [13, 80, 58], [13, 58, 82], [82, 14, 83], [108, 70, 14], [122, 31, 108, 82, 78, 87, 103, 116, 14]];
+  var canEvolveCandies = [0, 25, 100, 0, 25, 100, 0, 25, 100, 0, 12, 50, 0, 12, 25, 0, 12, 50, 0, 25, 0, 50, 0, 50, 0, 50, 0, 50, 0, 25, 100, 0, 25, 100, 0, 50, 0, 50, 0, 50, 0, 50, 0, 25, 100, 0, 50, 0, 50, 0, 50, 0, 50, 0, 50, 0, 50, 0, 50, 0, 25, 100, 0, 25, 100, 0, 25, 100, 0, 25, 100, 0, 50, 0, 25, 100, 0, 50, 0, 50, 0, 50, 0, 0, 50, 0, 50, 0, 50, 0, 50, 0, 25, 100, 0, 0, 50, 0, 50, 0, 50, 0, 50, 0, 50, 0, 0, 0, 0, 50, 0, 50, 0, 0, 0, 0, 50, 0, 50, 0, 50, 0, 0, 0, 0, 0, 0, 0, 0, 400, 0, 0, 0, 25, 0, 0, 0, 0, 50, 0, 50, 0, 0, 0, 0, 0, 0, 25, 100, 0, 0, 0];
   angular.module('Podic.services')
     .factory('PocketMons', function ($ajax, text) {
-      rareWord.pushAll(text('rarities'));
 
       var imgPath = "images/pocketmons/";
 
       var languageSet = function () {
+        var language = text.getLanguage();
         skills.forEach(function (o) {
-          o.name = o[text.language];
+          o.name = o[language];
         });
         attrs.forEach(function (o) {
-          o.name = o[text.language];
+          o.name = o[language];
         });
         pocketmons.forEach(function (o) {
-          o.name = o[text.language];
+          o.name = o[language];
         });
       };
       languageSet();
@@ -1026,8 +1026,10 @@
         if (descriptions[i]) {
           pokemon.desc = descriptions[i];
         }
+        pokemon.evolveCandies = canEvolveCandies[i];
+        pokemon.candies = 0;
+        pokemon.canEvolve = false;
         pokemon.rarity = rare[i];
-        pokemon.rare = rareWord[rare[i]];
         pokemon.value = speciesValue[i];
         pokemon.power = speciesValue[i][0] + speciesValue[i][1] + speciesValue[i][2];
         pokemon.skills = canGetSkills[i].map(function (id) {

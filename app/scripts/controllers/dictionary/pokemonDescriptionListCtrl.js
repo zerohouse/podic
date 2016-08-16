@@ -7,6 +7,10 @@ function pokemonDescriptionListCtrl($scope, pokemonService, $ionicPopup, PocketM
 
   $scope.pokemondics = PocketMons.all();
 
+  $scope.getNextName = function (pokemon) {
+    return PocketMons.get(pokemon.id + 1).name;
+  };
+
 
   $scope.search = function () {
     $ionicPopup.show({
@@ -20,6 +24,11 @@ function pokemonDescriptionListCtrl($scope, pokemonService, $ionicPopup, PocketM
     });
   };
 
+  $scope.getCanEvolveFilter = function () {
+    if ($scope.order.evolveFilter)
+      return {canEvolve: true};
+  };
+
   $scope.align = function () {
     $ionicPopup.show({
       template: '<ion-toggle ng-model="order.desc" toggle-class="toggle-calm"><span ng-show="order.desc">' +
@@ -27,14 +36,18 @@ function pokemonDescriptionListCtrl($scope, pokemonService, $ionicPopup, PocketM
       '</span><span ng-show="!order.desc">' +
       text('asc') +
       '</span></ion-toggle>' +
+      '<ion-toggle ng-model="order.evolveFilter" toggle-class="toggle-calm">{{text("canEvolvePokemon")}}</ion-toggle>' +
       '<ion-radio ng-model="order.orderBy" ng-value="\'id\'">' +
       text('orderPodex') +
       '</ion-radio>' +
-      '<ion-radio ng-model="order.orderBy" ng-value="\'pokemon.rarity\'">' +
+      '<ion-radio ng-model="order.orderBy" ng-value="\'rarity\'">' +
       text('orderRare') +
       '</ion-radio>' +
-      '<ion-radio ng-model="order.orderBy" ng-value="\'pokemon.power\'">' +
+      '<ion-radio ng-model="order.orderBy" ng-value="\'power\'">' +
       text('orderPokemonPower') +
+      '</ion-radio>' +
+      '<ion-radio ng-model="order.orderBy" ng-value="\'candies\'">' +
+      text('orderCandy') +
       '</ion-radio>',
       title: text('align'),
       scope: $scope,
