@@ -17,7 +17,7 @@
           </div>
           <div class="col">
             <div class="small-title">{{text('rare')}}</div>
-            {{pokemondic.rare}}
+            {{text('rareWords')[pokemondic.rarity]}}
           </div>
           <div class="col">
             <div class="small-title">{{text('pokemonPowerRank')}}</div>
@@ -48,14 +48,13 @@
                     ui-sref="app.simulator.cp({pokemon:pokemon.id})">
                 <i class="ion-arrow-graph-up-right"></i> {{text('cpSimulation')}}
               </span>
-              <span class="button button-assertive"  ui-sref="app.simulator.attack({pokemon:pokemondic.id})">
+            <span class="button button-positive" ui-sref="app.simulator.attack({pokemon:pokemondic.id})">
                 <i class="ion-fireball"></i> {{text('battleSimulation')}}
               </span>
           </div>
         </div>
       </div>
     </div>
-
 
 
     <div class="card poke-card">
@@ -84,12 +83,14 @@
           <div class="col">
             <div class="small-title">{{text('needCandies')}}</div>
             {{pokemondic.evolveCandies}}
-
+          </div>
           <div class="col">
             <div class="small-title">{{text('nowCandies')}}</div>
             {{pokemondic.candies}}
           </div>
-          <div class="col" ng-if="pokemondic.canEvolve" style="color: green;">
+        </div>
+        <div class="row" ng-if="pokemondic.canEvolve" style="color: green;">
+          <div class="col">
             <br>{{getNextName(pokemondic)}} {{text('canEvolve')}}
           </div>
         </div>
@@ -110,7 +111,7 @@
           </div>
           <div class="col">
             <div class="small-title">{{text('averageCP')}}</div>
-            {{pokemondic.data.averageCp}}
+            {{pokemondic.data.averageCp | number:1}}
           </div>
           <div class="col">
             <div class="small-title">{{text('now1stPlaceCp')}}</div>

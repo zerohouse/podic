@@ -8,7 +8,7 @@
         value: '='
       },
       controller: function ($scope, text) {
-        $scope.showEng = text.showEng;
+        $scope.isShowEng = text.isShowEng;
       },
       template: '{{value.name}}<span ng-if="isShowEng()">({{value.en}})</span>'
     };

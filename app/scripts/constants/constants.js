@@ -27,11 +27,14 @@
 
       pokemonRank: '포켓몬 순위',
       trainerRank: '트레이너 순위',
+      email: '이메일',
+      kakaoTalk: "카톡 아이디",
 
       trainerPage: '트레이너 페이지',
       cpSimulator: 'CP 시뮬레이터',
       eggSimulator: '알 시뮬레이터',
       battleSimulator: '배틀 시뮬레이터',
+      appName: '포닥 - Pokedocs',
 
       logout: '로그아웃',
       login: '로그인',
@@ -51,6 +54,7 @@
       nowCandies: '현재 캔디',
       isEvolvable: '진화 가능 여부',
       maxCpInList: "최대 CP",
+      showSkills: '스킬 보기',
 
       //포켓몬 리스트 페이지
       search: "검색",
@@ -130,7 +134,7 @@
       weight: '무게',
       ownerInfo: '소유자 정보',
       detailInfo: '상세 정보',
-      maxCpNowLevel: '현재 레벨에서 최대 CP',
+      maxCpNowLevel: '현재 레벨 최대 CP',
       maxCp: '만렙 최대 CP',
       maxCpList: '최대CP',
       cpSimulation: '강화실험',

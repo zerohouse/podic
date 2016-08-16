@@ -27,7 +27,7 @@
         subTitle: text('rangeTipSub'),
         scope: $scope,
         buttons: [
-          {text: text('rangeChange'), type: 'button-royal'}
+          {text: text('rangeChange'), type: 'button-positive'}
         ]
       });
     };
@@ -63,7 +63,7 @@
             text: '<b>' +
             text('writeTip') +
             '</b>',
-            type: 'button-royal',
+            type: 'button-positive',
             onTap: function () {
               if (!$scope.trace.message)
                 return;

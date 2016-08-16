@@ -16,13 +16,8 @@
       </label>
     </div>
     <div class="padding">
-      <button class="button button-block button-royal activated" ng-click="update(file)">{{text('userModifyBtn')}}
+      <button class="button button-block button-positive activated" ng-click="update(file)">{{text('userModifyBtn')}}
       </button>
-    </div>
-    <div class="padding">
-      <div class="item item-checkbox" ng-repeat="(k,language) in languages" ng-click="text.setLanguage(k)">
-        {{language.name}}
-      </div>
     </div>
     <div class="padding" ng-show="replies.length>0">
       <replies type="TRAINER" replies="replies" replies-id="user.id"></replies>

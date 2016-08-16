@@ -5,7 +5,9 @@ function pokemonChartCtrl($scope, $timeout, $rootScope, text) {
     var typesMap = {};
     $rootScope.pokemons.forEach(function (p) {
       p.pokemon.types.forEach(function (t) {
-        var key = t.name + "(" + t.eng + ")";
+        var key = t.name;
+        if (text.isShowEng())
+          key += "(" + t.en + ")";
         if (!typesMap[key])
           typesMap[key] = [];
         typesMap[key].push(p);
@@ -60,7 +62,11 @@ function pokemonChartCtrl($scope, $timeout, $rootScope, text) {
           callbacks: {
             label: function (tooltipItem) {
               var pokemon = pokemonIndexes[tooltipItem.index];
-              return pokemon.nickname || pokemon.pokemon.name + "(" + pokemon.pokemon.eng + ")" + " - " + "" +
+              var name = pokemon.nickname || pokemon.pokemon.name;
+              if (text.isShowEng())
+                name += "(" + pokemon.pokemon.en + ")";
+              name += " - ";
+              return name +
                 text('pokemonPower') +
                 ":" + pokemon.pokemon.power + ", " +
                 text('individualValue') +

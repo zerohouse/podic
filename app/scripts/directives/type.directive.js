@@ -35,7 +35,7 @@
                 text: '<b>' +
                 text('ok') +
                 '</b>',
-                type: 'button-royal'
+                type: 'button-positive'
               }
             ]
           });

@@ -1,0 +1,23 @@
+<ion-view>
+  <ion-nav-title>
+    {{text('appName')}}
+  </ion-nav-title>
+  <ion-content>
+    <div class="item">
+      <h2>{{text('appName')}}</h2>
+      <p>
+        {{text('email')}}: parksungho86@gmail.com<br>
+        {{text('kakaoTalk')}}: zerohouse3
+      </p>
+    </div>
+    <div class="item" style="border-top-width: 2px">
+      <h2>Language</h2>
+    </div>
+    <div class="item" ng-repeat="(k,language) in text.getLanguages()" ng-click="text.setLanguage(k)">
+      {{language.name}} <i class="ion-checkmark" ng-show="k==text.getLanguage()"></i>
+    </div>
+    <div class="padding">
+      <replies type="TRAINER" replies="replies" replies-id="0"></replies>
+    </div>
+  </ion-content>
+</ion-view>

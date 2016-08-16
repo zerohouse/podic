@@ -30,6 +30,14 @@ angular.module('Podic', [
         templateUrl: 'templates/base/menu.html',
         controller: 'AppCtrl'
       })
+      .state('app.logs', {
+        url: '/logs',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/log/log.html'
+          }
+        }
+      })
       .state('app.tips', {
         url: '/trace',
         views: {

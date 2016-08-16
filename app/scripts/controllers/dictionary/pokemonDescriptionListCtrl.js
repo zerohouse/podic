@@ -19,7 +19,7 @@ function pokemonDescriptionListCtrl($scope, pokemonService, $ionicPopup, PocketM
       title: text('search'),
       scope: $scope,
       buttons: [
-        {text: text('search'), type: 'button-royal'}
+        {text: text('search'), type: 'button-positive'}
       ]
     });
   };
@@ -52,7 +52,7 @@ function pokemonDescriptionListCtrl($scope, pokemonService, $ionicPopup, PocketM
       title: text('align'),
       scope: $scope,
       buttons: [
-        {text: text('align'), type: 'button-royal'}
+        {text: text('align'), type: 'button-positive'}
       ]
     });
   };

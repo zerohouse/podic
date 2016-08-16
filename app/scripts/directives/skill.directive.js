@@ -14,7 +14,7 @@
                  ',
       scope: {skill: '='},
       controller: function ($scope, PocketMons, $ionicPopup, text) {
-        $scope.showEng = text.showEng;
+        $scope.isShowEng = text.isShowEng;
         $scope.showPopup = function (type) {
           var template = '';
           var attack_strong = type.attack.strong.map(function (id) {
@@ -39,7 +39,7 @@
               text: '<b>' +
               text("ok") +
               '</b>',
-              type: 'button-royal'
+              type: 'button-positive'
             }]
           });
         };
