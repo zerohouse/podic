@@ -34,7 +34,7 @@
       cpSimulator: 'CP 시뮬레이터',
       eggSimulator: '알 시뮬레이터',
       battleSimulator: '배틀 시뮬레이터',
-      appName: '포닥 - Pokedocs',
+      appName: '포닥 - Podocs',
 
       logout: '로그아웃',
       login: '로그인',
@@ -147,6 +147,7 @@
       defensePower: '방어력',
       cooldown: '쿨다운',
       dps: 'DPS',
+      eps: 'EPS',
       energy: '에너지',
 
       story: '이야기',

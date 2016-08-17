@@ -65,9 +65,9 @@
         <div class="row header">
           <div class="col" style="min-width: 100px">{{text('name')}}</div>
           <div class="col">{{text('type')}}</div>
-          <div class="col">{{text('attackPower')}}</div>
           <div class="col">{{text('cooldown')}}</div>
-          <div class="col">{{text('energy')}}</div>
+          <div class="col">{{text('attackPower')}}({{text("dps")}})</div>
+          <div class="col">{{text('energy')}}({{text("eps")}})</div>
         </div>
         <skill skill="skill" ng-repeat="skill in pokemondic.attacks"></skill>
         <skill skill="skill" ng-repeat="skill in pokemondic.skills"></skill>
