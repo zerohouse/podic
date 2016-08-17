@@ -23,7 +23,7 @@ function pokemonChartCtrl($scope, $timeout, $rootScope, text) {
       barChartLabels.push(key);
       barChartDataSet.push(value.length);
       value.forEach(function (pokemon) {
-        bubbleChartPokemons.push({x: pokemon.pokemon.power, y: pokemon.individual_score, r: 3});
+        bubbleChartPokemons.push({x: pokemon.pokemon.power, y: pokemon.individual_score, r: pokemon.cp / 700});
         pokemonIndexes.push(pokemon);
       });
     });
