@@ -3,7 +3,12 @@
     {{text('trainerRank')}}
   </ion-nav-title>
   <ion-nav-buttons side="right">
-    <button class="button" ng-class="{spin:rankerService.loading}" ng-click="refresh()" style="border:none;margin-right:10px">
+    <button class="button" ng-click="selectDistrict()"
+            style="border:none;margin-right:10px">
+      {{getDistrict()}}
+    </button>
+    <button class="button" ng-class="{spin:rankerService.loading}" ng-click="refresh()"
+            style="border:none;margin-right:10px">
       <i style="font-size:20px" class="ion-android-refresh"></i>
 
     </button>
@@ -16,7 +21,7 @@
     </div>
 
     <div class="list">
-     <user-summary user="ranker" ng-repeat="ranker in rankerService.rankers"></user-summary>
+      <user-summary user="ranker" rank="$index+1" ng-repeat="ranker in rankerService.rankers"></user-summary>
     </div>
     <ion-infinite-scroll ng-if="!rankerService.end" on-infinite="more();"></ion-infinite-scroll>
   </ion-content>

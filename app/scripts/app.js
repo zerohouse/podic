@@ -70,7 +70,9 @@ angular.module('Podic', [
             controller: 'trainerRankCtrl'
           }
         },
-        onEnter: function (rankerService) {
+        onEnter: function (rankerService, userService) {
+          if (userService.user && userService.user.addressRanks && userService.user.addressRanks.last())
+            rankerService.district = userService.user.addressRanks.last().longName;
           rankerService.reset();
         }
       })

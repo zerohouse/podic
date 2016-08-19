@@ -24,6 +24,7 @@
       pokemonTipDetail: '남겨진 팁',
       pokemonDicDetail: '포켓몬 도감 상세 정보',
       pokemonDic: '포켓몬 도감',
+      all: '전체',
 
       pokemonRank: '포켓몬 순위',
       trainerRank: '트레이너 순위',
@@ -329,6 +330,7 @@
       dps: 'DPS',
       eps: 'EPS',
       energy: 'Energy',
+      all: 'All',
 
       story: 'Story',
       maxLevel: 'MaxLevel',

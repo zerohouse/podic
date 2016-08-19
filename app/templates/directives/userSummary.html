@@ -1,0 +1,18 @@
+<div class="item item-avatar">
+  <img ng-src="{{user.img || 'images/profile.png'}}" ng-click="detailPage(user)">
+  <h2 ng-click="detailPage(user)">
+    <span ng-if="user.change!==undefined">
+      {{rank || user.rank}}{{text('rank')}}
+      <change change="user.change"></change>
+    </span>
+    {{user.nickname || text("anonymousPlayer")}}
+    {{text("nameSuffix")}}
+  </h2>
+  <p>CP : {{user.cp}}</p>
+  <div style="margin-top:10px;overflow:hidden;height: 45px;">
+    <div ui-sref="app.pokemon({id:pokemon.id})" class="pokemons" ng-repeat="pokemon in user.pokemons">
+      <img ng-src="{{pokemon.pokemon.img}}">
+      <span>{{pokemon.cp}}</span>
+    </div>
+  </div>
+</div>

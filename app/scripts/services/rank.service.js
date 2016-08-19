@@ -42,11 +42,15 @@ function rankerService($ajax) {
   self.rankers = [];
   self.page = 0;
   self.loading = false;
+  self.district = 0;
   self.more = function () {
     if (self.loading)
       return;
     self.loading = true;
-    $ajax.get('/api/v1/user/rank', {page: self.page}).then(function (rankers) {
+    var query = {page: self.page};
+    if (self.district)
+      query.district = self.district;
+    $ajax.get('/api/v1/user/rank', query).then(function (rankers) {
       self.rankers.pushAll(rankers);
       self.loading = false;
       rankers.forEach(function (ran) {

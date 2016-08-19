@@ -609,7 +609,7 @@
     "en": "Hydro Pump",
     "cooldown": 3.8,
     "energy": -100
-  }, {"id": 108, "attack": 55, "ko": "사이코키네시스", "type": 10, "en": 10, "cooldown": 2.8, "energy": -50}, {
+  }, {"id": 108, "attack": 55, "ko": "사이코키네시스", "type": 10, "en": "Psychic", "cooldown": 2.8, "energy": -50}, {
     "id": 109,
     "attack": 70,
     "ko": "사이코브레이크",

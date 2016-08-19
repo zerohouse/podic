@@ -25,9 +25,10 @@
           <div class="profile" menu-close ui-sref="app.mypage">
             <img ng-src="{{user.img || user.userInfo.picture || 'images/profile.png'}}">
             <div>
-              <div>{{user.nickname || user.userInfo.name}}<i class="ion-edit small-tail"></i> <span ng-if="user.rank">({{user.rank}}{{text("rank")}}) <change change="user.change"></change></span>
+              <div>{{user.nickname || user.userInfo.name}}<i class="ion-edit small-tail"></i>
               </div>
-              <small>{{user.userInfo.email}}</small>
+              <small>{{user.addressRanks.last().shortName}} {{user.addressRanks.last().rank}}{{text("rank")}}<span ng-if="user.rank">({{text('all')}} {{user.rank}}{{text("rank")}})</span></small>
+              <!--<small>{{user.userInfo.email}}</small>-->
             </div>
           </div>
         </ion-item>
