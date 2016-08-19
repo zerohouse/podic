@@ -27,7 +27,11 @@
             <div>
               <div>{{user.nickname || user.userInfo.name}}<i class="ion-edit small-tail"></i>
               </div>
-              <small>{{user.addressRanks.last().shortName}} {{user.addressRanks.last().rank}}{{text("rank")}}<span ng-if="user.rank">({{text('all')}} {{user.rank}}{{text("rank")}})</span></small>
+              <div ng-if="user.addressRanks.last()">
+                <small>{{user.addressRanks.last().shortName}} {{user.addressRanks.last().rank}}{{text("rank")}}<span
+                  ng-if="user.rank">({{text('all')}} {{user.rank}}{{text("rank")}})</span></small>
+              </div>
+              {{user.rank}}{{text("rank")}}
               <!--<small>{{user.userInfo.email}}</small>-->
             </div>
           </div>
