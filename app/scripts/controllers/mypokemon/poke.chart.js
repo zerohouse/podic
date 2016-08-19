@@ -23,7 +23,12 @@ function pokemonChartCtrl($scope, $timeout, $rootScope, text) {
       barChartLabels.push(key);
       barChartDataSet.push(value.length);
       value.forEach(function (pokemon) {
-        bubbleChartPokemons.push({x: pokemon.pokemon.power, y: pokemon.individual_score, r: pokemon.cp / 700});
+        var r = pokemon.cp / 300;
+        if (r > 10)
+          r = 10;
+        if (r < 1)
+          r = 1;
+        bubbleChartPokemons.push({x: pokemon.pokemon.power, y: pokemon.individual_score, r: r});
         pokemonIndexes.push(pokemon);
       });
     });
@@ -58,6 +63,15 @@ function pokemonChartCtrl($scope, $timeout, $rootScope, text) {
       type: 'bubble',
       data: bubbleChartData,
       options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              stepSize: 15,
+              max: 45,
+              min: 0
+            }
+          }]
+        },
         tooltips: {
           callbacks: {
             label: function (tooltipItem) {
