@@ -1,4 +1,4 @@
-angular.module('Podic').run(function (ionicToast, $ionicPopup, text, $ajax) {
+angular.module('Podic').run(function (ionicToast, $ionicPopup, text) {
 
   ionicToast.alert = function (message) {
     ionicToast.show(message, 'bottom', false, 3000);
@@ -6,7 +6,7 @@ angular.module('Podic').run(function (ionicToast, $ionicPopup, text, $ajax) {
 
   $ionicPopup.searchPopup = function ($scope) {
     $ionicPopup.show({
-      template: '<input type="text" ng-model="order.keyword">',
+      template: '<input type="text" ng-model="value.keyword">',
       title: text('search'),
       scope: $scope,
       buttons: [
@@ -49,12 +49,5 @@ angular.module('Podic').run(function (ionicToast, $ionicPopup, text, $ajax) {
     });
   };
 
-
-  $ajax.get('/api/v1/version', {version: "0.1.4"}).then(function (message) {
-    $ionicPopup.alert({
-      title: text('alert'),
-      template: message
-    });
-  });
 });
 

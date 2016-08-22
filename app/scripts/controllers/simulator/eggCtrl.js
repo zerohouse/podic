@@ -1,7 +1,7 @@
 (function () {
   angular.module('Podic.controllers').controller('eggCtrl', eggCtrl);
   /* @ng-inject */
-  function eggCtrl($scope, $timeout, PocketMons, $rootScope, ionicToast, text) {
+  function eggCtrl($scope, $timeout, Pokemons, ionicToast, text) {
     var km2 = [1, 4, 7, 10, 13, 16, 19, 21, 25, 35, 74, 129];
     var km5 = [23, 27, 39, 43, 46, 48, 50, 52, 54, 56, 58, 60, 63, 66, 69, 72, 77, 79, 81, 84, 86, 88, 90, 92, 96, 98, 100, 102, 104, 108, 109, 111, 114, 115, 116, 118, 120, 128, 137];
     var km10 = [95, 106, 107, 113, 122, 123, 124, 125, 126, 127, 131, 133, 138, 140, 142, 143, 147];
@@ -11,15 +11,15 @@
     var progress = 1;
 
     $scope.km2Pokemons = km2.map(function (i) {
-      return PocketMons.get(i);
+      return Pokemons.get(i);
     });
 
     $scope.km5Pokemons = km5.map(function (i) {
-      return PocketMons.get(i);
+      return Pokemons.get(i);
     });
 
     $scope.km10Pokemons = km10.map(function (i) {
-      return PocketMons.get(i);
+      return Pokemons.get(i);
     });
 
     $scope.click = 0;

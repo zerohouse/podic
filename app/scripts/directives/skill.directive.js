@@ -13,15 +13,15 @@
                  </div>\
                  ',
       scope: {skill: '='},
-      controller: function ($scope, PocketMons, $ionicPopup, text) {
+      controller: function ($scope, Pokemons, $ionicPopup, text) {
         $scope.isShowEng = text.isShowEng;
         $scope.showPopup = function (type) {
           var template = '';
           var attack_strong = type.attack.strong.map(function (id) {
-            return PocketMons.attrs[id].name;
+            return Pokemons.attrs[id].name;
           }).join(", ");
           var attack_weak = type.attack.weak.map(function (id) {
-            return PocketMons.attrs[id].name;
+            return Pokemons.attrs[id].name;
           }).join(", ");
           if (attack_strong)
             template += "<strong>" + attack_strong + "</strong> " +

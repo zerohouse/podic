@@ -1,18 +1,13 @@
 angular.module('Podic.controllers').controller('pokemonsCtrl', pokemonsCtrl);
 /* @ng-inject */
-function pokemonsCtrl($scope, pokemonService, $ionicPopup, PokemonRequest, text) {
+function pokemonsCtrl($scope, pokemonService, $ionicPopup, PokemonRequest, text, db) {
   $scope.refresh = pokemonService.refresh;
+  $scope.order = db.orderMypokemon;
 
   $scope.loading = function () {
     return pokemonService.loading;
   };
 
-  $scope.getLength = function () {
-    if ($scope.filtered && $scope.filtered.length)
-      return "(" + $scope.filtered.length + ")";
-  };
-
-  $scope.order = {orderBy: 'creation_time_ms', desc: true};
 
   $scope.search = function () {
     $ionicPopup.searchPopup($scope);

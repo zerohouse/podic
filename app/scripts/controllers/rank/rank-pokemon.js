@@ -1,7 +1,7 @@
 angular.module('Podic.controllers').controller('pokemonRankCtrl', pokemonRankCtrl);
 /* @ng-inject */
-function pokemonRankCtrl(pokemonRankService, $scope, $ionicPopup, PocketMons, $state, text) {
-  $scope.pokemons = PocketMons.all();
+function pokemonRankCtrl(pokemonRankService, $scope, $ionicPopup, Pokemons, $state, text) {
+  $scope.pokemons = Pokemons.all();
   $scope.pokemonRankService = pokemonRankService;
   $scope.refresh = pokemonRankService.reset;
 

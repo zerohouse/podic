@@ -9,7 +9,7 @@
         user: '=',
         rank: '='
       },
-      controller: function ($scope, $ionicPopup, PocketMons, rankerService, $state) {
+      controller: function ($scope, $ionicPopup, Pokemons, rankerService, $state) {
         $scope.text = text;
         $scope.detailPage = function (user) {
           rankerService.user = user;
@@ -18,7 +18,7 @@
 
         if ($scope.user && $scope.user.pokemons && $scope.user.pokemons.forEach)
           $scope.user.pokemons.forEach(function (pokemon) {
-            pokemon.pokemon = PocketMons.get(pokemon.pokemon_id);
+            pokemon.pokemon = Pokemons.get(pokemon.pokemon_id);
           });
       }
     };

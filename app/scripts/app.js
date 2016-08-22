@@ -21,8 +21,8 @@ angular.module('Podic', [
   'ngFileUpload',
   'rzModule'
 ])
-  .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
-    $ionicConfigProvider.views.transition('none');
+  .config(function ($stateProvider, $urlRouterProvider) {
+    // $ionicConfigProvider.views.transition('none');
     $stateProvider
       .state('app', {
         url: '/app',
@@ -38,30 +38,6 @@ angular.module('Podic', [
           }
         }
       })
-      // .state('app.tips', {
-      //   url: '/trace',
-      //   views: {
-      //     'menuContent': {
-      //       templateUrl: 'templates/herepokemon/list/list.html',
-      //       controller: 'tipCtrl'
-      //     }
-      //   },
-      //   onEnter: function ($timeout, traceService) {
-      //     traceService.refresh();
-      //     $timeout(function () {
-      //       angular.element(document.querySelector('#list-content')).removeClass('has-footer');
-      //     }, 300);
-      //   }
-      // })
-      // .state('app.tipDetail', {
-      //   url: '/trace/:id',
-      //   views: {
-      //     'menuContent': {
-      //       templateUrl: 'templates/herepokemon/detail/detail.html',
-      //       controller: 'traceDetailCtrl'
-      //     }
-      //   }
-      // })
       .state('app.trainerRank', {
         url: '/trainer/rank',
         views: {

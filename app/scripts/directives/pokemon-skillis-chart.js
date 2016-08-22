@@ -1,7 +1,7 @@
 (function () {
   angular.module('Podic.directives').directive('pokeSkills', pokeSkills);
   /* @ng-inject */
-  function pokeSkills($parse, PocketMons) {
+  function pokeSkills($parse, Pokemons) {
     return {
       restrict: 'A',
       link: function (s, e, a) {
@@ -14,7 +14,7 @@
           angular.forEach(skillsMap, function (value, key) {
             size.push(value);
             sum += value;
-            labels.push(PocketMons.skills.findById(key).name);
+            labels.push(Pokemons.skills.findById(key).name);
           });
           var datum = size.map(function (s) {
             return Math.floor(s * 1000 / sum) / 10;

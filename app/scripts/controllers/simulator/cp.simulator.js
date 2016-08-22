@@ -1,15 +1,15 @@
 (function () {
   angular.module('Podic.controllers').controller('cpSimulator', cpSimulator);
   /* @ng-inject */
-  function cpSimulator($scope, PocketMons, cpCal, $ionicPopup, $rootScope, $stateParams, text, $ionicModal, userService) {
+  function cpSimulator($scope, Pokemons, cpCal, $ionicPopup, $rootScope, $stateParams, text, $ionicModal, userService) {
 
 
-    $scope.pokemons = PocketMons.all();
+    $scope.pokemons = Pokemons.all();
     var trainerLevel = $rootScope.playerStatus ? $rootScope.playerStatus.level : 10;
     $scope.trainer = {level: trainerLevel};
 
     $scope.reset = function () {
-      var pokemon = $stateParams.pokemon ? PocketMons.get(parseInt($stateParams.pokemon)) : PocketMons.get(1);
+      var pokemon = $stateParams.pokemon ? Pokemons.get(parseInt($stateParams.pokemon)) : Pokemons.get(1);
       var attack = $stateParams.attack ? parseInt($stateParams.attack) : 15;
       var defense = $stateParams.defense ? parseInt($stateParams.defense) : 15;
       var stamina = $stateParams.stamina ? parseInt($stateParams.stamina) : 15;
@@ -25,7 +25,7 @@
 
     $scope.reset();
 
-    $scope.$on('$locationChangeSuccess', function () {
+    $scope.$on('$stateChangeSuccess', function () {
       $scope.reset();
     });
 

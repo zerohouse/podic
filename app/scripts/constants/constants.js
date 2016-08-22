@@ -1,18 +1,17 @@
 (function () {
   angular.module('Podic.services').factory('text', textProvider);
   /* @ng-inject */
-  function textProvider($hangul) {
+  function textProvider($hangul, db, $cordovaGlobalization, $ionicPlatform) {
+
 
     var self = this;
+
+    self.language = db.language;
 
     self.languages = {
       ko: {name: "한국어", showEng: true},
       en: {name: "English"}
     };
-    self.language = window.navigator.userLanguage || window.navigator.language;
-
-    if (self.language === 'ko-KR')
-      self.language = 'ko';
 
     self.texts = {};
     self.texts.ko = {
@@ -383,30 +382,41 @@
       descriptions: []
     };
 
-
-    if (!self.language || !self.texts[self.language])
-      self.language = 'en';
-
     var text = function (value) {
-      return self.texts[self.language][value];
+      return self.texts[self.language.language][value];
     };
     text.isShowEng = function () {
-      return self.languages[self.language].showEng;
+      return self.languages[self.language.language].showEng;
     };
     text.getLanguage = function () {
-      return self.language;
+      return self.language.language;
     };
     text.setLanguage = function (ln) {
-      self.language = ln;
+      self.language.language = ln;
+      self.language.isSet = true;
       text.onChangeLanguage.forEach(function (fn) {
         fn();
       });
     };
-
     text.getLanguages = function () {
       return self.languages;
     };
     text.onChangeLanguage = [];
+
+
+    if (!self.language.isSet)
+      $ionicPlatform.ready(function () {
+        $cordovaGlobalization.getPreferredLanguage().then(
+          function (result) {
+            if (result.value === 'ko-KR' || result.value === 'ko') {
+              text.setLanguage('ko');
+              return;
+            }
+            text.setLanguage('en');
+          });
+      });
+
+
     return text;
 
   }

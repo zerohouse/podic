@@ -1,21 +1,18 @@
 angular.module('Podic.controllers').controller('pokemonCtrl', pokemonCtrl);
 /* @ng-inject */
 function pokemonCtrl($scope, $stateParams, $rootScope, $ajax, pokemonService, $timeout, cpCal, $state) {
-  $scope.$watch(function () {
-    return $stateParams.id;
-  }, function (id) {
+  $scope.$on("$stateChangeSuccess", function () {
     if (!$rootScope.pokemons) {
-      getPokemon(id);
+      getPokemon($stateParams.id);
       return;
     }
-    $scope.pokemon = $rootScope.pokemons.findById(id);
+    $scope.pokemon = $rootScope.pokemons.findById($stateParams.id);
     if ($scope.pokemon) {
       $scope.loaded = true;
       return;
     }
-    getPokemon(id);
+    getPokemon($stateParams.id);
   });
-
 
   $scope.simulate = function () {
     if (!$scope.pokemon.level)

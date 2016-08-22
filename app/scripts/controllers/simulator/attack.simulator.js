@@ -1,7 +1,7 @@
 (function () {
   angular.module('Podic.controllers').controller('attackSimulateCtrl', attackSimulateCtrl);
   /* @ng-inject */
-  function attackSimulateCtrl($scope, PocketMons, cpCal, text, $ionicPopup, $rootScope, $interval, $stateParams, $ionicModal, userService) {
+  function attackSimulateCtrl($scope, Pokemons, cpCal, text, $ionicPopup, $rootScope, $interval, $stateParams, $ionicModal, userService) {
 
     var trainerLevel = $rootScope.playerStatus ? $rootScope.playerStatus.level : 10;
     $scope.trainer = {level: trainerLevel};
@@ -16,7 +16,7 @@
       individual_defense: 15,
       individual_stamina: 15,
       level: 15,
-      pokemon: PocketMons.get(ranId())
+      pokemon: Pokemons.get(ranId())
     };
 
     $scope.right = {
@@ -24,16 +24,16 @@
       individual_defense: 15,
       individual_stamina: 15,
       level: 15,
-      pokemon: PocketMons.get(ranId())
+      pokemon: Pokemons.get(ranId())
     };
     $scope.left.move_1 = $scope.left.pokemon.attacks[0].id;
     $scope.left.move_2 = $scope.left.pokemon.skills[0].id;
     $scope.right.move_1 = $scope.right.pokemon.attacks[0].id;
     $scope.right.move_2 = $scope.right.pokemon.skills[0].id;
 
-    $scope.$on('$locationChangeSuccess', function () {
+    $scope.$on('$stateChangeSuccess', function () {
       if ($stateParams.pokemon) {
-        $scope.left.pokemon = PocketMons.get(parseInt($stateParams.pokemon));
+        $scope.left.pokemon = Pokemons.get(parseInt($stateParams.pokemon));
         $scope.simulate();
         return;
       }
@@ -165,7 +165,7 @@
     $scope.selectPokemon = function (pokemon) {
       var scope = $scope.$new();
       scope.pokemon = pokemon;
-      scope.pokemons = PocketMons.all();
+      scope.pokemons = Pokemons.all();
       var buttons = [{text: pokemon.pokemon.name + text('keep'), type: 'button-dark'}];
       if (userService.user.id)
         buttons.unshift({

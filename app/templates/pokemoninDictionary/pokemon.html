@@ -6,40 +6,40 @@
     <div class="card poke-card">
       <div class="item item-divider">
         <i class="ion-fireball"></i>
-        <localnamer value="pokemondic"></localnamer>
+        <localnamer value="pokemon"></localnamer>
       </div>
-      <img style="margin:auto;margin-top:10px" ng-src="{{pokemondic.img}}">
+      <img style="margin:auto;margin-top:10px" ng-src="{{pokemon.img}}">
       <div class="item item-text-wrap" style="margin-top:-10px;border-top:none;">
         <div class="row">
           <div class="col">
             <div class="small-title">{{text('type')}}</div>
-            <types types="pokemondic.types"></types>
+            <types types="pokemon.types"></types>
           </div>
           <div class="col">
             <div class="small-title">{{text('rare')}}</div>
-            {{text('rareWords')[pokemondic.rarity]}}
+            {{text('rareWords')[pokemon.rarity]}}
           </div>
           <div class="col">
             <div class="small-title">{{text('pokemonPowerRank')}}</div>
-            {{pokemondic.value[3]}}위
+            {{pokemon.value[3]}}위
           </div>
         </div>
         <div class="row" style="margin-top:10px;">
           <div class="col">
             <div class="small-title">{{text('pokemonPower')}}</div>
-            {{pokemondic.power}}
+            {{pokemon.power}}
           </div>
           <div class="col">
             <div class="small-title">{{text('attack')}}</div>
-            {{pokemondic.value[0]}}
+            {{pokemon.value[0]}}
           </div>
           <div class="col">
             <div class="small-title">{{text('defense')}}</div>
-            {{pokemondic.value[1]}}
+            {{pokemon.value[1]}}
           </div>
           <div class="col">
             <div class="small-title">{{text('stamina')}}</div>
-            {{pokemondic.value[2]}}
+            {{pokemon.value[2]}}
           </div>
         </div>
         <div class="row">
@@ -48,7 +48,7 @@
                     ui-sref="app.simulator.cp({pokemon:pokemon.id})">
                 <i class="ion-arrow-graph-up-right"></i> {{text('cpSimulation')}}
               </span>
-            <span class="button button-positive" ui-sref="app.simulator.attack({pokemon:pokemondic.id})">
+            <span class="button button-positive" ui-sref="app.simulator.attack({pokemon:pokemon.id})">
                 <i class="ion-fireball"></i> {{text('battleSimulation')}}
               </span>
           </div>
@@ -69,12 +69,12 @@
           <div class="col">{{text('attackPower')}}({{text("dps")}})</div>
           <div class="col">{{text('energy')}}({{text("eps")}})</div>
         </div>
-        <skill skill="skill" ng-repeat="skill in pokemondic.attacks"></skill>
-        <skill skill="skill" ng-repeat="skill in pokemondic.skills"></skill>
+        <skill skill="skill" ng-repeat="skill in pokemon.attacks"></skill>
+        <skill skill="skill" ng-repeat="skill in pokemon.skills"></skill>
       </div>
     </div>
 
-    <div class="card poke-card" ng-if="pokemondic.evolveCandies">
+    <div class="card poke-card" ng-if="pokemon.evolveCandies">
       <div class="item item-divider">
         <i class="ion-ios-rose"></i> {{text('candiesInfo')}}
       </div>
@@ -82,22 +82,22 @@
         <div class="row">
           <div class="col">
             <div class="small-title">{{text('needCandies')}}</div>
-            {{pokemondic.evolveCandies}}
+            {{pokemon.evolveCandies}}
           </div>
           <div class="col">
             <div class="small-title">{{text('nowCandies')}}</div>
-            {{pokemondic.candies}}
+            {{pokemon.candies}}
           </div>
         </div>
-        <div class="row" ng-if="pokemondic.canEvolve" style="color: green;">
+        <div class="row" ng-if="pokemon.canEvolve" style="color: green;">
           <div class="col">
-            <br>{{getNextName(pokemondic)}} {{text('canEvolve')}}
+            <br>{{getNextName(pokemon)}} {{text('canEvolve')}}
           </div>
         </div>
       </div>
     </div>
 
-    <div class="card poke-card" ng-if="pokemondic.data">
+    <div class="card poke-card" ng-if="pokemon.data">
       <div class="item item-divider">
         <i class="ion-stats-bars"></i>
         {{text('pokemonStatistics')}}
@@ -106,35 +106,35 @@
         <div class="row">
           <div class="col">
             <div class="small-title">{{text('ratioInAllPokemon')}}</div>
-            {{pokemondic.data.percent * 100 | number:2}}%
+            {{pokemon.data.percent * 100 | number:2}}%
 
           </div>
           <div class="col">
             <div class="small-title">{{text('averageCP')}}</div>
-            {{pokemondic.data.averageCp | number:1}}
+            {{pokemon.data.averageCp | number:1}}
           </div>
           <div class="col">
             <div class="small-title">{{text('now1stPlaceCp')}}</div>
-            {{pokemondic.data.maxCp}}
+            {{pokemon.data.maxCp}}
           </div>
         </div>
       </div>
     </div>
 
-    <div class="card" ng-if="pokemondic.desc">
+    <div class="card" ng-if="pokemon.desc">
       <div class="item item-divider">
         <i class="ion-leaf"></i> {{text('story')}}
       </div>
       <div class="item item-text-wrap story">
         <div>
-          {{pokemondic.desc}}
+          {{pokemon.desc}}
         </div>
       </div>
     </div>
 
 
     <div class="padding">
-      <replies type="DICTIONARY" replies="replies" replies-id="pokemondic.id"></replies>
+      <replies type="DICTIONARY" replies="replies" replies-id="pokemon.id"></replies>
     </div>
   </ion-content>
 </ion-view>

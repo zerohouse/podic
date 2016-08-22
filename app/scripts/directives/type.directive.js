@@ -9,14 +9,14 @@
         type: '=',
         noHelp: '='
       },
-      controller: function ($scope, $ionicPopup, PocketMons, text) {
+      controller: function ($scope, $ionicPopup, Pokemons, text) {
         $scope.showPopup = function (type) {
           var template = '';
           var defense_strong = type.defense.strong.map(function (id) {
-            return PocketMons.attrs[id].name;
+            return Pokemons.attrs[id].name;
           }).join(", ");
           var defense_weak = type.defense.weak.map(function (id) {
-            return PocketMons.attrs[id].name;
+            return Pokemons.attrs[id].name;
           }).join(", ");
           if (defense_strong)
             template += "<strong>" + defense_strong + "</strong> " +

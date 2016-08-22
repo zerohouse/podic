@@ -57,7 +57,9 @@
     "ionic-plugin-keyboard",
     "cordova-plugin-geolocation",
     "cordova-plugin-inappbrowser",
-    "cordova-plugin-admobpro"
+    "cordova-plugin-globalization",
+    "cordova-plugin-admobpro",
+    "cordova-plugin-google-analytics"
   ],
   "cordovaPlatforms": [
     "android",
