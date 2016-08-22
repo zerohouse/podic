@@ -36,9 +36,6 @@
             </div>
           </div>
         </ion-item>
-        <ion-item menu-close ui-sref="app.simulator.egg">
-          <i class="ion-play"></i> {{text("simulator")}}
-        </ion-item>
         <ion-item menu-close ui-sref="app.pokemons" ng-if="user.id">
           {{text("myPokemon")}}
         </ion-item>
@@ -51,8 +48,8 @@
         <ion-item menu-close ui-sref="app.trainerRank">
           {{text("trainerRank")}}
         </ion-item>
-        <ion-item menu-close ui-sref="app.tips" ng-if="user.id">
-          {{text("tips")}}
+        <ion-item menu-close ui-sref="app.simulator.egg">
+          {{text("simulator")}}
         </ion-item>
         <ion-item menu-close ng-click="logout()" ng-if="user.id">
           {{text("logout")}}

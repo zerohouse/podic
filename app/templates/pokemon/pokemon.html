@@ -24,7 +24,8 @@
             </div>
             <div class="col">
               <div class="small-title">{{text('individualValue')}}</div>
-              {{pokemon.individual_score}}/45
+              {{pokemon.individual_score}}/45 ({{pokemon.individual_score*100/45 |
+              number:0}}%)
             </div>
             <div class="col">
               <div class="small-title">{{text('pokemonPowerRank')}}</div>

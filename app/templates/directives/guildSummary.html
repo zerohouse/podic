@@ -1,0 +1,13 @@
+<div class="item item-avatar">
+  <img ng-src="{{user.img || 'images/profile.png'}}" ng-click="detailPage(user)">
+  <h2 ng-click="detailPage(user)">
+    {{guild.name}}
+  </h2>
+  <p>멤버 : 20명</p>
+  <div style="margin-top:10px;overflow:hidden;height: 45px;">
+    <div ui-sref="app.pokemon({id:pokemon.id})" class="pokemons" ng-repeat="pokemon in user.pokemons">
+      <img ng-src="{{pokemon.pokemon.img}}">
+      <span>{{pokemon.cp}}</span>
+    </div>
+  </div>
+</div>

@@ -27,11 +27,13 @@
          ng-repeat="pokemon in (filtered = pokemons | filter: order.keyword | orderBy:order.orderBy:order.desc)">
         <img ng-src="{{pokemon.pokemon.img}}">
         <h2 style="margin-bottom: 5px">{{pokemon.nickname}} <span class="small-tail">{{pokemon.pokemon_id}}</span>
-          <localnamer value="pokemon.pokemon"></localnamer> <span class="small-tail">{{text('rareWords')[pokemon.pokemon.rarity]}}</span>
+          <localnamer value="pokemon.pokemon"></localnamer>
+          <span class="small-tail">{{text('rareWords')[pokemon.pokemon.rarity]}}</span>
         </h2>
         <h2 style="margin-bottom: 5px">
-          CP: {{pokemon.cp}} {{text('individualValue')}}:
-          {{pokemon.individual_score||0}}({{pokemon.individual_attack||0}}/{{pokemon.individual_defense||0}}/{{pokemon.individual_stamina||0}})
+          CP: {{pokemon.cp}} IV:
+          {{pokemon.individual_score||0}}({{pokemon.individual_score*100/45 |
+          number:0}}%) {{pokemon.individual_attack||0}}/{{pokemon.individual_defense||0}}/{{pokemon.individual_stamina||0}}
         </h2>
         <p>
           {{text('maxCpInList')}}:{{pokemon.maxTrainerCp||0}}({{text('maxLevel')}}:{{pokemon.maxCp}}), <span

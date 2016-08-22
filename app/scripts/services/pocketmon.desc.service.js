@@ -1004,8 +1004,12 @@
         attrs.forEach(function (o) {
           o.name = o[language];
         });
-        pocketmons.forEach(function (o) {
+        pocketmons.forEach(function (o, i) {
           o.name = o[language];
+          var descriptions = text('descriptions');
+          if (descriptions[i]) {
+            o.desc = descriptions[i];
+          }
         });
       };
       languageSet();
@@ -1021,11 +1025,6 @@
           pokemon.img = imgPath + "0" + (i) + ".png";
         else
           pokemon.img = imgPath + "00" + (i) + ".png";
-        var descriptions = text('descriptions');
-        descriptions.unshift('');
-        if (descriptions[i]) {
-          pokemon.desc = descriptions[i];
-        }
         pokemon.evolveCandies = canEvolveCandies[i];
         pokemon.candies = 0;
         pokemon.canEvolve = false;

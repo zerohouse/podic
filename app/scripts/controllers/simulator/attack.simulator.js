@@ -6,12 +6,17 @@
     var trainerLevel = $rootScope.playerStatus ? $rootScope.playerStatus.level : 10;
     $scope.trainer = {level: trainerLevel};
 
+
+    function ranId() {
+      return Math.floor(Math.random() * 150) + 1;
+    }
+
     $scope.left = {
       individual_attack: 15,
       individual_defense: 15,
       individual_stamina: 15,
       level: 15,
-      pokemon: PocketMons.all().random()
+      pokemon: PocketMons.get(ranId())
     };
 
     $scope.right = {
@@ -19,18 +24,18 @@
       individual_defense: 15,
       individual_stamina: 15,
       level: 15,
-      pokemon: PocketMons.all().random()
+      pokemon: PocketMons.get(ranId())
     };
     $scope.left.move_1 = $scope.left.pokemon.attacks[0].id;
     $scope.left.move_2 = $scope.left.pokemon.skills[0].id;
     $scope.right.move_1 = $scope.right.pokemon.attacks[0].id;
     $scope.right.move_2 = $scope.right.pokemon.skills[0].id;
 
-
     $scope.$on('$locationChangeSuccess', function () {
       if ($stateParams.pokemon) {
         $scope.left.pokemon = PocketMons.get(parseInt($stateParams.pokemon));
         $scope.simulate();
+        return;
       }
       if ($stateParams.pokemon_id) {
         var pokemon = $rootScope.pokemons.findById(parseInt($stateParams.pokemon_id));
@@ -162,7 +167,7 @@
       scope.pokemon = pokemon;
       scope.pokemons = PocketMons.all();
       var buttons = [{text: pokemon.pokemon.name + text('keep'), type: 'button-dark'}];
-      if(userService.user.id)
+      if (userService.user.id)
         buttons.unshift({
           text: text('selectInMyPokemons'),
           type: 'button-positive',
