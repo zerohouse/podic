@@ -10,7 +10,7 @@ angular.module('Podic').run(function (ionicToast, $ionicPopup, text) {
       title: text('search'),
       scope: $scope,
       buttons: [
-        {text: text('search'), type: 'button-positive'}
+        {text: text('search'), type: 'button-royal'}
       ]
     });
   };
@@ -44,7 +44,7 @@ angular.module('Podic').run(function (ionicToast, $ionicPopup, text) {
       title: text('align'),
       scope: $scope,
       buttons: [
-        {text: text('align'), type: 'button-positive'}
+        {text: text('align'), type: 'button-royal'}
       ]
     });
   };

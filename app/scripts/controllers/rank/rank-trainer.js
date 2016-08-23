@@ -1,6 +1,30 @@
 angular.module('Podic.controllers').controller('trainerRankCtrl', trainerRankCtrl);
 /* @ng-inject */
-function trainerRankCtrl(rankerService, $scope, $ionicPopup, userService, text) {
+function trainerRankCtrl(rankerService, $scope, $ionicPopup, userService, text, $ionicModal, $window, $ajax) {
+
+  setAddresses();
+
+  function setAddresses() {
+    if (!$window.localStorage.addresses) {
+      getAddresses();
+      return;
+    }
+    var adressObj = JSON.parse($window.localStorage.addresses);
+    if (adressObj.time > new Date().getTime() - 72 * 60 * 60 * 1000) {
+      getAddresses();
+      return;
+    }
+    $scope.addresses = adressObj.addresses;
+  }
+
+  function getAddresses() {
+    $ajax.get('/api/v1/address').then(function (addresses) {
+      $scope.addresses = addresses;
+      var addressObj = {time: new Date(), addresses: addresses};
+      $window.localStorage.addresses = JSON.stringify(addressObj);
+    });
+  }
+
   $scope.rankerService = rankerService;
 
   $scope.more = function () {
@@ -18,33 +42,27 @@ function trainerRankCtrl(rankerService, $scope, $ionicPopup, userService, text) 
     return text('all');
   };
 
-  $scope.selectDistrict = function () {
-    var district = rankerService.district;
-    var template = '<ion-radio ng-model="rankerService.district" ng-value="0">' +
-      text('all') +
-      '</ion-radio>';
-    userService.user.addressRanks.forEach(function (addressRank) {
-      template += '<ion-radio ng-model="rankerService.district" ng-value="\'' +
-        addressRank.longName +
-        '\'">' +
-        addressRank.longName +
-        '</ion-radio>';
-      $scope.query.district = addressRank.longName;
-    });
+  $ionicModal.fromTemplateUrl('templates/rankTrainer/district.html', {
+    scope: $scope
+  }).then(function (modal) {
+    $scope.modal = modal;
+  });
 
-    var popup = $ionicPopup.show({
-      template: template,
-      title: text('search'),
-      scope: $scope,
-      buttons: [
-        {text: text('search'), type: 'button-positive'}
-      ]
-    });
-
-    popup.then(function () {
-      if (district !== rankerService.district)
-        rankerService.reset();
-    });
+  $scope.close = function () {
+    $scope.modal.hide();
   };
-}
 
+  $scope.selectDistrict = function () {
+    $scope.modal.show();
+  };
+
+  $scope.setDistrict = function (district) {
+    var isSame = district === rankerService.district;
+    rankerService.district = district;
+    if (!isSame) {
+      rankerService.reset();
+    }
+    $scope.close();
+  };
+
+}

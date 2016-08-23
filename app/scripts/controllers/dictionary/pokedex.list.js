@@ -3,6 +3,7 @@ angular.module('Podic.controllers').controller('pokemonDescriptionListCtrl', pok
 function pokemonDescriptionListCtrl($scope, pokemonService, $ionicPopup, Pokemons, text, db) {
   $scope.refresh = pokemonService.refresh;
 
+  $scope.etc = db.etc;
   $scope.order = db.orderPokedex;
 
   $scope.pokemons = Pokemons.all();
@@ -18,7 +19,7 @@ function pokemonDescriptionListCtrl($scope, pokemonService, $ionicPopup, Pokemon
       title: text('search'),
       scope: $scope,
       buttons: [
-        {text: text('search'), type: 'button-positive'}
+        {text: text('search'), type: 'button-royal'}
       ]
     });
   };
@@ -51,7 +52,7 @@ function pokemonDescriptionListCtrl($scope, pokemonService, $ionicPopup, Pokemon
       title: text('align'),
       scope: $scope,
       buttons: [
-        {text: text('align'), type: 'button-positive'}
+        {text: text('align'), type: 'button-royal'}
       ]
     });
   };

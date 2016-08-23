@@ -3,6 +3,10 @@
     {{text('pokemonDic')}}
   </ion-nav-title>
   <ion-nav-buttons side="right">
+    <button class="button" ng-click="etc.cardView=!etc.cardView" style="border:none;margin-right:10px">
+      <i style="font-size:20px" ng-if="!etc.cardView" class="ion-ios-list-outline"></i>
+      <i style="font-size:20px" ng-if="etc.cardView" class="ion-ios-grid-view-outline"></i>
+    </button>
     <button class="button" ng-click="search()" style="border:none;margin-right:10px">
       <i style="font-size:20px" class="ion-android-search"></i>
     </button>
@@ -11,7 +15,7 @@
     </button>
   </ion-nav-buttons>
   <ion-content>
-    <div class="list">
+    <div class="list" ng-if="!etc.cardView">
       <a class="item item-thumbnail-left" ui-sref="app.pokemonDetail({id:pokemon.id})"
          ng-if="pokemon.id"
          ng-repeat="pokemon in pokemons | filter: value.keyword | filter: getCanEvolveFilter() | orderBy:order.orderBy:order.desc">
@@ -21,19 +25,41 @@
         </h2>
         <p ng-if="pokemon.evolveCandies">
           {{text('candy')}}: {{pokemon.candies || 0}}/{{pokemon.evolveCandies}} <span style="color:green"
-                                                                                       ng-show="pokemon.canEvolve">{{getNextName(pokemon)}} {{text('canEvolve')}}</span>
+                                                                                      ng-if="pokemon.canEvolve">{{getNextName(pokemon)}} {{text('canEvolve')}}</span>
         </p>
         <p>
           {{text('pokemonPower')}}: {{pokemon.value[3]}}{{text('rank')}} ({{pokemon.power}})
         </p>
         <p>
-          {{text('rare')}}: {{text('rareWords')[pokemon.rarity]}}
-
+          {{text('rare')}}: <span rarity="pokemon.rarity"></span>
         </p>
         <p>
           <span ng-repeat="type in pokemon.types">{{type.name}}<span ng-if="!$last">, </span></span>
         </p>
       </a>
+    </div>
+    <div class="list card-view" ng-if="etc.cardView">
+      <div class="card-view-item" ui-sref="app.pokemonDetail({id:pokemon.id})"
+           ng-if="pokemon.id"
+           ng-repeat="pokemon in pokemons | filter: value.keyword | filter: getCanEvolveFilter() | orderBy:order.orderBy:order.desc">
+        <div>
+          <img ng-src="{{pokemon.img}}">
+        </div>
+        <div class="card-view-description">
+          <p ng-if="pokemon.evolveCandies">
+          <i class="podoc-icon"><img src="images/icons/candy.png"></i> <span ng-class="{green:pokemon.canEvolve, bold:pokemon.canEvolve}">{{pokemon.candies || 0}}/{{pokemon.evolveCandies}}</span>
+          </p>
+          <h2><span class="small-tail">{{pokemon.id}}</span>
+          {{pokemon.name}}
+          </h2>
+          <p>
+          <span rarity="pokemon.rarity"></span><br><span ng-repeat="type in pokemon.types">{{type.name}}<span ng-if="!$last">, </span></span>
+          </p>
+          <p>
+          <i class="ion-flash stats"></i> {{pokemon.power}} (#{{pokemon.value[3]}})
+          </p>
+        </div>
+      </div>
     </div>
   </ion-content>
 </ion-view>

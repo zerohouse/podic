@@ -1,5 +1,5 @@
 angular.module('Podic.controllers')
-  .controller('AppCtrl', function ($scope, $ionicModal, $timeout, userService) {
+  .controller('AppCtrl', function ($scope, $ionicModal, $timeout, userService, confirm, text, $cordovaGeolocation, ionicToast, $ajax) {
     $ionicModal.fromTemplateUrl('templates/base/login.html', {
       scope: $scope
     }).then(function (modal) {
@@ -30,6 +30,26 @@ angular.module('Podic.controllers')
 
     $scope.logout = function () {
       userService.logout();
+    };
+
+    $scope.updateLocation = function () {
+      confirm(text("updateLocationSub"), text("updateLocationTitle")).then(function () {
+        ionicToast.alert(text('requestLocation'));
+
+        $cordovaGeolocation
+          .getCurrentPosition({timeout: 2000, enableHighAccuracy: false})
+          .then(function (position) {
+            $ajax.post('/api/v1/user/updateLocation', {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            }).then(function (user) {
+              userService.user.addressRanks = user.addressRanks;
+              ionicToast.alert(text('requestLocationDone'));
+            });
+          }, function () {
+            ionicToast.alert(text('requestLocationFail'));
+          });
+      });
     };
 
   });

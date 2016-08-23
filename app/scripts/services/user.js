@@ -101,7 +101,6 @@ function userService($ajax, $cordovaDevice, $ionicPlatform, $cordovaGeolocation,
     });
   };
 
-
   function updateLatLng() {
     return $q(function (ok, no) {
       $cordovaGeolocation

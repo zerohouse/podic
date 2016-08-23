@@ -1,0 +1,18 @@
+<ion-modal-view>
+  <ion-header-bar class="item-input-inset">
+    <label class="item-input-wrapper">
+      <i class="icon ion-ios7-search placeholder-icon"></i>
+      <input type="search" placeholder="{{text('district')}}" ng-model="keyword">
+    </label>
+    <button class="button" ng-click="modal.hide()" style="border:none">
+      <i style="font-size:20px" class="ion-close-round"></i>
+    </button>
+  </ion-header-bar>
+  <ion-content>
+    <div class="list">
+      <div class="item" ng-show="!keyword" ng-click="setDistrict()">{{text('all')}}</div>
+      <div class="item" ng-repeat="address in addresses | filter : keyword" ng-click="setDistrict(address.longName)">{{address.longName}}<span
+        ng-if="address.shortName!==address.longName">({{address.shortName}})</span></div>
+    </div>
+  </ion-content>
+</ion-modal-view>

@@ -17,11 +17,11 @@
           </div>
           <div class="col">
             <div class="small-title">{{text('rare')}}</div>
-            {{text('rareWords')[pokemon.rarity]}}
+            <span rarity="pokemon.rarity"></span>
           </div>
           <div class="col">
             <div class="small-title">{{text('pokemonPowerRank')}}</div>
-            {{pokemon.value[3]}}위
+            {{pokemon.value[3]}}{{text('rank')}}
           </div>
         </div>
         <div class="row" style="margin-top:10px;">
@@ -48,7 +48,7 @@
                     ui-sref="app.simulator.cp({pokemon:pokemon.id})">
                 <i class="ion-arrow-graph-up-right"></i> {{text('cpSimulation')}}
               </span>
-            <span class="button button-positive" ui-sref="app.simulator.attack({pokemon:pokemon.id})">
+            <span class="button button-royal" ui-sref="app.simulator.attack({pokemon:pokemon.id})">
                 <i class="ion-fireball"></i> {{text('battleSimulation')}}
               </span>
           </div>

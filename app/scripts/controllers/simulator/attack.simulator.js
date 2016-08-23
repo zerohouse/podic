@@ -170,7 +170,7 @@
       if (userService.user.id)
         buttons.unshift({
           text: text('selectInMyPokemons'),
-          type: 'button-positive',
+          type: 'button-royal',
           onTap: function () {
             var scope = $scope.$new();
             scope.pokemons = $rootScope.pokemons;
@@ -218,7 +218,7 @@
         title: text('selectSkill'),
         scope: scope,
         buttons: [
-          {text: text('done'), type: 'button-positive'}
+          {text: text('done'), type: 'button-royal'}
         ]
       });
       popup.then($scope.simulate);
@@ -233,7 +233,7 @@
         title: text('modifylvAndStat'),
         scope: scope,
         buttons: [
-          {text: text('done'), type: 'button-positive'}
+          {text: text('done'), type: 'button-royal'}
         ]
       });
       popup.then(function () {

@@ -1,11 +1,12 @@
-hp-bar, energy-bar {
+hp-bar, energy-bar, percent-bar {
   position: relative;
-  display: inline-block;
+  display: block;
   height: 30px;
   width: 100%;
   border-radius: 15px;
   background: #eee;
   overflow: hidden;
+  margin-bottom: 2px;
   span {
     background: #33cd5f;
     position: absolute;
@@ -35,3 +36,23 @@ energy-bar {
     line-height: 25px;
   }
 }
+
+percent-bar {
+  height: 15px;
+  label {
+    line-height: 15px;
+    font-size: 10px;
+  }
+  margin: 2px auto;
+  width: 90%;
+}
+
+percent-bar.small {
+  height: 10px;
+  label {
+    line-height: 10px;
+    font-size: 8px;
+  }
+  margin: 0 auto;
+}
+

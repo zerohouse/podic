@@ -3,10 +3,14 @@
     {{text('myPokemon')}}
   </ion-nav-title>
   <ion-nav-buttons side="right">
-    <button class="button" ng-class="{spin:loading()}" ng-click="refresh()" style="border:none;margin-right:10px">
+    <button class="button" ng-click="etc.mCardView=!etc.mCardView" style="border:none;margin-right:8px">
+      <i style="font-size:20px" ng-if="!etc.mCardView" class="ion-ios-list-outline"></i>
+      <i style="font-size:20px" ng-if="etc.mCardView" class="ion-ios-grid-view-outline"></i>
+    </button>
+    <button class="button" ng-class="{spin:loading()}" ng-click="refresh()" style="border:none;margin-right:8px">
       <i style="font-size:20px" class="ion-android-refresh"></i>
     </button>
-    <button class="button" ng-click="search()" style="border:none;margin-right:10px">
+    <button class="button" ng-click="search()" style="border:none;margin-right:8px">
       <i style="font-size:20px" class="ion-android-search"></i>
     </button>
     <button class="button" ng-click="align()" style="border:none">
@@ -16,38 +20,76 @@
   <ion-content id="pokemonlist">
     <div ng-if="!user.id">
       <label class="item">
-        <button class="button button-block button-positive" ng-click="googleLogin()" type="submit">
+        <button class="button button-block button-royal" ng-click="googleLogin()" type="submit">
           {{text("loginWithGoogle")}}
         </button>
       </label>
     </div>
 
-    <div class="list" ng-if="user.id">
-      <a class="item item-thumbnail-left" ui-sref="app.pokemon({id:pokemon.id})"
-         ng-repeat="pokemon in (filtered = pokemons | filter: value.keyword | orderBy:order.orderBy:order.desc)">
-        <img ng-src="{{pokemon.pokemon.img}}">
-        <h2 style="margin-bottom: 5px">{{pokemon.nickname}} <span class="small-tail">{{pokemon.pokemon_id}}</span>
-          <localnamer value="pokemon.pokemon"></localnamer>
-          <span class="small-tail">{{text('rareWords')[pokemon.pokemon.rarity]}}</span>
-        </h2>
-        <h2 style="margin-bottom: 5px">
-          CP: {{pokemon.cp}} IV:
-          {{pokemon.individual_score||0}}({{pokemon.individual_score*100/45 |
-          number:0}}%) {{pokemon.individual_attack||0}}/{{pokemon.individual_defense||0}}/{{pokemon.individual_stamina||0}}
-        </h2>
-        <p>
-          {{text('maxCpInList')}}:{{pokemon.maxTrainerCp||0}}({{text('maxLevel')}}:{{pokemon.maxCp}}), <span
-          ng-repeat="attr in pokemon.pokemon.types">{{attr.name}}<span ng-if="!$last"> | </span></span>
-        </p>
-        <p>
-          {{text('pokemonPower')}}:
-          <small>{{pokemon.pokemon.value[3]}}{{text('rank')}}</small>
-          {{pokemon.pokemon.power}}({{pokemon.pokemon.value[0]}}/{{pokemon.pokemon.value[1]}}/{{pokemon.pokemon.value[2]}})
-        </p>
-      </a>
-      <a class="item" style="border:none" ng-if="!pokemons || pokemons.length===0">
-        <h2 style="margin-top:12px">{{getMessage()}}</h2>
-      </a>
+    <div ng-if="user.id">
+
+      <div class="list" ng-if="!etc.mCardView">
+        <a class="item item-thumbnail-left" ui-sref="app.pokemon({id:pokemon.id})"
+           ng-repeat="pokemon in (filtered = pokemons | filter: value.keyword | orderBy:order.orderBy:order.desc)">
+          <img ng-src="{{pokemon.pokemon.img}}">
+          <h2 style="margin-bottom: 5px">{{pokemon.nickname}} <span class="small-tail">{{pokemon.pokemon_id}}</span>
+            <localnamer value="pokemon.pokemon"></localnamer>
+            <span class="small-tail" rarity="pokemon.pokemon.rarity"></span></h2>
+          <h2 style="margin-bottom: 5px">
+            <small class="small-title">CP:</small>
+            {{pokemon.cp}}
+            <small class="small-title">{{text('individualValue')}}:</small>
+            {{pokemon.individual_score||0}}/45
+            ({{pokemon.individual_attack||0}}/{{pokemon.individual_defense||0}}/{{pokemon.individual_stamina||0}})
+          </h2>
+          <p> {{text('maxCpInList')}}:{{pokemon.maxTrainerCp||0}}({{text('maxLevel')}}:{{pokemon.maxCp}}), <span
+            ng-repeat="attr in pokemon.pokemon.types">{{attr.name}}<span ng-if="!$last"> | </span></span>
+          </p>
+          <p>
+            {{text('pokemonPower')}}:
+            <small>{{pokemon.pokemon.value[3]}}{{text('rank')}}</small>
+            {{pokemon.pokemon.power}}({{pokemon.pokemon.value[0]}}/{{pokemon.pokemon.value[1]}}/{{pokemon.pokemon.value[2]}})
+          </p>
+        </a>
+        <a class="item" style="border:none" ng-if="!pokemons || pokemons.length===0">
+          <h2 style="margin-top:12px">{{getMessage()}}</h2>
+        </a>
+      </div>
+
+      <div class="list card-view" ng-if="etc.mCardView">
+        <div class="card-view-item"  ui-sref="app.pokemon({id:pokemon.id})"
+             ng-if="pokemon.id"
+             ng-repeat="pokemon in (filtered = pokemons | filter: value.keyword | orderBy:order.orderBy:order.desc)">
+          <div>
+            <img ng-src="{{pokemon.pokemon.img}}">
+          </div>
+          <div class="card-view-description">
+            <p ng-if="pokemon.evolveCandies">
+              <i class="podoc-icon"><img src="images/icons/candy.png"></i> <span ng-class="{green:pokemon.canEvolve}">{{pokemon.candies || 0}}/{{pokemon.evolveCandies}}</span>
+            </p>
+            <h2>
+              {{pokemon.nickname || pokemon.pokemon.name}}
+              <span class="small-title"><i class="ion-flash stats"></i> {{pokemon.pokemon.power}}</span>
+            </h2>
+            <p>
+              <percent-bar value="pokemon.individual_score||0" max="45" prefix="text('individualValue')"
+                           color="#263248"></percent-bar>
+              <percent-bar class="small" style="border-radius: 10px 10px 0 0" value="pokemon.individual_attack||0"
+                           max="15" prefix="'Atk'" color="#EA2E49"></percent-bar>
+              <percent-bar class="small" style="border-radius: 0" value="pokemon.individual_defense||0" max="15"
+                           prefix="'Def'" color="#1695A3"></percent-bar>
+              <percent-bar class="small" style="border-radius: 0 0 10px 10px" value="pokemon.individual_stamina||0"
+                           max="15" prefix="'Sta'" color="#79BD8F"></percent-bar>
+            </p>
+            <div>
+              <skill-summary style="font-size: 10px;margin-bottom: -5px"
+                             skill="pokemon.pokemon.attacks.findById(pokemon.move_1)"></skill-summary>
+              <skill-summary style="font-size: 10px;"
+                             skill="pokemon.pokemon.skills.findById(pokemon.move_2)"></skill-summary>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </ion-content>
   <ion-footer-bar style="height:0;padding:0">

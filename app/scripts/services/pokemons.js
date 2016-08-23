@@ -2,11 +2,7 @@ angular.module('Podic.services').service('pokemonService', pokemonService);
 /* @ng-inject */
 function pokemonService(Pokemons, PokemonRequest, cpCal, $rootScope, db, $ajax, ionicToast, text) {
 
-  // var POKEMON = 'pokemons';
-  // var PLAYER = 'player';
-  // if (db.is(POKEMON))
   $rootScope.pokemons = db.pokemons;
-  // if (db.is(PLAYER))
   $rootScope.playerStatus = db.playerStatus;
 
 
@@ -61,7 +57,6 @@ function pokemonService(Pokemons, PokemonRequest, cpCal, $rootScope, db, $ajax, 
       if (!pokemons)
         return;
 
-      $rootScope.pokemons = pokemons;
 
       pokemonFamily.forEach(function (fa) {
         var pokemon = Pokemons.get(fa.family_id);
@@ -106,6 +101,8 @@ function pokemonService(Pokemons, PokemonRequest, cpCal, $rootScope, db, $ajax, 
         return p2.individual_score - p1.individual_score;
       });
 
+      angular.copy(pokemons, $rootScope.pokemons);
+
     }, function () {
       ionicToast.show(text("serverError"), 'bottom', false, 3000);
       self.loading = false;
@@ -116,7 +113,7 @@ function pokemonService(Pokemons, PokemonRequest, cpCal, $rootScope, db, $ajax, 
   $rootScope.$on('userLoggedIn', this.refresh);
 
   $rootScope.$on('userLogout', function () {
-    $rootScope.pokemons = [];
+    angular.copy([], $rootScope.pokemons);
   });
 
 }

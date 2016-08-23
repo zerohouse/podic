@@ -1,0 +1,45 @@
+.card-view {
+  padding: 0 0.5%;
+  text-align: center;
+  overflow: auto;
+  .card-view-description {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.6);
+    padding-top: 5px;
+  }
+
+  div.card-view-item {
+    float: left;
+    width: 32%;
+    height: 190px;
+    position: relative;
+    padding: 0.5%;
+    margin-bottom: 15px;
+    overflow: hidden;
+    border-bottom: 1px dotted #eee;
+    * {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    img {
+      max-width: 80%;
+    }
+    h2 {
+      font-size: 15px;
+      margin-bottom: 4px;
+      margin-top: 4px;
+    }
+    p {
+      font-size: 12px;
+      margin-bottom: 2px;
+    }
+
+  }
+
+  skill-summary {
+    display: block;
+  }
+
+}

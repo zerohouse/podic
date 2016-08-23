@@ -4,14 +4,16 @@
       {{text("loginWithGoogle")}}
     </h1>
     <div class="buttons">
-      <button class="button button-clear" ng-click="closeLogin()">Close</button>
+      <button class="button" ng-click="closeLogin()" style="border:none">
+        <i style="font-size:20px" class="ion-close-round"></i>
+      </button>
     </div>
   </ion-header-bar>
   <ion-content>
     <form>
       <div class="list">
         <label class="item">
-          <button class="button button-block button-positive" ng-click="googleLogin()">
+          <button class="button button-block button-royal" ng-click="googleLogin()">
             {{text("loginWithGoogle")}}
           </button>
         </label>

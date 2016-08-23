@@ -5,8 +5,9 @@
   function db($window) {
 
     var self = this;
+    set('etc', {});
     set('user', {});
-    set('language', {language: 'en', isSet:false});
+    set('language', {language: 'en', isSet: false});
     set('pokemons', []);
     set('playerStatus', {});
     set('orderPokedex', {orderBy: 'id', keyword: ''});

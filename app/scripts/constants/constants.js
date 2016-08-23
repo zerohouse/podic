@@ -20,6 +20,11 @@
       guildName: '길드명',
       guildIntroduce: '길드 소개',
       makeGuild: '길드 만들기',
+      updateLocationSub: "내 위치를 업데이트 합니다.",
+      updateLocationTitle: "업데이트 확인",
+      requestLocation:"위치정보를 요청합니다.",
+      requestLocationDone:"위치정보가 갱신되었습니다.",
+      requestLocationFail:"위치정보 조회에 실패했습니다.",
 
 
       // 메인
@@ -52,7 +57,7 @@
       rank: "위",
       Rank: "순위",
       rare: "희귀도",
-      rareWords: ['아주 흔함', '흔함', '보통', '특별함', '희귀함', '진귀함', '에픽', '전설'],
+      rareWords: ['아주 흔함', '흔함', '보통', '특별함', '희귀함', '진귀함', "유니크", '에픽', '전설'],
 
       candiesInfo: '진화 정보',
       orderCandy: '캔디순',
@@ -232,18 +237,20 @@
       rank: "",
       Rank: "Ranking",
       rare: "Rarity",
-      rareWords: ['Everywhere', 'VeryCommon', 'Common', 'Uncommon', 'Rare', 'Very Rare', 'Epic', 'Legend'],
+      rareWords: ['Everywhere', 'Very Common', 'Common', 'Uncommon', 'Rare', 'Very Rare', 'Unique', 'Epic', 'Mythical'],
 
       candiesInfo: 'Evolve Infomation',
       orderCandy: 'Order by Candies',
-      canEvolve: 'Evolve able',
-      canEvolvePokemon: 'Evolve able Pokemon',
+      canEvolve: 'Evolve available',
+      canEvolvePokemon: 'Evolve available Pokemon',
       candy: 'Candy',
       needCandies: 'Candies To Evolve',
       nowCandies: 'Candy In Inventory',
       isEvolvable: 'Is Evolve able',
       maxCpInList: "Max CP",
       showSkills: 'Show Skills',
+      updateLocationSub: "Update Location",
+      updateLocationTitle: "Update User Location",
 
       //포켓몬 리스트 페이지
       search: "Search",
@@ -338,7 +345,7 @@
       dps: 'DPS',
       eps: 'EPS',
       energy: 'Energy',
-      all: 'All',
+      all: 'Total',
 
       story: 'Story',
       maxLevel: 'Max Level',

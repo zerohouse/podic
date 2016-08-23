@@ -7,8 +7,11 @@
       <button class="button" ng-click="search()" style="border:none;margin-right:10px">
         <i style="font-size:20px" class="ion-android-search"></i>
       </button>
-      <button class="button" ng-click="align()" style="border:none">
+      <button class="button" ng-click="align()" style="border:none;margin-right:10px">
         <i style="font-size:20px" class="ion-android-funnel"></i>
+      </button>
+      <button class="button" ng-click="modal.hide()" style="border:none">
+        <i style="font-size:20px" class="ion-close-round"></i>
       </button>
     </div>
   </ion-header-bar>
@@ -18,7 +21,7 @@
          ng-repeat="pokemon in (filtered = pokemons | filter: order.keyword | orderBy:order.orderBy:order.desc)">
         <img ng-src="{{pokemon.pokemon.img}}">
         <h2 style="margin-bottom: 5px">{{pokemon.nickname}} <span class="small-tail">{{pokemon.pokemon_id}}</span>
-          <localnamer value="pokemon.pokemon"></localnamer> <span class="small-tail">{{text('rareWords')[pokemon.pokemon.rarity]}}</span>
+          <localnamer value="pokemon.pokemon"></localnamer> <span class="small-tail" rarity="pokemon.pokemon.rarity"></span>
         </h2>
         <h2 style="margin-bottom: 5px">
           CP: {{pokemon.cp}} {{text('individualValue')}}:

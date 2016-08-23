@@ -40,7 +40,7 @@
     if (userService.user.id) {
       buttons.unshift({
         text: text('selectInMyPokemons'),
-        type: 'button-positive',
+        type: 'button-royal',
         onTap: function () {
           var scope = $scope.$new();
           scope.pokemons = $rootScope.pokemons;
