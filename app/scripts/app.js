@@ -213,8 +213,8 @@ angular.module('Podic', [
     //     push.saveToken(token);  // persist the token in the Ionic Platform
     //   });
     // });
-    // $ajax.url = 'http://52.78.95.98:8080';
-    $ajax.url = 'http://192.168.0.2:8080';
+    $ajax.url = 'http://52.78.95.98:8080';
+    // $ajax.url = 'http://192.168.0.2:8080';
     // $ajax.url = 'http://localhost:8080';
 
     $ajax.handler(function (response, success, error) {

@@ -22,9 +22,10 @@
       makeGuild: '길드 만들기',
       updateLocationSub: "내 위치를 업데이트 합니다.",
       updateLocationTitle: "업데이트 확인",
-      requestLocation:"위치정보를 요청합니다.",
-      requestLocationDone:"위치정보가 갱신되었습니다.",
-      requestLocationFail:"위치정보 조회에 실패했습니다.",
+      requestLocation: "위치정보를 요청합니다.",
+      requestLocationDone: "위치정보가 갱신되었습니다.",
+      requestLocationFail: "위치정보 조회에 실패했습니다.",
+      noLocation: "위치를 업데이트 해주세요.",
 
 
       // 메인
@@ -218,6 +219,7 @@
       pokemonTipDetail: 'Tips',
       pokemonDicDetail: 'Pokédex Details',
       pokemonDic: 'Pokédex',
+      noLocation: 'Please update Location',
 
       pokemonRank: 'Pokémon Ranking',
       trainerRank: 'Trainer Ranking',
