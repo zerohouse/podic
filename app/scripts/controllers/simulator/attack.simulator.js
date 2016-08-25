@@ -307,7 +307,7 @@
           skill.typeEffectiveness.push(0.8);
       });
 
-      var damage = Math.floor(0.5 * (p1.attack / p2.defense) * skill.stabBonus * skill.attack);
+      var damage = 0.5 * (p1.attack / p2.defense) * skill.stabBonus * skill.attack;
       skill.typeEffectiveness.forEach(function (e) {
         damage = damage * e;
       });

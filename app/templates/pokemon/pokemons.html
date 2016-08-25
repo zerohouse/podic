@@ -45,7 +45,10 @@
           <p> {{text('maxCpInList')}}:{{pokemon.maxTrainerCp||0}}({{text('maxLevel')}}:{{pokemon.maxCp}}), <span
             ng-repeat="attr in pokemon.pokemon.types">{{attr.name}}<span ng-if="!$last"> | </span></span>
           </p>
-          <p>
+          <p style="font-size:12px">
+            <skill-summary skill="pokemon.pokemon.attacks.findById(pokemon.move_1)"></skill-summary>
+            <skill-summary skill="pokemon.pokemon.skills.findById(pokemon.move_2)"></skill-summary>
+            <br>
             {{text('pokemonPower')}}:
             <small>{{pokemon.pokemon.value[3]}}{{text('rank')}}</small>
             {{pokemon.pokemon.power}}({{pokemon.pokemon.value[0]}}/{{pokemon.pokemon.value[1]}}/{{pokemon.pokemon.value[2]}})
@@ -57,7 +60,7 @@
       </div>
 
       <div class="list card-view" ng-if="etc.mCardView">
-        <div class="card-view-item"  ui-sref="app.pokemon({id:pokemon.id})"
+        <div class="card-view-item" ui-sref="app.pokemon({id:pokemon.id})"
              ng-if="pokemon.id"
              ng-repeat="pokemon in (filtered = pokemons | filter: value.keyword | orderBy:order.orderBy:order.desc)">
           <div>

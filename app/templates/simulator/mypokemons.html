@@ -31,7 +31,10 @@
           {{text('maxCpList')}}:{{pokemon.maxTrainerCp||0}}({{text('maxLevel')}}:{{pokemon.maxCp}}), <span
           ng-repeat="attr in pokemon.pokemon.types">{{attr.name}}<span ng-if="!$last"> | </span></span>
         </p>
-        <p>
+        <p style="font-size:12px">
+          <skill-summary skill="pokemon.pokemon.attacks.findById(pokemon.move_1)"></skill-summary>
+          <skill-summary skill="pokemon.pokemon.skills.findById(pokemon.move_2)"></skill-summary>
+          <br>
           {{text('pokemonPower')}}:
           <small>{{pokemon.pokemon.value[3]}}{{text('rank')}}</small>
           {{pokemon.pokemon.power}}({{pokemon.pokemon.value[0]}}/{{pokemon.pokemon.value[1]}}/{{pokemon.pokemon.value[2]}})

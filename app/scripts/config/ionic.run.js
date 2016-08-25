@@ -37,9 +37,6 @@ angular.module('Podic').run(function (ionicToast, $ionicPopup, text) {
       '</ion-radio>' +
       '<ion-radio ng-model="order.orderBy" ng-value="\'pokemon_id\'">' +
       text('orderPodex') +
-      '</ion-radio>' +
-      '<ion-radio ng-model="order.orderBy" ng-value="\'pokemon.power\'">' +
-      text('orderPokemonPower') +
       '</ion-radio>',
       title: text('align'),
       scope: $scope,

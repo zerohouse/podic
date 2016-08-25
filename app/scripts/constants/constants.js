@@ -15,6 +15,9 @@
 
     self.texts = {};
     self.texts.ko = {
+
+      openChatting: "오픈 채팅",
+
       guild: '길드',
       guildSearch: '길드',
       guildName: '길드명',
@@ -231,7 +234,6 @@
       eggSimulator: 'Egg Simulator',
       battleSimulator: 'Battle Simulator',
       appName: 'Pokédocs',
-
       logout: 'Logout',
       login: 'Login',
       tips: "Pokemon Tips",
@@ -288,6 +290,8 @@
       cancel: "Cancel",
       deleteMessage: "Delete a Tip",
       deleteMessageSub: "",
+      openChatting: 'openChatting',
+
       deleteMessageByName: function (name) {
         return "Are you sure want to Delete " + name;
       },

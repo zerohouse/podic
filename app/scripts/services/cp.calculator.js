@@ -18,12 +18,12 @@
 
     self.getAttackValue = function (pokemon) {
       var multiplayer = self.getMultiplier(pokemon);
-      return Math.max(Math.floor(multiplayer * (pokemon.pokemon.value[0] + pokemon.individual_stamina)), 10);
+      return Math.max(Math.floor(multiplayer * (pokemon.pokemon.value[0] + pokemon.individual_attack)), 10);
     };
 
     self.getDefenseValue = function (pokemon) {
       var multiplayer = self.getMultiplier(pokemon);
-      return Math.max(Math.floor(multiplayer * (pokemon.pokemon.value[1] + pokemon.individual_stamina)), 10);
+      return Math.max(Math.floor(multiplayer * (pokemon.pokemon.value[1] + pokemon.individual_defense)), 10);
     };
 
 
