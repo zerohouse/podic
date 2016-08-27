@@ -21,8 +21,8 @@ angular.module('Podic', [
   'ngFileUpload',
   'rzModule'
 ])
-  .config(function ($stateProvider, $urlRouterProvider) {
-    // $ionicConfigProvider.views.transition('none');
+  .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+    $ionicConfigProvider.views.transition('none');
     $stateProvider
       .state('app', {
         url: '/app',

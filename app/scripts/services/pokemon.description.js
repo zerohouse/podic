@@ -579,7 +579,7 @@
     "en": "Horn Attack",
     "cooldown": 2.2,
     "energy": -25
-  }, {"attack": 30, "ko": "짓밟기", "type": 7, "en": "Stomp", "cooldown": 2.1, "energy": -25}, {
+  }, {"id": 127, "attack": 30, "ko": "짓밟기", "type": 7, "en": "Stomp", "cooldown": 2.1, "energy": -25}, {
     "id": 129,
     "attack": 35,
     "ko": "필살앞니",
