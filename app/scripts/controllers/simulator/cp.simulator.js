@@ -72,7 +72,7 @@
     }
     $scope.selectPokemon = function () {
       $scope.popup = $ionicPopup.show({
-        templateUrl: 'templates/herepokemon/pokemons.html',
+        templateUrl: 'templates/simulator/pokemonadjust.html',
         title: text('selectPokemon'),
         cssClass: 'full',
         scope: $scope,

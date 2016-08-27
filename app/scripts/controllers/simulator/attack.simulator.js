@@ -166,7 +166,7 @@
       var scope = $scope.$new();
       scope.pokemon = pokemon;
       scope.pokemons = Pokemons.all();
-      var buttons = [{text: pokemon.pokemon.name + text('keep'), type: 'button-dark'}];
+      var buttons = [{text: text('close'), type: 'button-dark'}];
       if (userService.user.id)
         buttons.unshift({
           text: text('selectInMyPokemons'),
