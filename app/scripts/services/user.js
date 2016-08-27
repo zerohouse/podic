@@ -4,7 +4,8 @@ function userService($ajax, $cordovaDevice, $ionicPlatform, $cordovaGeolocation,
   var self = this;
 
   var posOptions = {timeout: 10000, enableHighAccuracy: false};
-  self.user = db.user;
+  self.user = {};
+  setUser(db.user);
   self.newUser = {};
 
   /*
