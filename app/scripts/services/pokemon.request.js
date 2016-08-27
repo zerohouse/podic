@@ -3,7 +3,7 @@
   angular.module('Podic.services').service('PokemonRequest', PokemonRequest);
 
   /* @ng-inject */
-  function PokemonRequest($http, $q, userService, ionicToast, $rootScope, $timeout, pokemonProto, text) {
+  function PokemonRequest($http, $q, userService, ionicToast, $rootScope, $timeout, pokemonProto, text, db) {
     var Envelope = pokemonProto.RequestEnvelop;
 
     var self = this;
@@ -38,7 +38,7 @@
               var decoded = pokemonProto.ResponseEnvelop.GetInventoryResponse.decode(inventoryPayload);
               ok(decoded.inventory_delta.inventory_items);
               self.alert(text("requestPokemonDone"));
-              self.state = '포켓몬을 불러왔습니다.';
+              self.state = text('noPokemon');
             }
             catch (e) {
               self.alert(text("parseError"));
@@ -88,7 +88,7 @@
             longitude: result[1].lng,
             altitude: 0,
             auth: new Envelope.AuthInfo({
-              provider: 'google',
+              provider: db.etc.provider || 'google',
               token: new Envelope.AuthInfo.JWT(result[0], 59)
             }),
             unknown12: 989

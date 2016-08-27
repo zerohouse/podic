@@ -1,7 +1,7 @@
 <ion-modal-view>
   <ion-header-bar>
     <h1 class="title">
-      {{text("loginWithGoogle")}}
+      {{text("login")}}
     </h1>
     <div class="buttons">
       <button class="button" ng-click="closeLogin()" style="border:none">
@@ -13,14 +13,15 @@
     <form>
       <div class="list">
         <label class="item">
-          <button class="button button-block button-royal" ng-click="googleLogin()">
+          <button class="button button-block button-assertive" ng-click="googleLogin()">
             {{text("loginWithGoogle")}}
           </button>
         </label>
-        <!--<label class="item">-->
-          <!--<button class="button button-block button-balanced" ng-click="googleLogin()" type="submit">로그인 With PTC-->
-          <!--</button>-->
-        <!--</label>-->
+        <label class="item">
+          <button class="button button-block button-positive" ng-click="ptcLogin()">
+            {{text("loginWithPTC")}}
+          </button>
+        </label>
       </div>
     </form>
   </ion-content>

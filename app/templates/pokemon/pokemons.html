@@ -20,8 +20,8 @@
   <ion-content id="pokemonlist">
     <div ng-if="!user.id">
       <label class="item">
-        <button class="button button-block button-royal" ng-click="googleLogin()" type="submit">
-          {{text("loginWithGoogle")}}
+        <button class="button button-block button-royal" ng-click="login()" type="submit">
+          {{text("login")}}
         </button>
       </label>
     </div>
@@ -60,6 +60,9 @@
       </div>
 
       <div class="list card-view" ng-if="etc.mCardView">
+        <a class="item" style="border:none" ng-if="!pokemons || pokemons.length===0">
+          <h2 style="margin-top:12px">{{getMessage()}}</h2>
+        </a>
         <div class="card-view-item" ui-sref="app.pokemon({id:pokemon.id})"
              ng-if="pokemon.id"
              ng-repeat="pokemon in (filtered = pokemons | filter: value.keyword | orderBy:order.orderBy:order.desc)">

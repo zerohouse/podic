@@ -25,7 +25,7 @@
           <div class="profile" menu-close ui-sref="app.mypage">
             <img ng-src="{{user.img || user.userInfo.picture || 'images/profile.png'}}">
             <div>
-              <div>{{user.nickname || user.userInfo.name}}<i class="ion-edit small-tail"></i></div>
+              <div>{{user.nickname || user.userInfo.name || text('anonymousPlayer')}}<i class="ion-edit small-tail"></i></div>
               <div>{{text('all')}}
                 <rank rank="user.rank"></rank>
               </div>

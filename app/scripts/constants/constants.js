@@ -18,21 +18,23 @@
 
       openChatting: "오픈 채팅",
 
-      guild: '길드',
-      guildSearch: '길드',
-      guildName: '길드명',
-      guildIntroduce: '길드 소개',
-      makeGuild: '길드 만들기',
       updateLocationSub: "내 위치를 업데이트 합니다.",
       updateLocationTitle: "업데이트 확인",
       requestLocation: "위치정보를 요청합니다.",
       requestLocationDone: "위치정보가 갱신되었습니다.",
       requestLocationFail: "위치정보 조회에 실패했습니다.",
       noLocation: "위치를 업데이트 해주세요.",
-
+      checkEmailPasword: '유저네임과 패스워드가 맞지 않습니다.',
+      loginDone: '로그인 되었습니다.',
+      noPokemon: '포켓몬이 없습니다.',
+      ptcLoginStart:'포켓몬 트레이너 클럽으로 로그인합니다.',
 
       // 메인
       loginWithGoogle: '구글 계정으로 로그인',
+      loginWithPTC: "포켓몬 트레이너 클럽 로그인",
+      username: '유저명',
+      password: '패스워드',
+      login: '로그인',
       myPokemon: '내 포켓몬',
       pokemonDetail: '포켓몬 상세정보',
       pokemonChart: '포켓몬 차트',
@@ -55,7 +57,6 @@
       appName: '포닥 - Podocs',
 
       logout: '로그아웃',
-      login: '로그인',
       tips: "포켓몬 팁",
       simulator: "시뮬레이터",
       rank: "위",
@@ -214,6 +215,15 @@
     self.texts.en = {
       // 메인
       loginWithGoogle: 'Google Account Login',
+      loginWithPTC: 'Pokémon Trainer Club Login',
+      login: 'Login',
+      username: 'User Name',
+      password: 'Password',
+      checkEmailPasword: 'Wrong Username Or Password',
+      loginDone: 'Login Success',
+      noPokemon: 'There is no Pokemon',
+      ptcLoginStart:'Login...',
+
       myPokemon: 'My Pokémon',
       pokemonDetail: 'Pokémon Details',
       pokemonChart: 'Pokémon Charts',
@@ -223,6 +233,7 @@
       pokemonDicDetail: 'Pokédex Details',
       pokemonDic: 'Pokédex',
       noLocation: 'Please update Location',
+
 
       pokemonRank: 'Pokémon Ranking',
       trainerRank: 'Trainer Ranking',
@@ -235,10 +246,10 @@
       battleSimulator: 'Battle Simulator',
       appName: 'Pokédocs',
       logout: 'Logout',
-      login: 'Login',
       tips: "Pokemon Tips",
       simulator: "Simulator",
       rank: "",
+
       Rank: "Ranking",
       rare: "Rarity",
       rareWords: ['Everywhere', 'Very Common', 'Common', 'Uncommon', 'Rare', 'Very Rare', 'Unique', 'Epic', 'Mythical'],

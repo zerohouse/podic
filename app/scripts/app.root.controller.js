@@ -1,5 +1,5 @@
 angular.module('Podic.controllers')
-  .controller('AppCtrl', function ($scope, $ionicModal, $timeout, userService, confirm, text, $cordovaGeolocation, ionicToast, $ajax) {
+  .controller('AppCtrl', function ($scope, $ionicModal, $timeout, userService, confirm, text, $cordovaGeolocation, ionicToast, $ajax, db) {
     $ionicModal.fromTemplateUrl('templates/base/login.html', {
       scope: $scope
     }).then(function (modal) {
@@ -16,6 +16,7 @@ angular.module('Podic.controllers')
 
     $scope.user = userService.user;
     $scope.googleLogin = function () {
+      db.etc.provider = 'google';
       var id = '848232511240-73ri3t7plvk96pj4f85uj8otdat2alem.apps.googleusercontent.com';
       var ref = window.open('https://accounts.google.com/o/oauth2/auth?client_id=' + id + '&redirect_uri=http://localhost/callback&scope=openid email profile https://www.googleapis.com/auth/userinfo.email&approval_prompt=force&response_type=code&access_type=offline', '_blank', 'location=no');
       $scope.closeLogin();
@@ -26,6 +27,30 @@ angular.module('Podic.controllers')
           ref.close();
         }
       });
+    };
+
+    $ionicModal.fromTemplateUrl('templates/base/ptcLogin.html', {
+      scope: $scope
+    }).then(function (modal) {
+      $scope.ptc = modal;
+    });
+
+    $scope.registerPTC = function (username, password) {
+      ionicToast.alert(text('ptcLoginStart'));
+      userService.registerPTC(username, password).then(function () {
+        $scope.closeLogin();
+        $scope.ptcClose();
+      });
+    };
+
+    $scope.ptcClose = function () {
+      $scope.ptc.hide();
+    };
+
+
+    $scope.ptcLogin = function () {
+      db.etc.provider = 'ptc';
+      $scope.ptc.show();
     };
 
     $scope.openChatting = function () {

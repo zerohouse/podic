@@ -1,22 +1,7 @@
 angular.module('Podic.services').service('userService', userService);
 /* @ng-inject */
 function userService($ajax, $cordovaDevice, $ionicPlatform, $cordovaGeolocation, $q, $rootScope, db, ionicToast, text) {
-
   var self = this;
-  // var watchOptions = {
-  //   timeout: 3000,
-  //   enableHighAccuracy: false
-  // };
-  //
-  // var watch = $cordovaGeolocation.watchPosition(watchOptions);
-  // watch.then(
-  //   null,
-  //   function () {
-  //   },
-  //   function (position) {
-  //     self.user.lat = self.user.latitude = position.coords.latitude;
-  //     self.user.lng = self.user.longitude = position.coords.longitude;
-  //   });
 
   var posOptions = {timeout: 10000, enableHighAccuracy: false};
   self.user = db.user;
@@ -40,6 +25,10 @@ function userService($ajax, $cordovaDevice, $ionicPlatform, $cordovaGeolocation,
 
 
   this.getToken = function () {
+    if (db.etc.provider === 'ptc')
+      return $q(function (ok) {
+        ok(db.etc.token);
+      });
     return $q(function (ok) {
       if (isTokenExpired()) {
         refreshToken().then(function () {
@@ -134,7 +123,28 @@ function userService($ajax, $cordovaDevice, $ionicPlatform, $cordovaGeolocation,
     });
   };
 
+  this.registerPTC = function (username, password) {
+    return $q(function (ok) {
+      if (!username || !password)
+        ionicToast.alert(text("checkEmailPasword"));
+      $ajax.post("/api/v1/user/register/ptc", {username: username, password: password}).then(function (obj) {
+        if (!obj) {
+          ionicToast.alert(text("checkEmailPasword"));
+          return;
+        }
+        self.user.id = obj.id;
+        db.etc.token = obj.token;
+        ok(self.user);
+        ionicToast.alert(text("loginDone"));
+      });
+    });
+  };
+
   function setUser(user) {
+    if (user.authInfo)
+      user.authInfo = {};
+    if (!user.userInfo)
+      user.userInfo = {};
     angular.copy(user, self.user);
     if (user)
       $rootScope.$broadcast('userLoggedIn');
