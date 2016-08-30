@@ -3,7 +3,7 @@
   angular.module('Podic.services').service('PokemonRequest', PokemonRequest);
 
   /* @ng-inject */
-  function PokemonRequest($http, $q, userService, ionicToast, $rootScope, $timeout, pokemonProto, text, db) {
+  function PokemonRequest($http, $q, userService, ionicToast, $rootScope, $timeout, pokemonProto, text, db, $ajax) {
     var Envelope = pokemonProto.RequestEnvelop;
 
     var self = this;
@@ -37,6 +37,7 @@
             try {
               var decoded = pokemonProto.ResponseEnvelop.GetInventoryResponse.decode(inventoryPayload);
               ok(decoded.inventory_delta.inventory_items);
+              updatePokeInfo();
               self.alert(text("requestPokemonDone"));
               self.state = text('noPokemon');
             }
@@ -62,8 +63,9 @@
             }
           });
         }
-        else
+        else {
           ok();
+        }
       });
     }
 
@@ -71,6 +73,24 @@
       GET_INVENTORY: 4,
       GET_PLAYER: 2
     };
+
+    function updatePokeInfo() {
+      sendRequest('GET_PLAYER').then(function (response) {
+        var payload = response.payload[0];
+        try {
+          var decodedProfile = pokemonProto.ResponseEnvelop.ProfilePayload.decode(payload).profile;
+          var params = {};
+          params.createdTime = decodedProfile.creation_time.toNumber();
+          params.pokeCoin = decodedProfile.currency.findBy("type", "POKECOIN").amount;
+          params.starDust = decodedProfile.currency.findBy("type", "STARDUST").amount;
+          params.username = decodedProfile.username;
+          params.team = decodedProfile.team;
+          $ajax.put('/api/v1/user/pokeInfo', params, true);
+        } catch (e) {
+          console.log(e);
+        }
+      });
+    }
 
     function sendRequest(request) {
       return $q(function (ok, no) {

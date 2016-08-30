@@ -1,6 +1,6 @@
 angular.module('Podic.services').service('pokemonService', pokemonService);
 /* @ng-inject */
-function pokemonService(Pokemons, PokemonRequest, cpCal, $rootScope, db, $ajax, ionicToast, text) {
+function pokemonService(Pokemons, PokemonRequest, cpCal, $rootScope, db, $ajax, ionicToast, text, userService) {
 
   $rootScope.pokemons = db.pokemons;
   $rootScope.playerStatus = db.playerStatus;
@@ -90,7 +90,12 @@ function pokemonService(Pokemons, PokemonRequest, cpCal, $rootScope, db, $ajax, 
         $rootScope.playerStatus.prev_level_xp = $rootScope.playerStatus.prev_level_xp.toNumber();
       $rootScope.playerStatus.pokemon_caught_by_type = undefined;
 
-      $ajax.post('/api/v1/pokemon', pokemons, true);
+      $ajax.post('/api/v1/pokemon', pokemons, true).then(function (user) {
+        userService.user.rank = user.rank;
+        userService.user.cp = user.cp;
+        userService.user.pre_rank = user.pre_rank;
+        userService.user.addressRanks = user.addressRanks;
+      });
       $ajax.post('/api/v1/user/status', $rootScope.playerStatus, true);
 
       pokemons.forEach(function (pokemon) {
