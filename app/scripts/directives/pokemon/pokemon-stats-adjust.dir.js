@@ -44,16 +44,16 @@
         $scope.$watch('trainer.level', function (level) {
           if (!level)
             return;
-          var max = Math.min(79, $scope.trainer.level * 2 + 1);
+          var max =  $scope.trainer.level * 2 - 1;
           $scope.pokemonOptions.ceil = max;
           $scope.pokemon.level = Math.min(max, $scope.pokemon.level);
         });
 
         $scope.pokemonOptions = {
-          floor: 1,
+          floor: 0,
           showSelectionBar: true,
           hidePointerLabels: true,
-          ceil: Math.min(79, $scope.trainer.level * 2 + 1),
+          ceil: $scope.trainer.level * 2 - 1,
           hideLimitLabels: true,
           getSelectionBarColor: function () {
             return '#2AE02A';
