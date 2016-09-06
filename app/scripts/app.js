@@ -22,6 +22,7 @@ angular.module('Podic', [
   'rzModule'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+    $ionicConfigProvider.views.swipeBackEnabled(false);
     $ionicConfigProvider.views.transition('none');
     $stateProvider
       .state('app', {
@@ -152,6 +153,15 @@ angular.module('Podic', [
           'tab-cp': {
             templateUrl: 'templates/simulator/cp.simulator.html',
             controller: 'cpSimulator'
+          }
+        }
+      })
+      .state('app.simulator.catch', {
+        url: '/catch',
+        views: {
+          'tab-catch': {
+            templateUrl: 'templates/simulator/catch.simulator.html',
+            controller: 'catchSimulator'
           }
         }
       })

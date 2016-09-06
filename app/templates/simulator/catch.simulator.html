@@ -1,0 +1,45 @@
+<ion-view>
+  <ion-nav-title>
+    {{text('catchRateSimulator')}}
+  </ion-nav-title>
+  <ion-content>
+    <div class="text-align-center" style="margin-top:20px;">
+      <h4>
+        <localnamer value="pokemon.pokemon"></localnamer>
+      </h4>
+      <img style="margin-top:10px;padding:10px;border-radius:50%;border:3px solid"
+           ng-style="{'border-color':getColor()}" ng-src="{{pokemon.pokemon.img}}"
+           ng-click="selectPokemon()">
+      <h1> {{getCatchRate() * 100 | number:1 || 0}}% </h1>
+      <h3> CP {{getCp()}} </h3>
+      <pokemon-level pokemon='pokemon' trainer='trainer'></pokemon-level>
+    </div>
+    <ion-list>
+      <div class="item item-divider">
+        {{text('pokeballType')}}
+      </div>
+      <ion-radio ng-model="factor.ball" name="ball" ng-value="'poke'"><img class="factor-icon" err-remove src="images/catch/pokeball.png"> Pokeball</ion-radio>
+      <ion-radio ng-model="factor.ball" name="ball" ng-value="'great'"><img class="factor-icon" err-remove src="images/catch/greatball.png"> Great ball</ion-radio>
+      <ion-radio ng-model="factor.ball" name="ball" ng-value="'ultra'"><img class="factor-icon" err-remove src="images/catch/ultraball.png"> Ultra ball</ion-radio>
+    </ion-list>
+
+    <ion-list>
+      <div class="item item-divider">
+        {{text('catchRateFactorEtc')}}
+      </div>
+      <ion-checkbox ng-model="factor.razzberry"><img err-remove class="factor-icon" src="images/catch/razzberry.png">Razzberry</ion-checkbox>
+    </ion-list>
+
+    <ion-list>
+      <div class="item item-divider">
+        {{text('throwType')}}
+      </div>
+      <ion-checkbox ng-model="factor.curve">Curve Ball</ion-checkbox>
+      <ion-radio ng-model="factor.throw" name="throw" ng-value="1">Normal</ion-radio>
+      <ion-radio ng-model="factor.throw" name="throw" ng-value="1.1">Nice</ion-radio>
+      <ion-radio ng-model="factor.throw" name="throw" ng-value="1.3">Great</ion-radio>
+      <ion-radio ng-model="factor.throw" name="throw" ng-value="1.5">Excellent</ion-radio>
+    </ion-list>
+    <pokemon-iv pokemon='pokemon' trainer='trainer'></pokemon-iv>
+  </ion-content>
+</ion-view>

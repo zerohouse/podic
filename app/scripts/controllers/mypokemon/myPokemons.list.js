@@ -4,16 +4,20 @@ function pokemonsCtrl($scope, pokemonService, $ionicPopup, PokemonRequest, text,
   $scope.refresh = pokemonService.refresh;
   $scope.order = db.orderMypokemon;
   $scope.etc = db.etc;
+  $scope.limit = 9;
+
+  $scope.more = function () {
+    $scope.limit += 9;
+    $scope.$broadcast('scroll.infiniteScrollComplete');
+  };
 
   $scope.loading = function () {
     return pokemonService.loading;
   };
 
-
   $scope.search = function () {
     $ionicPopup.searchPopup($scope);
   };
-
 
   $scope.align = function () {
     $ionicPopup.alignPopup($scope);
@@ -22,6 +26,5 @@ function pokemonsCtrl($scope, pokemonService, $ionicPopup, PokemonRequest, text,
   $scope.getMessage = function () {
     return PokemonRequest.state || text('loadingPokemon');
   };
-
 
 }

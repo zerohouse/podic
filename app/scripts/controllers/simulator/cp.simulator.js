@@ -44,33 +44,15 @@
       buttons.unshift({
         text: text('selectInMyPokemons'),
         type: 'button-royal',
-        onTap: function () {
-          var scope = $scope.$new();
-          scope.pokemons = $rootScope.pokemons;
-          $ionicModal.fromTemplateUrl('templates/simulator/mypokemons.html', {
-            scope: scope,
-            animation: 'slide-in-up'
-          }).then(function (modal) {
-            scope.modal = modal;
-            scope.modal.show();
-            scope.search = function () {
-              $ionicPopup.searchPopup(scope);
-            };
-            scope.align = function () {
-              $ionicPopup.alignPopup(scope);
-            };
-            scope.selectPokemon = function (pokemon) {
-              $scope.pokemon = {
-                individual_attack: pokemon.individual_attack,
-                individual_defense: pokemon.individual_defense,
-                individual_stamina: pokemon.individual_stamina,
-                level: cpCal.getLevel(pokemon),
-                pokemon: pokemon.pokemon
-              };
-              scope.modal.hide();
-            };
-          });
-        }
+        onTap: $ionicModal.fromMyPokemons($scope, function (pokemon) {
+          $scope.pokemon = {
+            individual_attack: pokemon.individual_attack,
+            individual_defense: pokemon.individual_defense,
+            individual_stamina: pokemon.individual_stamina,
+            level: cpCal.getLevel(pokemon),
+            pokemon: pokemon.pokemon
+          };
+        })
       });
     }
     $scope.selectPokemon = function () {

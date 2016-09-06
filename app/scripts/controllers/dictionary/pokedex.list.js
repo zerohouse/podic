@@ -5,8 +5,9 @@ function pokemonDescriptionListCtrl($scope, pokemonService, $ionicPopup, Pokemon
 
   $scope.etc = db.etc;
   $scope.order = db.orderPokedex;
-
   $scope.pokemons = Pokemons.all();
+  $scope.value = {keyword: ''};
+  $scope.filtered = [];
 
   $scope.getNextName = function (pokemon) {
     return Pokemons.get(pokemon.id + 1).name;
@@ -15,7 +16,7 @@ function pokemonDescriptionListCtrl($scope, pokemonService, $ionicPopup, Pokemon
   $scope.search = function () {
     $ionicPopup.show({
       template: '' +
-      '<input type="text" ng-model="value.keyword">',
+      '<input type="text"  ng-model-options="{updateOn:\'blur\'}" ng-model="value.keyword">',
       title: text('search'),
       scope: $scope,
       buttons: [
@@ -31,12 +32,12 @@ function pokemonDescriptionListCtrl($scope, pokemonService, $ionicPopup, Pokemon
 
   $scope.align = function () {
     $ionicPopup.show({
-      template: '<ion-toggle ng-model="order.desc" toggle-class="toggle-calm"><span ng-show="order.desc">' +
+      template: '<ion-checkbox ng-model="order.desc" toggle-class="toggle-calm"><span ng-if="order.desc">' +
       text('desc') +
-      '</span><span ng-show="!order.desc">' +
+      '</span><span ng-if="!order.desc">' +
       text('asc') +
-      '</span></ion-toggle>' +
-      '<ion-toggle ng-model="order.evolveFilter" toggle-class="toggle-calm">{{text("canEvolvePokemon")}}</ion-toggle>' +
+      '</span></ion-checkbox>' +
+      '<ion-checkbox ng-model="order.evolveFilter" toggle-class="toggle-calm">{{text("canEvolvePokemon")}}</ion-checkbox>' +
       '<ion-radio ng-model="order.orderBy" ng-value="\'id\'">' +
       text('orderPodex') +
       '</ion-radio>' +

@@ -16,9 +16,9 @@
     </div>
   </ion-header-bar>
   <ion-content>
-    <div class="list">
+    <div class="list" ng-init="filtered=[]">
       <a class="item item-thumbnail-left" ng-click="selectPokemon(pokemon)"
-         ng-repeat="pokemon in (filtered = pokemons | filter: order.keyword | orderBy:order.orderBy:order.desc)">
+         ng-repeat="pokemon in filtered = (pokemons | filter: value.keyword | orderBy:order.orderBy:order.desc)">
         <img ng-src="{{pokemon.pokemon.img}}">
         <h2 style="margin-bottom: 5px">{{pokemon.nickname}} <span class="small-tail">{{pokemon.pokemon_id}}</span>
           <localnamer value="pokemon.pokemon"></localnamer> <span class="small-tail" rarity="pokemon.pokemon.rarity"></span>
@@ -40,9 +40,10 @@
           {{pokemon.pokemon.power}}({{pokemon.pokemon.value[0]}}/{{pokemon.pokemon.value[1]}}/{{pokemon.pokemon.value[2]}})
         </p>
       </a>
-      <a class="item" style="border:none" ng-if="!filtered.length===0">
-        <h2 style="margin-top:12px">포켓몬이 없습니다.</h2>
+      <a class="item" style="border:none" ng-if="filtered.length === 0">
+        <h2 style="margin-top:12px">{{text('noResult')}}</h2>
       </a>
+      <ion-infinite-scroll ng-if="limit<pokemons.length" on-infinite="more()"></ion-infinite-scroll>
     </div>
   </ion-content>
 </ion-modal-view>

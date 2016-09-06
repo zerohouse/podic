@@ -3,7 +3,7 @@
     {{text('myPokemon')}}
   </ion-nav-title>
   <ion-nav-buttons side="right">
-    <button class="button" ng-click="etc.mCardView=!etc.mCardView" style="border:none;margin-right:8px">
+    <button class="button" one-click="etc.mCardView=!etc.mCardView;" style="border:none;margin-right:8px">
       <i style="font-size:20px" ng-if="!etc.mCardView" class="ion-ios-list-outline"></i>
       <i style="font-size:20px" ng-if="etc.mCardView" class="ion-ios-grid-view-outline"></i>
     </button>
@@ -28,9 +28,9 @@
 
     <div ng-if="user.id">
 
-      <div class="list" ng-if="!etc.mCardView">
+      <div class="list" ng-if="!etc.mCardView" ng-init="filtered=[]">
         <a class="item item-thumbnail-left" ui-sref="app.pokemon({id:pokemon.id})"
-           ng-repeat="pokemon in (filtered = pokemons | filter: value.keyword | orderBy:order.orderBy:order.desc)">
+           ng-repeat="pokemon in filtered = (pokemons | filter: value.keyword | orderBy:order.orderBy:order.desc | limitTo:limit)">
           <img ng-src="{{pokemon.pokemon.img}}">
           <h2 style="margin-bottom: 5px">{{pokemon.nickname}} <span class="small-tail">{{pokemon.pokemon_id}}</span>
             <localnamer value="pokemon.pokemon"></localnamer>
@@ -57,15 +57,19 @@
         <a class="item" style="border:none" ng-if="!pokemons || pokemons.length===0">
           <h2 style="margin-top:12px">{{getMessage()}}</h2>
         </a>
+        <a class="item" style="border:none" ng-if="(pokemons && pokemons.length!==0) && filtered.length === 0">
+          <h2 style="margin-top:12px">{{text('noResult')}}</h2>
+        </a>
+        <ion-infinite-scroll ng-if="limit<pokemons.length" on-infinite="more()"></ion-infinite-scroll>
       </div>
 
-      <div class="list card-view" ng-if="etc.mCardView">
+      <div class="list card-view" ng-if="etc.mCardView" ng-init="filtered=[]">
         <a class="item" style="border:none" ng-if="!pokemons || pokemons.length===0">
           <h2 style="margin-top:12px">{{getMessage()}}</h2>
         </a>
         <div class="card-view-item" ui-sref="app.pokemon({id:pokemon.id})"
              ng-if="pokemon.id"
-             ng-repeat="pokemon in (filtered = pokemons | filter: value.keyword | orderBy:order.orderBy:order.desc)">
+             ng-repeat="pokemon in filtered = (pokemons | filter: value.keyword | orderBy:order.orderBy:order.desc | limitTo:limit)">
           <div>
             <img ng-src="{{pokemon.pokemon.img}}">
           </div>
@@ -95,6 +99,10 @@
             </div>
           </div>
         </div>
+        <a class="item" style="border:none" ng-if="(pokemons && pokemons.length!==0) && filtered.length === 0">
+          <h2 style="margin-top:12px">{{text('noResult')}}</h2>
+        </a>
+        <ion-infinite-scroll ng-if="limit<pokemons.length" on-infinite="more()"></ion-infinite-scroll>
       </div>
     </div>
   </ion-content>

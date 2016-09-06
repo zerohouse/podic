@@ -171,31 +171,10 @@
         buttons.unshift({
           text: text('selectInMyPokemons'),
           type: 'button-royal',
-          onTap: function () {
-            var scope = $scope.$new();
-            scope.pokemons = $rootScope.pokemons;
-            $ionicModal.fromTemplateUrl('templates/simulator/mypokemons.html', {
-              scope: scope,
-              animation: 'slide-in-up'
-            }).then(function (modal) {
-              scope.modal = modal;
-              scope.modal.show();
-              scope.order = {orderBy: 'creation_time_ms', desc: true};
-              scope.keyword = '';
-              scope.search = function () {
-                $ionicPopup.searchPopup(scope);
-              };
-              scope.align = function () {
-                $ionicPopup.alignPopup(scope);
-              };
-              scope.selectPokemon = function (p) {
-                setUserPokemon(p, pokemon);
-                scope.modal.hide();
-              };
-            });
-
-            // $scope.modal.hide();
-          }
+          onTap: $ionicModal.fromMyPokemons($scope, function (p) {
+            setUserPokemon(p, pokemon);
+            scope.modal.hide();
+          })
         });
       var popup = $ionicPopup.show({
         templateUrl: 'templates/simulator/pokemonadjust.html',

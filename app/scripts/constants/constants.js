@@ -27,7 +27,11 @@
       checkEmailPasword: '유저네임과 패스워드가 맞지 않습니다.',
       loginDone: '로그인 되었습니다.',
       noPokemon: '포켓몬이 없습니다.',
-      ptcLoginStart:'포켓몬 트레이너 클럽으로 로그인합니다.',
+      ptcLoginStart: '포켓몬 트레이너 클럽으로 로그인합니다.',
+
+      throwType: "판정",
+      catchRateFactorEtc: "기타",
+      pokeballType: "포켓볼 종류",
 
       // 메인
       loginWithGoogle: '구글 계정으로 로그인',
@@ -53,6 +57,7 @@
       trainerPage: '트레이너 페이지',
       cpSimulator: 'CP 시뮬레이터',
       eggSimulator: '알 시뮬레이터',
+      catchRateSimulator: '포획 시뮬레이터',
       battleSimulator: '배틀 시뮬레이터',
       appName: '포닥 - Podocs',
 
@@ -76,6 +81,7 @@
       showSkills: '스킬 보기',
 
       //포켓몬 리스트 페이지
+      noResult: "검색 결과가 없습니다.",
       search: "검색",
       desc: "내림차순",
       asc: "오름차순",
@@ -170,7 +176,7 @@
       dps: 'DPS',
       eps: 'EPS',
       energy: '에너지',
-      buddyCandies:"버디캔디거리",
+      buddyCandies: "버디캔디거리",
 
       story: '이야기',
       maxLevel: '만렙',
@@ -224,7 +230,7 @@
       checkEmailPasword: 'Wrong Username Or Password',
       loginDone: 'Login Success',
       noPokemon: 'There is no Pokemon',
-      ptcLoginStart:'Login...',
+      ptcLoginStart: 'Login...',
 
       myPokemon: 'My Pokémon',
       pokemonDetail: 'Pokémon Details',
@@ -245,12 +251,17 @@
       trainerPage: 'Trainer\'s Page',
       cpSimulator: 'CP Simulator',
       eggSimulator: 'Egg Simulator',
+      catchRateSimulator: 'Catch Rate Calculator',
       battleSimulator: 'Battle Simulator',
       appName: 'Pokédocs',
       logout: 'Logout',
       tips: "Pokemon Tips",
       simulator: "Simulator",
       rank: "",
+      noResult: "No Result",
+      throwType: "Throw Judge",
+      catchRateFactorEtc: "ETC Factors",
+      pokeballType: "Pokeball Type",
 
       Rank: "Ranking",
       rare: "Rarity",
@@ -304,7 +315,7 @@
       cancel: "Cancel",
       deleteMessage: "Delete a Tip",
       deleteMessageSub: "",
-      openChatting: 'openChatting',
+      openChatting: 'Open Chatting',
 
       deleteMessageByName: function (name) {
         return "Are you sure want to Delete " + name;
@@ -395,7 +406,7 @@
       modifylvAndStat: "Stats Modify",
       selectSkill: 'Skills Modify',
       alert: 'Alert',
-      buddyCandies:'Buddy Candy Distance',
+      buddyCandies: 'Buddy Candy Distance',
       battleSimulateStart: 'Battle Start',
       eventLog: function (pokemon, skill, damage) {
         if (damage < 0)

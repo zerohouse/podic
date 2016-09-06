@@ -1,12 +1,44 @@
-angular.module('Podic').run(function (ionicToast, $ionicPopup, text) {
+angular.module('Podic').run(function (ionicToast, $ionicPopup, text, $ionicModal, $rootScope) {
+
+  $ionicModal.fromMyPokemons = function ($scope, select) {
+    return function () {
+      var scope = $scope.$new();
+      scope.pokemons = $rootScope.pokemons;
+      $ionicModal.fromTemplateUrl('templates/simulator/mypokemons.html', {
+        scope: scope,
+        animation: 'slide-in-up'
+      }).then(function (modal) {
+        scope.modal = modal;
+        scope.modal.show();
+        scope.limit = 9;
+        scope.more = function () {
+          $scope.limit += 9;
+          $scope.$broadcast('scroll.infiniteScrollComplete');
+        };
+        scope.order = {orderBy: 'creation_time_ms', desc: true};
+        scope.value = {keyword: ''};
+        scope.search = function () {
+          $ionicPopup.searchPopup(scope);
+        };
+        scope.align = function () {
+          $ionicPopup.alignPopup(scope);
+        };
+        scope.selectPokemon = function (p) {
+          select(p);
+          scope.modal.hide();
+        };
+      });
+    };
+  };
 
   ionicToast.alert = function (message) {
     ionicToast.show(message, 'bottom', false, 3000);
   };
 
   $ionicPopup.searchPopup = function ($scope) {
+    $scope.value = {keyword: ''};
     $ionicPopup.show({
-      template: '<input type="text" ng-model="value.keyword">',
+      template: '<input type="text" ng-model-options="{updateOn:\'blur\'}" ng-model="value.keyword">',
       title: text('search'),
       scope: $scope,
       buttons: [
@@ -17,12 +49,12 @@ angular.module('Podic').run(function (ionicToast, $ionicPopup, text) {
 
   $ionicPopup.alignPopup = function ($scope) {
     $ionicPopup.show({
-      template: '<ion-toggle ng-model="order.desc" toggle-class="toggle-calm"><span ng-show="order.desc">' +
+      template: '<ion-checkbox ng-model="order.desc" toggle-class="toggle-calm"><span ng-if="order.desc">' +
       text('desc') +
-      '</span><span ng-show="!order.desc">' +
+      '</span><span ng-if="!order.desc">' +
       text('asc') +
       '</span>' +
-      '</ion-toggle>' +
+      '</ion-checkbox>' +
       '<ion-radio ng-model="order.orderBy" ng-value="\'creation_time_ms\'">' +
       text('orderDate') +
       '</ion-radio>' +

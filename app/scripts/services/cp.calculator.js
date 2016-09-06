@@ -56,5 +56,9 @@
       var cp = Math.floor(0.1 * (baseAttack + individual_attack) * Math.sqrt(baseDefense + individual_defense) * Math.sqrt(baseStamina + individual_stamina) * cpmList[level] * cpmList[level]);
       return Math.max(10, cp);
     };
+
+    self.getCpMultiplier = function (i) {
+      return cpmList[i];
+    };
   }
 })();
