@@ -11,8 +11,8 @@ function pokemonService(Pokemons, PokemonRequest, cpCal, $rootScope, db, $ajax, 
   this.setPokemon = function (pokemon) {
     pokemon.pokemon = Pokemons.get(pokemon.pokemon_id);
     pokemon.individual_score = pokemon.individual_attack + pokemon.individual_defense + pokemon.individual_stamina;
-    pokemon.maxCp = cpCal.getCpByLevel(pokemon, 77);
-    pokemon.maxTrainerCp = cpCal.getCpByLevel(pokemon, Math.min($rootScope.playerStatus.level * 2 + 1, 77));
+    pokemon.maxCp = cpCal.getCpByLevel(pokemon, 78);
+    pokemon.maxTrainerCp = cpCal.getCpByLevel(pokemon, Math.min($rootScope.playerStatus.level * 2 + 1, 78));
   };
 
 

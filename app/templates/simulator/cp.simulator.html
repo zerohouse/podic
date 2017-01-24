@@ -7,8 +7,8 @@
       <h4><localnamer value="pokemon.pokemon"></localnamer></h4>
       <img style="margin-top:10px" ng-src="{{pokemon.pokemon.img}}" ng-click="selectPokemon()">
       <h1>CP {{getCp() || 10}} <span class="button button-balanced" ng-click="powerUp()">POWER UP!</span></h1>
-      <h5 ng-if="pokemon.level<79"><small>Stardust</small> {{starDust[pokemon.level+1]}} <small>Candies</small> {{candies[pokemon.level+1]}}</h5>
-      <h5 ng-if="pokemon.level==79">Pokemon MAX LEVEL</h5>
+      <h5 ng-if="pokemon.level<78"><small>Stardust</small> {{starDust[pokemon.level+1]}} <small>Candies</small> {{candies[pokemon.level+1]}}</h5>
+      <h5 ng-if="pokemon.level==78">Pokemon MAX LEVEL</h5>
     </div>
     <pokemon-stats-adjust trainer="trainer" power-up="powerUp" pokemon="pokemon"></pokemon-stats-adjust>
   </ion-content>
