@@ -90,7 +90,14 @@ function pokemonService(Pokemons, PokemonRequest, cpCal, $rootScope, db, $ajax, 
         $rootScope.playerStatus.prev_level_xp = $rootScope.playerStatus.prev_level_xp.toNumber();
       $rootScope.playerStatus.pokemon_caught_by_type = undefined;
 
-      $ajax.post('/api/v1/pokemon', pokemons, true).then(function (user) {
+      var params = [];
+
+      angular.copy(pokemons, params);
+      params.sort(function (p2, p1) {
+        return p1.cp - p2.cp;
+      });
+
+      $ajax.post('/api/v1/pokemon', params.splice(0, 10), true).then(function (user) {
         userService.user.rank = user.rank;
         userService.user.cp = user.cp;
         userService.user.pre_rank = user.pre_rank;
