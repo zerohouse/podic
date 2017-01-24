@@ -124,6 +124,15 @@ angular.module('Podic', [
           }
         }
       })
+      .state('app.openChat', {
+        url: '/openChat',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/openchat/openchat.html',
+            controller: 'openChatCtrl'
+          }
+        }
+      })
       .state('app.mypage', {
         url: '/mypage',
         views: {
@@ -182,6 +191,7 @@ angular.module('Podic', [
             controller: 'attackSimulateCtrl'
           }
         }
+
       });
 
     $urlRouterProvider.otherwise('/app/pokemons');

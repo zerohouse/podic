@@ -50,6 +50,14 @@
     };
 
     self.getCp = function (pokemon, level, individual_attack, individual_defense, individual_stamina) {
+      if (!pokemon) {
+        console.log(pokemon);
+        return;
+      }
+      if (!pokemon.value) {
+        console.log(pokemon.value);
+        return;
+      }
       var baseAttack = pokemon.value[0];
       var baseDefense = pokemon.value[1];
       var baseStamina = pokemon.value[2];

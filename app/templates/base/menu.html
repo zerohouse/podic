@@ -62,7 +62,7 @@
           <small style="color:red">new</small>
           {{text("simulator")}}
         </ion-item>
-        <ion-item ng-click="openChatting()">
+        <ion-item menu-close ui-sref="app.openChat">
           {{text("openChatting")}}
         </ion-item>
         <ion-item menu-close ng-click="logout()" ng-if="user.id">

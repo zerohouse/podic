@@ -59,11 +59,6 @@ angular.module('Podic.controllers')
       $scope.ptc.show();
     };
 
-    $scope.openChatting = function () {
-      window.open('https://open.kakao.com/o/gP1Sc2m', '_system', 'location=yes');
-    };
-
-
     $scope.logout = function () {
       userService.logout();
     };

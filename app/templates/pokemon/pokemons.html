@@ -79,7 +79,7 @@
             </p>
             <h2>
               {{pokemon.nickname || pokemon.pokemon.name}}
-              <span class="small-title"><i class="ion-flash stats"></i> {{pokemon.pokemon.power}}</span>
+              <span class="small-title"><i class="ion-flash stats"></i> {{pokemon.cp}}</span>
             </h2>
             <p>
               <percent-bar value="pokemon.individual_score||0" max="45" prefix="text('individualValue')"
