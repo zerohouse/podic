@@ -76,6 +76,7 @@ angular.module('Podic.controllers')
               lat: position.coords.latitude,
               lng: position.coords.longitude
             }).then(function (user) {
+              userService.user.rank = user.rank;
               userService.user.addressRanks = user.addressRanks;
               ionicToast.alert(text('requestLocationDone'));
             });

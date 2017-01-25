@@ -5,10 +5,7 @@
   <ion-content>
     <div class="list">
       <div class="profile" menu-close ui-sref="app.mypage">
-        <img ngf-select ngf-max-size="1MB" ng-model="file" ng-show="!file"
-             ng-src="{{user.img || 'images/profile.png'}}">
-        <img ngf-select ngf-max-size="1MB" ng-model="file" ngf-src="!file.$error && file"
-             ng-show="!file.$error && file">
+        <img ng-src="{{user.img || 'images/profile.png'}}">
       </div>
       <label class="item item-input item-stacked-label">
         <span class="input-label">{{text('name')}}</span>

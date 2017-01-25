@@ -30,8 +30,9 @@ function userService($ajax, $cordovaGeolocation, $q, $rootScope, db, ionicToast,
 
   this.update = function (user) {
     $ajax.put('/api/v1/user', user, true).then(function (user) {
-      angular.copy(user, self.user);
-      ionicToast.show(text('userModfied'), 'bottom', false, 3000);
+      self.user.nickname = user.nickname;
+      self.user.img = user.img;
+      ionicToast.alert(text('userModfied'));
     });
   };
 
@@ -51,6 +52,7 @@ function userService($ajax, $cordovaGeolocation, $q, $rootScope, db, ionicToast,
       $ajax.post('https://www.googleapis.com/oauth2/v4/token', data).then(null, function (authInfo) {
         var refresh_token = self.user.authInfo.refresh_token;
         angular.copy(authInfo, self.user.authInfo);
+        self.user.authInfo.credential_updatedAt = new Date();
         self.user.authInfo.refresh_token = refresh_token;
         ok(authInfo);
       }, no);
@@ -104,6 +106,7 @@ function userService($ajax, $cordovaGeolocation, $q, $rootScope, db, ionicToast,
         if (!self.user.authInfo)
           self.user.authInfo = {};
         angular.copy(authInfo, self.user.authInfo);
+        self.user.authInfo.credential_updatedAt = new Date();
         self.user.id = "logged";
         ok();
         $http.get("https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=" + authInfo.access_token).then(function (r) {

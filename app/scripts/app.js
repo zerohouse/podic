@@ -142,9 +142,15 @@ angular.module('Podic', [
           }
         },
         onEnter: function (userService) {
+          userService.newUser = {};
+          userService.newUser.id = userService.user.id;
+          if(!userService.user.userInfo) {
+            userService.newUser.nickname = userService.user.nickname;
+            userService.newUser.img = userService.user.img;
+            return;
+          }
           userService.newUser.nickname = userService.user.nickname || userService.user.userInfo.name;
           userService.newUser.img = userService.user.img || userService.user.userInfo.picture;
-          userService.newUser.id = userService.user.id;
         }
       })
       .state('app.simulator', {
