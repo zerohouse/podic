@@ -1,5 +1,5 @@
 angular.module('Podic.controllers')
-  .controller('AppCtrl', function ($scope, $ionicModal, $timeout, userService, confirm, text, $cordovaGeolocation, ionicToast, $ajax, db, Pokemons) {
+  .controller('AppCtrl', function ($scope, $ionicModal, $timeout, userService, confirm, text, $cordovaGeolocation, ionicToast, $ajax, db, Pokemons, pokemonService) {
 
     $scope.getNextName = function (pokemon) {
       return Pokemons.get(pokemon.id + 1).name;
@@ -29,7 +29,9 @@ angular.module('Podic.controllers')
       ref.addEventListener('loadstart', function (event) {
         if ((event.url).startsWith("http://localhost/callback")) {
           var code = (event.url).split("code=")[1].split("&")[0];
-          userService.register(code);
+          userService.register(code).then(function(){
+            pokemonService.refresh();
+          });
           ref.close();
         }
       });

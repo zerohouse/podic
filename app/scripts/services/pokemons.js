@@ -1,10 +1,10 @@
 angular.module('Podic.services').service('pokemonService', pokemonService);
 /* @ng-inject */
-function pokemonService(Pokemons, PokemonRequest, cpCal, $rootScope, db, $ajax, ionicToast, text, userService, $timeout) {
+function pokemonService(Pokemons, PokemonRequest, cpCal, $rootScope, db, $ajax, ionicToast, text, userService) {
 
   $rootScope.pokemons = db.pokemons;
   $rootScope.playerStatus = db.playerStatus;
-
+  userService.refreshPokemon = this.refresh;
 
   var self = this;
 
@@ -20,11 +20,6 @@ function pokemonService(Pokemons, PokemonRequest, cpCal, $rootScope, db, $ajax, 
   this.refresh = function () {
     self.loading = true;
     count++;
-    $timeout(function () {
-      if (!self.loading || count > 2)
-        return;
-      self.refresh();
-    }, 2000);
     PokemonRequest.getInventoryData().then(function (inventories) {
       self.loading = false;
       var pokemons = [];

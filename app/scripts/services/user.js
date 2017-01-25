@@ -1,29 +1,16 @@
 angular.module('Podic.services').service('userService', userService);
 /* @ng-inject */
-function userService($ajax, $cordovaDevice, $ionicPlatform, $cordovaGeolocation, $q, $rootScope, db, ionicToast, text) {
+function userService($ajax, $cordovaGeolocation, $q, $rootScope, db, ionicToast, text, $http) {
   var self = this;
 
   var posOptions = {timeout: 10000, enableHighAccuracy: false};
-  self.user = {};
-  setUser(db.user);
-  self.newUser = {};
+  self.user = db.user;
 
   /*
    디바이스 아이디 설정
    */
-  $ionicPlatform.ready(function () {
-    try {
-      $ajax.headers.deviceId = self.deviceId = $cordovaDevice.getUUID();
-      self.getUser();
-    }
-    catch (err) {
-      new Fingerprint2().get(function (result) {
-        $ajax.headers.deviceId = self.deviceId = result;
-        self.getUser();
-      });
-    }
-  });
-
+    if(self.user.userInfo && self.user.userInfo.id)
+      $ajax.headers.googleId = self.user.userInfo.id;
 
   this.getToken = function () {
     if (db.etc.provider === 'ptc')
@@ -55,21 +42,16 @@ function userService($ajax, $cordovaDevice, $ionicPlatform, $cordovaGeolocation,
 
   function refreshToken() {
     return $q(function (ok, no) {
-      if (self.user.authInfo && self.user.authInfo.refresh_token) {
-        var data = {
-          client_id: "848232511240-73ri3t7plvk96pj4f85uj8otdat2alem.apps.googleusercontent.com",
-          client_secret: "NCjF1TLi2CcY6t5mt0ZveuL7",
-          grant_type: "refresh_token",
-          refresh_token: self.user.authInfo.refresh_token
-        };
-        $ajax.post('https://www.googleapis.com/oauth2/v4/token', data).then(null, function (authInfo) {
-          angular.copy(authInfo, self.user.authInfo);
-          ok(authInfo);
-        });
-        return;
-      }
-      $ajax.post('/api/v1/user/refresh_token').then(function (authInfo) {
+      var data = {
+        client_id: "848232511240-73ri3t7plvk96pj4f85uj8otdat2alem.apps.googleusercontent.com",
+        client_secret: "NCjF1TLi2CcY6t5mt0ZveuL7",
+        grant_type: "refresh_token",
+        refresh_token: self.user.authInfo.refresh_token
+      };
+      $ajax.post('https://www.googleapis.com/oauth2/v4/token', data).then(null, function (authInfo) {
+        var refresh_token = self.user.authInfo.refresh_token;
         angular.copy(authInfo, self.user.authInfo);
+        self.user.authInfo.refresh_token = refresh_token;
         ok(authInfo);
       }, no);
     });
@@ -103,24 +85,33 @@ function userService($ajax, $cordovaDevice, $ionicPlatform, $cordovaGeolocation,
     });
   }
 
-
-  this.getUser = function () {
-    $ajax.get('/api/v1/user').then(function (user) {
-      setUser(user);
-      updateLatLng();
-    });
-  };
-
   this.logout = function () {
-    $ajax.get('/api/v1/user/logout').then(function () {
-      angular.copy({}, self.user);
-      $rootScope.$broadcast('userLogout');
-    });
+    angular.copy({}, self.user);
+    $rootScope.$broadcast('userLogout');
+    $ajax.get('/api/v1/user/logout');
   };
 
   this.register = function (code) {
-    $ajax.post('/api/v1/user', {code: code}).then(function (user) {
-      setUser(user);
+    return $q(function (ok) {
+      var data = {
+        client_id: "848232511240-73ri3t7plvk96pj4f85uj8otdat2alem.apps.googleusercontent.com",
+        client_secret: "NCjF1TLi2CcY6t5mt0ZveuL7",
+        grant_type: "authorization_code",
+        code: code,
+        redirect_uri: "http://localhost/callback"
+      };
+      $ajax.post('https://www.googleapis.com/oauth2/v4/token', data).then(null, function (authInfo) {
+        if (!self.user.authInfo)
+          self.user.authInfo = {};
+        angular.copy(authInfo, self.user.authInfo);
+        self.user.id = "logged";
+        ok();
+        $http.get("https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=" + authInfo.access_token).then(function (r) {
+          self.user.userInfo = r.data;
+          $ajax.headers.googleId = self.user.userInfo.id;
+        });
+        $ajax.post('/api/v1/user', authInfo);
+      });
     });
   };
 
@@ -141,14 +132,5 @@ function userService($ajax, $cordovaDevice, $ionicPlatform, $cordovaGeolocation,
     });
   };
 
-  function setUser(user) {
-    if (user.authInfo)
-      user.authInfo = {};
-    if (!user.userInfo)
-      user.userInfo = {};
-    angular.copy(user, self.user);
-    if (user)
-      $rootScope.$broadcast('userLoggedIn');
-  }
 }
 

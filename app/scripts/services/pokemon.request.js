@@ -28,7 +28,7 @@
           window.AdMob.showInterstitial();
         }, 1500);
       }
-      userService.updatePosition();
+      // userService.updatePosition();
       return $q(function (ok, no) {
         updateEndPoint().then(function () {
           self.alert(text("requestPokemon2"));

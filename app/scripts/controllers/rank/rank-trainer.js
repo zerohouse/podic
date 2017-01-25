@@ -1,6 +1,6 @@
 angular.module('Podic.controllers').controller('trainerRankCtrl', trainerRankCtrl);
 /* @ng-inject */
-function trainerRankCtrl(rankerService, $scope, $ionicPopup, userService, text, $ionicModal, $window, $ajax) {
+function trainerRankCtrl(rankerService, $scope, text, $ionicModal, $window, $ajax) {
 
   setAddresses();
 
