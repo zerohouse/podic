@@ -15,11 +15,13 @@ function pokemonService(Pokemons, PokemonRequest, cpCal, $rootScope, db, $ajax, 
     pokemon.maxTrainerCp = cpCal.getCpByLevel(pokemon, Math.min($rootScope.playerStatus.level * 2 + 1, 78));
   };
 
+  var count = 0;
 
   this.refresh = function () {
     self.loading = true;
+    count++;
     $timeout(function () {
-      if (!self.loading)
+      if (!self.loading || count > 2)
         return;
       self.refresh();
     }, 2000);
