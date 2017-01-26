@@ -1,7 +1,7 @@
 (function () {
   angular.module('Podic.directives').directive('pokerank', pokerank);
   /* @ng-inject */
-  function pokerank(text) {
+  function pokerank() {
 
     return {
       restrict: 'A',
