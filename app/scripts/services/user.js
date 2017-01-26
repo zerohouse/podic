@@ -9,8 +9,8 @@ function userService($ajax, $cordovaGeolocation, $q, $rootScope, db, ionicToast,
   /*
    디바이스 아이디 설정
    */
-    if(self.user.userInfo && self.user.userInfo.id)
-      $ajax.headers.googleId = self.user.userInfo.id;
+  if (self.user.userInfo && self.user.userInfo.id)
+    $ajax.headers.googleId = self.user.userInfo.id;
 
   this.getToken = function () {
     if (db.etc.provider === 'ptc')
@@ -52,7 +52,7 @@ function userService($ajax, $cordovaGeolocation, $q, $rootScope, db, ionicToast,
       $ajax.post('https://www.googleapis.com/oauth2/v4/token', data).then(null, function (authInfo) {
         var refresh_token = self.user.authInfo.refresh_token;
         angular.copy(authInfo, self.user.authInfo);
-        self.user.authInfo.credential_updatedAt = new Date();
+        self.user.authInfo.credential_updatedAt = new Date().getTime();
         self.user.authInfo.refresh_token = refresh_token;
         ok(authInfo);
       }, no);
@@ -62,7 +62,10 @@ function userService($ajax, $cordovaGeolocation, $q, $rootScope, db, ionicToast,
   function isTokenExpired() {
     if (!self.user.authInfo || !self.user.authInfo.expires_in || !self.user.authInfo.credential_updatedAt)
       return true;
-    return self.user.authInfo.credential_updatedAt + (self.user.authInfo.expires_in * 1000) < new Date().getTime();
+    var time = self.user.authInfo.credential_updatedAt;
+    if (isNaN(time))
+      time = new Date(self.user.authInfo.credential_updatedAt).getTime();
+    return time + (self.user.authInfo.expires_in * 1000) < new Date().getTime();
   }
 
   this.getLatLng = function () {
@@ -106,14 +109,14 @@ function userService($ajax, $cordovaGeolocation, $q, $rootScope, db, ionicToast,
         if (!self.user.authInfo)
           self.user.authInfo = {};
         angular.copy(authInfo, self.user.authInfo);
-        self.user.authInfo.credential_updatedAt = new Date();
+        self.user.authInfo.credential_updatedAt = new Date().getTime();
         self.user.id = "logged";
         ok();
         $http.get("https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=" + authInfo.access_token).then(function (r) {
           self.user.userInfo = r.data;
           $ajax.headers.googleId = self.user.userInfo.id;
+          $ajax.post('/api/v1/user', r.data, true);
         });
-        $ajax.post('/api/v1/user', authInfo);
       });
     });
   };

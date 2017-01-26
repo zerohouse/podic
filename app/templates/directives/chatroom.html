@@ -1,0 +1,13 @@
+<div class="item" ng-click="open(chatRoom.url)" ng-if="chatRoom.type!=='group'">
+  {{chatRoom.name}}<p>{{chatRoom.description}}
+</div>
+
+<div ng-if="chatRoom.type==='group'">
+  <div class="item" ng-click="chatRoom.show=!chatRoom.show">
+    <b>{{chatRoom.name}} ({{chatRoom.rooms.length}})</b>
+    <p>{{chatRoom.description}}</p>
+  </div>
+  <div ng-show="chatRoom.show" class="sub">
+    <chat-room chat-room="chat" ng-repeat="chat in chatRoom.rooms"></chat-room>
+  </div>
+</div>
