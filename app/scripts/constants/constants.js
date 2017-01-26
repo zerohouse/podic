@@ -17,6 +17,7 @@
     self.texts.ko = {
 
       openChatting: "오픈 채팅",
+      hideInRank:"랭킹에서 숨기기",
 
       updateLocationSub: "내 위치를 업데이트 합니다.",
       updateLocationTitle: "업데이트 확인",

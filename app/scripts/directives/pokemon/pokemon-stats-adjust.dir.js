@@ -9,7 +9,7 @@
         trainer: '=',
         powerUp: '='
       },
-      template: "<pokemon-level pokemon='pokemon' trainer='trainer'></pokemon-level>" +
+      template: "<pokemon-level pokemon-options='pokemonOptions' pokemon='pokemon' trainer='trainer'></pokemon-level>" +
       "<pokemon-iv pokemon='pokemon' trainer='trainer'></pokemon-iv>",
       controller: function ($scope, $rootScope, text) {
         $scope.text = text;

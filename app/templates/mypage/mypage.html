@@ -11,6 +11,7 @@
         <span class="input-label">{{text('name')}}</span>
         <input type="text" ng-model="user.nickname" placeholder="{{text('name')}}">
       </label>
+      <ion-checkbox ng-model="user.hideInRank">{{text('hideInRank')}}</ion-checkbox>
     </div>
     <div class="padding">
       <button class="button button-block button-royal activated" ng-click="update(file)">{{text('userModifyBtn')}}

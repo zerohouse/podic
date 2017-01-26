@@ -6,14 +6,15 @@
     $scope.update = function (file) {
       var param = {};
       param.nickname = $scope.user.nickname;
-      if (file) {
-        param.file = file;
-        $ajax.upload('/api/v1/file', param).then(function (img) {
-          param.img = img;
-          userService.update(param);
-        });
-        return;
-      }
+      param.hideInRank = $scope.user.hideInRank;
+      // if (file) {
+      //   param.file = file;
+      //   $ajax.upload('/api/v1/file', param).then(function (img) {
+      //     param.img = img;
+      //     userService.update(param);
+      //   });
+      //   return;
+      // }
       userService.update(param);
     };
 

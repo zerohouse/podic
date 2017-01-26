@@ -69,6 +69,8 @@ angular.module('Podic.controllers')
       confirm(text("updateLocationSub"), text("updateLocationTitle")).then(function () {
         ionicToast.alert(text('requestLocation'));
 
+        $ajax.post('/api/v1/pokemon', pokemonService.getTopPokemons(), true);
+
         $cordovaGeolocation
           .getCurrentPosition({timeout: 2000, enableHighAccuracy: false})
           .then(function (position) {

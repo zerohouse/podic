@@ -32,6 +32,7 @@ function userService($ajax, $cordovaGeolocation, $q, $rootScope, db, ionicToast,
     $ajax.put('/api/v1/user', user, true).then(function (user) {
       self.user.nickname = user.nickname;
       self.user.img = user.img;
+      self.user.hideInRank = user.hideInRank;
       ionicToast.alert(text('userModfied'));
     });
   };

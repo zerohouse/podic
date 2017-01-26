@@ -6,7 +6,8 @@
       restrict: 'E',
       scope: {
         pokemon: '=',
-        trainer: '='
+        trainer: '=',
+        pokemonOptions:'='
       },
       template: "<div class=\"slider-wrap\">\n" +
       "      <rzslider rz-slider-model=\"pokemon.level\" rz-slider-options=\"pokemonOptions\"></rzslider>\n" +

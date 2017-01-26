@@ -146,6 +146,7 @@ angular.module('Podic', [
           userService.newUser.id = userService.user.id;
           if(!userService.user.userInfo) {
             userService.newUser.nickname = userService.user.nickname;
+            userService.newUser.hideInRank = userService.user.hideInRank;
             userService.newUser.img = userService.user.img;
             return;
           }

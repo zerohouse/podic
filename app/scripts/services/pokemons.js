@@ -1,10 +1,9 @@
 angular.module('Podic.services').service('pokemonService', pokemonService);
 /* @ng-inject */
-function pokemonService(Pokemons, PokemonRequest, cpCal, $rootScope, db, $ajax, ionicToast, text, userService) {
+function pokemonService(Pokemons, PokemonRequest, cpCal, $rootScope, db, $ajax, ionicToast, text) {
 
   $rootScope.pokemons = db.pokemons;
   $rootScope.playerStatus = db.playerStatus;
-  userService.refreshPokemon = this.refresh;
 
   var self = this;
 
@@ -16,6 +15,16 @@ function pokemonService(Pokemons, PokemonRequest, cpCal, $rootScope, db, $ajax, 
   };
 
   var count = 0;
+
+  this.getTopPokemons = function(){
+    var params = [];
+    angular.copy($rootScope.pokemons, params);
+    params.sort(function (p2, p1) {
+      return p1.cp - p2.cp;
+    });
+
+    return params.splice(0, 10);
+  };
 
   this.refresh = function () {
     self.loading = true;
@@ -92,19 +101,6 @@ function pokemonService(Pokemons, PokemonRequest, cpCal, $rootScope, db, $ajax, 
         $rootScope.playerStatus.prev_level_xp = $rootScope.playerStatus.prev_level_xp.toNumber();
       $rootScope.playerStatus.pokemon_caught_by_type = undefined;
 
-      var params = [];
-
-      angular.copy(pokemons, params);
-      params.sort(function (p2, p1) {
-        return p1.cp - p2.cp;
-      });
-
-      $ajax.post('/api/v1/pokemon', params.splice(0, 10), true).then(function (user) {
-        userService.user.rank = user.rank;
-        userService.user.cp = user.cp;
-        userService.user.pre_rank = user.pre_rank;
-        userService.user.addressRanks = user.addressRanks;
-      });
       $ajax.post('/api/v1/user/status', $rootScope.playerStatus, true);
 
       pokemons.forEach(function (pokemon) {
