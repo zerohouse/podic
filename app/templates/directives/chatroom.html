@@ -7,7 +7,7 @@
     <b>{{chatRoom.name}} ({{chatRoom.rooms.length}})</b>
     <p>{{chatRoom.description}}</p>
   </div>
-  <div ng-show="chatRoom.show" class="sub">
+  <div ng-show="chatRoom.show" style="padding-left:40px;background:#eee;">
     <chat-room chat-room="chat" ng-repeat="chat in chatRoom.rooms"></chat-room>
   </div>
 </div>

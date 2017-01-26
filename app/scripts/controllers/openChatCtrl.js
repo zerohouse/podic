@@ -8,6 +8,7 @@
         "url": "https://open.kakao.com/o/gZD4iZr"
       },
       {
+        "type":"group",
         "name": "서울",
         "url":"https://open.kakao.com/o/gHWTjZr"
       },
