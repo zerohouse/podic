@@ -144,8 +144,8 @@
       requestPokemon: '포켓몬 데이터 조회 자격을 얻습니다.',
       requestPokemon2: '포켓몬 데이터를 가져오는 중 입니다.',
       requestPokemonDone: '포켓몬 데이터를 가져왔습니다.',
-      parseError: '데이터를 가져오는 중 문제가 발생했습니다.(700)',
-      serverError: '데이터를 가져오는 중 문제가 발생했습니다.(500)',
+      parseError: '데이터를 가져오는 중 문제가 발생했습니다. 다시 로그인해 주세요.',
+      serverError: '데이터를 가져오는 중 문제가 발생했습니다. 다시 로그인해 주세요.',
       userModified: '정보를 수정했습니다.',
       writeDone: '작성완료',
 
