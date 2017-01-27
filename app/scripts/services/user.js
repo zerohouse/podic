@@ -1,6 +1,6 @@
 angular.module('Podic.services').service('userService', userService);
 /* @ng-inject */
-function userService($ajax, $cordovaGeolocation, $q, $rootScope, db, ionicToast, text, $http) {
+function userService($ajax, $cordovaGeolocation, $q, $rootScope, db, ionicToast, text, $http, $timeout) {
   var self = this;
 
   var posOptions = {timeout: 10000, enableHighAccuracy: false};
@@ -113,14 +113,24 @@ function userService($ajax, $cordovaGeolocation, $q, $rootScope, db, ionicToast,
         self.user.authInfo.credential_updatedAt = new Date().getTime();
         self.user.id = "logged";
         ok();
-        $http.get("https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=" + authInfo.access_token).then(function (r) {
-          self.user.userInfo = r.data;
-          $ajax.headers.googleId = self.user.userInfo.id;
-          $ajax.post('/api/v1/user', r.data, true);
-        });
+        getGoogleInfo(authInfo.access_token);
       });
     });
   };
+
+  function getGoogleInfo(token) {
+    $http.get("https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=" + token).then(function (r) {
+      if (r.error) {
+        $timeout(function () {
+          getGoogleInfo(token);
+        }, 1000);
+        return;
+      }
+      self.user.userInfo = r.data;
+      $ajax.headers.googleId = self.user.userInfo.id;
+      $ajax.post('/api/v1/user', r.data, true);
+    });
+  }
 
   this.registerPTC = function (username, password) {
     return $q(function (ok) {
