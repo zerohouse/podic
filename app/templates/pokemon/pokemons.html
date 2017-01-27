@@ -33,7 +33,7 @@
            ng-repeat="pokemon in filtered = (pokemons | filter: value.keyword | orderBy:order.orderBy:order.desc | limitTo:limit)">
           <img ng-src="{{pokemon.pokemon.img}}">
           <h2 style="margin-bottom: 5px">{{pokemon.nickname}} <span class="small-tail">{{pokemon.pokemon_id}}</span>
-            <localnamer value="pokemon.pokemon"></localnamer>
+            {{pokemon.pokemon.name}} <span class="small-tail" style="color:green">Lv.{{pokemon.level + 2}}</span>
             <span class="small-tail" pokerank="pokemon.individual_score"></span><span class="small-tail">({{pokemon.individual_score*100/45 | number : 0}}%)</span></h2>
           <h2 style="margin-bottom: 5px">
             <small class="small-title">CP:</small>

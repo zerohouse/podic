@@ -17,7 +17,7 @@
     self.texts.ko = {
 
       openChatting: "오픈 채팅",
-      hideInRank:"랭킹에서 숨기기",
+      hideInRank: "랭킹에서 숨기기",
 
       updateLocationSub: "내 위치를 업데이트 합니다.",
       updateLocationTitle: "업데이트 확인",
@@ -179,6 +179,7 @@
       energy: '에너지',
       buddyCandies: "버디캔디거리",
 
+      level: "레벨",
       story: '이야기',
       maxLevel: '만렙',
       attackSkills: "습득 가능한 공격 기술",

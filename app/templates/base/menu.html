@@ -52,18 +52,18 @@
         <ion-item menu-close ui-sref="app.pokemonDesc">
           {{text("pokemonDic")}}
         </ion-item>
-        <ion-item menu-close ui-sref="app.pokemonRank">
-          {{text("pokemonRank")}}
-        </ion-item>
-        <ion-item menu-close ui-sref="app.trainerRank">
-          {{text("trainerRank")}}
+        <ion-item menu-close ui-sref="app.openChat">
+          <small style="color:red">new</small>
+          {{text("openChatting")}}
         </ion-item>
         <ion-item menu-close ui-sref="app.simulator.catch">
           {{text("simulator")}}
         </ion-item>
-        <ion-item menu-close ui-sref="app.openChat">
-          <small style="color:red">new</small>
-          {{text("openChatting")}}
+        <ion-item menu-close ui-sref="app.trainerRank">
+          {{text("trainerRank")}}
+        </ion-item>
+        <ion-item menu-close ui-sref="app.pokemonRank">
+          {{text("pokemonRank")}}
         </ion-item>
         <ion-item menu-close ng-click="logout()" ng-if="user.id">
           {{text("logout")}}
