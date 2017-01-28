@@ -1,7 +1,10 @@
 <div ng-class="{nested:reply.parentId, new:reply.new}" ng-if="!reply.modify">
   <div>
     <div style="padding:5px">
-      {{reply.user.nickname||text('anonymousPlayer')}}(CP:{{reply.user.cp}})
+      <b>
+        <img ng-if="reply.user.team" style="width:13px;height: 13px;padding-top:5px" ng-src="http://podic.net/images/teams/{{reply.user.team}}.png">
+        {{reply.user.nickname||text('anonymousPlayer')}}(CP:{{reply.user.cp}})
+      </b>
       <span class="time">{{reply.updatedAt  | ymd}}</span>
       <span class="small-tail" style="float:right">
                 <span ng-click="modifying()" ng-if="isRootUser()">수정</span>

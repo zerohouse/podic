@@ -4,37 +4,49 @@
   function rarity(text) {
     return {
       restrict: 'A',
-      template: "{{text('rareWords')[i]}}",
+      template: "<span ng-style='getStyle()'>{{getRareWord()}}</span>",
       scope: {
         rarity: '='
       },
-      link: function (s, e) {
-        s.text = text;
-        var color;
-        if (s.rarity > 0.3) {
-          color = '#7E8AA2';
-          s.i = 4;
-        }
-        else if (s.rarity > 0.2) {
-          color = '#2980B9';
-          s.i = 3;
-        }
-        else if (s.rarity > 0.1) {
-          color = '#01A2A6';
-          s.i = 2;
-        }
-        else if (s.rarity > 0.05) {
-          color = '#00A388';
-          s.i = 1;
-        }
-        else {
-          color = '#E74C3C';
-          s.i = 0;
-        }
+      controller: function ($scope, text) {
+        $scope.getRareWord = function () {
+          var i;
+          if ($scope.rarity > 0.3) {
+            i = 4;
+          }
+          else if ($scope.rarity > 0.15) {
+            i = 3;
+          }
+          else if ($scope.rarity > 0.09) {
+            i = 2;
+          }
+          else if ($scope.rarity > 0.03) {
+            i = 1;
+          }
+          else {
+            i = 0;
+          }
+          return text('rareWords')[i];
+        };
 
-        e.css('color', color);
-        if (s.rarity > 6) {
-          e.css('font-weight', 900);
+        $scope.getStyle = function () {
+          var color;
+          if ($scope.rarity > 0.3) {
+            color = '#7E8AA2';
+          }
+          else if ($scope.rarity > 0.15) {
+            color = '#2980B9';
+          }
+          else if ($scope.rarity > 0.09) {
+            color = '#01A2A6';
+          }
+          else if ($scope.rarity > 0.03) {
+            color = '#408075';
+          }
+          else {
+            color = '#E74C3C';
+          }
+          return {color: color};
         }
       }
     };

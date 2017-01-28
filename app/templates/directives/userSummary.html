@@ -1,5 +1,6 @@
 <div class="item item-avatar">
-  <img ng-src="{{user.img || 'images/profile.png'}}" ng-click="detailPage(user)">
+  <img ng-if="!user.team" ng-src="{{user.img || 'images/profile.png'}}" ng-click="detailPage(user)">
+  <img ng-if="user.team" style="width:50px;height: 50px" ng-src="http://podic.net/images/teams/{{user.team}}.png">
   <h2 ng-click="detailPage(user)">
     <span ng-if="user.change!==undefined">
       {{rank || user.rank}}{{text('rank')}}
