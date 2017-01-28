@@ -9,6 +9,7 @@ function pokemonService(Pokemons, PokemonRequest, cpCal, $rootScope, db, $ajax, 
 
 
   this.setPokemon = function (pokemon) {
+
     pokemon.pokemon = Pokemons.get(pokemon.pokemon_id);
     pokemon.individual_score = pokemon.individual_attack + pokemon.individual_defense + pokemon.individual_stamina;
     pokemon.maxCp = cpCal.getCpByLevel(pokemon, 78);
@@ -94,6 +95,8 @@ function pokemonService(Pokemons, PokemonRequest, cpCal, $rootScope, db, $ajax, 
         if (!pokemon)
           return;
         pokemon.candies = fa.candy;
+        if (!pokemon.candies)
+          return;
         pokemon.canEvolve = pokemon.evolveCandies !== 0 && pokemon.candies / pokemon.evolveCandies >= 1;
       });
       pokemons.forEach(function (pokemon) {

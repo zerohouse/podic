@@ -10,7 +10,7 @@
       <img style="margin-top:10px;padding:10px;border-radius:50%;border:3px solid"
            ng-style="{'border-color':getColor()}" ng-src="{{pokemon.pokemon.img}}"
            ng-click="selectPokemon()">
-      <h1> {{getCatchRate() * 100 | number:1 || 0}}% </h1>
+      <h1> <span ng-if="getCatchRate()">{{getCatchRate() * 100 | number:1}}</span><span ng-if="!getCatchRate()">0</span>% </h1>
       <h3> CP {{getCp()}} </h3>
       <pokemon-level  pokemon='pokemon' trainer='trainer'></pokemon-level>
     </div>

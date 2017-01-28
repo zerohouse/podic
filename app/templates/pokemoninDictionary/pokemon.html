@@ -69,12 +69,12 @@
           <div class="col">{{text('attackPower')}}({{text("dps")}})</div>
           <div class="col">{{text('energy')}}({{text("eps")}})</div>
         </div>
-        <skill skill="skill" ng-repeat="skill in pokemon.attacks"></skill>
-        <skill skill="skill" ng-repeat="skill in pokemon.skills"></skill>
+        <skill best="pokemon.bestAttack" skill="skill" ng-repeat="skill in pokemon.attacks"></skill>
+        <skill best="pokemon.bestSkill" skill="skill" ng-repeat="skill in pokemon.skills"></skill>
       </div>
     </div>
 
-    <div class="card poke-card">
+    <div class="card poke-card" ng-if="pokemon.candies">
       <div class="item item-divider">
         <i class="ion-ios-rose"></i> {{text('candiesInfo')}}
       </div>

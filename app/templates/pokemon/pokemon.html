@@ -28,12 +28,13 @@
             </div>
             <div class="col">
               <div class="small-title">{{text('individualValue')}}</div>
-              {{pokemon.individual_score}}/45 <small>({{pokemon.individual_score*100/45 | number : 1}}%)</small>
+              {{pokemon.individual_score}}/45
+              <pokerank iv="pokemon.individual_score"></pokerank>
             </div>
-            <div class="col">
-              <div class="small-title">{{text('pokemonPowerRank')}}</div>
-              {{pokemon.pokemon.value[3]}}{{text('rank')}}
-            </div>
+            <!--<div class="col">-->
+            <!--<div class="small-title">{{text('pokemonPowerRank')}}</div>-->
+            <!--{{pokemon.pokemon.value[3]}}{{text('rank')}}-->
+            <!--</div>-->
           </div>
           <div class="row" style="margin-top:10px;">
             <div class="col">
@@ -73,16 +74,20 @@
           <div class="row">
             <div class="col">
               <div class="small-title">{{text('maxCpNowLevel')}}</div>
-              {{pokemon.maxTrainerCp || 0}}<cost cost="pokemon.maxTrainerCpCost"></cost>
+              {{pokemon.maxTrainerCp || 0}}
+              <br>
+              <cost cost="pokemon.maxTrainerCpCost"></cost>
             </div>
             <div class="col">
               <div class="small-title">{{text('maxCp')}}</div>
-              {{pokemon.maxCp || 0}}<cost cost="pokemon.maxCpCost"></cost>
+              {{pokemon.maxCp || 0}}
+              <br>
+              <cost cost="pokemon.maxCpCost"></cost>
             </div>
           </div>
           <div class="row">
             <div class="col">
-              <span class="button button-balanced"  style="margin-right:10px"
+              <span class="button button-balanced" style="margin-right:10px"
                     ng-click="simulate()">
                 <i class="ion-arrow-graph-up-right"></i> {{text('cpSimulation')}}
               </span>
@@ -110,9 +115,9 @@
             </div>
           </div>
           <div class="row" style="margin-top:10px;">
-            <div class="col">
+            <div class="col-33">
               <div class="small-title">{{text('pokemonPower')}}</div>
-              {{pokemon.pokemon.power}}
+              {{pokemon.pokemon.power}}<small>({{pokemon.pokemon.value[3]}}{{text('rank')}})</small>
             </div>
             <div class="col">
               <div class="small-title">{{text('attack')}}</div>
@@ -143,18 +148,18 @@
             <div class="col">{{text('energy')}}({{text("eps")}})</div>
           </div>
           <div>
-            <skill skill="pokemon.pokemon.attacks.findById(pokemon.move_1)"></skill>
-            <skill skill="skill" ng-repeat="skill in pokemon.pokemon.attacks" ng-if="pokemon.move_1 !== skill.id"
+            <skill best="pokemon.pokemon.bestAttack" skill="pokemon.pokemon.attacks.findById(pokemon.move_1)"></skill>
+            <skill best="pokemon.pokemon.bestAttack"  skill="skill" ng-repeat="skill in pokemon.pokemon.attacks" ng-if="pokemon.move_1 !== skill.id"
                    style="opacity: 0.5"></skill>
-            <skill skill="pokemon.pokemon.skills.findById(pokemon.move_2)"></skill>
-            <skill skill="skill" ng-repeat="skill in pokemon.pokemon.skills" ng-if="pokemon.move_2 !== skill.id"
+            <skill best="pokemon.pokemon.bestSkill"  skill="pokemon.pokemon.skills.findById(pokemon.move_2)"></skill>
+            <skill best="pokemon.pokemon.bestSkill" skill="skill" ng-repeat="skill in pokemon.pokemon.skills" ng-if="pokemon.move_2 !== skill.id"
                    style="opacity: 0.5"></skill>
           </div>
         </div>
       </div>
 
 
-      <div class="card poke-card">
+      <div class="card poke-card" ng-if="pokemon.pokemon.candies !== undefined">
         <div class="item item-divider">
           <i class="ion-ios-rose"></i> {{text('candiesInfo')}}
         </div>

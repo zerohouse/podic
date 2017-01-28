@@ -4,32 +4,33 @@
   function pokerank() {
 
     return {
-      restrict: 'A',
-      template: "{{text}}",
+      restrict: 'E',
+      template: '{{text}}<span ng-if="!onlyRank" class="small-tail">({{iv*100/45 | number : 0}}%)</span>',
       scope: {
-        pokerank: '='
+        iv: '=',
+        onlyRank: '='
       },
       link: function (s, e) {
         var color;
-        if (s.pokerank > 42) {
+        if (s.iv > 42) {
           s.text = "SS";
           color = '#E74C3C';
           e.css('font-weight', 900);
         }
-        else if (s.pokerank > 39) {
+        else if (s.iv > 39) {
           s.text = "S";
           color = '#00A388';
           e.css('font-weight', 900);
         }
-        else if (s.pokerank > 30) {
+        else if (s.iv > 30) {
           s.text = "A";
           color = '#01A2A6';
         }
-        else if (s.pokerank > 20) {
+        else if (s.iv > 20) {
           s.text = "B";
           color = '#7E8AA2';
         }
-        else if (s.pokerank > 10) {
+        else if (s.iv > 10) {
           s.text = "C";
           color = '#7E8AA2';
         }

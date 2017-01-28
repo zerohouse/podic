@@ -68,7 +68,8 @@
       rank: "위",
       Rank: "순위",
       rare: "희귀도",
-      rareWords: ['아주 흔함', '흔함', '보통', '특별함', '희귀함', '진귀함', "유니크", '에픽', '전설'],
+      rareWords: ['진귀함', '희귀함', '보통', '흔함', '아주 흔함'],
+      rareDescription:"17년 1월 27일 Podocs DB 기준",
 
       candiesInfo: '캔디 정보',
       orderCandy: '캔디순',
@@ -265,9 +266,10 @@
       catchRateFactorEtc: "ETC Factors",
       pokeballType: "Pokeball Type",
 
+      rareDescription:"Jan 27 2017, Source from Podocs DB",
       Rank: "Ranking",
       rare: "Rarity",
-      rareWords: ['Everywhere', 'Very Common', 'Common', 'Uncommon', 'Rare', 'Very Rare', 'Unique', 'Epic', 'Mythical'],
+      rareWords: ['Rare', 'Uncommon', 'Common', 'Very Common', 'Everywhere'],
 
       candiesInfo: 'Evolve Infomation',
       orderCandy: 'Order by Candies',

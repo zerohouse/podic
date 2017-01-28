@@ -4,17 +4,22 @@
   function skill() {
     return {
       restrict: 'E',
-      template: '<div class="row">\
-                    <div class="col" style="min-width: 100px"><span>{{skill.name}}</span><span ng-if="isShowEng()"><br>{{skill.en}}</span></div>\
+      template: '<div class="row" ng-style="style()">\
+                    <div class="col" style="min-width: 100px"><span>{{skill.name}} <i class="ion-star" ng-if="best === skill.id"></i></span><span ng-if="isShowEng()"><br>{{skill.en}}</span></div>\
                     <div class="col" ng-click="showPopup(skill.type)">{{skill.type.name}}<i class="ion-ios-help-outline" style="font-size:13px"></i></div>\
                     <div class="col">{{skill.cooldown}}</div>\
                     <div class="col">{{skill.attack}}({{skill.attack/skill.cooldown | number:1}})</div>\
                     <div class="col">{{skill.energy}}({{skill.energy/skill.cooldown | number:1}})</div>\
                  </div>\
                  ',
-      scope: {skill: '='},
+      scope: {skill: '=', best: '='},
       controller: function ($scope, Pokemons, $ionicPopup, text) {
         $scope.isShowEng = text.isShowEng;
+        $scope.style = function () {
+          if ($scope.best === $scope.skill.id) {
+            return {color: 'green'};
+          }
+        };
         $scope.showPopup = function (type) {
           var template = '';
           var attack_strong = type.attack.strong.map(function (id) {

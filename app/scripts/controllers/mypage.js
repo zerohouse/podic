@@ -1,9 +1,9 @@
 (function () {
   angular.module('Podic.controllers').controller('myPageCtrl', myPageCtrl);
   /* @ng-inject */
-  function myPageCtrl($scope, userService, $ajax) {
+  function myPageCtrl($scope, userService) {
     $scope.user = userService.newUser;
-    $scope.update = function (file) {
+    $scope.update = function () {
       var param = {};
       param.nickname = $scope.user.nickname;
       param.hideInRank = $scope.user.hideInRank;

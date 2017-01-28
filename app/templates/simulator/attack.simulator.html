@@ -11,7 +11,7 @@
     <div class="row text-align-center">
       <div class="col">
         <div class="small-title">{{left.nickname || left.pokemon.name}}</div>
-        <img ng-src="{{left.pokemon.img}}" ng-click="selectPokemon(left)">
+        <img style="width:104px;height:104px" ng-src="{{left.pokemon.img}}" ng-click="selectPokemon(left)">
         <hp-bar pokemon="left" ng-click="modifylvAndStat(left)"></hp-bar>
         <energy-bar pokemon="left" ng-click="modifylvAndStat(left)"></energy-bar>
         <div>
@@ -20,7 +20,7 @@
       </div>
       <div class="col">
         <div class="small-title">{{right.nickname || right.pokemon.name}}</div>
-        <img ng-src="{{right.pokemon.img}}" ng-click="selectPokemon(right)">
+        <img  style="width:104px;height:104px" ng-src="{{right.pokemon.img}}" ng-click="selectPokemon(right)">
         <hp-bar pokemon="right" ng-click="modifylvAndStat(right)"></hp-bar>
         <energy-bar pokemon="right" ng-click="modifylvAndStat(right)"></energy-bar>
         <div>
