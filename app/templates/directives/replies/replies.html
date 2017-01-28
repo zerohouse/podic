@@ -1,4 +1,5 @@
 <reply-input title="title" reply="reply" done="done"
              replies="replies"></reply-input>
-<reply title="title" ng-repeat="reply in replies | limitTo : limit" replies="replies" reply="reply"></reply>
+<reply title="title" ng-repeat="reply in replies | limitTo : limit" replies="replies" reply="reply"
+       style="margin:10px"></reply>
 <div class="more" ng-show="limit<replies.length" ng-click="more()" style="text-align: center;padding:3px 0;">더보기</div>

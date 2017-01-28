@@ -133,6 +133,15 @@ angular.module('Podic', [
           }
         }
       })
+      .state('app.newsFeed', {
+        url: '/newsFeed',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/newsFeed/newsFeed.html',
+            controller: 'newsFeedCtrl'
+          }
+        }
+      })
       .state('app.mypage', {
         url: '/mypage',
         views: {

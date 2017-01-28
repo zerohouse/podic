@@ -5,7 +5,7 @@
         <img ng-if="reply.user.team" style="width:13px;height: 13px;padding-top:5px" ng-src="http://podic.net/images/teams/{{reply.user.team}}.png">
         {{reply.user.nickname||text('anonymousPlayer')}}(CP:{{reply.user.cp}})
       </b>
-      <span class="time">{{reply.updatedAt  | ymd}}</span>
+      <small class="time">{{reply.updatedAt  | ymd}}</small>
       <span class="small-tail" style="float:right">
                 <span ng-click="modifying()" ng-if="isRootUser()">수정</span>
                 <span style="margin-left:10px" ng-click="delete()" ng-if="isRootUser()">삭제</span>

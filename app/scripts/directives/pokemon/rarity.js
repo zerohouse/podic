@@ -1,7 +1,7 @@
 (function () {
   angular.module('Podic.directives').directive('rarity', rarity);
   /* @ng-inject */
-  function rarity(text) {
+  function rarity() {
     return {
       restrict: 'A',
       template: "<span ng-style='getStyle()'>{{getRareWord()}}</span>",
@@ -47,7 +47,7 @@
             color = '#E74C3C';
           }
           return {color: color};
-        }
+        };
       }
     };
   }

@@ -28,6 +28,15 @@ Date.prototype.toYMD = function () {
   return this.getDateTime();
 };
 
+Number.prototype.toYMD = function () {
+  return new Date(this).toYMD();
+};
+
+if (typeof(Number.prototype.toRadians) === "undefined")
+  Number.prototype.toRadians = function () {
+    return this * Math.PI / 180;
+  };
+
 Date.prototype.getDateString = function () {
   if (this.getFullYear() === new Date().getFullYear())
     return moment(this).format("M월 D일");
@@ -241,7 +250,7 @@ if (!Number.prototype.toFixed)
 
 if (!Array.prototype.map) {
 
-  Array.prototype.map = function(callback, thisArg) {
+  Array.prototype.map = function (callback, thisArg) {
     var T, A, k;
 
     if (this == null) {
@@ -329,7 +338,7 @@ if (!Array.prototype.map) {
 // Reference: http://es5.github.io/#x15.4.4.18
 if (!Array.prototype.forEach) {
 
-  Array.prototype.forEach = function(callback, thisArg) {
+  Array.prototype.forEach = function (callback, thisArg) {
 
     var T, k;
 

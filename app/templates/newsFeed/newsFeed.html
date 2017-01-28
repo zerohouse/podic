@@ -1,0 +1,51 @@
+<ion-view>
+  <ion-nav-title>
+    {{text('NewsFeed')}}
+  </ion-nav-title>
+  <ion-nav-buttons side="right">
+    <button class="button" style="border:none;margin-right:8px" ng-click="selectDistance()">
+      <i style="font-size:20px" ng-class="getIcon()"></i>
+    </button>
+    <button class="button" ng-click="refresh()" style="border:none;margin-right:8px">
+      <i style="font-size:20px" class="ion-android-refresh"></i>
+    </button>
+  </ion-nav-buttons>
+  <ion-content>
+    <div>
+      <label class="item">
+        <small>현재 위치에 메세지를 남기고,<br> 근처의 메시지를 읽습니다.</small>
+      </label>
+    </div>
+    <div class="list" style="padding:20px;border-bottom:1px solid #ddd;overflow: auto;padding-bottom: 5px">
+      <label class="item item-input">
+        <textarea placeholder="현재 위치에서 메세지 남기기" autosize ng-model="message"></textarea>
+      </label>
+      <button style="    background: white;
+    border: 1px solid #ababab;
+    padding: 5px 10px;
+    float: right;
+    margin: 10px;
+    color: #666;
+    font-size: 12px;" ng-click="save(message)">
+        {{text('writeDone')}}
+      </button>
+    </div>
+
+    <div class="list">
+      <div style="padding:20px 10px;margin:20px 10px;" ng-repeat="trace in traces">
+        <div style="font-size:16px;border-bottom:1px solid #eee;padding-bottom:7px;margin-bottom:7px;">
+          <img ng-if="trace.user.team" style="width:16px;height: 16px;padding-top:5px" ng-src="http://podic.net/images/teams/{{trace.user.team}}.png">
+          {{trace.user.nickname||trace.user.trainername||text('anonymousPlayer')}}
+          <span
+          style="font-size:11px;color:#777">
+          <i class="ion-android-time" style="margin-left:10px;margin-right:2px"></i>{{trace.createdAt.toYMD()}}</span>
+          <span style="font-size:11px;color:#777">
+            <i class="ion-android-pin" style="margin-left:10px;"></i>
+            {{getDistance(trace)}}m</span></div>
+
+        <div>{{trace.message}}</div>
+      </div>
+    </div>
+    <ion-infinite-scroll ng-if="!notMore" on-infinite="more()"></ion-infinite-scroll>
+  </ion-content>
+</ion-view>

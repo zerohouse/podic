@@ -15,7 +15,7 @@
 
     self.texts = {};
     self.texts.ko = {
-
+      NewsFeed: "메세지",
       openChatting: "오픈 채팅",
       hideInRank: "랭킹에서 숨기기",
 
@@ -69,7 +69,7 @@
       Rank: "순위",
       rare: "희귀도",
       rareWords: ['진귀함', '희귀함', '보통', '흔함', '아주 흔함'],
-      rareDescription:"17년 1월 27일 Podocs DB 기준",
+      rareDescription: "17년 1월 27일 Podocs DB 기준",
 
       candiesInfo: '캔디 정보',
       orderCandy: '캔디순',
@@ -266,7 +266,7 @@
       catchRateFactorEtc: "ETC Factors",
       pokeballType: "Pokeball Type",
 
-      rareDescription:"Jan 27 2017, Source from Podocs DB",
+      rareDescription: "Jan 27 2017, Source from Podocs DB",
       Rank: "Ranking",
       rare: "Rarity",
       rareWords: ['Rare', 'Uncommon', 'Common', 'Very Common', 'Everywhere'],
