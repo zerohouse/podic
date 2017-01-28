@@ -18,7 +18,7 @@
     </div>
     <div class="list" style="padding:20px;border-bottom:1px solid #ddd;overflow: auto;padding-bottom: 5px">
       <label class="item item-input">
-        <textarea placeholder="현재 위치에서 메세지 남기기" autosize ng-model="message"></textarea>
+        <textarea  autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" type="text" placeholder="현재 위치에서 메세지 남기기" autosize ng-model="message.message"></textarea>
       </label>
       <button style="    background: white;
     border: 1px solid #ababab;
@@ -26,7 +26,7 @@
     float: right;
     margin: 10px;
     color: #666;
-    font-size: 12px;" ng-click="save(message)">
+    font-size: 12px;" ng-click="save(message)" autocorrect="off">
         {{text('writeDone')}}
       </button>
     </div>

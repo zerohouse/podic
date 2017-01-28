@@ -3,17 +3,19 @@
   /* @ng-inject */
   function newsFeedCtrl($scope, $ajax, $cordovaGeolocation, ionicToast, text, $ionicPopup) {
 
-    $scope.save = function (text) {
+    $scope.message = {message:''};
+    $scope.save = function () {
       $cordovaGeolocation
         .getCurrentPosition({timeout: 2000, enableHighAccuracy: false})
         .then(function (position) {
           $ajax.post('/api/v1/trace', {
             lat: position.coords.latitude,
             lng: position.coords.longitude,
-            message: text
+            message: $scope.message.message
           }, true).then(function (trace) {
             trace.createdAt = new Date(trace.createdAt - 10000);
             $scope.traces.unshift(trace);
+            $scope.message = {message:''};
           });
         }, function () {
           ionicToast.alert(text('requestLocationFail'));

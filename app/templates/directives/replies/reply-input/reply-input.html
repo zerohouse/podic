@@ -1,6 +1,6 @@
 <div class="list">
   <label class="item item-input">
-    <textarea placeholder="{{text('reply')}}" autosize ng-model="reply.text"></textarea>
+    <textarea placeholder="{{text('reply')}}" type="text"  autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" autosize ng-model="reply.text"></textarea>
   </label>
   <div style="margin-top:5px;">
     <button class="button button-royal" ng-if="mode" ng-click="cancel()">
