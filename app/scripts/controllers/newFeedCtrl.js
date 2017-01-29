@@ -3,8 +3,11 @@
   /* @ng-inject */
   function newsFeedCtrl($scope, $ajax, $cordovaGeolocation, ionicToast, text, $ionicPopup) {
 
-    $scope.message = {message:''};
+    $scope.message = {message: ''};
     $scope.save = function () {
+      if ($scope.saving)
+        return;
+      $scope.saving = true;
       $cordovaGeolocation
         .getCurrentPosition({timeout: 2000, enableHighAccuracy: false})
         .then(function (position) {
@@ -15,7 +18,8 @@
           }, true).then(function (trace) {
             trace.createdAt = new Date(trace.createdAt - 10000);
             $scope.traces.unshift(trace);
-            $scope.message = {message:''};
+            $scope.message = {message: ''};
+            $scope.saving = false;
           });
         }, function () {
           ionicToast.alert(text('requestLocationFail'));
@@ -23,10 +27,9 @@
     };
 
     var position;
-    $scope.distance = {dist: 0.01};
+    $scope.distance = {dist: 0.05};
 
     $scope.refresh = function () {
-      $scope.notMore = false;
       $scope.page = 0;
       $scope.traces = [];
       $cordovaGeolocation
@@ -59,10 +62,10 @@
       var lon1 = trace.lng;
       var lat2 = position.coords.latitude;
       var lon2 = position.coords.longitude;
-      return getDistanceFromLatLonInM(lat1, lon1, lat2, lon2);
+      return getDistance(lat1, lon1, lat2, lon2);
     };
 
-    function getDistanceFromLatLonInM(lat1, lon1, lat2, lon2) {
+    function getDistance(lat1, lon1, lat2, lon2) {
       var R = 6371; // Radius of the earth in km
       var dLat = deg2rad(lat2 - lat1);  // deg2rad below
       var dLon = deg2rad(lon2 - lon1);
@@ -72,8 +75,10 @@
           Math.sin(dLon / 2) * Math.sin(dLon / 2)
         ;
       var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-      // Distance in km
-      return parseInt(R * c * 100) * 10;
+      var meter = parseInt(R * c * 100) * 10;
+      if (meter > 1000)
+        return meter / 1000 + "km";
+      return meter + "m";
     }
 
     function deg2rad(deg) {
@@ -83,9 +88,9 @@
     $scope.refresh();
 
     $scope.getIcon = function () {
-      if ($scope.distance.dist === 0.001)
+      if ($scope.distance.dist === 0.005)
         return "ion-android-walk";
-      if ($scope.distance.dist === 0.01)
+      if ($scope.distance.dist === 0.05)
         return "ion-android-bicycle";
       return "ion-android-bus";
     };
@@ -105,7 +110,8 @@
         page: $scope.page
       }).then(function (traces) {
         $scope.traces.pushAll(traces);
-        $scope.notMore = traces.length < 10;
+      }).finally(function() {
+        $scope.$broadcast('scroll.refreshComplete');
       });
     };
 

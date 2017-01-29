@@ -18,6 +18,10 @@
     </button>
   </ion-nav-buttons>
   <ion-content id="pokemonlist">
+    <ion-refresher
+      pulling-text="당겨서 새로고침..."
+      on-refresh="refresh()">
+    </ion-refresher>
     <div ng-if="!user.id">
       <label class="item">
         <button class="button button-block button-royal" ng-click="login()" type="submit">

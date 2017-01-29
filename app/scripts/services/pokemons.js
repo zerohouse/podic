@@ -47,7 +47,7 @@ function pokemonService(Pokemons, PokemonRequest, cpCal, $rootScope, db, $ajax, 
     return params.splice(0, 10);
   };
 
-  this.refresh = function () {
+  this.refresh = function (scope) {
     self.loading = true;
     count++;
     PokemonRequest.getInventoryData().then(function (inventories) {
@@ -146,6 +146,8 @@ function pokemonService(Pokemons, PokemonRequest, cpCal, $rootScope, db, $ajax, 
     }, function () {
       ionicToast.show(text("serverError"), 'bottom', false, 3000);
       self.loading = false;
+    }).finally(function() {
+      scope.$broadcast('scroll.refreshComplete');
     });
   };
 
