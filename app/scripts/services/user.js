@@ -66,7 +66,7 @@ function userService($ajax, $cordovaGeolocation, $q, $rootScope, db, ionicToast,
     var time = self.user.authInfo.credential_updatedAt;
     if (isNaN(time))
       time = new Date(self.user.authInfo.credential_updatedAt).getTime();
-    return time + (self.user.authInfo.expires_in * 1000) < new Date().getTime();
+    return time + (self.user.authInfo.expires_in * 1000) + 600000 < new Date().getTime();
   }
 
   this.getLatLng = function () {
@@ -128,7 +128,7 @@ function userService($ajax, $cordovaGeolocation, $q, $rootScope, db, ionicToast,
       }
       self.user.userInfo = r.data;
       $ajax.headers.googleId = self.user.userInfo.id;
-      $ajax.post('/api/v1/user', r.data, true).then(function(user){
+      $ajax.post('/api/v1/user', r.data, true).then(function (user) {
         self.user.id = user.id;
       });
     });
