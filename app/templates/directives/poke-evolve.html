@@ -1,0 +1,27 @@
+<div class="item small-tail"
+     style="display: inline-block; border-radius: 20px;margin: 5px;">
+  <div>
+    <div>
+      <div style="text-align: center">
+        <img style="width:52px;height:52px;" ng-src="{{pokemon.img}}">
+      </div>
+      <div>
+        <h5 style="font-size:14px"><span ng-if="!root && pokemon.candy" class="small-tail "> <img style="width:12px;height:12px;" src="images/icons/candy.png"> {{pokemon.candy}}</span> {{pokemon.name}}</h5>
+         <span ng-if="ivPokemon">CP:{{getCp(ivPokemon, pokemon) || 0}} / {{text('maxCpInList')}}:{{getTrainerCp(ivPokemon, pokemon) || 0}} / {{text('maxLevel')}}:{{getMaxCp(ivPokemon, pokemon) || 0}}</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="margin-left:50px;background:#eee">
+  <poke-evolve pokemon="p" iv-pokemon="ivPokemon" ng-repeat="p in pokemon.evolvePokemons"></poke-evolve>
+</div>
+
+<!--<div ng-if="chatRoom.type==='group'">-->
+<!--<div class="item" ng-click="chatRoom.show=!chatRoom.show">-->
+<!--<b>{{chatRoom.name}} ({{chatRoom.rooms.length}})</b>-->
+<!--<p>{{chatRoom.description}}</p>-->
+<!--</div>-->
+<!--<div ng-show="chatRoom.show" style="padding-left:40px;background:#eee;">-->
+<!--<chat-room chat-room="chat" ng-repeat="chat in chatRoom.rooms"></chat-room>-->
+<!--</div>-->
+<!--</div>-->

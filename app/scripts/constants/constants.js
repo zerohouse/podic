@@ -71,7 +71,7 @@
       rareWords: ['진귀함', '희귀함', '보통', '흔함', '아주 흔함'],
       rareDescription: "17년 1월 27일 Podocs DB 기준",
 
-      candiesInfo: '캔디 정보',
+      evolveInfo: '진화 정보',
       orderCandy: '캔디순',
       canEvolve: '진화 가능',
       canEvolvePokemon: '진화 가능 포켓몬',
@@ -178,7 +178,6 @@
       dps: 'DPS',
       eps: 'EPS',
       energy: '에너지',
-      buddyCandies: "버디캔디거리",
 
       level: "레벨",
       story: '이야기',
@@ -271,7 +270,7 @@
       rare: "Rarity",
       rareWords: ['Rare', 'Uncommon', 'Common', 'Very Common', 'Everywhere'],
 
-      candiesInfo: 'Evolve Infomation',
+      evolveInfo: 'Evolve Information',
       orderCandy: 'Order by Candies',
       canEvolve: 'Evolve available',
       canEvolvePokemon: 'Evolve available Pokemon',
@@ -410,7 +409,6 @@
       modifylvAndStat: "Stats Modify",
       selectSkill: 'Skills Modify',
       alert: 'Alert',
-      buddyCandies: 'Buddy Candy Distance',
       battleSimulateStart: 'Battle Start',
       eventLog: function (pokemon, skill, damage) {
         if (damage < 0)

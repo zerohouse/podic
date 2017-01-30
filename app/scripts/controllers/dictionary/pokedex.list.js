@@ -9,10 +9,6 @@ function pokemonDescriptionListCtrl($scope, pokemonService, $ionicPopup, Pokemon
   $scope.value = {keyword: ''};
   $scope.filtered = [];
 
-  $scope.getNextName = function (pokemon) {
-    return Pokemons.get(pokemon.id + 1).name;
-  };
-
   $scope.search = function () {
     $ionicPopup.show({
       template: '' +
@@ -25,11 +21,6 @@ function pokemonDescriptionListCtrl($scope, pokemonService, $ionicPopup, Pokemon
     });
   };
 
-  $scope.getCanEvolveFilter = function () {
-    if ($scope.order.evolveFilter)
-      return {canEvolve: true};
-  };
-
   $scope.align = function () {
     $ionicPopup.show({
       template: '<ion-checkbox ng-model="order.desc" toggle-class="toggle-calm"><span ng-if="order.desc">' +
@@ -37,7 +28,6 @@ function pokemonDescriptionListCtrl($scope, pokemonService, $ionicPopup, Pokemon
       '</span><span ng-if="!order.desc">' +
       text('asc') +
       '</span></ion-checkbox>' +
-      '<ion-checkbox ng-model="order.evolveFilter" toggle-class="toggle-calm">{{text("canEvolvePokemon")}}</ion-checkbox>' +
       '<ion-radio ng-model="order.orderBy" ng-value="\'id\'">' +
       text('orderPodex') +
       '</ion-radio>' +

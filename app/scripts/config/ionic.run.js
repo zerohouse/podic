@@ -35,18 +35,18 @@ angular.module('Podic').run(function (ionicToast, $ionicPopup, text, $ionicModal
     ionicToast.show(message, 'bottom', false, 3000);
   };
 
-  $ionicPopup.distancePopup = function ($scope) {
-    $ionicPopup.show({
-      template: "<ion-radio ng-model=\"distance.dist\" name=\"distance\" ng-value=\"0.005\"><i class=\"ion-android-walk\"></i> 가까이</ion-radio>\n"+
-      "    <ion-radio ng-model=\"distance.dist\" name=\"distance\" ng-value=\"0.05\"><i class=\"ion-android-bicycle\"></i> 적당히</ion-radio>\n"+
-      "    <ion-radio ng-model=\"distance.dist\" name=\"distance\" ng-value=\"0.5\"><i class=\"ion-android-bus\"></i> 멀리</ion-radio>",
-      title: text('distance'),
-      scope: $scope,
-      buttons: [
-        {text: text('ok'), type: 'button-royal'}
-      ]
-    });
-  };
+  // $ionicPopup.distancePopup = function ($scope) {
+  //   $ionicPopup.show({
+  //     template: "<ion-radio ng-model=\"distance.dist\" name=\"distance\" ng-value=\"0.005\"><i class=\"ion-android-walk\"></i> 가까이</ion-radio>\n"+
+  //     "    <ion-radio ng-model=\"distance.dist\" name=\"distance\" ng-value=\"0.05\"><i class=\"ion-android-bicycle\"></i> 적당히</ion-radio>\n"+
+  //     "    <ion-radio ng-model=\"distance.dist\" name=\"distance\" ng-value=\"0.5\"><i class=\"ion-android-bus\"></i> 멀리</ion-radio>",
+  //     title: text('distance'),
+  //     scope: $scope,
+  //     buttons: [
+  //       {text: text('ok'), type: 'button-royal'}
+  //     ]
+  //   });
+  // };
 
   $ionicPopup.searchPopup = function ($scope) {
     $scope.value = {keyword: ''};

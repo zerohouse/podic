@@ -95,9 +95,6 @@ function pokemonService(Pokemons, PokemonRequest, cpCal, $rootScope, db, $ajax, 
         if (!pokemon)
           return;
         pokemon.candies = fa.candy;
-        if (!pokemon.candies)
-          return;
-        pokemon.canEvolve = pokemon.evolveCandies !== 0 && pokemon.candies / pokemon.evolveCandies >= 1;
       });
       pokemons.forEach(function (pokemon) {
         if (pokemon.captured_cell_id && pokemon.captured_cell_id.toNumber)

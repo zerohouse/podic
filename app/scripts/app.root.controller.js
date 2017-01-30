@@ -1,11 +1,6 @@
 angular.module('Podic.controllers')
   .controller('AppCtrl', function ($scope, $ionicModal, $timeout, userService, confirm, text, $cordovaGeolocation, ionicToast, $ajax, db, Pokemons, pokemonService) {
 
-    $scope.getNextName = function (pokemon) {
-      return Pokemons.get(pokemon.id + 1).name;
-    };
-
-
     $ionicModal.fromTemplateUrl('templates/base/login.html', {
       scope: $scope
     }).then(function (modal) {

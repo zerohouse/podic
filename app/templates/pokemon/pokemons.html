@@ -79,9 +79,6 @@
             <img-with-rank pokemon="pokemon"></img-with-rank>
           </div>
           <div class="card-view-description">
-            <p ng-if="pokemon.evolveCandies">
-              <i class="podoc-icon"><img src="images/icons/candy.png"></i> <span ng-class="{green:pokemon.canEvolve}">{{pokemon.candies || 0}}/{{pokemon.evolveCandies}}</span>
-            </p>
             <h2>
               {{pokemon.nickname || pokemon.pokemon.name}}
               <span class="small-title"><i class="ion-flash stats"></i> {{pokemon.cp}}</span>

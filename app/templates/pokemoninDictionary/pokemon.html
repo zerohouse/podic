@@ -74,30 +74,12 @@
       </div>
     </div>
 
-    <div class="card poke-card" ng-if="pokemon.candies">
+    <div class="card poke-card" ng-if="pokemon.evolve && pokemon.evolve.length !== 0">
       <div class="item item-divider">
-        <i class="ion-ios-rose"></i> {{text('candiesInfo')}}
+        <i class="ion-ios-rose"></i> {{text('evolveInfo')}}
       </div>
-      <div class="item item-text-wrap" style="padding:0;border-bottom: none;">
-        <div class="row">
-          <div class="col" ng-if="pokemon.evolveCandies">
-            <div class="small-title">{{text('needCandies')}}</div>
-            {{pokemon.evolveCandies}}
-          </div>
-          <div class="col" ng-if="pokemon.evolveCandies">
-            <div class="small-title">{{text('nowCandies')}}</div>
-            {{pokemon.candies}}
-          </div>
-          <div class="col">
-            <div class="small-title">{{text('buddyCandies')}}</div>
-            {{pokemon.buddyKm}}km
-          </div>
-        </div>
-        <div class="row" ng-if="pokemon.canEvolve" style="color: green;">
-          <div class="col">
-            <br>{{getNextName(pokemon)}} {{text('canEvolve')}}
-          </div>
-        </div>
+      <div class="list" style="background: #eee;text-align: left">
+        <poke-evolve pokemon="pokemon" root="true"></poke-evolve>
       </div>
     </div>
 
