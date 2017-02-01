@@ -37,6 +37,9 @@ function pokemonDescriptionListCtrl($scope, pokemonService, $ionicPopup, Pokemon
       '<ion-radio ng-model="order.orderBy" ng-value="\'rarity\'">' +
       text('orderRare') +
       '</ion-radio>' +
+      '<ion-radio ng-model="order.orderBy" ng-value="\'maxCp\'">' +
+      text('orderMaxCp') +
+      '</ion-radio>' +
       '<ion-radio ng-model="order.orderBy" ng-value="\'power\'">' +
       text('orderPokemonPower') +
       '</ion-radio>' +

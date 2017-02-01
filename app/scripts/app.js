@@ -216,11 +216,11 @@ angular.module('Podic', [
       }
 
       if (window.AdMob) {
-        // window.AdMob.createBanner({
-        //   adId: 'ca-app-pub-6439823362094213/4525271489',
-        //   position: window.AdMob.AD_POSITION.BOTTOM_CENTER,
-        //   autoShow: true
-        // });
+        window.AdMob.createBanner({
+          adId: 'ca-app-pub-6439823362094213/4525271489',
+          position: window.AdMob.AD_POSITION.BOTTOM_CENTER,
+          autoShow: true
+        });
         window.AdMob.prepareInterstitial({
           adId: 'ca-app-pub-6439823362094213/9069562284',
           autoShow: false

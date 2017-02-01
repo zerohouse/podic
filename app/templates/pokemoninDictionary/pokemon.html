@@ -20,14 +20,14 @@
             <span rarity="pokemon.rarity"></span>
           </div>
           <div class="col">
-            <div class="small-title">{{text('pokemonPowerRank')}}</div>
-            {{pokemon.value[3]}}{{text('rank')}}
+            <div class="small-title">{{text('maxCpInList')}}</div>
+            {{pokemon.maxCp}} (#{{pokemon.maxCpRank}})
           </div>
         </div>
         <div class="row" style="margin-top:10px;">
           <div class="col">
             <div class="small-title">{{text('pokemonPower')}}</div>
-            {{pokemon.power}}
+            {{pokemon.power}} (#{{pokemon.value[3]}})
           </div>
           <div class="col">
             <div class="small-title">{{text('attack')}}</div>
