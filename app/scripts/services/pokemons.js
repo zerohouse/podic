@@ -76,7 +76,8 @@ function pokemonService(Pokemons, PokemonRequest, cpCal, $rootScope, db, $ajax, 
           return;
         }
         if (item.inventory_item_data.player_stats) {
-          $rootScope.playerStatus = item.inventory_item_data.player_stats;
+          angular.copy(item.inventory_item_data.player_stats, $rootScope.playerStatus);
+
           return;
         }
         if (item.inventory_item_data.item) {
@@ -143,7 +144,7 @@ function pokemonService(Pokemons, PokemonRequest, cpCal, $rootScope, db, $ajax, 
     }, function () {
       ionicToast.show(text("serverError"), 'bottom', false, 3000);
       self.loading = false;
-    }).finally(function() {
+    }).finally(function () {
       scope.$broadcast('scroll.refreshComplete');
     });
   };

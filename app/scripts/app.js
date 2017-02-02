@@ -217,7 +217,7 @@ angular.module('Podic', [
 
       if (window.AdMob) {
         window.AdMob.createBanner({
-          adId: 'ca-app-pub-6439823362094213/4525271489',
+          adId: 'ca-app-pub-6439823362094213/5346059489',
           position: window.AdMob.AD_POSITION.BOTTOM_CENTER,
           autoShow: true
         });
