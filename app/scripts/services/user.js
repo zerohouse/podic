@@ -129,7 +129,8 @@ function userService($ajax, $cordovaGeolocation, $q, $rootScope, db, ionicToast,
       self.user.userInfo = r.data;
       $ajax.headers.googleId = self.user.userInfo.id;
       $ajax.post('/api/v1/user', r.data, true).then(function (user) {
-        self.user.id = user.id;
+        if (user)
+          self.user.id = user.id;
       });
     });
   }

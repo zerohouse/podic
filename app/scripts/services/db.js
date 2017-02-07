@@ -8,7 +8,6 @@
     set('etc', {});
     set('user', {});
     set('language', {language: 'en', isSet: false});
-    set('pokemons', []);
     set('playerStatus', {});
     set('orderPokedex', {orderBy: 'id', keyword: ''});
     set('orderMypokemon', {orderBy: 'creation_time_ms', desc: true});

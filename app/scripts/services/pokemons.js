@@ -1,16 +1,17 @@
 angular.module('Podic.services').service('pokemonService', pokemonService);
 /* @ng-inject */
-function pokemonService(Pokemons, PokemonRequest, cpCal, $rootScope, db, $ajax, ionicToast, text, userService) {
+function pokemonService(Pokemons, PokemonRequest, cpCal, $rootScope, db, $ajax, ionicToast, text, userService, $timeout) {
 
-  $rootScope.pokemons = db.pokemons;
+  $rootScope.pokemons = [];
   $rootScope.playerStatus = db.playerStatus;
 
   var self = this;
 
 
   this.setPokemon = function (pokemon) {
-
     pokemon.pokemon = Pokemons.get(pokemon.pokemon_id);
+    if (pokemon.pokemon)
+      pokemon.name = pokemon.nickname + pokemon.pokemon.name + pokemon.pokemon.en;
     pokemon.individual_score = pokemon.individual_attack + pokemon.individual_defense + pokemon.individual_stamina;
     pokemon.maxCp = cpCal.getCpByLevel(pokemon, 78);
     pokemon.level = cpCal.getLevel(pokemon);
@@ -149,6 +150,7 @@ function pokemonService(Pokemons, PokemonRequest, cpCal, $rootScope, db, $ajax, 
     });
   };
 
+  $timeout(this.refresh);
 
   $rootScope.$on('userLoggedIn', this.refresh);
 
