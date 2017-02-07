@@ -19,7 +19,7 @@
     <div class="list" ng-if="!etc.cardView">
       <a class="item item-thumbnail-left" ui-sref="app.pokemonDetail({id:pokemon.id})"
          ng-if="pokemon.id"
-         ng-repeat="pokemon in filtered = (pokemons | filter: value.keyword | orderBy:[order.orderBy,'maxCp']:order.desc)">
+         ng-repeat="pokemon in filtered = (pokemons | filter: {name:value.keyword} | orderBy:[order.orderBy,'maxCp']:order.desc)">
         <img ng-src="{{pokemon.img}}">
         <h2><span class="small-tail">{{pokemon.id}}</span>
           <localnamer value="pokemon"></localnamer>
@@ -44,7 +44,7 @@
     <div class="list card-view" ng-if="etc.cardView">
       <div class="card-view-item" ui-sref="app.pokemonDetail({id:pokemon.id})"
            ng-if="pokemon.id"
-           ng-repeat="pokemon in filtered = (pokemons | filter: value.keyword |  orderBy:order.orderBy:order.desc)">
+           ng-repeat="pokemon in filtered = (pokemons | filter: {name:value.keyword} |  orderBy:[order.orderBy,'maxCp']:order.desc)">
         <div>
           <img ng-src="{{pokemon.img}}">
         </div>

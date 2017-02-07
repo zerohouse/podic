@@ -18,6 +18,8 @@
       NewsFeed: "메세지",
       openChatting: "오픈 채팅",
       hideInRank: "랭킹에서 숨기기",
+      removeAd:"광고 제거",
+      removeAdSub:"광고 제거 버전은 광고만 제거되며, 추가적인 기능이나 보장은 제공하지 않습니다.",
 
       updateLocationSub: "내 위치를 업데이트 합니다.",
       updateLocationTitle: "업데이트 확인",

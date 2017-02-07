@@ -15,6 +15,15 @@ angular.module('Podic.controllers')
       $scope.modal.show();
     };
 
+    $scope.removeAd = function () {
+      confirm(text("removeAdSub"), text("removeAd")).then(function () {
+        if (ionic.Platform.isIOS())
+          window.open('https://itunes.apple.com/kr/app/podocs-podag-gwang-gojegeobeojeon/id1201708308', '_system', 'location=yes');
+        else
+          window.open('https://play.google.com/store/apps/details?id=net.podocs.podocs.addfree', '_system', 'location=yes');
+      });
+    };
+
     $scope.user = userService.user;
     $scope.googleLogin = function () {
       db.etc.provider = 'google';
@@ -24,7 +33,7 @@ angular.module('Podic.controllers')
       ref.addEventListener('loadstart', function (event) {
         if ((event.url).startsWith("http://localhost/callback")) {
           var code = (event.url).split("code=")[1].split("&")[0];
-          userService.register(code).then(function(){
+          userService.register(code).then(function () {
             pokemonService.refresh();
           });
           ref.close();
