@@ -215,17 +215,17 @@ angular.module('Podic', [
         StatusBar.styleDefault();
       }
 
-      // if (window.AdMob) {
-      //   window.AdMob.createBanner({
-      //     adId: 'ca-app-pub-6439823362094213/5346059489',
-      //     position: window.AdMob.AD_POSITION.BOTTOM_CENTER,
-      //     autoShow: true
-      //   });
-      //   window.AdMob.prepareInterstitial({
-      //     adId: 'ca-app-pub-6439823362094213/9069562284',
-      //     autoShow: false
-      //   });
-      // }
+      if (window.AdMob) {
+        window.AdMob.createBanner({
+          adId: 'ca-app-pub-6439823362094213/5346059489',
+          position: window.AdMob.AD_POSITION.BOTTOM_CENTER,
+          autoShow: true
+        });
+        window.AdMob.prepareInterstitial({
+          adId: 'ca-app-pub-6439823362094213/9069562284',
+          autoShow: false
+        });
+      }
     });
   })
   .run(function ajaxConfig($ajax) { //, $rootScope, userService, $ionicPlatform, $cordovaDevice
