@@ -49,6 +49,7 @@
         <!--<ion-item menu-close ng-click="removeAd()">-->
           <!--{{text("removeAd")}}-->
         <!--</ion-item>-->
+
         <ion-item menu-close ui-sref="app.pokemons" ng-if="user.id">
           {{text("myPokemon")}}
         </ion-item>
@@ -58,6 +59,9 @@
         <!--<ion-item menu-close ui-sref="app.newsFeed" ng-if="user.id">-->
           <!--<i class="ion-paper-airplane" style="color:#666"></i>-->
           <!--{{text("NewsFeed")}}-->
+        <!--</ion-item>-->
+        <!--<ion-item menu-close ng-click="rateTo()">-->
+          <!--{{text("rateToPodoc")}}-->
         <!--</ion-item>-->
         <ion-item menu-close ui-sref="app.openChat">
           <small style="color:red">new</small>

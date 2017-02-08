@@ -24,6 +24,13 @@ angular.module('Podic.controllers')
       });
     };
 
+    $scope.rateTo = function () {
+      if (ionic.Platform.isIOS())
+        window.open('https://itunes.apple.com/kr/app/podocs-podag-pokesmonsajeon/id1142147983', '_system', 'location=yes');
+      else
+        window.open('https://play.google.com/store/apps/details?id=net.podocs.podocs', '_system', 'location=yes');
+    };
+
     $scope.user = userService.user;
     $scope.googleLogin = function () {
       db.etc.provider = 'google';
