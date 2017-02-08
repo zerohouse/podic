@@ -1,11 +1,10 @@
 var express = require('express');
 var app = express();
 var PokemonGO = require('pokemon-go-node-api');
-var pokeIO = new PokemonGO.Pokeio();
 var login = require('./node_modules/pokemon-go-node-api/logins');
 
 app.post('/:username/:password', function (req, res) {
-  login.PokemonClub(req.params.username, req.params.password, pokeIO, function (n, token) {
+  login.PokemonClub(req.params.username, req.params.password, new PokemonGO.Pokeio(), function (n, token) {
     res.send(token);
   });
 });

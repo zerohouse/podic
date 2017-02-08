@@ -92,12 +92,15 @@ function userService($ajax, $cordovaGeolocation, $q, $rootScope, db, ionicToast,
   }
 
   this.logout = function () {
+    delete $ajax.headers.googleId;
+    delete $ajax.headers.ptcId;
     angular.copy({}, self.user);
     $rootScope.$broadcast('userLogout');
     $ajax.get('/api/v1/user/logout');
   };
 
   this.register = function (code) {
+    db.etc.provider = 'google';
     return $q(function (ok) {
       var data = {
         client_id: "848232511240-73ri3t7plvk96pj4f85uj8otdat2alem.apps.googleusercontent.com",
@@ -136,6 +139,7 @@ function userService($ajax, $cordovaGeolocation, $q, $rootScope, db, ionicToast,
   }
 
   this.registerPTC = function (username, password) {
+    db.etc.provider = 'ptc';
     return $q(function (ok) {
       if (!username || !password)
         ionicToast.alert(text("checkEmailPasword"));
@@ -144,13 +148,13 @@ function userService($ajax, $cordovaGeolocation, $q, $rootScope, db, ionicToast,
           ionicToast.alert(text("checkEmailPasword"));
           return;
         }
-        self.user.id = obj.id;
-        db.etc.token = obj.token;
+        self.user.id = "ptc";
+        $ajax.headers.ptcId = username;
+        db.etc.token = obj;
         ok(self.user);
         ionicToast.alert(text("loginDone"));
       });
     });
   };
-
 }
 

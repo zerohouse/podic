@@ -52,6 +52,7 @@ angular.module('Podic.controllers')
       userService.registerPTC(username, password).then(function () {
         $scope.closeLogin();
         $scope.ptcClose();
+        pokemonService.refresh();
       });
     };
 
