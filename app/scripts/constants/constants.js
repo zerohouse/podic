@@ -152,6 +152,7 @@
       serverError: '데이터를 가져오는 중 문제가 발생했습니다. 다시 로그인해 주세요.',
       userModified: '정보를 수정했습니다.',
       writeDone: '작성완료',
+      pullToRefresh: "당겨서 새로고침...",
 
       thereIsNoTip: '여기에 남겨진 팁이 없습니다.<br>첫번째로 팁을 남겨주세요.',
       fromDistance: '거리에서',

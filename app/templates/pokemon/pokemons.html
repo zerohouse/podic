@@ -19,7 +19,7 @@
   </ion-nav-buttons>
   <ion-content id="pokemonlist">
     <ion-refresher
-      pulling-text="당겨서 새로고침..."
+      pulling-text="{{text('pullToRefresh')}}"
       on-refresh="refresh()">
     </ion-refresher>
     <div ng-if="!user.id">
@@ -34,7 +34,7 @@
 
       <div class="list" ng-if="!etc.mCardView" ng-init="filtered=[]">
         <a class="item item-thumbnail-left" ui-sref="app.pokemon({id:pokemon.id})"
-           ng-repeat="pokemon in filtered = (pokemons | filter: {name:value.keyword} | orderBy:[order.orderBy,'cp']:order.desc | limitTo:limit)">
+           ng-repeat="pokemon in filtered = (pokemons | filter: {name:value.keyword} | orderBy:order.orderBy:order.desc | limitTo:limit)">
           <img ng-src="{{pokemon.pokemon.img}}">
           <h2 style="margin-bottom: 5px">{{pokemon.nickname}} <span class="small-tail">{{pokemon.pokemon_id}}</span>
             {{pokemon.pokemon.name}} <span class="small-tail" style="color:darkred">Lv.{{pokemon.level + 2}}</span>
@@ -74,7 +74,7 @@
         </a>
         <div class="card-view-item" ui-sref="app.pokemon({id:pokemon.id})"
              ng-if="pokemon.id"
-             ng-repeat="pokemon in filtered = (pokemons | filter: {name:value.keyword} | orderBy:[order.orderBy,'cp']:order.desc | limitTo:limit)">
+             ng-repeat="pokemon in filtered = (pokemons | filter: {name:value.keyword} | orderBy:order.orderBy:order.desc | limitTo:limit)">
           <div>
             <img-with-rank pokemon="pokemon"></img-with-rank>
           </div>

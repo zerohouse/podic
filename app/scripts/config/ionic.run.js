@@ -80,7 +80,7 @@ angular.module('Podic').run(function (ionicToast, $ionicPopup, text, $ionicModal
       '<ion-radio ng-model="order.orderBy" ng-value="\'individual_score\'">' +
       text('orderIndividualValue') +
       '</ion-radio>' +
-      '<ion-radio ng-model="order.orderBy" ng-value="\'pokemon.name\'">' +
+      '<ion-radio ng-model="order.orderBy" ng-value="[\'pokemon.name\', \'cp\']">' +
       text('orderName') +
       '</ion-radio>' +
       '<ion-radio ng-model="order.orderBy" ng-value="\'pokemon_id\'">' +
