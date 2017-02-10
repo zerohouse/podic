@@ -15,7 +15,9 @@ function userService($ajax, $cordovaGeolocation, $q, $rootScope, db, ionicToast,
   this.getToken = function () {
     if (db.etc.provider === 'ptc')
       return $q(function (ok) {
-        ok(db.etc.token);
+        self.registerPTC().then(function () {
+          ok(db.etc.token);
+        });
       });
     return $q(function (ok) {
       if (isTokenExpired()) {
@@ -138,7 +140,9 @@ function userService($ajax, $cordovaGeolocation, $q, $rootScope, db, ionicToast,
     });
   }
 
-  this.registerPTC = function (username, password) {
+  this.registerPTC = function () {
+    var username = db.etc.username;
+    var password = db.etc.password;
     db.etc.provider = 'ptc';
     return $q(function (ok) {
       if (!username || !password)
@@ -152,7 +156,6 @@ function userService($ajax, $cordovaGeolocation, $q, $rootScope, db, ionicToast,
         $ajax.headers.ptcId = username;
         db.etc.token = obj;
         ok(self.user);
-        ionicToast.alert(text("loginDone"));
       });
     });
   };

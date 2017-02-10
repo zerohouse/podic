@@ -56,7 +56,9 @@ angular.module('Podic.controllers')
 
     $scope.registerPTC = function (username, password) {
       ionicToast.alert(text('ptcLoginStart'));
-      userService.registerPTC(username, password).then(function () {
+      db.etc.username = username;
+      db.etc.password = password;
+      userService.registerPTC().then(function () {
         $scope.closeLogin();
         $scope.ptcClose();
         pokemonService.refresh();
