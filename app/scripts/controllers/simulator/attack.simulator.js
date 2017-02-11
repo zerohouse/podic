@@ -178,7 +178,6 @@
         });
       var popup = $ionicPopup.show({
         templateUrl: 'templates/simulator/pokemonadjust.html',
-        title: text('pokemonAdjust'),
         scope: scope,
         buttons: buttons
       });

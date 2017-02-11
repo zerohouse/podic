@@ -1,4 +1,9 @@
+<input style="padding: 5px;
+    position: absolute;
+    width: 50%;
+    top: 10px;
+    border: none;" placeholder="{{text('search')}}" ng-model="pokeKeyword" ng-init="pokeKeyword=''">
 <div>
   <img ng-click="select(pokemon)" style="width:25%" ng-src="{{pokemon.img}}" ng-if="pokemon.id"
-       ng-repeat="pokemon in pokemons">
+       ng-repeat="pokemon in pokemons | filter:{name:pokeKeyword}">
 </div>

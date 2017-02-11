@@ -44,8 +44,10 @@ function pokemonService(Pokemons, PokemonRequest, cpCal, $rootScope, db, $ajax, 
     params.sort(function (p2, p1) {
       return p1.cp - p2.cp;
     });
-
-    return params.splice(0, 10);
+    params.forEach(function (p) {
+      delete p.pokemon
+    });
+    return params.splice(0, 6);
   };
 
   this.refresh = function (scope) {

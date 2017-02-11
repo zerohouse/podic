@@ -46,19 +46,18 @@
             </div>
           </div>
         </ion-item>
-        <ion-item menu-close ng-click="removeAd()">
-          {{text("removeAd")}}
-        </ion-item>
-
+        <!--<ion-item menu-close ng-click="removeAd()">-->
+          <!--{{text("removeAd")}}-->
+        <!--</ion-item>-->
         <ion-item menu-close ui-sref="app.pokemons" ng-if="user.id">
           {{text("myPokemon")}}
         </ion-item>
         <ion-item menu-close ui-sref="app.pokemonDesc">
           {{text("pokemonDic")}}
         </ion-item>
-        <ion-item menu-close ng-click="rateTo()">
-        {{text("rateToPodoc")}}
-        </ion-item>
+        <!--<ion-item menu-close ng-click="rateTo()">-->
+        <!--{{text("rateToPodoc")}}-->
+        <!--</ion-item>-->
         <ion-item menu-close ui-sref="app.openChat">
           <small style="color:red">new</small>
           {{text("openChatting")}}
