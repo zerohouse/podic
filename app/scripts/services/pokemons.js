@@ -45,7 +45,9 @@ function pokemonService(Pokemons, PokemonRequest, cpCal, $rootScope, db, $ajax, 
       return p1.cp - p2.cp;
     });
     params.forEach(function (p) {
-      delete p.pokemon
+      delete p.pokemon;
+      delete p.maxCpCost;
+      delete p.maxTrainerCpCost;
     });
     return params.splice(0, 6);
   };

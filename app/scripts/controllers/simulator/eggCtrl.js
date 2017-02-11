@@ -2,9 +2,23 @@
   angular.module('Podic.controllers').controller('eggCtrl', eggCtrl);
   /* @ng-inject */
   function eggCtrl($scope, $timeout, Pokemons, ionicToast, text) {
-    var km2 = [1, 4, 7, 10, 13, 16, 19, 21, 25, 35, 74, 129, 173, 174];
-    var km5 = [23, 27, 39, 43, 46, 48, 50, 52, 54, 56, 58, 60, 63, 66, 69, 72, 77, 79, 81, 84, 86, 88, 90, 92, 96, 98, 100, 102, 104, 108, 109, 111, 114, 115, 116, 118, 120, 128, 137, 172, 175];
-    var km10 = [95, 106, 107, 113, 122, 123, 124, 125, 126, 127, 131, 133, 138, 140, 142, 143, 147, 238, 240, 239];
+    var km2 = [1, 4, 7, 10, 13,
+      21, 23, 29, 32, 41,
+      43, 48, 50, 63, 66,
+      69, 74, 79, 92, 98,
+      102, 118, 129, 173, 174];
+
+    var km5 = [
+      27, 37, 46, 52, 54,
+      56, 58, 60, 72, 77,
+      81, 84, 86, 88, 90,
+      95, 96, 100, 104, 108,
+      109, 111, 114, 116, 120,
+      123, 127, 133, 137, 172, 175
+    ];
+    var km10 = [
+      106, 107, 113, 131, 138, 140, 142, 143, 147, 238, 239, 240
+    ];
 
     $scope.value = 2;
     var open = 3;
@@ -63,17 +77,13 @@
       pokemonEl.addClass("animated bounceInUp");
       $timeout(function () {
         var pokemons = [];
-        pokemons.pushAll($scope.km2Pokemons);
-        if ($scope.value > 4) {
+
+        if ($scope.value > 9)
+          pokemons.pushAll($scope.km10Pokemons);
+        else if ($scope.value > 4)
           pokemons.pushAll($scope.km5Pokemons);
-          pokemons.pushAll($scope.km5Pokemons);
-        }
-        if ($scope.value > 9) {
-          pokemons.pushAll($scope.km10Pokemons);
-          pokemons.pushAll($scope.km10Pokemons);
-          pokemons.pushAll($scope.km10Pokemons);
-          pokemons.pushAll($scope.km10Pokemons);
-        }
+        else
+          pokemons.pushAll($scope.km2Pokemons);
         $scope.pokemon = pokemons.random();
         $timeout(function () {
           egg.removeClass('animated shake tada');

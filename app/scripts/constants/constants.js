@@ -85,6 +85,12 @@
       maxCpInList: "최대 CP",
       showSkills: '스킬 보기',
 
+      manual: "개체값 계산기",
+      starDustToEvolve: '강화에 드는 스타더스트',
+      powerUped: '강화했음',
+      hatched: '알에서 나옴',
+      individualValueNone: "개체값 계산불가",
+
       //포켓몬 리스트 페이지
       noResult: "검색 결과가 없습니다.",
       search: "검색",
@@ -93,6 +99,7 @@
       orderDate: "날짜 순",
       orderName: "포켓몬 이름 순",
       orderCp: "CP 순",
+
       orderIndividualValue: "개체값 순",
       orderPodex: "도감 번호 순",
       orderRare: "희귀도 순",
@@ -384,7 +391,7 @@
       eps: 'EPS',
       energy: 'Energy',
       all: 'Total',
-
+      manual: 'IV Calculator',
       story: 'Story',
       maxLevel: 'Max Level',
       attackSkills: "Available Moves",

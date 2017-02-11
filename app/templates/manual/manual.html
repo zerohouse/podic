@@ -1,0 +1,88 @@
+<ion-view>
+  <ion-nav-title>
+    {{text('manual')}}
+  </ion-nav-title>
+  <ion-content>
+
+    <div class="list">
+      <label class="item item-input item-stacked-label">
+        <b class="input-label">CP</b>
+        <input type="text" ng-change="calculate()" number-only ng-model="options.cp" placeholder="CP">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <b class="input-label">HP</b>
+        <input type="text" ng-change="calculate()" number-only ng-model="options.hp" placeholder="HP">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <b class="input-label">{{text('starDustToEvolve')}}</b>
+        <input type="text" ng-change="calculate()" number-only ng-model="options.starDust"
+               placeholder="{{text('starDustToEvolve')}}">
+      </label>
+      <div class="row">
+        <ion-checkbox style="border:none" ng-model="options.powerUp" ng-change="calculate()">{{text('powerUped')}}
+        </ion-checkbox>
+        <ion-checkbox style="border:none" ng-model="options.hatched" ng-change="calculate()">{{text('hatched')}}
+        </ion-checkbox>
+      </div>
+    </div>
+
+    <div style="margin:20px;min-height:100px;position: relative;" ng-click="selectPokemon()">
+      <div style="width:100%;position:absolute;bottom:0;text-align: center;">
+        <img ng-src="{{pokemon.img}}" style="width:100px;height:100px">
+      </div>
+      <round-progress
+        ng-if="options.byLevel"
+        max="options.trainerLevel*2+1"
+        current="options.pokemonLevel"
+        color="#45ccce"
+        bgcolor="#eaeaea"
+        radius="100"
+        stroke="4"
+        semi="true"
+        rounded="true"
+        clockwise="true"
+        responsive="true"
+        duration="300"
+        animation="easeInOutQuart"
+        animation-delay="0"></round-progress>
+    </div>
+
+    <div class="card poke-card">
+      <div class="item item-divider">
+        <span ng-if="results.length>0"><i class="ion-stats-bars"></i> {{text('individualValue')}}</span>
+        <span ng-if="results.length == 0"><i class="ion-close-round"></i> {{text('individualValueNone')}}</span>
+      </div>
+      <div ng-if="results.length>0" class="item item-text-wrap" style="border-bottom: none;">
+        <div class="row">
+          <div class="col">
+            <div class="small-title">{{text('individualValue')}}</div>
+          </div>
+          <div class="col">
+            <div class="small-title">{{text('attack')}}</div>
+          </div>
+          <div class="col">
+            <div class="small-title">{{text('defense')}}</div>
+          </div>
+          <div class="col">
+            <div class="small-title">{{text('stamina')}}</div>
+          </div>
+        </div>
+        <div class="row" ng-repeat="value in results">
+          <div class="col">
+            {{value.iv}}/45 <span>({{value.p | number:1}}%)</span>
+          </div>
+          <div class="col">
+            {{value.a}}
+          </div>
+          <div class="col">
+            {{value.d}}
+          </div>
+          <div class="col">
+            {{value.s}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>
