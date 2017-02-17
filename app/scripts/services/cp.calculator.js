@@ -50,6 +50,10 @@
     };
 
     self.getCp = function (pokemon, level, individual_attack, individual_defense, individual_stamina) {
+      if (!level)
+        level = 1;
+      if (level > 78)
+        level = 78;
       if (!pokemon) {
         console.log(pokemon);
         return;

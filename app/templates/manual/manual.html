@@ -26,25 +26,8 @@
       </div>
     </div>
 
-    <div style="margin:20px;min-height:100px;position: relative;" ng-click="selectPokemon()">
-      <div style="width:100%;position:absolute;bottom:0;text-align: center;">
-        <img ng-src="{{pokemon.img}}" style="width:100px;height:100px">
-      </div>
-      <round-progress
-        ng-if="options.byLevel"
-        max="options.trainerLevel*2+1"
-        current="options.pokemonLevel"
-        color="#45ccce"
-        bgcolor="#eaeaea"
-        radius="100"
-        stroke="4"
-        semi="true"
-        rounded="true"
-        clockwise="true"
-        responsive="true"
-        duration="300"
-        animation="easeInOutQuart"
-        animation-delay="0"></round-progress>
+    <div style="text-align:center;margin:20px;min-height:100px;position: relative;" ng-click="selectPokemon()">
+      <img ng-src="{{pokemon.img}}" style="width:100px;height:100px">
     </div>
 
     <div class="card poke-card">
@@ -52,35 +35,48 @@
         <span ng-if="results.length>0"><i class="ion-stats-bars"></i> {{text('individualValue')}}</span>
         <span ng-if="results.length == 0"><i class="ion-close-round"></i> {{text('individualValueNone')}}</span>
       </div>
-      <div ng-if="results.length>0" class="item item-text-wrap" style="border-bottom: none;">
+      <div class="row" ng-if="results.length>0">
+        <div class="col">
+          <label class="item item-input item-stacked-label">
+            <b class="input-label">Trainer Level</b>
+            <input type="text" number-only ng-model="options.trainerLevel" placeholder="Trainer Level">
+          </label>
+        </div>
+      </div>
+      <div ng-if="results.length>0" class="item item-text-wrap" style="border-bottom: none;" >
         <div class="row">
           <div class="col">
             <div class="small-title">{{text('individualValue')}}</div>
           </div>
           <div class="col">
-            <div class="small-title">{{text('attack')}}</div>
+            <div class="small-title">{{text('attack')}} / {{text('defense')}} / {{text('stamina')}}</div>
           </div>
           <div class="col">
-            <div class="small-title">{{text('defense')}}</div>
-          </div>
-          <div class="col">
-            <div class="small-title">{{text('stamina')}}</div>
+            <div class="small-title">{{text('maxCpList')}} ({{options.trainerLevel || 1}}/40)</div>
           </div>
         </div>
-        <div class="row" ng-repeat="value in results">
+        <div class="row" ng-repeat="value in results" ng-style="getStyle(value)" ng-click="setValue(value)">
           <div class="col">
-            {{value.iv}}/45 <span>({{value.p | number:1}}%)</span>
+            {{value.iv}}/45
+            <pokerank iv="value.iv"></pokerank>
           </div>
           <div class="col">
-            {{value.a}}
+            {{value.a}} / {{value.d}} / {{value.s}}
           </div>
           <div class="col">
-            {{value.d}}
-          </div>
-          <div class="col">
-            {{value.s}}
+            {{cpCal.getCp(pokemon, options.trainerLevel * 2 + 1, value.a, value.d, value.s)}} / {{cpCal.getCp(pokemon,
+            78, value.a, value.d, value.s)}}
           </div>
         </div>
+      </div>
+    </div>
+
+    <div class="card poke-card" ng-if="pokemon.evolve && pokemon.evolve.length !== 0">
+      <div class="item item-divider">
+        <i class="ion-ios-rose"></i> {{text('evolveInfo')}}
+      </div>
+      <div class="list" style="background: #eee;text-align: left">
+        <poke-evolve iv-pokemon="value" pokemon="pokemon" trainer="options.trainerLevel" root="true"></poke-evolve>
       </div>
     </div>
 

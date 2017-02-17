@@ -9,18 +9,19 @@
       scope: {
         pokemon: '=',
         root: '=?',
-        ivPokemon: '=?'
+        ivPokemon: '=?',
+        trainer:'=?'
       },
       controller: function ($scope, cpCal, text, $rootScope) {
         $scope.text = text;
         $scope.getCp = function (ivPokemon, pokemon) {
-          return cpCal.getCp(pokemon, ivPokemon.level, ivPokemon.individual_attack, ivPokemon.individual_defense, ivPokemon.individual_stamina);
+          return cpCal.getCp(pokemon, ivPokemon.level, ivPokemon.a, ivPokemon.d, ivPokemon.s);
         };
         $scope.getMaxCp = function (ivPokemon, pokemon) {
-          return cpCal.getCp(pokemon, 78, ivPokemon.individual_attack, ivPokemon.individual_defense, ivPokemon.individual_stamina);
+          return cpCal.getCp(pokemon, 78, ivPokemon.a, ivPokemon.d, ivPokemon.s);
         };
         $scope.getTrainerCp = function (ivPokemon, pokemon) {
-          return cpCal.getCp(pokemon, Math.min($rootScope.playerStatus.level * 2 + 1, 78), ivPokemon.individual_attack, ivPokemon.individual_defense, ivPokemon.individual_stamina);
+          return cpCal.getCp(pokemon, Math.min($scope.trainer * 2 + 1, 78), ivPokemon.a, ivPokemon.d, ivPokemon.s);
         }
       }
     };

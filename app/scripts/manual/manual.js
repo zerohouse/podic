@@ -5,10 +5,21 @@ function manualCtrl($scope, $ionicPopup, Pokemons, text, cpCal) {
 
   var starDust = [200, 200, 200, 200, 400, 400, 400, 400, 600, 600, 600, 600, 800, 800, 800, 800, 1000, 1000, 1000, 1000, 1300, 1300, 1300, 1300, 1600, 1600, 1600, 1600, 1900, 1900, 1900, 1900, 2200, 2200, 2200, 2200, 2500, 2500, 2500, 2500, 3000, 3000, 3000, 3000, 3500, 3500, 3500, 3500, 4000, 4000, 4000, 4000, 4500, 4500, 4500, 4500, 5000, 5000, 5000, 5000, 6000, 6000, 6000, 6000, 7000, 7000, 7000, 7000, 8000, 8000, 8000, 8000, 9000, 9000, 9000, 9000, 10000, 10000, 10000, 10000];
 
-  $scope.pokemon = Pokemons.get(149);
+
+  $scope.cpCal = cpCal;
+  $scope.pokemon = Pokemons.get(147);
   $scope.pokemons = Pokemons.all();
 
-  $scope.options = {cp: 1843, hp: 114, starDust: 2500};
+  $scope.options = {cp: 154, hp: 29, starDust: 800, trainerLevel: 10};
+
+  $scope.setValue = function (value) {
+    $scope.value = value;
+  };
+
+  $scope.getStyle = function (value) {
+    if ($scope.value === value)
+      return {'font-weight': 900};
+  };
 
   $scope.getLevels = function () {
     var levels = [];

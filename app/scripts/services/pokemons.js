@@ -154,7 +154,7 @@ function pokemonService(Pokemons, PokemonRequest, cpCal, $rootScope, db, $ajax, 
     });
   };
 
-  $timeout(this.refresh);
+  // $timeout(this.refresh);
 
   $rootScope.$on('userLoggedIn', this.refresh);
 

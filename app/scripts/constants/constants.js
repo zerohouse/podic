@@ -174,7 +174,7 @@
       weight: '무게',
       ownerInfo: '소유자 정보',
       detailInfo: '상세 정보',
-      maxCpNowLevel: '현재 레벨 최대 CP',
+      maxCpNowLevel: '레벨 최대 CP',
       maxCp: '만렙 최대 CP',
       maxCpList: '최대CP',
       cpSimulation: '강화실험',
