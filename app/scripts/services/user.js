@@ -1,6 +1,6 @@
 angular.module('Podic.services').service('userService', userService);
 /* @ng-inject */
-function userService($ajax, $cordovaGeolocation, $q, $rootScope, db, ionicToast, text, $http, $timeout) {
+function userService($ajax,  $q, $rootScope, db, ionicToast, text, $http, $timeout) {
   var self = this;
 
   var posOptions = {timeout: 10000, enableHighAccuracy: false};
@@ -71,27 +71,6 @@ function userService($ajax, $cordovaGeolocation, $q, $rootScope, db, ionicToast,
     return time + (self.user.authInfo.expires_in * 1000) + 600000 < new Date().getTime();
   }
 
-  this.getLatLng = function () {
-    return $q(function (ok) {
-      updateLatLng().then(function () {
-        ok({lat: self.user.lat, lng: self.user.lng});
-      }, function () {
-        ok({lat: 38, lng: 127});
-      });
-    });
-  };
-
-  function updateLatLng() {
-    return $q(function (ok, no) {
-      $cordovaGeolocation
-        .getCurrentPosition(posOptions)
-        .then(function (position) {
-          self.user.lat = position.coords.latitude;
-          self.user.lng = position.coords.longitude;
-          ok();
-        }, no);
-    });
-  }
 
   this.logout = function () {
     delete $ajax.headers.googleId;

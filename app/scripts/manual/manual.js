@@ -69,7 +69,9 @@ function manualCtrl($scope, $ionicPopup, Pokemons, text, cpCal, db) {
                   d: ivDefense,
                   s: ivStamina,
                   best: Math.max(ivAttack, ivDefense, ivStamina),
-                  bests: [ivAttack, ivDefense, ivStamina].filter(v => v == Math.max(ivAttack, ivDefense, ivStamina)).length
+                  bests: [ivAttack, ivDefense, ivStamina].filter(function (v) {
+                    return v == Math.max(ivAttack, ivDefense, ivStamina)
+                  }).length
                 });
             }
           }
@@ -159,11 +161,17 @@ function manualCtrl($scope, $ionicPopup, Pokemons, text, cpCal, db) {
   $scope.filter = {};
 
   $scope.getValues = function (results) {
-    var bestComments = $scope.bests.filter(f => f.select);
+    var bestComments = $scope.bests.filter(function (f) {
+      return f.select;
+    });
     if (bestComments.length > 0) { // 베스트 커맨드가 선택되면
-      results = results.filter(r => r.bests == bestComments.length);
-      results = results.filter(r => {
-        return !bestComments.find(c => !c.condition(r));
+      results = results.filter(function (r) {
+        return r.bests == bestComments.length
+      });
+      results = results.filter(function (r) {
+        return !bestComments.find(function (c) {
+          !c.condition(r)
+        });
       });
     }
     if ($scope.filter.bestValue) { // 최고 평가가 선택 되면

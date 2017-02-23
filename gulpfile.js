@@ -96,6 +96,8 @@ gulp.task('styles', function () {
 });
 
 
+var gulpUtil = require('gulp-util');
+
 // build templatecache, copy scripts.
 // if build: concat, minsafe, uglify and versionize
 gulp.task('scripts', function () {

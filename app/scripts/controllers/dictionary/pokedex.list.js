@@ -1,7 +1,6 @@
 angular.module('Podic.controllers').controller('pokemonDescriptionListCtrl', pokemonDescriptionListCtrl);
 /* @ng-inject */
-function pokemonDescriptionListCtrl($scope, pokemonService, $ionicPopup, Pokemons, text, db) {
-  $scope.refresh = pokemonService.refresh;
+function pokemonDescriptionListCtrl($scope, $ionicPopup, Pokemons, text, db) {
 
   $scope.etc = db.etc;
   $scope.order = db.orderPokedex;

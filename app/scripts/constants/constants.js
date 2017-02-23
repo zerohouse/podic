@@ -49,7 +49,7 @@
 
       bestIv:"최고의 개체값",
       overAll: "전체 평가",
-      evolveSub: '목록에서 개체치를 선택하면 진화시 CP를 볼 수 있습니다.',
+      evolveSub: '개체치를 선택하면 진화시 CP를 볼 수 있습니다.',
       NewsFeed: "메세지",
       openChatting: "오픈 채팅",
       hideInRank: "랭킹에서 숨기기",
