@@ -75,27 +75,6 @@ angular.module('Podic', [
           }
         }
       })
-      .state('app.mypage', {
-        url: '/mypage',
-        views: {
-          'menuContent': {
-            templateUrl: 'templates/mypage/mypage.html',
-            controller: 'myPageCtrl'
-          }
-        },
-        onEnter: function (userService) {
-          userService.newUser = {};
-          userService.newUser.id = userService.user.id;
-          if (!userService.user.userInfo) {
-            userService.newUser.nickname = userService.user.nickname;
-            userService.newUser.hideInRank = userService.user.hideInRank;
-            userService.newUser.img = userService.user.img;
-            return;
-          }
-          userService.newUser.nickname = userService.user.nickname || userService.user.userInfo.name;
-          userService.newUser.img = userService.user.img || userService.user.userInfo.picture;
-        }
-      })
       .state('app.simulator', {
         url: '/simulator',
         abstract: true,
@@ -157,35 +136,21 @@ angular.module('Podic', [
         StatusBar.styleDefault();
       }
 
-      if (window.AdMob) {
-        window.AdMob.createBanner({
-          adId: 'ca-app-pub-6439823362094213/5346059489',
-          position: window.AdMob.AD_POSITION.BOTTOM_CENTER,
-          autoShow: true
-        });
-        window.AdMob.prepareInterstitial({
-          adId: 'ca-app-pub-6439823362094213/9069562284',
-          autoShow: false
-        });
-      }
+      // if (window.AdMob) {
+      //   window.AdMob.createBanner({
+      //     adId: 'ca-app-pub-6439823362094213/5346059489',
+      //     position: window.AdMob.AD_POSITION.BOTTOM_CENTER,
+      //     autoShow: true
+      //   });
+      //   window.AdMob.prepareInterstitial({
+      //     adId: 'ca-app-pub-6439823362094213/9069562284',
+      //     autoShow: false
+      //   });
+      // }
     });
   })
   .run(function ajaxConfig($ajax) { //, $rootScope, userService, $ionicPlatform, $cordovaDevice
-
-    // $ionicPlatform.ready(function () {
-    //   var push = new Ionic.Push({
-    //     "debug": false
-    //   });
-    //
-    //   push.register(function (token) {
-    //     console.log("Device token:", token.token);
-    //     push.saveToken(token);  // persist the token in the Ionic Platform
-    //   });
-    // });
     $ajax.url = 'http://podic.net';
-    // $ajax.url = 'http://192.168.0.2:8080';
-    // $ajax.url = 'http://localhost:8080';
-
     $ajax.handler(function (response, success, error) {
         if (response.state === "SUCCESS") {
           success(response.data);

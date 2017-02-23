@@ -1,52 +1,39 @@
-angular.module('Podic').run(function (ionicToast, $ionicPopup, text, $ionicModal, $rootScope) {
-
-  $ionicModal.fromMyPokemons = function ($scope, select) {
-    return function () {
-      var scope = $scope.$new();
-      scope.pokemons = $rootScope.pokemons;
-      $ionicModal.fromTemplateUrl('templates/simulator/mypokemons.html', {
-        scope: scope,
-        animation: 'slide-in-up'
-      }).then(function (modal) {
-        scope.modal = modal;
-        scope.modal.show();
-        scope.limit = 9;
-        scope.more = function () {
-          $scope.limit += 9;
-          $scope.$broadcast('scroll.infiniteScrollComplete');
-        };
-        scope.order = {orderBy: 'creation_time_ms', desc: true};
-        scope.value = {keyword: ''};
-        scope.search = function () {
-          $ionicPopup.searchPopup(scope);
-        };
-        scope.align = function () {
-          $ionicPopup.alignPopup(scope);
-        };
-        scope.selectPokemon = function (p) {
-          select(p);
-          scope.modal.hide();
-        };
-      });
-    };
-  };
+angular.module('Podic').run(function (ionicToast, $ionicPopup, text) {
+  //
+  // $ionicModal.fromMyPokemons = function ($scope, select) {
+  //   return function () {
+  //     var scope = $scope.$new();
+  //     scope.pokemons = $rootScope.pokemons;
+  //     $ionicModal.fromTemplateUrl('templates/simulator/mypokemons.html', {
+  //       scope: scope,
+  //       animation: 'slide-in-up'
+  //     }).then(function (modal) {
+  //       scope.modal = modal;
+  //       scope.modal.show();
+  //       scope.limit = 9;
+  //       scope.more = function () {
+  //         $scope.limit += 9;
+  //         $scope.$broadcast('scroll.infiniteScrollComplete');
+  //       };
+  //       scope.order = {orderBy: 'creation_time_ms', desc: true};
+  //       scope.value = {keyword: ''};
+  //       scope.search = function () {
+  //         $ionicPopup.searchPopup(scope);
+  //       };
+  //       scope.align = function () {
+  //         $ionicPopup.alignPopup(scope);
+  //       };
+  //       scope.selectPokemon = function (p) {
+  //         select(p);
+  //         scope.modal.hide();
+  //       };
+  //     });
+  //   };
+  // };
 
   ionicToast.alert = function (message) {
     ionicToast.show(message, 'bottom', false, 3000);
   };
-
-  // $ionicPopup.distancePopup = function ($scope) {
-  //   $ionicPopup.show({
-  //     template: "<ion-radio ng-model=\"distance.dist\" name=\"distance\" ng-value=\"0.005\"><i class=\"ion-android-walk\"></i> 가까이</ion-radio>\n"+
-  //     "    <ion-radio ng-model=\"distance.dist\" name=\"distance\" ng-value=\"0.05\"><i class=\"ion-android-bicycle\"></i> 적당히</ion-radio>\n"+
-  //     "    <ion-radio ng-model=\"distance.dist\" name=\"distance\" ng-value=\"0.5\"><i class=\"ion-android-bus\"></i> 멀리</ion-radio>",
-  //     title: text('distance'),
-  //     scope: $scope,
-  //     buttons: [
-  //       {text: text('ok'), type: 'button-royal'}
-  //     ]
-  //   });
-  // };
 
   $ionicPopup.searchPopup = function ($scope) {
     $scope.value = {keyword: ''};

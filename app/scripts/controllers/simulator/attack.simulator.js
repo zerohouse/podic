@@ -1,7 +1,7 @@
 (function () {
   angular.module('Podic.controllers').controller('attackSimulateCtrl', attackSimulateCtrl);
   /* @ng-inject */
-  function attackSimulateCtrl($scope, Pokemons, cpCal, text, $ionicPopup, $rootScope, $interval, $stateParams, $ionicModal, userService) {
+  function attackSimulateCtrl($scope, Pokemons, cpCal, text, $ionicPopup, $rootScope, $interval, $stateParams, $ionicModal) {
 
     var trainerLevel = $rootScope.playerStatus ? $rootScope.playerStatus.level : 10;
     $scope.trainer = {level: trainerLevel};
@@ -167,15 +167,15 @@
       scope.pokemon = pokemon;
       scope.pokemons = Pokemons.all();
       var buttons = [{text: text('close'), type: 'button-dark'}];
-      if (userService.user.id)
-        buttons.unshift({
-          text: text('selectInMyPokemons'),
-          type: 'button-royal',
-          onTap: $ionicModal.fromMyPokemons($scope, function (p) {
-            setUserPokemon(p, pokemon);
-            scope.modal.hide();
-          })
-        });
+      // if (userService.user.id)
+      //   buttons.unshift({
+      //     text: text('selectInMyPokemons'),
+      //     type: 'button-royal',
+      //     onTap: $ionicModal.fromMyPokemons($scope, function (p) {
+      //       setUserPokemon(p, pokemon);
+      //       scope.modal.hide();
+      //     })
+      //   });
       var popup = $ionicPopup.show({
         templateUrl: 'templates/simulator/pokemonadjust.html',
         scope: scope,

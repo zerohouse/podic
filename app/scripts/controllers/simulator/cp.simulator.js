@@ -40,21 +40,21 @@
     var buttons = [{
       text: text('close'), type: 'button-dark'
     }];
-    if (userService.user.id) {
-      buttons.unshift({
-        text: text('selectInMyPokemons'),
-        type: 'button-royal',
-        onTap: $ionicModal.fromMyPokemons($scope, function (pokemon) {
-          $scope.pokemon = {
-            individual_attack: pokemon.individual_attack,
-            individual_defense: pokemon.individual_defense,
-            individual_stamina: pokemon.individual_stamina,
-            level: cpCal.getLevel(pokemon),
-            pokemon: pokemon.pokemon
-          };
-        })
-      });
-    }
+    // if (userService.user.id) {
+    //   buttons.unshift({
+    //     text: text('selectInMyPokemons'),
+    //     type: 'button-royal',
+    //     onTap: $ionicModal.fromMyPokemons($scope, function (pokemon) {
+    //       $scope.pokemon = {
+    //         individual_attack: pokemon.individual_attack,
+    //         individual_defense: pokemon.individual_defense,
+    //         individual_stamina: pokemon.individual_stamina,
+    //         level: cpCal.getLevel(pokemon),
+    //         pokemon: pokemon.pokemon
+    //       };
+    //     })
+    //   });
+    // }
     $scope.selectPokemon = function () {
       $scope.popup = $ionicPopup.show({
         templateUrl: 'templates/simulator/pokemonadjust.html',
