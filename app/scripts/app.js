@@ -48,64 +48,6 @@ angular.module('Podic', [
           }
         }
       })
-      .state('app.trainerRank', {
-        url: '/trainer/rank',
-        views: {
-          'menuContent': {
-            templateUrl: 'templates/rankTrainer/rank-trainer.html',
-            controller: 'trainerRankCtrl'
-          }
-        },
-        onEnter: function (rankerService, userService) {
-          if (userService.user && userService.user.addressRanks && userService.user.addressRanks.last())
-            rankerService.district = userService.user.addressRanks.last().longName;
-          rankerService.reset();
-        }
-      })
-      .state('app.trainerDetail', {
-        url: '/trainerDetail',
-        views: {
-          'menuContent': {
-            templateUrl: 'templates/rankTrainer/trainer.html',
-            controller: 'trainerDetailCtrl'
-          }
-        }
-      })
-      .state('app.pokemonRank', {
-        url: '/pokemon/rank',
-        views: {
-          'menuContent': {
-            templateUrl: 'templates/rankPokemon/rank-pokemon.html',
-            controller: 'pokemonRankCtrl'
-          }
-        },
-        onEnter: function (pokemonRankService) {
-          pokemonRankService.reset();
-        }
-      })
-      .state('app.pokemons', {
-        url: '/pokemons',
-        views: {
-          'menuContent': {
-            templateUrl: 'templates/pokemon/pokemons.html',
-            controller: 'pokemonsCtrl'
-          }
-        },
-        onEnter: function ($timeout) {
-          $timeout(function () {
-            angular.element(document.querySelector('#pokemonlist')).removeClass('has-footer');
-          }, 300);
-        }
-      })
-      .state('app.myPokemonChart', {
-        url: '/pokemons/chart',
-        views: {
-          'menuContent': {
-            templateUrl: 'templates/pokemon/mypokechart.html',
-            controller: 'pokemonChartCtrl'
-          }
-        }
-      })
       .state('app.pokemon', {
         url: '/pokemon/:id',
         views: {
@@ -224,17 +166,17 @@ angular.module('Podic', [
         StatusBar.styleDefault();
       }
 
-      if (window.AdMob) {
-        window.AdMob.createBanner({
-          adId: 'ca-app-pub-6439823362094213/5346059489',
-          position: window.AdMob.AD_POSITION.BOTTOM_CENTER,
-          autoShow: true
-        });
-        window.AdMob.prepareInterstitial({
-          adId: 'ca-app-pub-6439823362094213/9069562284',
-          autoShow: false
-        });
-      }
+      // if (window.AdMob) {
+      //   window.AdMob.createBanner({
+      //     adId: 'ca-app-pub-6439823362094213/5346059489',
+      //     position: window.AdMob.AD_POSITION.BOTTOM_CENTER,
+      //     autoShow: true
+      //   });
+      //   window.AdMob.prepareInterstitial({
+      //     adId: 'ca-app-pub-6439823362094213/9069562284',
+      //     autoShow: false
+      //   });
+      // }
     });
   })
   .run(function ajaxConfig($ajax) { //, $rootScope, userService, $ionicPlatform, $cordovaDevice

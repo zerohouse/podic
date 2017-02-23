@@ -30,12 +30,13 @@
       <img ng-src="{{pokemon.img}}" style="width:100px;height:100px">
     </div>
 
+
     <div class="card poke-card">
       <div class="item item-divider">
-        <span ng-if="results.length>0"><i class="ion-stats-bars"></i> {{text('individualValue')}}</span>
-        <span ng-if="results.length == 0"><i class="ion-close-round"></i> {{text('individualValueNone')}}</span>
+        <span ng-if="getValues(results).length>0"><i class="ion-stats-bars"></i> {{text('individualValue')}}</span>
+        <span ng-if="getValues(results).length == 0"><i class="ion-close-round"></i> {{text('individualValueNone')}}</span>
       </div>
-      <div class="row" ng-if="results.length>0">
+      <div class="row" ng-if="getValues(results).length>0">
         <div class="col">
           <label class="item item-input item-stacked-label">
             <b class="input-label">Trainer Level</b>
@@ -43,7 +44,7 @@
           </label>
         </div>
       </div>
-      <div ng-if="results.length>0" class="item item-text-wrap" style="border-bottom: none;" >
+      <div ng-if="getValues(results).length>0" class="item item-text-wrap" style="border-bottom: none;">
         <div class="row">
           <div class="col">
             <div class="small-title">{{text('individualValue')}}</div>
@@ -55,7 +56,7 @@
             <div class="small-title">{{text('maxCpList')}} ({{options.trainerLevel || 1}}/40)</div>
           </div>
         </div>
-        <div class="row" ng-repeat="value in results" ng-style="getStyle(value)" ng-click="setValue(value)">
+        <div class="row" ng-repeat="value in getValues(results)" ng-style="getStyle(value)" ng-click="setValue(value)">
           <div class="col">
             {{value.iv}}/45
             <pokerank iv="value.iv"></pokerank>
@@ -71,9 +72,63 @@
       </div>
     </div>
 
+
+    <div class="card poke-card">
+      <div>
+        <ion-list>
+          <div class="item item-divider">
+            Team
+          </div>
+          <div class="row">
+            <ion-radio style="border:none" ng-model="etc.team" name="team" ng-value="'blue'"><img
+              style="width:40px;height: 40px"
+              ng-src="http://podic.net/images/teams/1.png">
+              <small>Mystic</small>
+            </ion-radio>
+            <ion-radio style="border:none" ng-model="etc.team" name="team" ng-value="'red'"><img
+              style="width:40px;height: 40px"
+              ng-src="http://podic.net/images/teams/2.png">
+              <small>Valor</small>
+            </ion-radio>
+            <ion-radio style="border:none" ng-model="etc.team" name="team" ng-value="'yellow'"><img
+              style="width:40px;height: 40px"
+              ng-src="http://podic.net/images/teams/3.png">
+              <small>Instinct</small>
+            </ion-radio>
+          </div>
+        </ion-list>
+        <ion-list>
+          <div class="item item-divider">
+            {{text('overAll')}}
+          </div>
+          <ion-radio  ng-repeat="comment in all | acceptable : results" ng-model="filter.all" name="all"
+                     ng-value="comment.condition">
+            {{comment.text(etc.team)}}
+          </ion-radio>
+        </ion-list>
+        <ion-list>
+          <div class="item item-divider">
+            {{text('bestIv')}}
+          </div>
+          <div class="row">
+            <ion-checkbox style="border:none" ng-repeat="comment in bests | acceptable : results" ng-model="comment.select">{{comment.value}}
+            </ion-checkbox>
+          </div>
+          <ion-radio ng-repeat="comment in bestValues | acceptable : results" ng-model="filter.bestValue"
+                     name="bestValue"
+                     ng-value="comment.condition">
+            {{comment.text(etc.team)}}
+          </ion-radio>
+        </ion-list>
+      </div>
+    </div>
+
     <div class="card poke-card" ng-if="pokemon.evolve && pokemon.evolve.length !== 0">
       <div class="item item-divider">
         <i class="ion-ios-rose"></i> {{text('evolveInfo')}}
+      </div>
+      <div class="item">
+        <small>{{text('evolveSub')}}</small>
       </div>
       <div class="list" style="background: #eee;text-align: left">
         <poke-evolve iv-pokemon="value" pokemon="pokemon" trainer="options.trainerLevel" root="true"></poke-evolve>

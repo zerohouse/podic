@@ -15,6 +15,41 @@
 
     self.texts = {};
     self.texts.ko = {
+
+      red: [
+        "말할게 없어, 아주 든든하겠어!",
+        "아주 강해. 자랑해도 되겠어!",
+        "보통의 강함이 아니라고 생각해!",
+        "배틀이 적성은 아니지만 난 좋아해",
+        "최고야! 가슴이 뜨거워져!",
+        "훌륭해! 두근거려!",
+        "꽤 강하네. 배틀에서 활약할 것 같아!",
+        "그럭저럭 강한 거네"
+      ],
+      blue: [
+        "경이롭고 예술적이야",
+        "시선을 끄는 뭔가가 있어",
+        "보통 이상이야",
+        "좀처럼 활약이 어려워보인다.",
+        "측정할 수 없을 정도로 높아! 최고야",
+        "훌륭해 놀라워.",
+        "꽤 강하다",
+        "그럭저럭 이라고 말할 수 있군",
+      ],
+      yellow: [
+        "톱 레벨이야!",
+        "아주 강해!",
+        "보통이야",
+        "그저그러네",
+        "최고의 부류야!",
+        "훌륭해! 정말이야!",
+        "꽤 강한데! 내가 보증하지",
+        "그럭저럭이야"
+      ],
+
+      bestIv:"최고의 개체값",
+      overAll: "전체 평가",
+      evolveSub: '목록에서 개체치를 선택하면 진화시 CP를 볼 수 있습니다.',
       NewsFeed: "메세지",
       openChatting: "오픈 채팅",
       hideInRank: "랭킹에서 숨기기",
@@ -90,6 +125,7 @@
       powerUped: '강화했음',
       hatched: '알에서 나옴',
       individualValueNone: "개체값 계산불가",
+      selectComment: "커맨트 선택",
 
       //포켓몬 리스트 페이지
       noResult: "검색 결과가 없습니다.",
@@ -234,7 +270,40 @@
     };
 
     self.texts.en = {
+      red: [
+        "Overall, your Pokemon simply amazes me. It can accomplish anything!",
+        "Overall, your Pokemon is a strong Pokemon. You should be proud!",
+        "Overall, your Pokemon is a decent Pokemon",
+        "Overall, your Pokemon may not be great in battle, but I still like it!",
+        "I'm blown away by its stats. WOW!",
+        "It's got excellent stats! How exciting!",
+        "Its stats indicate that in battle, it'll get the job done.",
+        "Its stats don't point to greatness in battle."
+      ],
+      blue: [
+        "Overall, your Pokemon is a wonder! What a breathtaking Pokemon!",
+        "Overall, your Pokemon has certainly caught my attention.",
+        "Overall, your Pokemon is above average.",
+        "Overall, your Pokemon is not likely to make much headway in battle",
+        "Its stats exceed my calculations. It's incredible!",
+        "I am certainly impressed by its stats, I must say.",
+        "Its stats are noticeably trending to the positive.",
+        "Its stats are not out of the norm, in my estimation.",
+      ],
+      yellow: [
+        "Overall, your Pokemon looks like it can really battle with the best of them!",
+        "Overall, your Pokemon is really strong!",
+        "Overall, your Pokemon is pretty decent!",
+        "Overall, your Pokemon has room for improvement as far as battling goes.",
+        "Its stats are the best I've ever seen! No doubt about it!",
+        "Its stats are really strong! Impressive.",
+        "It's definitely got some good stats. Definitely!",
+        "Its stats are all right, but kinda basic, as far as I can see."
+      ],
+
+      bestIv:"Best IV",
       // 메인
+      overAll: "Over All",
       loginWithGoogle: 'Google Account Login',
       loginWithPTC: 'Pokémon Trainer Club Login',
       login: 'Login',
@@ -255,7 +324,7 @@
       pokemonDic: 'Pokédex',
       noLocation: 'Please update Location',
 
-
+      powerUped: "Power Up",
       pokemonRank: 'Pokémon Ranking',
       trainerRank: 'Trainer Ranking',
       email: 'Email',
@@ -280,6 +349,7 @@
       Rank: "Ranking",
       rare: "Rarity",
       rareWords: ['Rare', 'Uncommon', 'Common', 'Very Common', 'Everywhere'],
+
 
       evolveInfo: 'Evolve Information',
       orderCandy: 'Order by Candies',
@@ -330,7 +400,8 @@
       deleteMessage: "Delete a Tip",
       deleteMessageSub: "",
       openChatting: 'Open Chatting',
-
+      hatched: "Hatched",
+      starDustToEvolve: "Stardust To Evolve",
       deleteMessageByName: function (name) {
         return "Are you sure want to Delete " + name;
       },
